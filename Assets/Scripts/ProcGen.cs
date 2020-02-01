@@ -9,8 +9,10 @@ public class ProcGen : MonoBehaviour
     public int chunkSize;
     public GameObject obstaclePrefab;
     public GameObject fuelPrefab;
+    public MovingObstacle movingObstaclePrefab;
     public float percentObstacle;
     public float percentFuel;
+    public float percentMovingObstacle;
     public float fuzz;
     public int seed;
     public float maxSizeAdd;
@@ -70,15 +72,22 @@ public class ProcGen : MonoBehaviour
                 
                 var s = (float)fuzzRand.NextDouble() * maxSizeAdd;
 
-                if (val < percentFuel)
+                if (val < percentMovingObstacle)
+                {
+                    MovingObstacle mo = Instantiate(movingObstaclePrefab, pos, Quaternion.identity);
+                    mo.Initialize(ship);
+                    mo.transform.localScale = new Vector3(1 + s, 1 + s, 1 + s);
+                }
+                else if (val < percentFuel)
                 {
                     var go = Instantiate(fuelPrefab, pos, Quaternion.identity);
                 }
                 else if(val < percentObstacle)
                 {
                     var go = Instantiate(obstaclePrefab, pos, Quaternion.identity);
-                    go.transform.localScale = new Vector3(1+s,1+ s, 1+s);
+                    go.transform.localScale = new Vector3(1 + s, 1 + s, 1 + s);
                 }
+                
             }
         }
     }
