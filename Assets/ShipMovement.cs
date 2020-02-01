@@ -12,6 +12,7 @@ public class ShipMovement : MonoBehaviour
     public Transform rightPivot;
     public float rotateSpeed;
     public float moveSpeed;
+    public Transform shipInterior;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +27,7 @@ public class ShipMovement : MonoBehaviour
         leftTimer.Update(Time.deltaTime);
         rightTimer.Update(Time.deltaTime);
 
-        if (Input.GetKeyDown(KeyCode.A))
+        /*if (Input.GetKeyDown(KeyCode.A))
         {
             Rotate(true);
         }
@@ -34,7 +35,7 @@ public class ShipMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.D))
         {
             Rotate(false);
-        }
+        }*/
 
         MovementUpdate();
     }
@@ -53,9 +54,10 @@ public class ShipMovement : MonoBehaviour
         {
             ship.RotateAround(rightPivot.position, Vector3.forward, -rotateSpeed * Time.deltaTime);
         }
+        shipInterior.rotation = Quaternion.identity;
     }
 
-    private void Rotate(bool left)
+    public void Rotate(bool left)
     {
         if (left) leftTimer.Start();
         else rightTimer.Start();
