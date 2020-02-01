@@ -10,6 +10,7 @@ public class ShootAction : ActionObject
     public Transform bulletShoothole;
     public bool shootBuletsNotBombs = true;
     public Repairable repairable;
+    public AudioController audioController;
 
     private void Awake()
     {
@@ -36,6 +37,7 @@ public class ShootAction : ActionObject
             Bullet tmpBullet = Instantiate(bullet);
             tmpBullet.transform.position = bulletShoothole.position;
             tmpBullet.Shoot(bulletShoothole.up, shootBuletsNotBombs);
+            audioController.PlayShootClip();
         } else
         {
             repairable.StartRepairing();

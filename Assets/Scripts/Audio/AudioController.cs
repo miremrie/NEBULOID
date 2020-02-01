@@ -26,8 +26,15 @@ public class AudioController : MonoBehaviour
     public AudioSource obstacleHitSource;
     public AudioClip[] obstacleHitClips;
 
+    public AudioClip[] shootClips;
+    public AudioSource shootSource;
+
+    public AudioClip[] impactClips;
+    public AudioSource impactSource;
+
     private void Awake()
     {
+        Obstacle.audioController = this;
     }
 
     void Update()
@@ -94,5 +101,19 @@ public class AudioController : MonoBehaviour
         int clipIndex = Random.Range((int)0, (int)obstacleHitClips.Length);
         obstacleHitSource.clip = obstacleHitClips[clipIndex];
         obstacleHitSource.Play();
+    }
+
+    public void PlayShootClip()
+    {
+        int clipIndex = Random.Range((int)0, (int)(shootClips.Length));
+        shootSource.clip = shootClips[clipIndex];
+        shootSource.Play();
+    }
+
+    public void PlayHitClip()
+    {
+        int clipIndex = Random.Range((int)0, (int)(impactClips.Length));
+        impactSource.clip = impactClips[clipIndex];
+        impactSource.Play();
     }
 }

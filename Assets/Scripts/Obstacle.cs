@@ -2,7 +2,8 @@
 
 public class Obstacle : MonoBehaviour
 {
-    
+    public static AudioController audioController;
+
     void OnTriggerEnter2D(Collider2D col)
     {
         Debug.Log("ObstacleHit");
@@ -16,6 +17,7 @@ public class Obstacle : MonoBehaviour
         {
             Destroy(col.gameObject);
             Destroy(this.gameObject);
+            if (audioController != null) audioController.PlayHitClip();
         }
     }
 }
