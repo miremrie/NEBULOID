@@ -98,7 +98,7 @@ public class Game : MonoBehaviour
             var pos = Camera.main.WorldToScreenPoint(r.transform.position);
             var gPos = GUIUtility.ScreenToGUIPoint(pos);
             gPos = new Vector2(gPos.x - healthWidth * 0.5f, Screen.height - gPos.y + guiOffset);
-            Debug.Log($"repairable {gPos} {r.RepairedAmount}");
+            //Debug.Log($"repairable {gPos} {r.RepairedAmount}");
             OnGUIHealth(gPos, new Vector2(healthWidth, healthHeight), r.RepairedAmount);
         }
     }

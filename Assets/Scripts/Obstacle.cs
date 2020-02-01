@@ -13,5 +13,10 @@ public class Obstacle : MonoBehaviour
            
             Destroy(this.gameObject);
         }
+        if (col.tag == Tags.BULLET)
+        {
+            Destroy(col.gameObject);
+            Destroy(this.gameObject);
+        }
     }
 }

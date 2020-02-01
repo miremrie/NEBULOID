@@ -7,7 +7,7 @@ public class ActionObject : MonoBehaviour
     public InputControl actionControl;
     private bool actionObjectReady = true;
 
-    public bool IsActionObjectReady()
+    public virtual bool IsActionObjectReady()
     {
         return actionObjectReady;
     }
