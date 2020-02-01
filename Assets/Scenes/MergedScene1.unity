@@ -326,7 +326,7 @@ MonoBehaviour:
     type: 3}
   percentObstacle: 0.1
   percentFuel: 0.01
-  fuzz: 0.7
+  fuzz: 0.1
   seed: 2
   maxSizeAdd: 1
 --- !u!1 &538758061
@@ -1883,6 +1883,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: ShipOuter
+      objectReference: {fileID: 0}
+    - target: {fileID: 7099371669833189467, guid: c045ab8d9f1a9484390bd010f10f2059,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 28.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 7099371669833189467, guid: c045ab8d9f1a9484390bd010f10f2059,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 19.34086
+      objectReference: {fileID: 0}
+    - target: {fileID: 7099371669833189467, guid: c045ab8d9f1a9484390bd010f10f2059,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7099371669948754192, guid: c045ab8d9f1a9484390bd010f10f2059,
         type: 3}
