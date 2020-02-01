@@ -13,7 +13,6 @@ public class ShipMovement : MonoBehaviour
     public float rotateSpeed;
     public float moveSpeed;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -38,7 +37,6 @@ public class ShipMovement : MonoBehaviour
         }
 
         MovementUpdate();
-      
     }
 
     void MovementUpdate() {
@@ -61,7 +59,6 @@ public class ShipMovement : MonoBehaviour
     {
         if (left) leftTimer.Start();
         else rightTimer.Start();
-      
     }
 }
 
@@ -90,5 +87,4 @@ class Timer {
     {
         currTime = 0f;
     }
-
 }
