@@ -13,6 +13,7 @@ public class ShipMovement : MonoBehaviour
     public float rotateSpeed;
     public float moveSpeed;
     public Transform shipInterior;
+    public ArmAudioController armAudioController;
 
     // Start is called before the first frame update
     void Start()
@@ -60,8 +61,16 @@ public class ShipMovement : MonoBehaviour
 
     public void Rotate(bool left)
     {
-        if (left) leftTimer.Start();
-        else rightTimer.Start();
+        if (left)
+        {
+            armAudioController.PlayLeftArm();
+            leftTimer.Start();
+        }
+        else
+        {
+            armAudioController.PlayRightArm();
+            rightTimer.Start();
+        }
     }
 }
 
