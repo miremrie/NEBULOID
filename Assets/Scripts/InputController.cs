@@ -69,16 +69,24 @@ public class InputController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.tag == "ActionObject")
+        if (col.tag == Tags.ACTION_OBJECT)
         {
             nearActionObject = true;
             actionObject = col.gameObject.GetComponent<ActionObject>();
         }
-    } 
+    }
+
+    //void OnTriggerStay2D(Collider2D col)
+    //{
+    //    if (col.tag == Tags.ACTION_OBJECT)
+    //    {
+    //        Debug.Log($"Staying in {col.name}");
+    //    }
+    //}
 
     void OnTriggerExit2D(Collider2D col)
     {
-        if (col.tag == "ActionObject")
+        if (col.tag == Tags.ACTION_OBJECT)
         {
 
             ActionObject curActionObject = col.gameObject.GetComponent<ActionObject>();

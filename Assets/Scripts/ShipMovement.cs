@@ -54,6 +54,7 @@ public class ShipMovement : MonoBehaviour
         {
             ship.RotateAround(rightPivot.position, Vector3.forward, -rotateSpeed * Time.deltaTime);
         }
+
         shipInterior.rotation = Quaternion.identity;
     }
 

@@ -6,4 +6,5 @@ public class Tags
 {
     public static string SHIP_BODY = "ShipBody";
     public static string SHIP_OUTER = "ShipOuter";
+    public static string ACTION_OBJECT = "ActionObject";
 }
