@@ -86,6 +86,16 @@ class Timer {
         return (currTime < time);
     }
 
+    public float GetCurrentTime()
+    {
+        return currTime;
+    }
+
+    public float GetCurrentTimePercent()
+    {
+        return currTime / time;
+    }
+
     public void Start()
     {
         currTime = 0f;
