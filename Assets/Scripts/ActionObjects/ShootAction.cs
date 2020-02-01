@@ -11,6 +11,8 @@ public class ShootAction : ActionObject
     public bool shootBuletsNotBombs = true;
     public Repairable repairable;
     public AudioController audioController;
+    public Animator bigRedButtonAnimator;
+    private const string buttonAnimName = "ButtonPush";
 
     private void Awake()
     {
@@ -20,6 +22,10 @@ public class ShootAction : ActionObject
     private void Update()
     {
         timer.Update(Time.deltaTime);
+        if (!timer.IsRunning())
+        {
+            bigRedButtonAnimator.SetBool(buttonAnimName, false);
+        }
     }
 
     public override bool IsActionObjectReady()
@@ -38,6 +44,7 @@ public class ShootAction : ActionObject
             tmpBullet.transform.position = bulletShoothole.position;
             tmpBullet.Shoot(bulletShoothole.up, shootBuletsNotBombs);
             audioController.PlayShootClip();
+            bigRedButtonAnimator.SetBool(buttonAnimName, true);
         } else
         {
             repairable.StartRepairing();
