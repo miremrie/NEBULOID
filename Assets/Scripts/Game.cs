@@ -1,16 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Game : MonoBehaviour
 {
-
     private float currentFuel;
     public float maxFuel;
     public float fuelBurnRate;
     private bool dead;
     public GameObject gameOverScreen;
+    public Image fuelFillImage;
+    public ScreenShake shake;
+
 
     void Start()
     {
@@ -22,10 +26,24 @@ public class Game : MonoBehaviour
     {
         currentFuel -= fuelBurnRate * Time.deltaTime;
 
-        if (currentFuel < 0 && !dead) {
+        UpdateDeath();
+
+        UpdateUI();
+    }
+
+    void UpdateDeath()
+    {
+        if (currentFuel < 0 && !dead)
+        {
             dead = true;
+            FindObjectsOfType<InputController>().ToList().ForEach(x => x.enabled = false);
             ShowGameOverScreen();
         }
+    }
+
+    void UpdateUI()
+    {
+        fuelFillImage.fillAmount = currentFuel / maxFuel;
     }
 
     public void FuelCollected(Fuel fuel) {
@@ -44,6 +62,7 @@ public class Game : MonoBehaviour
 
     public void ObstacleHit(Obstacle obs)
     {
-
+        shake.TriggerShake(0.5f);
     }
+    
 }
