@@ -32,7 +32,7 @@ public class SonarAction : ActionObject
                 sonarStarted = false;
                 SonarMovingLight.enabled = false;
                 camController.RevertToStandardSize(camZoomTime);
-                audioController.RevertLowAndHighPass(camZoomTime);
+                audioController.RevertSonar(camZoomTime);
             }
             sonarMoveTimer.Update(Time.deltaTime);
             SonarMovingLightPivot.transform.Rotate(0,0,2* 360 * Time.deltaTime / sonarMoveTime);
@@ -51,7 +51,7 @@ public class SonarAction : ActionObject
             sonarStarted = true;
             sonarMoveTimer.Start();
             camController.ChangeSizeOverTime(newCamSize, camZoomTime);
-            audioController.ActivateLowAndHighPass(camZoomTime);
+            audioController.ActivateSonar(camZoomTime);
         }
         else
         {

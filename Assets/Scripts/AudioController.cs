@@ -20,6 +20,7 @@ public class AudioController : MonoBehaviour
     public Game game;
     private bool sonarOverride;
     private bool sonarRevert;
+    public AudioSource sonarSource;
 
     private void Awake()
     {
@@ -68,17 +69,19 @@ public class AudioController : MonoBehaviour
         ActivateNormalLowpass();
     }
 
-    public void ActivateLowAndHighPass(float time)
+    public void ActivateSonar(float time)
     {
         audioMixer.GetFloat(gameplayLowpass, out sonarLowPassAtStart);
         sonarTimer = new Timer(time);
         sonarTimer.Start();
         sonarOverride = true;
+        sonarSource.Play();
     }
-    public void RevertLowAndHighPass(float time)
+    public void RevertSonar(float time)
     {
         sonarTimer = new Timer(time);
         sonarTimer.Start();
         sonarRevert = true;
+        sonarSource.Stop();
     }
 }
