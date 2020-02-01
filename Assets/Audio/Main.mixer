@@ -52,6 +52,7 @@ AudioMixerGroupController:
   m_Effects:
   - {fileID: 1836596729622918140}
   - {fileID: 8783798533566217792}
+  - {fileID: 7135216904816372532}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
@@ -72,6 +73,8 @@ AudioMixerController:
   m_EnableSuspend: 1
   m_UpdateMode: 0
   m_ExposedParameters:
+  - guid: 232f14f560d7c944fa762ac134ec3711
+    name: GameplayHighpass
   - guid: 22caf389daf11de488faef2757ed1bd5
     name: GameplayLowpass
   m_AudioMixerGroupViews:
@@ -130,6 +133,7 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 9220b44b922a2bb43ad8f0af1c636adb
   m_FloatValues:
+    232f14f560d7c944fa762ac134ec3711: 10
     22caf389daf11de488faef2757ed1bd5: 20000
   m_TransitionOverrides: {}
 --- !u!244 &1836596729622918140
@@ -245,6 +249,24 @@ AudioMixerGroupController:
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
+--- !u!244 &7135216904816372532
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 08b4734f1b5e91040b508d6b07f49c7e
+  m_EffectName: Highpass
+  m_MixLevel: a93ff4efc37c7124389eb7bb1bed4750
+  m_Parameters:
+  - m_ParameterName: Cutoff freq
+    m_GUID: 232f14f560d7c944fa762ac134ec3711
+  - m_ParameterName: Resonance
+    m_GUID: f6a8424160e4cf64cb8c5bc0dee04689
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!244 &8783798533566217792
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
