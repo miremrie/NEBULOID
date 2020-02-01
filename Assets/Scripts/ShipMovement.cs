@@ -14,6 +14,8 @@ public class ShipMovement : MonoBehaviour
     public float moveSpeed;
     public Transform shipInterior;
     public ArmAudioController armAudioController;
+    public ArmAnimationController armAnimationController;
+    public float shipAnimationOffset = 0.416666f;
 
     // Start is called before the first frame update
     void Start()
@@ -64,12 +66,14 @@ public class ShipMovement : MonoBehaviour
         if (left)
         {
             armAudioController.PlayLeftArm();
-            leftTimer.Start();
+            armAnimationController.AnimateLeftArm();
+            leftTimer.StartDelayed(shipAnimationOffset);
         }
         else
         {
             armAudioController.PlayRightArm();
-            rightTimer.Start();
+            armAnimationController.AnimateRightArm();
+            rightTimer.StartDelayed(shipAnimationOffset);
         }
     }
 }
@@ -78,6 +82,8 @@ class Timer {
 
     private float time;
     private float currTime;
+    private float delayTime;
+    private bool playDelayed = false;
     
     public Timer(float time)
     {
@@ -87,6 +93,16 @@ class Timer {
 
     public void Update(float dt)
     {
+        if (playDelayed)
+        {
+            delayTime += dt;
+            if (delayTime > 0f)
+            {
+                Start();
+                playDelayed = false;
+            }
+        }
+
         currTime += dt;
     }
 
@@ -108,5 +124,11 @@ class Timer {
     public void Start()
     {
         currTime = 0f;
+    }
+
+    public void StartDelayed(float delay)
+    {
+        delayTime = -delay;
+        playDelayed = true;
     }
 }
