@@ -5,10 +5,22 @@ using UnityEngine;
 public class ShipArmAction : ActionObject
 {
     public ShipMovement shipMovement;
+    private Repairable repairable;
     public bool isLeftArm;
+
+    void Start()
+    {
+        repairable = GetComponent<Repairable>();
+    }
 
     public override void DoAction(InputController controller)
     {
-        shipMovement.Rotate(isLeftArm);
+        if (repairable.IsRepaired())
+        {
+            shipMovement.Rotate(isLeftArm);
+        }
+        else {
+            repairable.StartRepairing();
+        }
     }
 }

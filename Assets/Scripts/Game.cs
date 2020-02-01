@@ -14,12 +14,23 @@ public class Game : MonoBehaviour
     public GameObject gameOverScreen;
     public Image fuelFillImage;
     public ScreenShake shake;
+    private Repairable[] repairables;
+    public GameObject smokePrefab;
 
+    public Texture2D emptyTex;
+    public Texture2D fullTex;
+
+    public GUIStyle progress_empty, progress_full;
+
+    public float guiOffset;
+    public float healthWidth;
+    public float healthHeight;
 
     void Start()
     {
         gameOverScreen.SetActive(false);
         currentFuel = maxFuel;
+        repairables = FindObjectsOfType<Repairable>();
     }
 
     void Update()
@@ -44,9 +55,13 @@ public class Game : MonoBehaviour
     void UpdateUI()
     {
         fuelFillImage.fillAmount = currentFuel / maxFuel;
+
+        
+
     }
 
-    public void FuelCollected(Fuel fuel) {
+    public void FuelCollected(Fuel fuel)
+    {
         currentFuel = maxFuel;
     }
 
@@ -55,7 +70,8 @@ public class Game : MonoBehaviour
         gameOverScreen.SetActive(true);
     }
 
-    public void RestartGame() {
+    public void RestartGame()
+    {
         int scene = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(scene, LoadSceneMode.Single);
     }
@@ -63,6 +79,40 @@ public class Game : MonoBehaviour
     public void ObstacleHit(Obstacle obs)
     {
         shake.TriggerShake(0.5f);
+        var rand = new System.Random();
+        var dmgIndex = rand.Next(0, repairables.Length);
+        var rp = repairables[dmgIndex];
+        rp.TakeDamage();
+
     }
-    
+
+    void OnGUI() {
+        // Repairables 
+
+        foreach (var r in repairables)
+        {
+
+            if (r.IsRepaired()) continue;
+            //var width = 60;
+
+            var pos = Camera.main.WorldToScreenPoint(r.transform.position);
+            var gPos = GUIUtility.ScreenToGUIPoint(pos);
+            gPos = new Vector2(gPos.x - healthWidth * 0.5f, Screen.height - gPos.y + guiOffset);
+            Debug.Log($"repairable {gPos} {r.RepairedAmount}");
+            OnGUIHealth(gPos, new Vector2(healthWidth, healthHeight), r.RepairedAmount);
+        }
+    }
+
+    void OnGUIHealth(Vector2 pos, Vector2 size, float amount)
+    {
+        //draw the background:
+        GUI.BeginGroup(new Rect(pos.x, pos.y, size.x, size.y));
+        GUI.Box(new Rect(0, 0, size.x, size.y), emptyTex, progress_empty);
+
+        //draw the filled-in part:
+        GUI.BeginGroup(new Rect(0, 0, size.x * amount, size.y));
+        GUI.Box(new Rect(0, 0, size.x, size.y), fullTex, progress_full);
+        GUI.EndGroup();
+        GUI.EndGroup();
+    }
 }
