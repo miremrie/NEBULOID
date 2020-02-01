@@ -61,7 +61,7 @@ public class InputController : MonoBehaviour
 
     private void ExecuteAction()
     {
-        if (nearActionObject && actionObject.IsActionObjectReady() && handler.GetControlPressed(actionObject.actionControl))
+        if (nearActionObject && actionObject != null && handler.GetControlPressed(actionObject.actionControl))
         {
             actionObject.DoAction(this);
         }

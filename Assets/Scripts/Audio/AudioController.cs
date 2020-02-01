@@ -22,6 +22,10 @@ public class AudioController : MonoBehaviour
     private bool sonarRevert;
     public AudioSource sonarSource;
 
+
+    public AudioSource obstacleHitSource;
+    public AudioClip[] obstacleHitClips;
+
     private void Awake()
     {
     }
@@ -83,5 +87,12 @@ public class AudioController : MonoBehaviour
         sonarTimer.Start();
         sonarRevert = true;
         sonarSource.Stop();
+    }
+
+    public void PlayObstacleHit()
+    {
+        int clipIndex = Random.Range((int)0, (int)obstacleHitClips.Length);
+        obstacleHitSource.clip = obstacleHitClips[clipIndex];
+        obstacleHitSource.Play();
     }
 }

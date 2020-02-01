@@ -60,5 +60,9 @@ public class SonarAction : ActionObject
 
     }
 
-
+    public override void OnExitAction()
+    {
+        base.OnExitAction();
+        repairable.StopRepairing();
+    }
 }

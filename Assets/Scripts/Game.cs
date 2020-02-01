@@ -27,6 +27,7 @@ public class Game : MonoBehaviour
     public float healthHeight;
     public float fuelThresholdForDeathLowPass = 10;
 
+
     public AudioController audioController;
 
     void Start()
@@ -92,6 +93,7 @@ public class Game : MonoBehaviour
         var dmgIndex = rand.Next(0, repairables.Length);
         var rp = repairables[dmgIndex];
         rp.TakeDamage();
+        audioController.PlayObstacleHit();
 
     }
 

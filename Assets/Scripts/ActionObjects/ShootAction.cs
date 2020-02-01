@@ -9,6 +9,7 @@ public class ShootAction : ActionObject
     public Bullet bullet;
     public Transform bulletShoothole;
     public bool shootBuletsNotBombs = true;
+    public Repairable repairable;
 
     private void Awake()
     {
@@ -29,9 +30,22 @@ public class ShootAction : ActionObject
 
     public override void DoAction(InputController controller)
     {
-        timer.Start();
-        Bullet tmpBullet = Instantiate(bullet);
-        tmpBullet.transform.position = bulletShoothole.position;
-        tmpBullet.Shoot(bulletShoothole.up, shootBuletsNotBombs);
+        if (repairable.IsRepaired())
+        {
+            timer.Start();
+            Bullet tmpBullet = Instantiate(bullet);
+            tmpBullet.transform.position = bulletShoothole.position;
+            tmpBullet.Shoot(bulletShoothole.up, shootBuletsNotBombs);
+        } else
+        {
+            repairable.StartRepairing();
+        }
+
+    }
+
+    public override void OnExitAction()
+    {
+        base.OnExitAction();
+        repairable.StopRepairing();
     }
 }
