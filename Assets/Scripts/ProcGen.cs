@@ -33,7 +33,7 @@ public class ProcGen : MonoBehaviour
         y = ship.position.y < 0 ? y - 1 : y;
 
         var currChunk = new Vector2Int(x, y);
-        Debug.Log(currChunk);
+        //Debug.Log(currChunk);
 
         for (int i = currChunk.x - 1; i <= currChunk.x + 1; i++) {
             for (int j = currChunk.y - 1; j <= currChunk.y + 1; j++)
@@ -41,7 +41,7 @@ public class ProcGen : MonoBehaviour
                 var tChunk = new Vector2Int(i, j);
                 if (builtChunks.Contains(tChunk)) continue;
 
-                Debug.Log($"generate {tChunk}");
+                //Debug.Log($"generate {tChunk}");
 
                 builtChunks.Add(tChunk);
                 Generate(tChunk.x, tChunk.y);
