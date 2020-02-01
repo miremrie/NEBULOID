@@ -23,4 +23,10 @@ public class ShipArmAction : ActionObject
             repairable.StartRepairing();
         }
     }
+
+    public override void OnExitAction()
+    {
+        base.OnExitAction();
+        repairable.StopRepairing();
+    }
 }

@@ -15,4 +15,8 @@ public class ActionObject : MonoBehaviour
     {
 
     }
+
+    public virtual void OnExitAction() {
+
+    }
 }

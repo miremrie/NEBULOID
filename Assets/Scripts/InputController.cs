@@ -92,6 +92,7 @@ public class InputController : MonoBehaviour
             ActionObject curActionObject = col.gameObject.GetComponent<ActionObject>();
             if (curActionObject == actionObject)
             {
+                curActionObject.OnExitAction();
                 nearActionObject = false;
                 actionObject = null;
             }

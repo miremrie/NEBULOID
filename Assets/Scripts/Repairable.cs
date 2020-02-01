@@ -10,6 +10,11 @@ public class Repairable : MonoBehaviour
     static float repairSpeed = 0.1f;
     public ParticleSystem smoke;
 
+    void Start()
+    {
+        RepairedAmount = 1f;
+    }
+
 
     public void StartRepairing() {
         repairing = true;
@@ -32,7 +37,7 @@ public class Repairable : MonoBehaviour
             if (IsRepaired()) {
                 // on repaired do once
                 StopRepairing();
-                if (smoke != null) smoke.Stop();
+                if (smoke != null) smoke.Stop(true, ParticleSystemStopBehavior.StopEmitting);
             }
         }
     }
