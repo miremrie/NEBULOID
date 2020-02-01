@@ -1447,6 +1447,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1722854001}
   m_CullTransparentMesh: 0
+--- !u!1 &1781508837 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7099371669064942815, guid: c045ab8d9f1a9484390bd010f10f2059,
+    type: 3}
+  m_PrefabInstance: {fileID: 7099371669436313146}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1781508838
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781508837}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 49558f13be7c5a44d8f2d84fe8c1f6a2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1844535693
 GameObject:
   m_ObjectHideFlags: 0
@@ -1831,6 +1856,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: ShipOuter
+      objectReference: {fileID: 0}
+    - target: {fileID: 7099371669604756674, guid: c045ab8d9f1a9484390bd010f10f2059,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7099371669604756674, guid: c045ab8d9f1a9484390bd010f10f2059,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7099371669604756675, guid: c045ab8d9f1a9484390bd010f10f2059,
         type: 3}
