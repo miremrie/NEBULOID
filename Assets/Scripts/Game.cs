@@ -90,7 +90,7 @@ public class Game : MonoBehaviour
         var rand = new System.Random();
         var dmgIndex = rand.Next(0, repairables.Length);
         var rp = repairables[dmgIndex];
-        rp.TakeDamage();
+        rp.TakeDamage(obs.Damage);
         audioController.PlayObstacleHit();
         audioController.PlayAlarm();
     }

@@ -7,7 +7,7 @@ public class ProcGen : MonoBehaviour
 
     public float minDist;
     public int chunkSize;
-    public GameObject[] obstaclePrefabs;
+    public Obstacle[] obstaclePrefabs;
     public MovingObstacle[] movingPrefabs;
     public GameObject fuelPrefab;
     public float percentObstacle;
@@ -70,13 +70,17 @@ public class ProcGen : MonoBehaviour
                 var f =  (float)fuzzRand.NextDouble() * fuzz;
                 var pos = new Vector3(i + f, j + f, 0);
                 
-                var s = (float)fuzzRand.NextDouble() * maxSizeAdd;
+                var size = (float)fuzzRand.NextDouble();
+                var sAdd = size * maxSizeAdd;
 
                 if (val < percentMovingObstacle)
                 {
                     MovingObstacle mo = Instantiate(movingPrefabs[Random.Range((int)0, (int)movingPrefabs.Length)], pos, Quaternion.identity);
-                    mo.Initialize(ship);
-                    mo.transform.localScale = new Vector3(1 + s, 1 + s, 1 + s);
+                    mo.Initialize(ship, size);
+
+                    var inScale = mo.transform.localScale.x;
+                    var fSize = inScale + sAdd;
+                    mo.transform.localScale = new Vector3(fSize, fSize, fSize);
                 }
                 else if (val < percentFuel)
                 {
@@ -84,8 +88,11 @@ public class ProcGen : MonoBehaviour
                 }
                 else if(val < percentObstacle)
                 {
-                    var go = Instantiate(obstaclePrefabs[Random.Range((int)0, (int)obstaclePrefabs.Length)], pos, Quaternion.identity);
-                    go.transform.localScale = new Vector3(1 + s, 1 + s, 1 + s);
+                    Obstacle go = Instantiate(obstaclePrefabs[Random.Range((int)0, (int)obstaclePrefabs.Length)], pos, Quaternion.identity);
+                    go.Initialize(size);
+                    var inScale = go.transform.localScale.x;
+                    var fSize = inScale + sAdd;
+                    go.transform.localScale = new Vector3(fSize, fSize, fSize);
                 }
                 
             }

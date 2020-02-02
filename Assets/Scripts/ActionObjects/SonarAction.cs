@@ -41,7 +41,7 @@ public class SonarAction : ActionObject
             }
            
             sonarMoveTimer.Update(Time.deltaTime);
-            SonarMovingLightPivot.transform.Rotate(0,0,5 * 360 * Time.deltaTime / sonarMoveTime);
+            SonarMovingLightPivot.transform.Rotate(0,0,2 * 360 * Time.deltaTime / sonarMoveTime);
         }
     }
 

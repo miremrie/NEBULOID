@@ -610,14 +610,14 @@ MonoBehaviour:
   minDist: 0.7
   chunkSize: 10
   obstaclePrefabs:
-  - {fileID: 4794178943276126414, guid: 02bc583f125b49b4586d21b31a9ffadf, type: 3}
-  - {fileID: 4794178943276126414, guid: 144fcdacba88ef7478436edc7ac64afe, type: 3}
-  - {fileID: 4794178943276126414, guid: b522b089a8fed3a4c95007249356d0f5, type: 3}
-  - {fileID: 4794178943276126414, guid: fe904db10ee318945bbb685dd8c25d28, type: 3}
-  - {fileID: 4794178943276126414, guid: 57453c537e760904ab6244008c957e92, type: 3}
-  - {fileID: 4794178943276126414, guid: 50a36ac33dc3a0b438d2117f22277b5d, type: 3}
-  - {fileID: 4794178943276126414, guid: ddfe6cb6208e1654f90ea52a5f3871f5, type: 3}
-  - {fileID: 4794178943276126414, guid: 5e79314abca09a942906b50a4cf30f14, type: 3}
+  - {fileID: 5401121091387100490, guid: 02bc583f125b49b4586d21b31a9ffadf, type: 3}
+  - {fileID: 5401121091387100490, guid: 144fcdacba88ef7478436edc7ac64afe, type: 3}
+  - {fileID: 5401121091387100490, guid: b522b089a8fed3a4c95007249356d0f5, type: 3}
+  - {fileID: 5401121091387100490, guid: fe904db10ee318945bbb685dd8c25d28, type: 3}
+  - {fileID: 5401121091387100490, guid: 57453c537e760904ab6244008c957e92, type: 3}
+  - {fileID: 5401121091387100490, guid: 50a36ac33dc3a0b438d2117f22277b5d, type: 3}
+  - {fileID: 5401121091387100490, guid: ddfe6cb6208e1654f90ea52a5f3871f5, type: 3}
+  - {fileID: 5401121091387100490, guid: 5e79314abca09a942906b50a4cf30f14, type: 3}
   movingPrefabs:
   - {fileID: 2754475788643370905, guid: e63a89223f71c354f8b250d374cdcedd, type: 3}
   - {fileID: 2754475788643370905, guid: b46754080226512409dc73e1b231aff9, type: 3}
@@ -626,9 +626,9 @@ MonoBehaviour:
   percentObstacle: 0.12
   percentFuel: 0.04
   percentMovingObstacle: 0.02
-  fuzz: 0.1
+  fuzz: 0.5
   seed: 6
-  maxSizeAdd: 3
+  maxSizeAdd: 2
 --- !u!1 &538758061
 GameObject:
   m_ObjectHideFlags: 0

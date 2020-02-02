@@ -14,6 +14,7 @@ public class Repairable : MonoBehaviour
 
     void Start()
     {
+        repairing = false;
         alarmIndicator.SetActive(false);
         RepairedAmount = 1f;
     }
@@ -47,10 +48,10 @@ public class Repairable : MonoBehaviour
         }
     }
 
-    public void TakeDamage()
+    public void TakeDamage(float percent)
     {
         alarmIndicator.SetActive(true);
-        RepairedAmount = 0;
+        RepairedAmount = Mathf.Max(RepairedAmount - percent, 0);
         if (smoke != null) smoke.Play();
     }
 }

@@ -1,8 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
     public static AudioController audioController;
+    public float Damage { get; set; }
 
     void OnTriggerEnter2D(Collider2D col)
     {
@@ -23,5 +25,10 @@ public class Obstacle : MonoBehaviour
             Destroy(this.gameObject);
             if (audioController != null) audioController.PlayHitClip();
         }
+    }
+
+    internal void Initialize(float size)
+    {
+        Damage = size;
     }
 }

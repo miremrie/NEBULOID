@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MovingObstacle : Obstacle
 {
@@ -22,5 +20,11 @@ public class MovingObstacle : Obstacle
     private void Move()
     {
         transform.Translate(direction * speed * Time.deltaTime);
+    }
+
+    internal void Initialize(Transform ship, float size)
+    {
+        Damage = size;
+        Initialize(ship);
     }
 }
