@@ -7,9 +7,9 @@ public class ProcGen : MonoBehaviour
 
     public float minDist;
     public int chunkSize;
-    public GameObject obstaclePrefab;
+    public GameObject[] obstaclePrefabs;
+    public MovingObstacle[] movingPrefabs;
     public GameObject fuelPrefab;
-    public MovingObstacle movingObstaclePrefab;
     public float percentObstacle;
     public float percentFuel;
     public float percentMovingObstacle;
@@ -74,7 +74,7 @@ public class ProcGen : MonoBehaviour
 
                 if (val < percentMovingObstacle)
                 {
-                    MovingObstacle mo = Instantiate(movingObstaclePrefab, pos, Quaternion.identity);
+                    MovingObstacle mo = Instantiate(movingPrefabs[Random.Range((int)0, (int)movingPrefabs.Length)], pos, Quaternion.identity);
                     mo.Initialize(ship);
                     mo.transform.localScale = new Vector3(1 + s, 1 + s, 1 + s);
                 }
@@ -84,13 +84,14 @@ public class ProcGen : MonoBehaviour
                 }
                 else if(val < percentObstacle)
                 {
-                    var go = Instantiate(obstaclePrefab, pos, Quaternion.identity);
+                    var go = Instantiate(obstaclePrefabs[Random.Range((int)0, (int)obstaclePrefabs.Length)], pos, Quaternion.identity);
                     go.transform.localScale = new Vector3(1 + s, 1 + s, 1 + s);
                 }
                 
             }
         }
     }
+
 
     int GenerateHash(int x, int y, int seed) {
         int hash = 23;
