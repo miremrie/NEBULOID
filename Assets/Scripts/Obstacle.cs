@@ -22,7 +22,7 @@ public class Obstacle : MonoBehaviour
         {
             Destroy(col.gameObject);
             Destroy(this.gameObject);
-            if (audioController != null) audioController.PlayHitClip();
+            FindObjectOfType<Game>().BulletHit(this);
         }
     }
 

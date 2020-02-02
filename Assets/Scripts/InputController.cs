@@ -16,7 +16,7 @@ public class InputController : MonoBehaviour
     private InputHandler handler;
     private bool nearActionObject = false;
     private ActionObject actionObject;
-    private Vector3 movementDestination;
+    private Transform movementDestination;
     private bool movingTowardsDestination;
     public float destinationReachedDistance = 0.01f;
     public float destMoveSpeed = 5f;
@@ -26,6 +26,7 @@ public class InputController : MonoBehaviour
     private const string moveAnimName = "Move";
     private const string moveVerAnimName = "MoveVer";
     private int curMovementDirection = 0;
+    public int altInput = -1;
 
     private void Awake()
     {
@@ -54,6 +55,7 @@ public class InputController : MonoBehaviour
             MoveTowardsDestination();
         }
         AnimateCharacter();
+        CheckForSecondInput();
     }
 
     private void RegisterController()
@@ -115,21 +117,21 @@ public class InputController : MonoBehaviour
         //anim stuff
         lockedForActions = true;
         movingTowardsDestination = true;
-        movementDestination = dest.position;
+        movementDestination = dest;
     }
 
     private void MoveTowardsDestination()
     {
         if (movingTowardsDestination)
         {
-            if (Vector3.Distance(movementDestination, transform.position) <= destinationReachedDistance)
+            if (Vector3.Distance(movementDestination.position, transform.position) <= destinationReachedDistance)
             {
-                transform.position = movementDestination;
+                transform.position = movementDestination.position;
                 movingTowardsDestination = false;
                 lockedForActions = false;
             } else
             {
-                transform.Translate((movementDestination - transform.position).normalized * destMoveSpeed * Time.deltaTime);
+                transform.Translate((movementDestination.position - transform.position).normalized * destMoveSpeed * Time.deltaTime);
             }
 
         }
@@ -144,6 +146,16 @@ public class InputController : MonoBehaviour
             charSpriteRenderer.flipX = curMovementDirection > 0;
         }
         animator.SetBool(moveVerAnimName, movingTowardsDestination);
+    }
+
+    private void CheckForSecondInput()
+    {
+        if (altInput != -1 && Input.GetButtonDown("Action" + altInput.ToString())) {
+            int tmp = altInput;
+            altInput = gamepadNumber;
+            gamepadNumber = tmp;
+            RegisterController();
+        }
     }
 
 }
@@ -165,8 +177,8 @@ public class InputHandler
 
     public virtual int GetMovement()
     {
-
-        return (int)Input.GetAxisRaw(horMovementKey);
+        int movement = (int)Input.GetAxisRaw(horMovementKey);
+        return movement;
         /*int movement = 0;
         float tmpMove = Input.GetAxis(horMovementKey);
 

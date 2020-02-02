@@ -23,7 +23,7 @@ public class Bullet : MonoBehaviour
     {
         if (wasShot)
         {
-            transform.Translate((direction).normalized * speed * Time.deltaTime);
+            transform.position = transform.position + ((direction).normalized * speed * Time.deltaTime);
             if (!isBulletNotBomb) {
                 if (!bombTimer.IsRunning())
                 {
@@ -37,6 +37,9 @@ public class Bullet : MonoBehaviour
 
     public void Shoot(Vector3 direction, bool isBullet = true)
     {
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
+
         origin = transform.position;
         isBulletNotBomb = isBullet;
         bombTimer.Start();

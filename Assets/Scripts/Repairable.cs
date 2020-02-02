@@ -7,10 +7,11 @@ public class Repairable : MonoBehaviour
 
     public float RepairedAmount { get; private set; }
     bool repairing;
-    static float repairSpeed = 0.8f;
+    static float repairSpeed = 0.25f;
     public ParticleSystem smoke;
     public Game game;
     public GameObject alarmIndicator;
+    public Transform GuiPivot;
 
     void Start()
     {

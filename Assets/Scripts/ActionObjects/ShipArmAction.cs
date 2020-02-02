@@ -9,7 +9,7 @@ public class ShipArmAction : ActionObject
     public bool isLeftArm;
     public Animator armAnimator;
     private string animName = "LeverPull";
-    public static float animTime = 1.4f;
+    public static float animTime = 1.1f;
     Timer animTimer;
 
     void Start()

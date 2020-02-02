@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -25,6 +26,9 @@ public class Game : MonoBehaviour
     public float guiOffset;
     public float healthWidth;
     public float healthHeight;
+
+
+  
     public float fuelThresholdForDeathLowPass = 10;
 
     public GameObject explosionParticle;
@@ -46,6 +50,14 @@ public class Game : MonoBehaviour
         UpdateDeath();
 
         UpdateUI();
+
+        UpdateRestart();
+    }
+
+    internal void BulletHit(Obstacle obstacle)
+    {
+        Instantiate(explosionParticle, obstacle.transform.position, Quaternion.identity);
+         audioController.PlayHitClip();
     }
 
     void UpdateDeath()
@@ -56,6 +68,7 @@ public class Game : MonoBehaviour
         }
         if (currentFuel < 0 && !dead)
         {
+            audioController.PlayDeath();
             dead = true;
             FindObjectsOfType<InputController>().ToList().ForEach(x => x.enabled = false);
             ShowGameOverScreen();
@@ -113,7 +126,7 @@ public class Game : MonoBehaviour
             if (r.IsRepaired()) continue;
             //var width = 60;
 
-            var pos = Camera.main.WorldToScreenPoint(r.transform.position);
+            var pos = Camera.main.WorldToScreenPoint(r.GuiPivot.position);
             var gPos = GUIUtility.ScreenToGUIPoint(pos);
             gPos = new Vector2(gPos.x - healthWidth * 0.5f, Screen.height - gPos.y + guiOffset);
             //Debug.Log($"repairable {gPos} {r.RepairedAmount}");
@@ -129,7 +142,7 @@ public class Game : MonoBehaviour
         GUI.Box(new Rect(0, 0, size.x, size.y), emptyTex, progress_empty);
 
         //draw the filled-in part:
-        GUI.BeginGroup(new Rect(0, 0, size.x * amount, size.y));
+        GUI.BeginGroup(new Rect(0, 0, size.x, size.y * amount));
         GUI.Box(new Rect(0, 0, size.x, size.y), fullTex, progress_full);
         GUI.EndGroup();
         GUI.EndGroup();
@@ -143,5 +156,13 @@ public class Game : MonoBehaviour
     public float GetFuelPercent()
     {
         return currentFuel / maxFuel;
+    }
+
+    public void UpdateRestart()
+    {
+        if (dead && (Input.GetButtonDown("Action0") || Input.GetButtonDown("Action1") || Input.GetButtonDown("Action2"))) {
+            RestartGame();
+        }
+
     }
 }

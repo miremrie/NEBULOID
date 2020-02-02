@@ -35,6 +35,8 @@ public class AudioController : MonoBehaviour
     public AudioSource alarmSource;
     public AudioSource fuelRefillSource;
 
+    public AudioSource deathSoundSource;
+
     private void Awake()
     {
         Obstacle.audioController = this;
@@ -137,5 +139,10 @@ public class AudioController : MonoBehaviour
     public void PlayFuelRefill()
     {
         fuelRefillSource.Play();
+    }
+
+    public void PlayDeath()
+    {
+        deathSoundSource.Play();
     }
 }
