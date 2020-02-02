@@ -12,6 +12,7 @@ public class ShootAction : ActionObject
     public Repairable repairable;
     public AudioController audioController;
     public Animator bigRedButtonAnimator;
+    public ScreenShake shake;
     private const string buttonAnimName = "ButtonPush";
 
     private void Awake()
@@ -39,6 +40,7 @@ public class ShootAction : ActionObject
     {
         if (repairable.IsRepaired())
         {
+            shake.TriggerShake(0.5f);
             timer.Start();
             Bullet tmpBullet = Instantiate(bullet);
             tmpBullet.transform.position = bulletShoothole.position;

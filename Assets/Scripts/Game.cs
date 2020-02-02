@@ -27,6 +27,8 @@ public class Game : MonoBehaviour
     public float healthHeight;
     public float fuelThresholdForDeathLowPass = 10;
 
+    public GameObject explosionParticle;
+
 
     public AudioController audioController;
 
@@ -93,6 +95,7 @@ public class Game : MonoBehaviour
         rp.TakeDamage(obs.Damage);
         audioController.PlayObstacleHit();
         audioController.PlayAlarm();
+        Instantiate(explosionParticle, obs.transform.position, Quaternion.identity);
     }
 
     public void Repaired(Repairable r)

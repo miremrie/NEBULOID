@@ -435,6 +435,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 203522233}
   m_CullTransparentMesh: 0
+--- !u!1 &434447901
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 434447902}
+  - component: {fileID: 434447903}
+  m_Layer: 11
+  m_Name: WallSizeOfRoomCircle
+  m_TagString: Wall
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &434447902
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434447901}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.0719, y: -0.0244, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1727976519}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &434447903
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434447901}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.02
 --- !u!1 &453336762
 GameObject:
   m_ObjectHideFlags: 0
@@ -628,7 +675,7 @@ MonoBehaviour:
   percentMovingObstacle: 0.02
   fuzz: 0.5
   seed: 6
-  maxSizeAdd: 2
+  maxSizeAdd: 3
 --- !u!1 &538758061
 GameObject:
   m_ObjectHideFlags: 0
@@ -658,7 +705,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee700f828d6a0ab43b579aacdbb5e134, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxFuel: 50
+  maxFuel: 200
   fuelBurnRate: 1
   gameOverScreen: {fileID: 1596660096}
   fuelFillImage: {fileID: 97040016}
@@ -801,10 +848,12 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
-  guiOffset: -30
+  guiOffset: -15
   healthWidth: 60
   healthHeight: 10
   fuelThresholdForDeathLowPass: 150
+  explosionParticle: {fileID: 6897137112830443984, guid: e5a8d11103e2d2c4d90ca30b72e09ed2,
+    type: 3}
   audioController: {fileID: 1413070316}
 --- !u!4 &538758063
 Transform:
@@ -1288,7 +1337,7 @@ Camera:
   far clip plane: 1000
   field of view: 21
   orthographic: 1
-  orthographic size: 1.98
+  orthographic size: 1.65
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2114,7 +2163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9339331591dd8e4d988f2d32c3bfc80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shakeMagnitude: 0.1
+  shakeMagnitude: 0.08
 --- !u!4 &1560085653
 Transform:
   m_ObjectHideFlags: 0
@@ -2143,7 +2192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camera: {fileID: 1298126714}
-  standardSize: 2
+  standardSize: 1.65
   sizeOverTimeCurve:
     serializedVersion: 2
     m_Curve:
@@ -2565,6 +2614,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1722854001}
   m_CullTransparentMesh: 0
+--- !u!4 &1727976519 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1176545222, guid: 835fe173342e2294ea00455a759b69ed,
+    type: 3}
+  m_PrefabInstance: {fileID: 5625323299899882767}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1844535693
 GameObject:
   m_ObjectHideFlags: 0
@@ -3044,6 +3099,10 @@ PrefabInstance:
       propertyPath: destMoveSpeed
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1807934039, guid: 835fe173342e2294ea00455a759b69ed, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1807934041, guid: 835fe173342e2294ea00455a759b69ed, type: 3}
       propertyPath: m_Offset.y
       value: -0.0013837852
@@ -3170,6 +3229,11 @@ PrefabInstance:
       propertyPath: audioController
       value: 
       objectReference: {fileID: 1413070316}
+    - target: {fileID: 5625323299509387941, guid: 835fe173342e2294ea00455a759b69ed,
+        type: 3}
+      propertyPath: shake
+      value: 
+      objectReference: {fileID: 1560085652}
     - target: {fileID: 5625323299868686552, guid: 835fe173342e2294ea00455a759b69ed,
         type: 3}
       propertyPath: m_Range
