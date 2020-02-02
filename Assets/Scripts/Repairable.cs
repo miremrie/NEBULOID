@@ -24,9 +24,7 @@ public class Repairable : MonoBehaviour
     }
 
     public void StopRepairing() {
-        alarmIndicator.SetActive(false);
         repairing = false;
-        game.Repaired(this);
     }
 
     public bool IsRepaired() {
@@ -42,6 +40,8 @@ public class Repairable : MonoBehaviour
             if (IsRepaired()) {
                 // on repaired do once
                 StopRepairing();
+                alarmIndicator.SetActive(false);
+                game.Repaired(this);
                 if (smoke != null) smoke.Stop(true, ParticleSystemStopBehavior.StopEmitting);
             }
         }
