@@ -28,7 +28,7 @@ public class SonarAction : ActionObject
 
     private void Update()
     {
-        SonarCircleLight.enabled = repairable.IsRepaired();
+        //SonarCircleLight.enabled = repairable.IsRepaired();
 
         if (sonarStarted )
         {

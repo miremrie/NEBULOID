@@ -10,9 +10,11 @@ public class Repairable : MonoBehaviour
     static float repairSpeed = 0.8f;
     public ParticleSystem smoke;
     public Game game;
+    public GameObject alarmIndicator;
 
     void Start()
     {
+        alarmIndicator.SetActive(false);
         RepairedAmount = 1f;
     }
 
@@ -22,6 +24,7 @@ public class Repairable : MonoBehaviour
     }
 
     public void StopRepairing() {
+        alarmIndicator.SetActive(false);
         repairing = false;
         game.Repaired(this);
     }
@@ -46,6 +49,7 @@ public class Repairable : MonoBehaviour
 
     public void TakeDamage()
     {
+        alarmIndicator.SetActive(true);
         RepairedAmount = 0;
         if (smoke != null) smoke.Play();
     }
