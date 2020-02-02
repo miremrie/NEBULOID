@@ -8,16 +8,15 @@ public class Obstacle : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("ObstacleHit");
+        //Debug.Log("ObstacleHit");
         //if (col.tag == Tags.SHIP_OUTER)
         //{
-
         //    Destroy(this.gameObject);
-        //} else
+        //}
+        //else
         if (col.tag == Tags.SHIP_BODY)
         {
             FindObjectOfType<Game>().ObstacleHit(this);
-           
             Destroy(this.gameObject);
         } else if (col.tag == Tags.BULLET)
         {

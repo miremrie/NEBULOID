@@ -35,8 +35,8 @@ public class SonarAction : ActionObject
             if (!sonarMoveTimer.IsRunning())
             {
                 sonarStarted = false;
-                SonarMovingLight.enabled = false;
-                camController.RevertToStandardSize(camZoomTime);
+                SonarMovingLightPivot.gameObject.SetActive(false);
+                camController.RevertToStandardSize(camZoomTime, () => SonarMovingLightPivot.gameObject.SetActive(false) );
                 audioController.RevertSonar(camZoomTime);
             }
            
@@ -53,7 +53,7 @@ public class SonarAction : ActionObject
     {
         if (repairable.IsRepaired() && !cooldownTimer.IsRunning())
         {
-            SonarMovingLight.enabled = true;
+            SonarMovingLightPivot.gameObject.SetActive(true);
             sonarStarted = true;
             sonarMoveTimer.Start();
             camController.ChangeSizeOverTime(newCamSize, camZoomTime);

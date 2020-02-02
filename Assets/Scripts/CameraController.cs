@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,6 +14,7 @@ public class CameraController : MonoBehaviour
     private bool changingSize = false;
     public bool revertingSize = false;
     private Timer animTimer;
+    private Action callback;
 
     private void Update()
     {
@@ -32,6 +34,7 @@ public class CameraController : MonoBehaviour
             {
                 camera.orthographicSize = standardSize;
                 revertingSize = false;
+                callback();
             }
             camera.orthographicSize = standardSize + sizeOverTimeCurve.Evaluate(1 - animTimer.GetCurrentTimePercent()) * dstStandardSizeMultiplier;
         }
@@ -47,8 +50,9 @@ public class CameraController : MonoBehaviour
         animTimer.Start();
     }
 
-    public void RevertToStandardSize(float time)
+    public void RevertToStandardSize(float time, Action callback)
     {
+        this.callback = callback;
         revertingSize = true;
         animTimer = new Timer(time);
         animTimer.Start();
