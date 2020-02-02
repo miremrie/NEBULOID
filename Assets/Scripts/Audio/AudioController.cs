@@ -32,6 +32,9 @@ public class AudioController : MonoBehaviour
     public AudioClip[] impactClips;
     public AudioSource impactSource;
 
+    public AudioSource alarmSource;
+    public AudioSource fuelRefillSource;
+
     private void Awake()
     {
         Obstacle.audioController = this;
@@ -39,6 +42,11 @@ public class AudioController : MonoBehaviour
 
     void Update()
     {
+
+        //if (Input.GetKeyDown(KeyCode.T)) {
+        //    PlayHitClip();
+        //}
+
         if (sonarOverride)
         {
             sonarTimer.Update(Time.deltaTime);
@@ -115,5 +123,19 @@ public class AudioController : MonoBehaviour
         int clipIndex = Random.Range((int)0, (int)(impactClips.Length));
         impactSource.clip = impactClips[clipIndex];
         impactSource.Play();
+    }
+
+    public void PlayAlarm()
+    {
+        alarmSource.Play();
+    }
+
+    public void StopAlarm() {
+        alarmSource.Stop();
+    }
+
+    public void PlayFuelRefill()
+    {
+        fuelRefillSource.Play();
     }
 }

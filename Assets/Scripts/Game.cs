@@ -64,13 +64,11 @@ public class Game : MonoBehaviour
     void UpdateUI()
     {
         fuelFillImage.fillAmount = currentFuel / maxFuel;
-
-        
-
     }
 
     public void FuelCollected(Fuel fuel)
     {
+        audioController.PlayFuelRefill();
         currentFuel = maxFuel;
     }
 
@@ -94,7 +92,13 @@ public class Game : MonoBehaviour
         var rp = repairables[dmgIndex];
         rp.TakeDamage();
         audioController.PlayObstacleHit();
+        audioController.PlayAlarm();
+    }
 
+    public void Repaired(Repairable r)
+    {
+        if (repairables.Any(rp => !rp.IsRepaired())) return;
+        audioController.StopAlarm();
     }
 
     void OnGUI() {

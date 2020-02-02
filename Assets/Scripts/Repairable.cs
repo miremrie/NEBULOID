@@ -7,8 +7,9 @@ public class Repairable : MonoBehaviour
 
     public float RepairedAmount { get; private set; }
     bool repairing;
-    static float repairSpeed = 0.1f;
+    static float repairSpeed = 0.8f;
     public ParticleSystem smoke;
+    public Game game;
 
     void Start()
     {
@@ -22,6 +23,7 @@ public class Repairable : MonoBehaviour
 
     public void StopRepairing() {
         repairing = false;
+        game.Repaired(this);
     }
 
     public bool IsRepaired() {

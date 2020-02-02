@@ -998,7 +998,8 @@ AudioSource:
   m_GameObject: {fileID: 1300241266}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 2890644368799562894, guid: 84ac546ec9f136a439f0732e6c6d0851,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: aef3370ccb790764696631da8b62aa5a, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.584
@@ -1498,7 +1499,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 2890644368799562894, guid: 84ac546ec9f136a439f0732e6c6d0851,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 3e225adf649cd1740932409ba521c91f, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -2744,6 +2745,11 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 0.10884696
       objectReference: {fileID: 0}
+    - target: {fileID: 5625323299240325634, guid: 835fe173342e2294ea00455a759b69ed,
+        type: 3}
+      propertyPath: game
+      value: 
+      objectReference: {fileID: 538758062}
     - target: {fileID: 5625323299240325635, guid: 835fe173342e2294ea00455a759b69ed,
         type: 3}
       propertyPath: camController
@@ -2754,6 +2760,11 @@ PrefabInstance:
       propertyPath: audioController
       value: 
       objectReference: {fileID: 1413070316}
+    - target: {fileID: 5625323299245406784, guid: 835fe173342e2294ea00455a759b69ed,
+        type: 3}
+      propertyPath: game
+      value: 
+      objectReference: {fileID: 538758062}
     - target: {fileID: 5625323299245406787, guid: 835fe173342e2294ea00455a759b69ed,
         type: 3}
       propertyPath: m_Offset.y
@@ -2794,6 +2805,11 @@ PrefabInstance:
       propertyPath: m_Size.x
       value: 0.10481064
       objectReference: {fileID: 0}
+    - target: {fileID: 5625323299509387940, guid: 835fe173342e2294ea00455a759b69ed,
+        type: 3}
+      propertyPath: game
+      value: 
+      objectReference: {fileID: 538758062}
     - target: {fileID: 5625323299509387941, guid: 835fe173342e2294ea00455a759b69ed,
         type: 3}
       propertyPath: audioController
@@ -2824,6 +2840,11 @@ PrefabInstance:
       propertyPath: m_Size.x
       value: 0.11609252
       objectReference: {fileID: 0}
+    - target: {fileID: 5625323300134583405, guid: 835fe173342e2294ea00455a759b69ed,
+        type: 3}
+      propertyPath: game
+      value: 
+      objectReference: {fileID: 538758062}
     - target: {fileID: 7123054408308918374, guid: 835fe173342e2294ea00455a759b69ed,
         type: 3}
       propertyPath: m_Size.x
