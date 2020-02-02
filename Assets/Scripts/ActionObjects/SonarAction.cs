@@ -29,7 +29,7 @@ public class SonarAction : ActionObject
     private void Update()
     {
         //SonarCircleLight.enabled = repairable.IsRepaired();
-
+        cooldownTimer.Update(Time.deltaTime);
         if (sonarStarted )
         {
             if (!sonarMoveTimer.IsRunning())
@@ -39,7 +39,7 @@ public class SonarAction : ActionObject
                 camController.RevertToStandardSize(camZoomTime);
                 audioController.RevertSonar(camZoomTime);
             }
-            cooldownTimer.Update(Time.deltaTime);
+           
             sonarMoveTimer.Update(Time.deltaTime);
             SonarMovingLightPivot.transform.Rotate(0,0,5 * 360 * Time.deltaTime / sonarMoveTime);
         }
@@ -51,7 +51,7 @@ public class SonarAction : ActionObject
     }
     public override void DoAction(InputController controller)
     {
-        if (repairable.IsRepaired())
+        if (repairable.IsRepaired() && !cooldownTimer.IsRunning())
         {
             SonarMovingLight.enabled = true;
             sonarStarted = true;

@@ -627,7 +627,7 @@ MonoBehaviour:
   percentFuel: 0.04
   percentMovingObstacle: 0.02
   fuzz: 0.1
-  seed: 2
+  seed: 6
   maxSizeAdd: 3
 --- !u!1 &538758061
 GameObject:
@@ -3138,7 +3138,7 @@ PrefabInstance:
     - target: {fileID: 5625323299240325635, guid: 835fe173342e2294ea00455a759b69ed,
         type: 3}
       propertyPath: sonarCooldown
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5625323299240325635, guid: 835fe173342e2294ea00455a759b69ed,
         type: 3}
@@ -3174,6 +3174,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Range
       value: 38.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 5625323300134583377, guid: 835fe173342e2294ea00455a759b69ed,
+        type: 3}
+      propertyPath: animTime
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5625323300134583405, guid: 835fe173342e2294ea00455a759b69ed,
         type: 3}
