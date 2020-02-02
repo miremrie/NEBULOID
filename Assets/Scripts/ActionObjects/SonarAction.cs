@@ -15,10 +15,15 @@ public class SonarAction : ActionObject
     public float camZoomTime;
     public Repairable repairable;
     public AudioController audioController;
+    public float sonarCooldown;
+    private Timer cooldownTimer;
+    public Animator leverAnimator;
+    private const string animName = "LeverPull";
 
     private void Awake()
     {
         sonarMoveTimer = new Timer(sonarMoveTime);
+        cooldownTimer = new Timer(sonarCooldown);
     }
 
     private void Update()
@@ -34,6 +39,7 @@ public class SonarAction : ActionObject
                 camController.RevertToStandardSize(camZoomTime);
                 audioController.RevertSonar(camZoomTime);
             }
+            cooldownTimer.Update(Time.deltaTime);
             sonarMoveTimer.Update(Time.deltaTime);
             SonarMovingLightPivot.transform.Rotate(0,0,2* 360 * Time.deltaTime / sonarMoveTime);
         }
@@ -41,7 +47,7 @@ public class SonarAction : ActionObject
 
     public override bool IsActionObjectReady()
     {
-        return base.IsActionObjectReady() && !sonarStarted;
+        return base.IsActionObjectReady() && !sonarStarted && !cooldownTimer.IsRunning();
     }
     public override void DoAction(InputController controller)
     {
@@ -52,6 +58,8 @@ public class SonarAction : ActionObject
             sonarMoveTimer.Start();
             camController.ChangeSizeOverTime(newCamSize, camZoomTime);
             audioController.ActivateSonar(camZoomTime);
+            leverAnimator.SetTrigger(animName);
+            cooldownTimer.Start();
         }
         else
         {

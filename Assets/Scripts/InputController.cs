@@ -21,6 +21,11 @@ public class InputController : MonoBehaviour
     public float destinationReachedDistance = 0.01f;
     public float destMoveSpeed = 5f;
     private bool lockedForActions = false;
+    public Animator animator;
+    public SpriteRenderer charSpriteRenderer;
+    private const string moveAnimName = "Move";
+    private const string moveVerAnimName = "MoveVer";
+    private int curMovementDirection = 0;
 
     private void Awake()
     {
@@ -35,6 +40,7 @@ public class InputController : MonoBehaviour
 
     private void Update()
     {
+        curMovementDirection = 0;
         if (playerActive)
         {
             if (!lockedForActions)
@@ -47,6 +53,7 @@ public class InputController : MonoBehaviour
             }
             MoveTowardsDestination();
         }
+        AnimateCharacter();
     }
 
     private void RegisterController()
@@ -56,7 +63,8 @@ public class InputController : MonoBehaviour
 
     private void MoveHor()
     {
-        transform.Translate(Vector3.right * handler.GetMovement() * speed * Time.deltaTime);
+        curMovementDirection = handler.GetMovement();
+        transform.Translate(Vector3.right * curMovementDirection * speed * Time.deltaTime);
     }
 
     private void ExecuteAction()
@@ -126,6 +134,16 @@ public class InputController : MonoBehaviour
 
         }
 
+    }
+
+    private void AnimateCharacter()
+    {
+        animator.SetBool(moveAnimName, curMovementDirection != 0);
+        if (curMovementDirection != 0)
+        {
+            charSpriteRenderer.flipX = curMovementDirection > 0;
+        }
+        animator.SetBool(moveVerAnimName, movingTowardsDestination);
     }
 
 }
