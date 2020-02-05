@@ -9,6 +9,7 @@ TagManager:
   - ShipBody
   - Bullet
   - Wall
+  - Obstacle
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - ExteriorObject
   - Walls
   - Ground
-  - 
+  - Hook
   - 
   - 
   - 

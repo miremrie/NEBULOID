@@ -16,6 +16,7 @@ public class ShipMovement : MonoBehaviour
     public ArmAudioController armAudioController;
     public ArmAnimationController armAnimationController;
     public float shipAnimationOffset = 0.416666f;
+    private bool movementLocked = false;
 
     // Start is called before the first frame update
     void Start()
@@ -44,21 +45,24 @@ public class ShipMovement : MonoBehaviour
     }
 
     void MovementUpdate() {
+        if (!movementLocked)
+        {
+            if (leftTimer.IsRunning() && rightTimer.IsRunning())
+            {
+                ship.Translate(ship.up * moveSpeed * Time.deltaTime, Space.World);
+            }
+            else if (leftTimer.IsRunning())
+            {
+                ship.RotateAround(leftPivot.position, Vector3.forward, rotateSpeed * Time.deltaTime);
+            }
+            else if (rightTimer.IsRunning())
+            {
+                ship.RotateAround(rightPivot.position, Vector3.forward, -rotateSpeed * Time.deltaTime);
+            }
 
-        if (leftTimer.IsRunning() && rightTimer.IsRunning())
-        {
-            ship.Translate(ship.up * moveSpeed * Time.deltaTime, Space.World);
-        }
-        else if (leftTimer.IsRunning())
-        {
-            ship.RotateAround(leftPivot.position, Vector3.forward, rotateSpeed * Time.deltaTime);
-        }
-        else if (rightTimer.IsRunning())
-        {
-            ship.RotateAround(rightPivot.position, Vector3.forward, -rotateSpeed * Time.deltaTime);
+            shipInterior.rotation = Quaternion.identity;
         }
 
-        shipInterior.rotation = Quaternion.identity;
     }
 
     public void Rotate(bool left)
@@ -75,6 +79,16 @@ public class ShipMovement : MonoBehaviour
             armAnimationController.AnimateRightArm();
             rightTimer.StartDelayed(shipAnimationOffset);
         }
+    }
+
+    public void LockShip()
+    {
+        movementLocked = true;
+    }
+
+    public void UnlockShip()
+    {
+        movementLocked = false;
     }
 }
 
