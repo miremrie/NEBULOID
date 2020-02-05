@@ -95,6 +95,8 @@ public class HookBehaviour : MonoBehaviour
         wasShot = true;
         ship.LockShip();
         hookOpenTimer.Start();
+        hookAnimator.ResetTrigger(hookCloseAnim);
+        hookAnimator.ResetTrigger(hookGrabAnim);
         hookAnimator.SetTrigger(hookOpenAnim);
     }
 
