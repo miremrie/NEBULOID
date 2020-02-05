@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SonarAction : ActionObject
+public class ShipSonarControl : ShipActionControl
 {
     public Transform SonarMovingLightPivot;
     public Light SonarMovingLight;

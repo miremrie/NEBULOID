@@ -1559,9 +1559,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.04, y: -0.04}
+  m_Offset: {x: -0.02, y: -0.02}
   serializedVersion: 2
-  m_Radius: 0.08
+  m_Radius: 0.06
 --- !u!114 &164408069245245134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1577,8 +1577,8 @@ MonoBehaviour:
   hookAnimator: {fileID: 6610371821746954156}
   fireSpeed: 4
   retractSpeed: 2
-  shipPullSpeed: 1
-  maxDistance: 10
+  shipPullSpeed: 3
+  maxDistance: 5
   origin: {fileID: 3279527503302178390}
   ship: {fileID: 7595398177048142798}
   hookOpenAnimationTime: 1

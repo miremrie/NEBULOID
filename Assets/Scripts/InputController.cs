@@ -15,7 +15,7 @@ public class InputController : MonoBehaviour
     public float speed;
     private InputHandler handler;
     private bool nearActionObject = false;
-    private ActionObject actionObject;
+    private ShipActionControl actionObject;
     private Transform movementDestination;
     private bool movingTowardsDestination;
     public float destinationReachedDistance = 0.01f;
@@ -85,7 +85,7 @@ public class InputController : MonoBehaviour
         if (col.tag == Tags.ACTION_OBJECT)
         {
             nearActionObject = true;
-            actionObject = col.gameObject.GetComponent<ActionObject>();
+            actionObject = col.gameObject.GetComponent<ShipActionControl>();
         }
     }
 
@@ -102,7 +102,7 @@ public class InputController : MonoBehaviour
         if (col.tag == Tags.ACTION_OBJECT)
         {
 
-            ActionObject curActionObject = col.gameObject.GetComponent<ActionObject>();
+            ShipActionControl curActionObject = col.gameObject.GetComponent<ShipActionControl>();
             if (curActionObject == actionObject)
             {
                 curActionObject.OnExitAction();
@@ -179,26 +179,11 @@ public class InputHandler
     {
         int movement = (int)Input.GetAxisRaw(horMovementKey);
         return movement;
-        /*int movement = 0;
-        float tmpMove = Input.GetAxis(horMovementKey);
-
-        if (horMovementKey == "Hor1")
-        {
-            Debug.Log(tmpMove);
-        }
-        if (tmpMove > deadZone)
-        {
-            movement++;
-        }
-        if (tmpMove < -deadZone)
-        {
-            movement--;
-        }
-        return movement;*/
     }
 
     public bool GetControlPressed(InputControl actionButton)
     {
+        
         switch (actionButton)
         {
             case (InputControl.Action):

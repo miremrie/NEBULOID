@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShootAction : ActionObject
+public class ShipGunControl : ShipActionControl
 {
     public float timeBetweenShots;
     private Timer timer;

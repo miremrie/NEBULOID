@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActionObject : MonoBehaviour
+public class ShipActionControl : MonoBehaviour
 {
     public InputControl actionControl;
     private bool actionObjectReady = true;

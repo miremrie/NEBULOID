@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShipArmAction : ActionObject
+public class ShipArmAction : ShipActionControl
 {
     public ShipMovement shipMovement;
     private Repairable repairable;

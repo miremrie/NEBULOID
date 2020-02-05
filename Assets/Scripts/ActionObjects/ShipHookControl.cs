@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HookAction : ActionObject
+public class ShipHookControl : ShipActionControl
 {
     public HookBehaviour hook;
     public float timeBetweenShots;
