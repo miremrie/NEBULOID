@@ -7619,12 +7619,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4211323715077643858, guid: 835fe173342e2294ea00455a759b69ed,
+    - target: {fileID: 1692948615594598724, guid: 835fe173342e2294ea00455a759b69ed,
         type: 3}
       propertyPath: audioController
       value: 
       objectReference: {fileID: 1413070316}
-    - target: {fileID: 4211323715077643858, guid: 835fe173342e2294ea00455a759b69ed,
+    - target: {fileID: 1692948615594598724, guid: 835fe173342e2294ea00455a759b69ed,
         type: 3}
       propertyPath: shake
       value: 
@@ -7639,16 +7639,6 @@ PrefabInstance:
       propertyPath: game
       value: 
       objectReference: {fileID: 538758062}
-    - target: {fileID: 5625323299240325635, guid: 835fe173342e2294ea00455a759b69ed,
-        type: 3}
-      propertyPath: camController
-      value: 
-      objectReference: {fileID: 1560085654}
-    - target: {fileID: 5625323299240325635, guid: 835fe173342e2294ea00455a759b69ed,
-        type: 3}
-      propertyPath: audioController
-      value: 
-      objectReference: {fileID: 1413070316}
     - target: {fileID: 5625323299245406784, guid: 835fe173342e2294ea00455a759b69ed,
         type: 3}
       propertyPath: game
@@ -7659,16 +7649,6 @@ PrefabInstance:
       propertyPath: game
       value: 
       objectReference: {fileID: 538758062}
-    - target: {fileID: 5625323299509387941, guid: 835fe173342e2294ea00455a759b69ed,
-        type: 3}
-      propertyPath: audioController
-      value: 
-      objectReference: {fileID: 1413070316}
-    - target: {fileID: 5625323299509387941, guid: 835fe173342e2294ea00455a759b69ed,
-        type: 3}
-      propertyPath: shake
-      value: 
-      objectReference: {fileID: 1560085652}
     - target: {fileID: 5625323300134583405, guid: 835fe173342e2294ea00455a759b69ed,
         type: 3}
       propertyPath: game
@@ -7684,6 +7664,11 @@ PrefabInstance:
       propertyPath: armAudioController
       value: 
       objectReference: {fileID: 1629216076}
+    - target: {fileID: 7595398177048142798, guid: 835fe173342e2294ea00455a759b69ed,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7595398177048142799, guid: 835fe173342e2294ea00455a759b69ed,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7739,5 +7724,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8323507948655161712, guid: 835fe173342e2294ea00455a759b69ed,
+        type: 3}
+      propertyPath: camController
+      value: 
+      objectReference: {fileID: 1560085654}
+    - target: {fileID: 8323507948655161712, guid: 835fe173342e2294ea00455a759b69ed,
+        type: 3}
+      propertyPath: audioController
+      value: 
+      objectReference: {fileID: 1413070316}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 835fe173342e2294ea00455a759b69ed, type: 3}

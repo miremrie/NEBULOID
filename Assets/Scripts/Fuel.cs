@@ -11,7 +11,6 @@ public class Fuel : MonoBehaviour
         if (col.tag == Tags.SHIP_BODY)
         {
             FindObjectOfType<Game>().FuelCollected(this);
-            Debug.Log("FuelHit");
             Destroy(this.gameObject);
         }
     }

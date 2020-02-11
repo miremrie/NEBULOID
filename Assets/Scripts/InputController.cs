@@ -14,8 +14,6 @@ public class InputController : MonoBehaviour
     public int gamepadNumber;
     public float speed;
     private InputHandler handler;
-    private bool nearActionObject = false;
-    private ShipActionControl actionObject;
     private Transform movementDestination;
     private bool movingTowardsDestination;
     public float destinationReachedDistance = 0.01f;
@@ -27,6 +25,8 @@ public class InputController : MonoBehaviour
     private const string moveVerAnimName = "MoveVer";
     private int curMovementDirection = 0;
     public int altInput = -1;
+
+    private Dictionary<InputControl, ActionControl> currentActions = new Dictionary<InputControl, ActionControl>();
 
     private void Awake()
     {
@@ -71,12 +71,12 @@ public class InputController : MonoBehaviour
 
     private void ExecuteAction()
     {
-        if (nearActionObject 
-            && actionObject != null 
-            && actionObject.IsActionObjectReady() 
-            && handler.GetControlPressed(actionObject.actionControl))
+        foreach (KeyValuePair<InputControl, ActionControl> action in currentActions)
         {
-            actionObject.DoAction(this);
+            if (action.Value != null && handler.GetControlPressed(action.Key))
+            {
+                action.Value.DoAction(this);
+            }
         }
     }
 
@@ -84,30 +84,27 @@ public class InputController : MonoBehaviour
     {
         if (col.tag == Tags.ACTION_OBJECT)
         {
-            nearActionObject = true;
-            actionObject = col.gameObject.GetComponent<ShipActionControl>();
+            
+            ActionControl newControl = col.gameObject.GetComponent<ActionControl>();
+            if (currentActions.ContainsKey(newControl.actionControl))
+            {
+                currentActions[newControl.actionControl] = newControl;
+            } else
+            {
+                currentActions.Add(newControl.actionControl, newControl);
+            }
         }
     }
-
-    //void OnTriggerStay2D(Collider2D col)
-    //{
-    //    if (col.tag == Tags.ACTION_OBJECT)
-    //    {
-    //        Debug.Log($"Staying in {col.name}");
-    //    }
-    //}
 
     void OnTriggerExit2D(Collider2D col)
     {
         if (col.tag == Tags.ACTION_OBJECT)
         {
 
-            ShipActionControl curActionObject = col.gameObject.GetComponent<ShipActionControl>();
-            if (curActionObject == actionObject)
+            ActionControl leavingActionControl = col.gameObject.GetComponent<ActionControl>();
+            if (currentActions.ContainsKey(leavingActionControl.actionControl))
             {
-                curActionObject.OnExitAction();
-                nearActionObject = false;
-                actionObject = null;
+                currentActions.Remove(leavingActionControl.actionControl);
             }
         }
     }

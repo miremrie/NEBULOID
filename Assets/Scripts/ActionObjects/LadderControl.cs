@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LadderControl : ShipActionControl
+public class LadderControl : ActionControl
 {
     public Transform otherSide;
 

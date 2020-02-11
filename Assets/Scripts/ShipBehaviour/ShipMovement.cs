@@ -6,30 +6,20 @@ public class ShipMovement : MonoBehaviour
 {
     public Transform ship;
     public float animTime;
-    private Timer leftTimer;
-    private Timer rightTimer;
-    public Transform leftPivot;
-    public Transform rightPivot;
     public float rotateSpeed;
     public float moveSpeed;
     public Transform shipInterior;
     public ArmAudioController armAudioController;
-    public ArmAnimationController armAnimationController;
-    public float shipAnimationOffset = 0.416666f;
     private bool movementLocked = false;
+    private List<ShipArmSystem> armSystems = new List<ShipArmSystem>();
 
-    // Start is called before the first frame update
+
     void Start()
     {
-        leftTimer = new Timer(animTime);
-        rightTimer = new Timer(animTime);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        leftTimer.Update(Time.deltaTime);
-        rightTimer.Update(Time.deltaTime);
 
         /*if (Input.GetKeyDown(KeyCode.A))
         {
@@ -47,7 +37,31 @@ public class ShipMovement : MonoBehaviour
     void MovementUpdate() {
         if (!movementLocked)
         {
-            if (leftTimer.IsRunning() && rightTimer.IsRunning())
+            int currentlyRunning = 0;
+            Vector3 movementVec = Vector3.zero;
+            foreach (ShipArmSystem arm in armSystems)
+            {
+                if(arm.IsMoving())
+                {
+                    currentlyRunning++;
+                    movementVec += arm.pivot.up * -1;
+
+                    float speed = rotateSpeed;
+                    if (!arm.isLeft)
+                    {
+                        speed *= -1;
+                    }
+
+                    ship.RotateAround(arm.pivot.position, Vector3.forward, speed * Time.deltaTime);
+                }
+            }
+            if (currentlyRunning > 1)
+            {
+                movementVec = -1 * movementVec.normalized;
+                ship.Translate(movementVec * moveSpeed * Time.deltaTime, Space.World);
+            }
+
+            /*if (leftTimer.IsRunning() && rightTimer.IsRunning())
             {
                 ship.Translate(ship.up * moveSpeed * Time.deltaTime, Space.World);
             }
@@ -58,7 +72,7 @@ public class ShipMovement : MonoBehaviour
             else if (rightTimer.IsRunning())
             {
                 ship.RotateAround(rightPivot.position, Vector3.forward, -rotateSpeed * Time.deltaTime);
-            }
+            }*/
 
             shipInterior.rotation = Quaternion.identity;
         }
@@ -70,14 +84,10 @@ public class ShipMovement : MonoBehaviour
         if (left)
         {
             armAudioController.PlayLeftArm();
-            armAnimationController.AnimateLeftArm();
-            leftTimer.StartDelayed(shipAnimationOffset);
         }
         else
         {
             armAudioController.PlayRightArm();
-            armAnimationController.AnimateRightArm();
-            rightTimer.StartDelayed(shipAnimationOffset);
         }
     }
 
@@ -90,59 +100,14 @@ public class ShipMovement : MonoBehaviour
     {
         movementLocked = false;
     }
-}
 
-class Timer {
-
-    private float time;
-    private float currTime;
-    private float delayTime;
-    private bool playDelayed = false;
-    
-    public Timer(float time)
+    public Vector3 GetShipCentralPoint()
     {
-        this.time = time;
-        currTime = time;
+        return transform.position;
     }
 
-    public void Update(float dt)
+    public void RegisterArm(ShipArmSystem shipArmSystem)
     {
-        if (playDelayed)
-        {
-            delayTime += dt;
-            if (delayTime > 0f)
-            {
-                Start();
-                playDelayed = false;
-            }
-        }
-
-        currTime += dt;
-    }
-
-    public bool IsRunning() {
-
-        return (currTime < time);
-    }
-
-    public float GetCurrentTime()
-    {
-        return currTime;
-    }
-
-    public float GetCurrentTimePercent()
-    {
-        return currTime / time;
-    }
-
-    public void Start()
-    {
-        currTime = 0f;
-    }
-
-    public void StartDelayed(float delay)
-    {
-        delayTime = -delay;
-        playDelayed = true;
+        armSystems.Add(shipArmSystem);
     }
 }
