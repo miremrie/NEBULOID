@@ -65,7 +65,7 @@ public class InputController : MonoBehaviour
 
     private void MoveHor()
     {
-        curMovementDirection = handler.GetMovement();
+        curMovementDirection = handler.GetHorizontal();
         transform.Translate(Vector3.right * curMovementDirection * speed * Time.deltaTime);
     }
 
@@ -172,12 +172,18 @@ public class InputHandler
         actionKey = action;
     }
 
-    public virtual int GetMovement()
+    public virtual int GetHorizontal()
     {
         int movement = (int)Input.GetAxisRaw(horMovementKey);
         return movement;
     }
 
+    public virtual int GetVertical()
+    {
+        int movement = (int)Input.GetAxisRaw(verMovementKey);
+        return movement;
+    }
+    
     public bool GetControlPressed(InputControl actionButton)
     {
         
@@ -186,19 +192,19 @@ public class InputHandler
             case (InputControl.Action):
                 return GetActionPressed();
             case (InputControl.Down):
-                return GetMoveDownActionPressed();
+                return GetDownActionPressed();
             case (InputControl.Up):
-                return GetMoveUpActionPressed();
+                return GetUpActionPressed();
             default:
                 return false;
         }
     }
 
-    public bool GetMoveUpActionPressed()
+    public bool GetUpActionPressed()
     {
         return Input.GetAxisRaw(verMovementKey) == 1;
     }
-    public bool GetMoveDownActionPressed()
+    public bool GetDownActionPressed()
     {
         return Input.GetAxisRaw(verMovementKey) == -1;
     }

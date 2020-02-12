@@ -9,6 +9,7 @@ public class RoomControl : ActionControl
     public Animator roomAnimator;
     private const string activeAnimName = "RoomActionActivated";
     public ShipSystem shipSystem;
+    public bool hasAssignedSystem = false;
 
     public virtual bool IsActionObjectReady()
     {
@@ -17,7 +18,11 @@ public class RoomControl : ActionControl
 
     private void Update()
     {
-        UpdateRoomAnimationState();
+        if (hasAssignedSystem)
+        {
+            UpdateRoomAnimationState();
+        }
+
     }
 
     private void UpdateRoomAnimationState()

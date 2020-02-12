@@ -3906,7 +3906,7 @@ GameObject:
   - component: {fileID: 7595398177048142798}
   - component: {fileID: 763311237520578848}
   m_Layer: 0
-  m_Name: Ship4
+  m_Name: BlankSlateShip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4605,25 +4605,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2841272308480026076}
     m_Modifications:
-    - target: {fileID: 429823018547982483, guid: a0e10285e75427842a9b4f5ba0598c81,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 28
-      objectReference: {fileID: 0}
-    - target: {fileID: 1679397945623351557, guid: a0e10285e75427842a9b4f5ba0598c81,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.0578
-      objectReference: {fileID: 0}
-    - target: {fileID: 1679397945623351557, guid: a0e10285e75427842a9b4f5ba0598c81,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.1366
-      objectReference: {fileID: 0}
     - target: {fileID: 4105288979518457468, guid: a0e10285e75427842a9b4f5ba0598c81,
         type: 3}
       propertyPath: m_Name
       value: ShootPipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 4105288979518457468, guid: a0e10285e75427842a9b4f5ba0598c81,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7784600988446110396, guid: a0e10285e75427842a9b4f5ba0598c81,
         type: 3}
@@ -4643,17 +4633,17 @@ PrefabInstance:
     - target: {fileID: 7784600988446110396, guid: a0e10285e75427842a9b4f5ba0598c81,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7784600988446110396, guid: a0e10285e75427842a9b4f5ba0598c81,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7784600988446110396, guid: a0e10285e75427842a9b4f5ba0598c81,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7784600988446110396, guid: a0e10285e75427842a9b4f5ba0598c81,
         type: 3}
@@ -4722,6 +4712,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LeftArmCenter
+      objectReference: {fileID: 0}
+    - target: {fileID: 5766038309637096377, guid: ff835847cfc415140bcd8f2304337be2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6269392176965891633, guid: ff835847cfc415140bcd8f2304337be2,
         type: 3}
@@ -4997,6 +4992,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RightArmCenter
       objectReference: {fileID: 0}
+    - target: {fileID: 6524166242139802665, guid: b0f5a620a8505a54682ef4afb96b24ed,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0f5a620a8505a54682ef4afb96b24ed, type: 3}
 --- !u!1 &8683490894691494655 stripped
@@ -5089,6 +5089,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HookSystem
+      objectReference: {fileID: 0}
+    - target: {fileID: 8810464638673877027, guid: 5e7a93b4ea55ba04891aec2e7d226ca9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e7a93b4ea55ba04891aec2e7d226ca9, type: 3}
@@ -5725,6 +5730,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Sonar
+      objectReference: {fileID: 0}
+    - target: {fileID: 8967545190497176165, guid: 51d213d06e37e094e8cab6b6faa4ad2c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51d213d06e37e094e8cab6b6faa4ad2c, type: 3}
