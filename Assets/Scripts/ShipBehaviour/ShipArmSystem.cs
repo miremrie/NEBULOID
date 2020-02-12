@@ -13,11 +13,14 @@ public class ShipArmSystem : ShipSystem
     private Timer moveTimer;
     private const string animArmMoveName = "ArmMove";
 
-    protected override void Start()
+    public override void Initialize()
     {
-        base.Start();
-        moveTimer = new Timer(moveDuration);
-        shipMovement.RegisterArm(this);
+        if (!initialized)
+        {
+            base.Initialize();
+            moveTimer = new Timer(moveDuration);
+            shipMovement.RegisterArm(this);
+        }
     }
 
     protected override void Update()

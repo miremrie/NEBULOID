@@ -20,6 +20,19 @@ public class ShipAssembler : MonoBehaviour
     public RoomControlWithID[] rooms;
     public ShipSystemWithID[] systems;
     public Transform systemsRoot;
+    private AllSaveData saveData;
+    private ShipData curShipData;
+    public bool inEditMode = false;
+
+    private void Awake()
+    {
+        if (!inEditMode)
+        {
+            saveData = SaveSystem.LoadData();
+            curShipData = saveData.shipData[saveData.currentShipID];
+            AssembleShip(curShipData);
+        }
+    }
 
     public void AssembleShip(ShipData shipData)
     {
@@ -29,9 +42,10 @@ public class ShipAssembler : MonoBehaviour
             ShipSystem shipSystem = CreateSystemObject(systemData.system, systemData.GetPosition(), systemData.GetRotation());
             if (shipSystem == null)
             {
-                Debug.LogError("Tried to create non existant system!");
+                Debug.LogError("Tried to create non existant system: " + systemData.system);
             } else
             {
+                shipSystem.Reinitialize();
                 roomControl.shipSystem = shipSystem;
                 roomControl.hasAssignedSystem = true;
             }
@@ -60,7 +74,8 @@ public class ShipAssembler : MonoBehaviour
                 GameObject go = Instantiate(systems[i].root, systemsRoot);
                 go.transform.rotation = rotation;
                 go.transform.position = position;
-                return go.GetComponent<ShipSystem>();
+                go.SetActive(true);
+                return go.GetComponentInChildren<ShipSystem>();
             }
         }
         return null;

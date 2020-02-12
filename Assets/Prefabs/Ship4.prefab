@@ -433,13 +433,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerNumber: 0
   playerActive: 0
-  gamepadNumber: 1
+  gamepadNumber: 3
   speed: 0.5
   destinationReachedDistance: 0.05
   destMoveSpeed: 1
   animator: {fileID: 884472260}
   charSpriteRenderer: {fileID: 5960000070944976444}
-  altInput: -1
+  altInput: 1
 --- !u!61 &1077498392
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3989,6 +3989,7 @@ MonoBehaviour:
     root: {fileID: 5884939723386686929}
     maxSystemsOnShip: 10
   systemsRoot: {fileID: 1406139293485101516}
+  inEditMode: 0
 --- !u!1 &7595398177142603589
 GameObject:
   m_ObjectHideFlags: 0
@@ -4625,6 +4626,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShootPipe
       objectReference: {fileID: 0}
+    - target: {fileID: 4105288979518457468, guid: a0e10285e75427842a9b4f5ba0598c81,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7784600988446110396, guid: a0e10285e75427842a9b4f5ba0598c81,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4722,6 +4728,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LeftArmCenter
+      objectReference: {fileID: 0}
+    - target: {fileID: 5766038309637096377, guid: ff835847cfc415140bcd8f2304337be2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6269392176965891633, guid: ff835847cfc415140bcd8f2304337be2,
         type: 3}
@@ -4997,6 +5008,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RightArmCenter
       objectReference: {fileID: 0}
+    - target: {fileID: 6524166242139802665, guid: b0f5a620a8505a54682ef4afb96b24ed,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0f5a620a8505a54682ef4afb96b24ed, type: 3}
 --- !u!1 &8683490894691494655 stripped
@@ -5030,6 +5046,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2841272308480026076}
     m_Modifications:
+    - target: {fileID: 569031211100775290, guid: 5e7a93b4ea55ba04891aec2e7d226ca9,
+        type: 3}
+      propertyPath: ship
+      value: 
+      objectReference: {fileID: 7595398177048142798}
     - target: {fileID: 6412105932991278352, guid: 5e7a93b4ea55ba04891aec2e7d226ca9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5089,6 +5110,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HookSystem
+      objectReference: {fileID: 0}
+    - target: {fileID: 8810464638673877027, guid: 5e7a93b4ea55ba04891aec2e7d226ca9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e7a93b4ea55ba04891aec2e7d226ca9, type: 3}
@@ -5726,7 +5752,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sonar
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8967545190497176165, guid: 51d213d06e37e094e8cab6b6faa4ad2c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4752427782958428197, guid: 51d213d06e37e094e8cab6b6faa4ad2c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 51d213d06e37e094e8cab6b6faa4ad2c, type: 3}
 --- !u!1 &1146604811936809056 stripped
 GameObject:

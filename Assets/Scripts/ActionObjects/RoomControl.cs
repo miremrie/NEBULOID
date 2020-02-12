@@ -10,6 +10,7 @@ public class RoomControl : ActionControl
     private const string activeAnimName = "RoomActionActivated";
     public ShipSystem shipSystem;
     public bool hasAssignedSystem = false;
+    private InputController repairingCharacter;
 
     public virtual bool IsActionObjectReady()
     {
@@ -35,18 +36,20 @@ public class RoomControl : ActionControl
 
     public override void DoAction(InputController controller)
     {
-        if (repairable.IsRepaired() && shipSystem.ReadyToUse())
+        if (hasAssignedSystem && repairable.IsRepaired() && shipSystem.ReadyToUse())
         {
             roomAnimator.SetBool(activeAnimName, true);
             shipSystem.DoAction();
         }
         else
         {
+            repairingCharacter = controller;
             repairable.StartRepairing();
         }
     }
 
-    public override void OnExitAction() {
-        repairable.StopRepairing();
+    public override void OnExitAction(InputController controller) {
+        if (repairingCharacter == controller)
+            repairable.StopRepairing();
     }
 }

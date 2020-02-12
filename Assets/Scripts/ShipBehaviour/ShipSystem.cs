@@ -6,10 +6,24 @@ public class ShipSystem : MonoBehaviour
 {
     public float cooldownTime = 1f;
     private Timer cooldownTimer;
+    protected bool initialized = false;
 
     protected virtual void Start()
     {
-        cooldownTimer = new Timer(cooldownTime);
+        Initialize();
+    }
+    public void Reinitialize()
+    {
+        initialized = false;
+        Initialize();
+    }
+    public virtual void Initialize()
+    {
+        if (!initialized)
+        {
+            cooldownTimer = new Timer(cooldownTime);
+            initialized = true;
+        }
     }
 
     protected virtual void Update()
@@ -29,6 +43,7 @@ public class ShipSystem : MonoBehaviour
 
     public virtual bool ReadyToUse()
     {
+
         return !cooldownTimer.IsRunning();
     }
 }

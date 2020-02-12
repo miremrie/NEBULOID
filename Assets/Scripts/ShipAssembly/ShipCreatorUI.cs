@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 [System.Serializable]
@@ -25,9 +26,20 @@ public class ShipCreatorUI : MonoBehaviour
     private List<SystemName> availableSystems = new List<SystemName>();
     public Color selectedTint, unusedTint, usedTint;
     public Text actionTitleText;
-    private string selectRoomTitle = "SELECT ROOM", selectSystemTitle = "SELECT SYSTEM", placeSystemTitle = "PLACE SYSTEM", finishedSystemTitle = "FINISHED";
+    private string selectRoomTitle = "SELECT ROOM";
+    private string selectSystemTitle = "SELECT SYSTEM";
+    private string placeSystemTitle = "PLACE SYSTEM";
+    private string finishedSystemTitle = "NO MORE";
+    private string enterShipNameTitle = "ENTER NAME";
     private GameObject currentPlacementSystem;
     public float placementRotSpeed = 10f;
+    public Text[] roomNameDisplayTable;
+    public Text[] systemNameDisplayTable;
+    public Color normalTextColor, currentlyPickingTextColor;
+    private int currentlyModifying = 0;
+    public InputField shipNameInputField;
+    //private bool reselectInputField = false;
+    public int minCharShipName = 3;
 
     private int currentlySelectedRoom;
 
@@ -42,7 +54,9 @@ public class ShipCreatorUI : MonoBehaviour
         {
             availableSystems.Add(system);
         }
-        ResetSelectedRoom();
+        shipNameInputField.onEndEdit.AddListener(OnShipNameEntered);
+        shipNameInputField.Select();
+        ChangeStage();
     }
 
     private void CheckForSecondInput()
@@ -58,6 +72,8 @@ public class ShipCreatorUI : MonoBehaviour
 
     private void Update()
     {
+        CheckForSecondInput();
+        CheckForFinishEditing();
         if (shipCreator.currentStage == CreationStage.SelectRoom)
         {
             HandleSelectRoom();
@@ -68,6 +84,21 @@ public class ShipCreatorUI : MonoBehaviour
         {
             HandlePlaceSystem();
         }
+        if (handler.GetEscapeKeyPressed())
+        {
+            SceneManager.LoadScene(0);
+        }
+        //ShouldReselectShipNameInput();
+    }
+
+    private void CheckForFinishEditing()
+    {
+        if (handler.GetSubActionPressed() 
+            && (shipCreator.currentStage == CreationStage.SelectRoom
+                || shipCreator.currentStage == CreationStage.Finished))
+        {
+            shipCreator.OnSaveShip();
+        }
     }
 
     private void HandlePlaceSystem()
@@ -75,10 +106,13 @@ public class ShipCreatorUI : MonoBehaviour
         if (handler.GetActionPressed())
         {
             shipCreator.OnSystemPlaced(currentPlacementSystem.transform.rotation.eulerAngles);
+            availableRooms[currentlySelectedRoom].alarmIndicator.SetActive(false);
+            availableRooms.RemoveAt(currentlySelectedRoom);
             if (!shipCreator.IsSystemAvailable(availableSystems[currentShipSystem]))
             {
                 availableSystems.RemoveAt(currentShipSystem);
             }
+            currentlyModifying++;
             ChangeStage();
             return;
         }
@@ -104,6 +138,7 @@ public class ShipCreatorUI : MonoBehaviour
         {
             shipCreator.OnSystemSelected(availableSystems[currentShipSystem]);
             currentPlacementSystem = shipCreator.CreateSampleSystem(availableSystems[currentShipSystem]);
+            ChangeSystemText(availableSystems[currentShipSystem], false);
             ChangeStage();
             return;
         }
@@ -119,6 +154,7 @@ public class ShipCreatorUI : MonoBehaviour
                 currentShipSystem = availableSystems.Count - 1;
             }
             shipCreator.ShowSystem(availableSystems[currentShipSystem]);
+            ChangeSystemText(availableSystems[currentShipSystem], true);
         }
     }
 
@@ -126,6 +162,8 @@ public class ShipCreatorUI : MonoBehaviour
     {
         currentShipSystem = 0;
         shipCreator.ShowSystem(availableSystems[currentShipSystem]);
+        ChangeSystemText(availableSystems[currentShipSystem], true);
+
     }
 
     private void ResetSelectedRoom()
@@ -133,6 +171,7 @@ public class ShipCreatorUI : MonoBehaviour
 
         currentlySelectedRoom = 0;
         availableRooms[currentlySelectedRoom].alarmIndicator.SetActive(true);
+        ChangeRoomText(availableRooms[currentlySelectedRoom].roomName, true);
     }
 
     private void HandleSelectRoom()
@@ -147,6 +186,7 @@ public class ShipCreatorUI : MonoBehaviour
         if (handler.GetActionPressed())
         {
             shipCreator.OnRoomSelected(availableRooms[currentlySelectedRoom].roomName);
+            ChangeRoomText(availableRooms[currentlySelectedRoom].roomName, false);
             ChangeStage();
             return;
         }
@@ -167,20 +207,23 @@ public class ShipCreatorUI : MonoBehaviour
                     currentlySelectedRoom = 0;
                 }
                 ChangeImageTint(availableRooms[currentlySelectedRoom].uiImage, selectedTint);
+                ChangeRoomText(availableRooms[currentlySelectedRoom].roomName, true);
                 availableRooms[currentlySelectedRoom].alarmIndicator.SetActive(true);
             }
         }
 
     }
 
+
     private void ChangeStage()
     {
         switch (shipCreator.currentStage)
         {
+            case (CreationStage.CreateName):
+                actionTitleText.text = enterShipNameTitle;
+                break;
             case (CreationStage.SelectRoom):
             {
-                availableRooms[currentlySelectedRoom].alarmIndicator.SetActive(false);
-                availableRooms.RemoveAt(currentlySelectedRoom);
                 ResetSelectedRoom();
                 actionTitleText.text = selectRoomTitle;
                 break;
@@ -216,8 +259,42 @@ public class ShipCreatorUI : MonoBehaviour
         return 0;
     }
 
+
+    private void ChangeRoomText(RoomName name, bool isBeingEdited = false)
+    {
+        roomNameDisplayTable[currentlyModifying].text = name.ToString();
+        roomNameDisplayTable[currentlyModifying].color = (isBeingEdited) ? currentlyPickingTextColor : normalTextColor;
+    }
+    private void ChangeSystemText(SystemName name, bool isBeingEdited = false)
+    {
+        systemNameDisplayTable[currentlyModifying].text = name.ToString();
+        systemNameDisplayTable[currentlyModifying].color = (isBeingEdited) ? currentlyPickingTextColor : normalTextColor;
+    }
+
     private void RegisterController()
     {
-        handler = new InputHandler("Hor" + primaryInput.ToString(), "Ver" + primaryInput.ToString(), "Action" + primaryInput.ToString());
+        handler = InputHandler.RegisterController(primaryInput);
     }
+
+    private void OnShipNameEntered(string name)
+    {
+        if (name.Length >= minCharShipName)
+        {
+            shipNameInputField.transform.parent.gameObject.SetActive(false);
+            shipCreator.SetShipName(name);
+            ChangeStage();
+        } else
+        {
+            shipNameInputField.Select();            
+        }
+    }
+
+    /*private void ShouldReselectShipNameInput()
+    {
+        if (reselectInputField)
+        {
+            reselectInputField = false;
+            shipNameInputField.Select();
+        }
+    }*/
 }

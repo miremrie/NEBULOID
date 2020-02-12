@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum InputControl
 {
-    Up, Down, Left, Right, Action
+    Up, Down, Left, Right, Action, SubAction
 }
 
 public class InputController : MonoBehaviour
@@ -25,6 +25,7 @@ public class InputController : MonoBehaviour
     private const string moveVerAnimName = "MoveVer";
     private int curMovementDirection = 0;
     public int altInput = -1;
+    public Game game;
 
     private Dictionary<InputControl, ActionControl> currentActions = new Dictionary<InputControl, ActionControl>();
 
@@ -41,6 +42,10 @@ public class InputController : MonoBehaviour
 
     private void Update()
     {
+        if (handler.GetEscapeKeyPressed())
+        {
+            game.GoBackToMenu();
+        }
         curMovementDirection = 0;
         if (playerActive)
         {
@@ -58,10 +63,6 @@ public class InputController : MonoBehaviour
         CheckForSecondInput();
     }
 
-    private void RegisterController()
-    {
-        handler = new InputHandler("Hor" + gamepadNumber.ToString(), "Ver" + gamepadNumber.ToString(), "Action" + gamepadNumber.ToString());
-    }
 
     private void MoveHor()
     {
@@ -104,6 +105,7 @@ public class InputController : MonoBehaviour
             ActionControl leavingActionControl = col.gameObject.GetComponent<ActionControl>();
             if (currentActions.ContainsKey(leavingActionControl.actionControl))
             {
+                leavingActionControl.OnExitAction(this);
                 currentActions.Remove(leavingActionControl.actionControl);
             }
         }
@@ -155,6 +157,11 @@ public class InputController : MonoBehaviour
         }
     }
 
+    private void RegisterController()
+    {
+        handler = InputHandler.RegisterController(gamepadNumber);
+    }
+
 }
 
 public class InputHandler
@@ -163,13 +170,19 @@ public class InputHandler
     private string horMovementKey;
     private string verMovementKey;
     private string actionKey;
+    private string subActionKey;
+    private string escapeKey;
     //private float deadZone = 0.1f;
+    public InputHandler()
+    {
 
-    public InputHandler(string horMovement, string verMovement, string action)
+    }
+    public InputHandler(string horMovement, string verMovement, string action, string subAction)
     {
         horMovementKey = horMovement;
         verMovementKey = verMovement;
         actionKey = action;
+        subActionKey = subAction;
     }
 
     public virtual int GetHorizontal()
@@ -195,6 +208,8 @@ public class InputHandler
                 return GetDownActionPressed();
             case (InputControl.Up):
                 return GetUpActionPressed();
+            case (InputControl.SubAction):
+                return GetSubActionPressed();
             default:
                 return false;
         }
@@ -211,5 +226,25 @@ public class InputHandler
     public bool GetActionPressed()
     {
         return Input.GetButtonDown(actionKey);
+    }
+    public bool GetSubActionPressed()
+    {
+        return Input.GetButtonDown(subActionKey);
+    }
+    public bool GetEscapeKeyPressed()
+    {
+        return Input.GetButtonDown(escapeKey);
+    }
+
+
+    public static InputHandler RegisterController(int gamepadNumber)
+    {
+        InputHandler handler = new InputHandler();
+        handler.actionKey = "Action" + gamepadNumber.ToString();
+        handler.subActionKey = "SubAction" + gamepadNumber.ToString();
+        handler.horMovementKey = "Hor" + gamepadNumber.ToString();
+        handler.verMovementKey = "Ver" + gamepadNumber.ToString();
+        handler.escapeKey = "EscAction" + gamepadNumber.ToString();
+        return handler;
     }
 }

@@ -10,7 +10,7 @@ public enum RoomName
 {
     F0, F1R, F2L, F2R, F3
 }
-
+[System.Serializable]
 public class ShipData
 {
     [SerializeField]
@@ -24,6 +24,38 @@ public class ShipData
     public void AddSysData(SystemData sysData)
     {
         systemDatas.Add(sysData);
+    }
+
+    public static ShipData GetDefaultShipData()
+    {
+        ShipData shipData = new ShipData();
+        shipData.shipName = "NEBULOID";
+        //Sonar;
+        SystemData F0Data = new SystemData(Vector3.zero, Quaternion.identity, SystemName.Sonar, RoomName.F0);
+        //Gun
+        SystemData F1RData = new SystemData(Vector3.zero, Quaternion.identity, SystemName.Gun, RoomName.F1R);
+        //RightArm
+        SystemData F2RData = new SystemData(Vector3.zero, Quaternion.identity, SystemName.RightArm, RoomName.F2R);
+        //LeftArm
+        SystemData F2LData = new SystemData(Vector3.zero, Quaternion.identity, SystemName.LeftArm, RoomName.F2L);
+        //Hook
+        SystemData HookData = new SystemData(Vector3.zero, Quaternion.identity, SystemName.Hook, RoomName.F3);
+
+        shipData.systemDatas.Add(F0Data);
+        shipData.systemDatas.Add(F1RData);
+        shipData.systemDatas.Add(F2RData);
+        shipData.systemDatas.Add(F2LData);
+        shipData.systemDatas.Add(HookData);
+
+        return shipData;
+    }
+
+    public void FillEmptyData()
+    {
+        foreach (SystemData sysData in systemDatas)
+        {
+            sysData.FillEmptyData();
+        }
     }
 }
 
@@ -42,10 +74,10 @@ public class SystemData
 
     }
 
-    public SystemData(string shipName, Transform systemRoot, SystemName system, RoomName room)
+    public SystemData(Vector3 pos, Quaternion rot, SystemName system, RoomName room)
     {
-        this.rotation = SplitVector(systemRoot.rotation.eulerAngles);
-        this.position = SplitVector(systemRoot.position);
+        this.rotation = SplitVector(pos);
+        this.position = SplitVector(rot.eulerAngles);
         this.system = system;
         this.room = room;
     }
@@ -70,5 +102,17 @@ public class SystemData
     public Vector3 GetPosition()
     {
         return new Vector3(position[0], position[1], position[2]);
+    }
+
+    public void FillEmptyData()
+    {
+        if (rotation == null)
+        {
+            rotation = SplitVector(Quaternion.identity.eulerAngles);
+        }
+        if (position == null)
+        {
+            position = SplitVector(Vector3.zero);
+        }
     }
 }

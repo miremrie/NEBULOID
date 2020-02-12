@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public Camera camera;
+    public Camera mainCam;
     public float standardSize;
     public AnimationCurve sizeOverTimeCurve;
     public AnimationCurve revertingSizeCurve;
@@ -21,7 +21,7 @@ public class CameraController : MonoBehaviour
         if(changingSize)
         {
             animTimer.Update(Time.deltaTime);
-            camera.orthographicSize = standardSize + sizeOverTimeCurve.Evaluate(animTimer.GetCurrentTimePercent()) * dstStandardSizeMultiplier;
+            mainCam.orthographicSize = standardSize + sizeOverTimeCurve.Evaluate(animTimer.GetCurrentTimePercent()) * dstStandardSizeMultiplier;
             if (animTimer.GetCurrentTimePercent() >= 1f)
             {
                 changingSize = false;
@@ -32,11 +32,11 @@ public class CameraController : MonoBehaviour
             animTimer.Update(Time.deltaTime);
             if (animTimer.GetCurrentTimePercent() >= 1f)
             {
-                camera.orthographicSize = standardSize;
+                mainCam.orthographicSize = standardSize;
                 revertingSize = false;
                 callback();
             }
-            camera.orthographicSize = standardSize + sizeOverTimeCurve.Evaluate(1 - animTimer.GetCurrentTimePercent()) * dstStandardSizeMultiplier;
+            mainCam.orthographicSize = standardSize + sizeOverTimeCurve.Evaluate(1 - animTimer.GetCurrentTimePercent()) * dstStandardSizeMultiplier;
         }
     }
 

@@ -15,10 +15,13 @@ public class ShipSonarSystem : ShipSystem
     public float camZoomTime;
     public AudioController audioController;
 
-    protected override void Start()
+    public override void Initialize()
     {
-        base.Start();
-        sonarMoveTimer = new Timer(sonarMoveTime);
+        if (!initialized)
+        {
+            base.Initialize();
+            sonarMoveTimer = new Timer(sonarMoveTime);
+        }
     }
 
     protected override void Update()

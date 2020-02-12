@@ -10,7 +10,7 @@ public class ActionControl : MonoBehaviour
     {
     }
 
-    public virtual void OnExitAction()
+    public virtual void OnExitAction(InputController controller)
     {
     }
 }

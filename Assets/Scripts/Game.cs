@@ -33,6 +33,8 @@ public class Game : MonoBehaviour
 
     public GameObject explosionParticle;
 
+    public InputHandler firstPlayerHandler;
+
 
     public AudioController audioController;
 
@@ -164,5 +166,10 @@ public class Game : MonoBehaviour
             RestartGame();
         }
 
+    }
+
+    public void GoBackToMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }

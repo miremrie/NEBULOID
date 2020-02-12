@@ -5,7 +5,7 @@ using UnityEngine;
 public class ScreenShake : MonoBehaviour
 {
     // Transform of the GameObject you want to shake
-    private Transform transform;
+    private Transform shakeTransform;
 
     // Desired duration of the shake effect
     private float shakeDuration = 0f;
@@ -22,15 +22,15 @@ public class ScreenShake : MonoBehaviour
 
     void Awake()
     {
-        if (transform == null)
+        if (shakeTransform == null)
         {
-            transform = GetComponent(typeof(Transform)) as Transform;
+            shakeTransform = this.transform;
         }
     }
 
     void OnEnable()
     {
-        initialPosition = transform.localPosition;
+        initialPosition = shakeTransform.localPosition;
     }
 
     public void TriggerShake(float duration)
@@ -43,14 +43,14 @@ public class ScreenShake : MonoBehaviour
     {
         if (shakeDuration > 0)
         {
-            transform.localPosition = initialPosition + Random.insideUnitSphere * shakeMagnitude;
+            shakeTransform.localPosition = initialPosition + Random.insideUnitSphere * shakeMagnitude;
 
             shakeDuration -= Time.deltaTime * dampingSpeed;
         }
         else
         {
             shakeDuration = 0f;
-            transform.localPosition = initialPosition;
+            shakeTransform.localPosition = initialPosition;
         }
     }
 }

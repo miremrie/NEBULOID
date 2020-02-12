@@ -5,7 +5,7 @@ using UnityEngine;
 public class ParalaxTexture : MonoBehaviour
 {
     // Start is called before the first frame update
-    float scrollSpeed = 0.5f;
+    //float scrollSpeed = 0.5f;
     Renderer rend;
     public float factor;
 

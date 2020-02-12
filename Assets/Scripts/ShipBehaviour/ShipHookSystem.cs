@@ -23,11 +23,15 @@ public class ShipHookSystem : ShipSystem
     private const string hookCloseAnim = "HookClose";
     private const string hookGrabAnim = "HookGrab";
 
-    private void Awake()
+    public override void Initialize()
     {
-        direction = (origin.position - ship.transform.position).normalized;
-        direction.z = 0;
-        hookOpenTimer = new Timer(hookOpenAnimationTime);
+        if (!initialized)
+        {
+            base.Initialize();
+            direction = (origin.position - ship.transform.position).normalized;
+            direction.z = 0;
+            hookOpenTimer = new Timer(hookOpenAnimationTime);
+        }
     }
 
     protected override void Update()
@@ -43,7 +47,7 @@ public class ShipHookSystem : ShipSystem
         {
             if (!retracting)
             {
-                transform.Translate(direction * fireSpeed * Time.deltaTime);
+                transform.position = transform.position + (direction * fireSpeed * Time.deltaTime);
                 if (Vector3.Distance(transform.position, origin.position) >= maxDistance)
                 {
                     retracting = true;
@@ -52,7 +56,7 @@ public class ShipHookSystem : ShipSystem
             } else if (hitSomething)
             {
                 Vector3 keepPosition = this.transform.position;
-                ship.transform.Translate(shipDirection * shipPullSpeed * Time.deltaTime);
+                ship.transform.position = ship.transform.position + (shipDirection * shipPullSpeed * Time.deltaTime);
                 this.transform.position = keepPosition;
                 if (Vector3.Distance(transform.position, origin.position) <= minDistance)
                 {
@@ -60,7 +64,7 @@ public class ShipHookSystem : ShipSystem
                 }
             } else
             {
-                transform.Translate(-direction * retractSpeed * Time.deltaTime);
+                transform.position = transform.position + (-direction * retractSpeed * Time.deltaTime);
                 if (Vector3.Distance(transform.position, origin.position) <= minDistance)
                 {
                     ResetHook();
@@ -93,16 +97,20 @@ public class ShipHookSystem : ShipSystem
 
     public override void DoAction()
     {
-        wasShot = true;
-        ship.LockShip();
-        hookOpenTimer.Start();
-        hookAnimator.ResetTrigger(hookCloseAnim);
-        hookAnimator.ResetTrigger(hookGrabAnim);
-        hookAnimator.SetTrigger(hookOpenAnim);
+        if (!ship.AreHooksLocked())
+        {
+            direction = (origin.transform.position - ship.transform.position).normalized;
+            wasShot = true;
+            ship.LockShip();
+            hookOpenTimer.Start();
+            hookAnimator.ResetTrigger(hookCloseAnim);
+            hookAnimator.ResetTrigger(hookGrabAnim);
+            hookAnimator.SetTrigger(hookOpenAnim);
+        }
     }
 
     public bool IsReady()
     {
-        return !wasShot;
+        return !wasShot && !ship.AreHooksLocked();
     }
 }

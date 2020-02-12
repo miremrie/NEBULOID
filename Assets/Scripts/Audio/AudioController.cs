@@ -12,7 +12,7 @@ public class AudioController : MonoBehaviour
     public float sonarHighPassDst;
     private float regularHighPass = 0;
     private Timer sonarTimer;
-    private bool deathLowPassActive = false;
+    //private bool deathLowPassActive = false;
     private float normalLowPass = 20000;
     private float sonarLowPassAtStart;
     private const string gameplayLowpass = "GameplayLowpass";
@@ -81,7 +81,7 @@ public class AudioController : MonoBehaviour
     
     public void ActivateNormalLowpass()
     {
-        deathLowPassActive = false;
+        //deathLowPassActive = false;
         audioMixer.SetFloat(gameplayLowpass, normalLowPass);
     }
 

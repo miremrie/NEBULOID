@@ -1,28 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum CreationStage
 {
-    SelectRoom, SelectSystem, PlaceSystem, Finished
+    CreateName, SelectRoom, SelectSystem, PlaceSystem, Finished
 }
 
 public class ShipCreator : MonoBehaviour
 {
     public ShipAssembler shipAssembler;
     [SerializeField]
-    public ShipData shipData;
-    public CreationStage currentStage = CreationStage.SelectRoom;
+    public ShipData shipData = new ShipData();
+    public CreationStage currentStage = CreationStage.CreateName;
     private SystemData curSysData;
 
     private void Start()
     {
-        shipData = new ShipData();
+
     }
 
     public void SetShipName(string name)
     {
         shipData.shipName = name;
+        currentStage = CreationStage.SelectRoom;
     }
 
     public void OnRoomSelected(RoomName name)
@@ -104,5 +106,12 @@ public class ShipCreator : MonoBehaviour
             }
         }
         return null;
+    }
+
+    public void OnSaveShip()
+    {
+        shipData.FillEmptyData();
+        SaveSystem.SaveSingleShip(shipData, true);
+        SceneManager.LoadScene(0);
     }
 }

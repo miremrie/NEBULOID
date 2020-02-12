@@ -12,11 +12,7 @@ public class ShipMovement : MonoBehaviour
     public ArmAudioController armAudioController;
     private bool movementLocked = false;
     private List<ShipArmSystem> armSystems = new List<ShipArmSystem>();
-
-
-    void Start()
-    {
-    }
+    private bool hooksLocked = false;
 
     void Update()
     {
@@ -60,7 +56,7 @@ public class ShipMovement : MonoBehaviour
                 movementVec = -1 * movementVec.normalized;
                 ship.Translate(movementVec * moveSpeed * Time.deltaTime, Space.World);
             }
-
+            hooksLocked = currentlyRunning >= 1;
             /*if (leftTimer.IsRunning() && rightTimer.IsRunning())
             {
                 ship.Translate(ship.up * moveSpeed * Time.deltaTime, Space.World);
@@ -94,6 +90,14 @@ public class ShipMovement : MonoBehaviour
     public void LockShip()
     {
         movementLocked = true;
+    }
+    public bool IsShipLocked()
+    {
+        return movementLocked;
+    }
+    public bool AreHooksLocked()
+    {
+        return hooksLocked || movementLocked;
     }
 
     public void UnlockShip()
