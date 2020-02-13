@@ -398,7 +398,7 @@ GameObject:
   - component: {fileID: 1077498392}
   - component: {fileID: 1077498391}
   m_Layer: 8
-  m_Name: CharacterNewWrap
+  m_Name: Char 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -431,15 +431,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f57f5880138b97e4fb41358d943b78a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  game: {fileID: 0}
   playerNumber: 0
-  playerActive: 0
   gamepadNumber: 3
+  altInput: 1
   speed: 0.5
-  destinationReachedDistance: 0.05
-  destMoveSpeed: 1
+  fixedMoveDstMinOffset: 0.01
+  fixedMoveSpeed: 1
   animator: {fileID: 884472260}
   charSpriteRenderer: {fileID: 5960000070944976444}
-  altInput: 1
 --- !u!61 &1077498392
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1045,7 +1045,7 @@ GameObject:
   - component: {fileID: 2138062717}
   - component: {fileID: 2138062716}
   m_Layer: 8
-  m_Name: CharacterNewWrap 2
+  m_Name: Char 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1078,15 +1078,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f57f5880138b97e4fb41358d943b78a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  game: {fileID: 0}
   playerNumber: 1
-  playerActive: 0
   gamepadNumber: 0
+  altInput: 2
   speed: 0.5
-  destinationReachedDistance: 0.05
-  destMoveSpeed: 1
+  fixedMoveDstMinOffset: 0.01
+  fixedMoveSpeed: 1
   animator: {fileID: 914102495}
   charSpriteRenderer: {fileID: 266123556226891833}
-  altInput: 2
 --- !u!61 &2138062717
 BoxCollider2D:
   m_ObjectHideFlags: 0

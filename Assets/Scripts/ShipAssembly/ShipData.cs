@@ -104,6 +104,21 @@ public class SystemData
         return new Vector3(position[0], position[1], position[2]);
     }
 
+    public void SetRotation(Quaternion rotation)
+    {
+        this.rotation = SplitVector(rotation.eulerAngles);
+    }
+
+    public void SetRotationEuler(Vector3 eulerRotation)
+    {
+        this.rotation = SplitVector(eulerRotation);
+    }
+
+    public void SetPosition(Vector3 position)
+    {
+        this.position = SplitVector(position);
+    }
+
     public void FillEmptyData()
     {
         if (rotation == null)
@@ -114,5 +129,13 @@ public class SystemData
         {
             position = SplitVector(Vector3.zero);
         }
+    }
+
+    public static SystemData GetDefaultSystemData()
+    {
+        SystemData sysData = new SystemData();
+        sysData.position = SplitVector(Vector3.zero);
+        sysData.rotation = SplitVector(Quaternion.identity.eulerAngles);
+        return sysData;
     }
 }

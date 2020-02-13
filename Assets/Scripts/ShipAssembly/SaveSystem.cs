@@ -12,10 +12,24 @@ public class AllSaveData
 
     public static AllSaveData GetDefaultSaveData()
     {
-        AllSaveData allSaveData = new AllSaveData();
-        allSaveData.shipData.Add(ShipData.GetDefaultShipData());
-        allSaveData.currentShipID = 0;
-        return allSaveData;
+        return LoadDefaultSaveData();
+    }
+
+    private static AllSaveData LoadDefaultSaveData()
+    {
+        AllSaveDataSO allSaveDataSO = Resources.Load<AllSaveDataSO>("DefaultSaveData");
+        if (allSaveDataSO != null)
+        {
+            return allSaveDataSO.GetSaveData();
+        } else
+        {
+            Debug.LogError("DefaultSaveData not found!");
+            AllSaveData allSaveData = new AllSaveData();
+            allSaveData.shipData.Add(ShipData.GetDefaultShipData());
+            allSaveData.currentShipID = 0;
+            return allSaveData;
+        }
+
     }
     
 }
