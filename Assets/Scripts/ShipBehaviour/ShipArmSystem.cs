@@ -41,4 +41,9 @@ public class ShipArmSystem : ShipSystem
         moveTimer.StartDelayed(moveDelayTime);
         shipMovement.Rotate(isLeft);
     }
+
+    public override bool ReadyToUse()
+    {
+        return base.ReadyToUse() && !shipMovement.IsShipLocked();
+    }
 }

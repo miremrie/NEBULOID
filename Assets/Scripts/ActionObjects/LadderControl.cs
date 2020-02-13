@@ -6,8 +6,8 @@ public class LadderControl : ActionControl
 {
     public Transform otherSide;
 
-    public override void DoAction(InputController controller)
+    public override void DoAction(CharController controller)
     {
-        controller.MoveUpTo(otherSide);
+        controller.FixedMoveTo(otherSide);
     }
 }

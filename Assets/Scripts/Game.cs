@@ -72,7 +72,7 @@ public class Game : MonoBehaviour
         {
             audioController.PlayDeath();
             dead = true;
-            FindObjectsOfType<InputController>().ToList().ForEach(x => x.enabled = false);
+            FindObjectsOfType<CharController>().ToList().ForEach(x => x.enabled = false);
             ShowGameOverScreen();
             audioController.ActivateDeathLowPass();
         }

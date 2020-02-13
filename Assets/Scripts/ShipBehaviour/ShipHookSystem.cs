@@ -109,8 +109,8 @@ public class ShipHookSystem : ShipSystem
         }
     }
 
-    public bool IsReady()
+    public override bool ReadyToUse()
     {
-        return !wasShot && !ship.AreHooksLocked();
+        return base.ReadyToUse() && !wasShot && !ship.AreHooksLocked();
     }
 }
