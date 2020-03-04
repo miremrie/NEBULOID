@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using NBLD.UI;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,13 +12,14 @@ public class Repairable : MonoBehaviour
     public ParticleSystem smoke;
     public Game game;
     public GameObject alarmIndicator;
-    public Transform GuiPivot;
+    public MaskedSlider maskedSlider;
 
     void Start()
     {
         repairing = false;
         alarmIndicator.SetActive(false);
         RepairedAmount = 1f;
+        maskedSlider.Initalize(0, 1);
     }
 
 
@@ -38,8 +40,10 @@ public class Repairable : MonoBehaviour
         if (!IsRepaired() && repairing) {
 
             RepairedAmount += repairSpeed * Time.deltaTime;
-
+            maskedSlider.Show();
+            maskedSlider.UpdateValue(1 - RepairedAmount);
             if (IsRepaired()) {
+                maskedSlider.Hide();
                 // on repaired do once
                 StopRepairing();
                 alarmIndicator.SetActive(false);
@@ -51,8 +55,11 @@ public class Repairable : MonoBehaviour
 
     public void TakeDamage(float percent)
     {
+        maskedSlider.Show();
+
         alarmIndicator.SetActive(true);
         RepairedAmount = Mathf.Max(RepairedAmount - percent, 0);
+        maskedSlider.UpdateValue(1 - RepairedAmount);
         if (smoke != null) smoke.Play();
     }
 }

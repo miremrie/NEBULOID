@@ -119,37 +119,6 @@ public class Game : MonoBehaviour
         audioController.StopAlarm();
     }
 
-    void OnGUI() {
-        // Repairables 
-
-        foreach (var r in repairables)
-        {
-
-            if (r.IsRepaired()) continue;
-            //var width = 60;
-
-            var pos = Camera.main.WorldToScreenPoint(r.GuiPivot.position);
-            var gPos = GUIUtility.ScreenToGUIPoint(pos);
-            gPos = new Vector2(gPos.x - healthWidth * 0.5f, Screen.height - gPos.y + guiOffset);
-            //Debug.Log($"repairable {gPos} {r.RepairedAmount}");
-            var damageAmount = 1 - r.RepairedAmount;
-            OnGUIHealth(gPos, new Vector2(healthWidth, healthHeight), damageAmount);
-        }
-    }
-
-    void OnGUIHealth(Vector2 pos, Vector2 size, float amount)
-    {
-        //draw the background:
-        GUI.BeginGroup(new Rect(pos.x, pos.y, size.x, size.y));
-        GUI.Box(new Rect(0, 0, size.x, size.y), emptyTex, progress_empty);
-
-        //draw the filled-in part:
-        GUI.BeginGroup(new Rect(0, 0, size.x, size.y * amount));
-        GUI.Box(new Rect(0, 0, size.x, size.y), fullTex, progress_full);
-        GUI.EndGroup();
-        GUI.EndGroup();
-    }
-
     public float GetCurrentFuel()
     {
         return currentFuel;
