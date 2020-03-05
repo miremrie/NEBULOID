@@ -2044,6 +2044,11 @@ PrefabInstance:
       propertyPath: maskedSlider
       value: 
       objectReference: {fileID: 5909370943800959770}
+    - target: {fileID: 5884939723386686929, guid: 835fe173342e2294ea00455a759b69ed,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7595398177048142792, guid: 835fe173342e2294ea00455a759b69ed,
         type: 3}
       propertyPath: m_Name
@@ -2105,6 +2110,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7595398177048142799, guid: 835fe173342e2294ea00455a759b69ed,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291953508653586658, guid: 835fe173342e2294ea00455a759b69ed,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291953508653586658, guid: 835fe173342e2294ea00455a759b69ed,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291953508653586658, guid: 835fe173342e2294ea00455a759b69ed,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0

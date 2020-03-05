@@ -1437,7 +1437,7 @@ MonoBehaviour:
   smoke: {fileID: 2600621377682209256}
   game: {fileID: 0}
   alarmIndicator: {fileID: 6366451464509612826}
-  GuiPivot: {fileID: 1215074539787467443}
+  maskedSlider: {fileID: 0}
 --- !u!114 &3973760645433340447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2506,7 +2506,7 @@ MonoBehaviour:
   smoke: {fileID: 2322393881038813444}
   game: {fileID: 0}
   alarmIndicator: {fileID: 3680691958620557618}
-  GuiPivot: {fileID: 1972962844}
+  maskedSlider: {fileID: 0}
 --- !u!114 &4033421824343673622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2602,7 +2602,7 @@ MonoBehaviour:
   smoke: {fileID: 2322393881969966588}
   game: {fileID: 0}
   alarmIndicator: {fileID: 8399191953544852190}
-  GuiPivot: {fileID: 663935358}
+  maskedSlider: {fileID: 0}
 --- !u!114 &4121705824966679407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2834,7 +2834,7 @@ MonoBehaviour:
   smoke: {fileID: 2322393882359043035}
   game: {fileID: 0}
   alarmIndicator: {fileID: 2888506338149895753}
-  GuiPivot: {fileID: 370983850}
+  maskedSlider: {fileID: 0}
 --- !u!114 &3181099757117191682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3056,7 +3056,7 @@ MonoBehaviour:
   smoke: {fileID: 2322393881523537165}
   game: {fileID: 0}
   alarmIndicator: {fileID: 5719310780919103684}
-  GuiPivot: {fileID: 1713387172}
+  maskedSlider: {fileID: 0}
 --- !u!114 &1950990434551381005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3949,6 +3949,8 @@ MonoBehaviour:
   moveSpeed: 1.5
   shipInterior: {fileID: 5625323299494419787}
   armAudioController: {fileID: 0}
+  hookLocked: 0
+  movementLocked: 0
 --- !u!114 &763311237520578848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5051,6 +5053,62 @@ PrefabInstance:
       propertyPath: ship
       value: 
       objectReference: {fileID: 7595398177048142798}
+    - target: {fileID: 2895456638479926242, guid: 5e7a93b4ea55ba04891aec2e7d226ca9,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2895456638479926242, guid: 5e7a93b4ea55ba04891aec2e7d226ca9,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2895456638479926242, guid: 5e7a93b4ea55ba04891aec2e7d226ca9,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2895456638479926242, guid: 5e7a93b4ea55ba04891aec2e7d226ca9,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2895456638479926242, guid: 5e7a93b4ea55ba04891aec2e7d226ca9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4647238081458097308, guid: 5e7a93b4ea55ba04891aec2e7d226ca9,
+        type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4647238081458097308, guid: 5e7a93b4ea55ba04891aec2e7d226ca9,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: adaa61db1dcd9df44ad34d261718e701,
+        type: 3}
+    - target: {fileID: 4647238081458097308, guid: 5e7a93b4ea55ba04891aec2e7d226ca9,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5440417983255435601, guid: 5e7a93b4ea55ba04891aec2e7d226ca9,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5440417983255435601, guid: 5e7a93b4ea55ba04891aec2e7d226ca9,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5440417983255435601, guid: 5e7a93b4ea55ba04891aec2e7d226ca9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6412105932991278352, guid: 5e7a93b4ea55ba04891aec2e7d226ca9,
         type: 3}
       propertyPath: m_LocalPosition.x

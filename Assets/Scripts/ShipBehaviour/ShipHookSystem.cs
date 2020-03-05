@@ -9,14 +9,14 @@ public class ShipHookSystem : ShipSystem
     public float shipPullSpeed;
     public float maxDistance;
     private float minDistance = 0.1f;
-    public Transform origin;
+    public Transform shipCenterOrigin;
+    public Transform hookOrigin;
     public ShipMovement ship;
-    private Vector3 direction;
     bool wasShot = false;
     bool retracting = false;
     bool hitSomething = false;
-    Vector3 shipDirection;
     private Timer hookOpenTimer;
+    private Quaternion systemRotWhenFired, hookRotWhenFired;
     public float hookOpenAnimationTime = 1f;
 
     private const string hookOpenAnim = "HookOpen";
@@ -28,8 +28,6 @@ public class ShipHookSystem : ShipSystem
         if (!initialized)
         {
             base.Initialize();
-            direction = (origin.position - ship.transform.position).normalized;
-            direction.z = 0;
             hookOpenTimer = new Timer(hookOpenAnimationTime);
         }
     }
@@ -45,27 +43,28 @@ public class ShipHookSystem : ShipSystem
         hookOpenTimer.Update(Time.deltaTime);
         if (wasShot && !hookOpenTimer.IsRunning())
         {
-            if (!retracting)
+            AdjustRotation();
+            if (!retracting) //Hook flying
             {
-                transform.position = transform.position + (direction * fireSpeed * Time.deltaTime);
-                if (Vector3.Distance(transform.position, origin.position) >= maxDistance)
+                transform.position = transform.position + (GetDirFromBase() * fireSpeed * Time.deltaTime);
+                if (Vector3.Distance(transform.position, hookOrigin.position) >= maxDistance)
                 {
                     retracting = true;
                     hookAnimator.SetTrigger(hookCloseAnim);
                 }
-            } else if (hitSomething)
+            } else if (hitSomething) //Pull ship to hook
             {
                 Vector3 keepPosition = this.transform.position;
-                ship.transform.position = ship.transform.position + (shipDirection * shipPullSpeed * Time.deltaTime);
+                ship.transform.position = ship.transform.position + (GetDirFromBase() * shipPullSpeed * Time.deltaTime);
                 this.transform.position = keepPosition;
-                if (Vector3.Distance(transform.position, origin.position) <= minDistance)
+                if (Vector3.Distance(transform.position, hookOrigin.position) <= minDistance)
                 {
                     ResetHook();
                 }
-            } else
+            } else //Hook retracting
             {
-                transform.position = transform.position + (-direction * retractSpeed * Time.deltaTime);
-                if (Vector3.Distance(transform.position, origin.position) <= minDistance)
+                transform.position = transform.position + (-GetDirFromBase() * retractSpeed * Time.deltaTime);
+                if (Vector3.Distance(transform.position, hookOrigin.position) <= minDistance)
                 {
                     ResetHook();
                 }
@@ -73,25 +72,33 @@ public class ShipHookSystem : ShipSystem
         }
     }
 
+    private void AdjustRotation()
+    {
+        //hookOrigin.rotation
+        //transform.rotation = hookRotWhenFired;
+        shipCenterOrigin.rotation = systemRotWhenFired;
+    }
+
     private void ResetHook()
     {
-        transform.position = origin.position;
+        transform.position = hookOrigin.position;
         wasShot = false;
         retracting = false;
         hitSomething = false;
         hookAnimator.SetTrigger(hookCloseAnim);
-        ship.UnlockShip();
+        ship.UnlockHook();
+        ship.UnlockMovement();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!retracting && collision.CompareTag(Tags.OBSTACLE))
+        if (wasShot && !retracting && collision.CompareTag(Tags.OBSTACLE))
         {
 
             hitSomething = true;
             retracting = true;
-            shipDirection = direction;
             hookAnimator.SetTrigger(hookGrabAnim);
+            ship.LockMovement();
         }
     }
 
@@ -99,14 +106,20 @@ public class ShipHookSystem : ShipSystem
     {
         if (!ship.AreHooksLocked())
         {
-            direction = (origin.transform.position - ship.transform.position).normalized;
+            systemRotWhenFired = shipCenterOrigin.rotation;
+            hookRotWhenFired = transform.rotation;
             wasShot = true;
-            ship.LockShip();
+            ship.LockHook();
             hookOpenTimer.Start();
             hookAnimator.ResetTrigger(hookCloseAnim);
             hookAnimator.ResetTrigger(hookGrabAnim);
             hookAnimator.SetTrigger(hookOpenAnim);
         }
+    }
+
+    private Vector3 GetDirFromBase()
+    {
+        return (hookOrigin.transform.position - ship.transform.position).normalized;
     }
 
     public override bool ReadyToUse()

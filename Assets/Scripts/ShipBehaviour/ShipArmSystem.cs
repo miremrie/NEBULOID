@@ -44,6 +44,6 @@ public class ShipArmSystem : ShipSystem
 
     public override bool ReadyToUse()
     {
-        return base.ReadyToUse() && !shipMovement.IsShipLocked();
+        return base.ReadyToUse() && !shipMovement.IsShipMovementLocked();
     }
 }
