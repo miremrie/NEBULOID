@@ -1,0 +1,106 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bbdfae9287c5d54baacb496cd3c003a, type: 3}
+  m_Name: AkWwiseProjectData
+  m_EditorClassIdentifier: 
+  AcousticTextureWwu:
+  - PhysicalPath: Virtual Acoustics\Default Work Unit.wwu
+    ParentPath: Default Work Unit
+    guid: 8e0095d82626bd49b52f6b491c00e6d0
+    GuidInternal: 
+    m_lastTime: -8586180329479214038
+    List: []
+  AuxBusWwu:
+  - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
+    ParentPath: Default Work Unit
+    guid: e7d3747a64799c47a2d6f5b9ddeab36a
+    GuidInternal: 
+    m_lastTime: -8586180329479094140
+    List:
+    - name: Master Audio Bus
+      guid: d8a41415a61d2a41a17e75ca0c2149f3
+      id: 3803692087
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+      Path: Default Work Unit\Master Audio Bus
+  BankWwu:
+  - PhysicalPath: SoundBanks\Default Work Unit.wwu
+    ParentPath: Default Work Unit
+    guid: bd999b8dad637f45917793b0e20362cb
+    GuidInternal: 
+    m_lastTime: -8586180210461128860
+    List:
+    - name: Default
+      guid: a5e3873e1289a74a9f54a7ab1a7ee310
+      id: 782826392
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Default
+        ObjectType: 7
+      Path: Default Work Unit\Default
+  EventWwu:
+  - PhysicalPath: Events\Default Work Unit.wwu
+    ParentPath: Default Work Unit
+    guid: 8e8fc2d5bfaacf4f92fdf483cd07cba9
+    GuidInternal: 
+    m_lastTime: -8586180211800238602
+    List:
+    - name: Menu_Music
+      guid: 8b1fa05377f1304e8d09d44fd595cba8
+      id: 4055567060
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Menu_Music
+        ObjectType: 3
+      Path: Default Work Unit\Menu_Music
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+  RtpcWwu:
+  - PhysicalPath: Game Parameters\Default Work Unit.wwu
+    ParentPath: Default Work Unit
+    guid: 98ae5790858eda4ab4bc84449375c967
+    GuidInternal: 
+    m_lastTime: -8586180329480043694
+    List: []
+  StateWwu:
+  - PhysicalPath: States\Default Work Unit.wwu
+    ParentPath: Default Work Unit
+    guid: 9f25bccb9420d449bb3ad4100845c8ff
+    GuidInternal: 
+    m_lastTime: -8586180329479464029
+    List: []
+  SwitchWwu:
+  - PhysicalPath: Switches\Default Work Unit.wwu
+    ParentPath: Default Work Unit
+    guid: 3fd3c2bfe0a79341a8fed3c6dcfda912
+    GuidInternal: 
+    m_lastTime: -8586180329480143590
+    List: []
+  TriggerWwu:
+  - PhysicalPath: Triggers\Default Work Unit.wwu
+    ParentPath: Default Work Unit
+    guid: 2cd318c5e8e3b941b25eec3444187fbc
+    GuidInternal: 
+    m_lastTime: -8586180329479583961
+    List: []
+  ExpandedItems:
+  - /NEBULOID_WwiseProject
+  - /NEBULOID_WwiseProject/SoundBanks
+  - /NEBULOID_WwiseProject/SoundBanks/Default Work Unit
+  autoPopulateEnabled: 1
+  CurrentPluginConfig: 

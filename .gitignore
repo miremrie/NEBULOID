@@ -60,3 +60,11 @@ sysinfo.txt
 
 # Crashlytics generated file
 crashlytics-build.properties
+
+# WWise
+/NEBULOID_WwiseProject/.cache/
+/NEBULOID_WwiseProject/.backup/
+*.wem
+*.akd
+*.prof
+*.validationcache
