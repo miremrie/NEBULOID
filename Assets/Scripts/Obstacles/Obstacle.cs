@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
-    public static AudioController audioController;
+    public static ShipAudioController audioController;
     public float Damage { get; set; }
 
     void OnTriggerEnter2D(Collider2D col)

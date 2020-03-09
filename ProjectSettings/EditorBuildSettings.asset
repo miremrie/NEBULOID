@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 261a2b3487d4e5740a836836afb134e8
   - enabled: 1
-    path: Assets/Scenes/HookScene.unity
+    path: Assets/Scenes/ArcadeLevel.unity
     guid: 5d4d491dc794e17429a63ed57feeca49
   - enabled: 1
     path: Assets/Scenes/AssemblyScene.unity

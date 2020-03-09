@@ -9,7 +9,7 @@ public class ShipMovement : MonoBehaviour
     public float rotateSpeed;
     public float moveSpeed;
     public Transform shipInterior;
-    public ArmAudioController armAudioController;
+    public ShipAudioController audioController;
     public bool hookLocked = false;
     private List<ShipArmSystem> armSystems = new List<ShipArmSystem>();
     public bool movementLocked;
@@ -68,11 +68,11 @@ public class ShipMovement : MonoBehaviour
     {
         if (left)
         {
-            armAudioController.PlayLeftArm();
+            audioController.PlayLeftArm();
         }
         else
         {
-            armAudioController.PlayRightArm();
+            audioController.PlayRightArm();
         }
     }
 

@@ -36,7 +36,7 @@ public class Game : MonoBehaviour
     public InputHandler firstPlayerHandler;
 
 
-    public AudioController audioController;
+    public ShipAudioController audioController;
 
     void Start()
     {
@@ -70,7 +70,7 @@ public class Game : MonoBehaviour
         }
         if (currentFuel < 0 && !dead)
         {
-            audioController.PlayDeath();
+            audioController.PlayGameOver();
             dead = true;
             FindObjectsOfType<CharController>().ToList().ForEach(x => x.enabled = false);
             ShowGameOverScreen();
@@ -108,7 +108,7 @@ public class Game : MonoBehaviour
         var dmgIndex = rand.Next(0, repairables.Length);
         var rp = repairables[dmgIndex];
         rp.TakeDamage(obs.Damage);
-        audioController.PlayObstacleHit();
+        audioController.PlayShipHit();
         audioController.PlayAlarm();
         Instantiate(explosionParticle, obs.transform.position, Quaternion.identity);
     }

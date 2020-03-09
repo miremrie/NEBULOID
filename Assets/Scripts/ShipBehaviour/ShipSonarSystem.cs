@@ -13,7 +13,7 @@ public class ShipSonarSystem : ShipSystem
     public CameraController camController;
     public float newCamSize;
     public float camZoomTime;
-    public AudioController audioController;
+    public ShipAudioController audioController;
 
     public override void Initialize()
     {

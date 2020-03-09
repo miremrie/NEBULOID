@@ -7,7 +7,7 @@ public class ShipGunSystem : ShipSystem
     public Bullet bullet;
     public Transform bulletShoothole;
     public bool shootBuletsNotBombs = true;
-    public AudioController audioController;
+    public ShipAudioController audioController;
     public ScreenShake shake;
 
     public override void DoAction()

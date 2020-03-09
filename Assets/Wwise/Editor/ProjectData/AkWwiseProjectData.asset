@@ -17,14 +17,14 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 8e0095d82626bd49b52f6b491c00e6d0
     GuidInternal: 
-    m_lastTime: -8586180329479214038
+    m_lastTime: -8586179342221975218
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
     ParentPath: Default Work Unit
     guid: e7d3747a64799c47a2d6f5b9ddeab36a
     GuidInternal: 
-    m_lastTime: -8586180329479094140
+    m_lastTime: -8586179342257970056
     List:
     - name: Master Audio Bus
       guid: d8a41415a61d2a41a17e75ca0c2149f3
@@ -40,7 +40,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: bd999b8dad637f45917793b0e20362cb
     GuidInternal: 
-    m_lastTime: -8586180210461128860
+    m_lastTime: -8586178511244248160
     List:
     - name: Default
       guid: a5e3873e1289a74a9f54a7ab1a7ee310
@@ -56,17 +56,249 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 8e8fc2d5bfaacf4f92fdf483cd07cba9
     GuidInternal: 
-    m_lastTime: -8586180211800238602
+    m_lastTime: -8586178511252816001
     List:
-    - name: Menu_Music
-      guid: 8b1fa05377f1304e8d09d44fd595cba8
-      id: 4055567060
+    - name: Hits
+      guid: 22cc7c4cbd08bf49842ed804cb690f10
+      id: 3232033907
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
-      - ElementName: Menu_Music
+      - ElementName: Hits
+        ObjectType: 4
+      - ElementName: Hits
         ObjectType: 3
-      Path: Default Work Unit\Menu_Music
+      Path: Default Work Unit\Hits\Hits
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Movement
+      guid: 0a4728869abf584ab48d3b1232674aef
+      id: 2129636626
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Movement
+        ObjectType: 4
+      - ElementName: Movement
+        ObjectType: 3
+      Path: Default Work Unit\Movement\Movement
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Notifications
+      guid: 03d3c2e63858a241991972ff65122284
+      id: 4080886643
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Notifications
+        ObjectType: 4
+      - ElementName: Notifications
+        ObjectType: 3
+      Path: Default Work Unit\Notifications\Notifications
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Alarm
+      guid: c4c5b881542a8840a587f238f669f847
+      id: 603937113
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Notifications
+        ObjectType: 4
+      - ElementName: Play_Alarm
+        ObjectType: 3
+      Path: Default Work Unit\Notifications\Play_Alarm
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Arm_L
+      guid: ec6031764d24d343aca7b79f7a15b8c1
+      id: 2408728073
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Movement
+        ObjectType: 4
+      - ElementName: Play_Arm_L
+        ObjectType: 3
+      Path: Default Work Unit\Movement\Play_Arm_L
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Arm_R
+      guid: ebed7848efe06047aea829e21f7ebf3f
+      id: 2408728087
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Movement
+        ObjectType: 4
+      - ElementName: Play_Arm_R
+        ObjectType: 3
+      Path: Default Work Unit\Movement\Play_Arm_R
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Bullet_Hit
+      guid: 658097a481ec1343a7be67ec98d6d20d
+      id: 1702949728
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Hits
+        ObjectType: 4
+      - ElementName: Play_Bullet_Hit
+        ObjectType: 3
+      Path: Default Work Unit\Hits\Play_Bullet_Hit
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Click
+      guid: 7660bd706466e94baf7235b270fc14f9
+      id: 311910498
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: UI
+        ObjectType: 4
+      - ElementName: Play_Click
+        ObjectType: 3
+      Path: Default Work Unit\UI\Play_Click
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Fuel_Refill
+      guid: 06ab10e1e1a94541ac12a71dfe05cbbd
+      id: 2045110701
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Notifications
+        ObjectType: 4
+      - ElementName: Play_Fuel_Refill
+        ObjectType: 3
+      Path: Default Work Unit\Notifications\Play_Fuel_Refill
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Game_Over
+      guid: d20ee7cedb6e3a4fbf3096186eabc0e5
+      id: 725000905
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Notifications
+        ObjectType: 4
+      - ElementName: Play_Game_Over
+        ObjectType: 3
+      Path: Default Work Unit\Notifications\Play_Game_Over
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Gameplay_Music
+      guid: eabc4d128ee69b4084df942692d724bb
+      id: 1231987938
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_Gameplay_Music
+        ObjectType: 3
+      Path: Default Work Unit\Play_Gameplay_Music
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Gun_Shot
+      guid: bb45fba0eddeeb498ef534d8791bd7ab
+      id: 4270212347
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Hits
+        ObjectType: 4
+      - ElementName: Play_Gun_Shot
+        ObjectType: 3
+      Path: Default Work Unit\Hits\Play_Gun_Shot
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Menu_Music
+      guid: 8b1fa05377f1304e8d09d44fd595cba8
+      id: 2228153899
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_Menu_Music
+        ObjectType: 3
+      Path: Default Work Unit\Play_Menu_Music
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Ship_Hit
+      guid: eebf9702a94f184ca8571822c1c866a7
+      id: 3935467706
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Hits
+        ObjectType: 4
+      - ElementName: Play_Ship_Hit
+        ObjectType: 3
+      Path: Default Work Unit\Hits\Play_Ship_Hit
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Sonar
+      guid: c3eacd79f256da4bb28d45eb5015923c
+      id: 3376092819
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_Sonar
+        ObjectType: 3
+      Path: Default Work Unit\Play_Sonar
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Post_Event_Play_Alarm
+      guid: ce406cd48683a84bb1de7215b208e5f9
+      id: 2220394061
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Post_Event_Play_Alarm
+        ObjectType: 3
+      Path: Default Work Unit\Post_Event_Play_Alarm
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Stop_Alarm
+      guid: d9a94a7778b12942b45a9e437d3978bb
+      id: 377487063
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Notifications
+        ObjectType: 4
+      - ElementName: Stop_Alarm
+        ObjectType: 3
+      Path: Default Work Unit\Notifications\Stop_Alarm
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: UI
+      guid: 0e64baaaca1cad4b9c8f21e16a930d4d
+      id: 1551306167
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: UI
+        ObjectType: 4
+      - ElementName: UI
+        ObjectType: 3
+      Path: Default Work Unit\UI\UI
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -75,32 +307,34 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 98ae5790858eda4ab4bc84449375c967
     GuidInternal: 
-    m_lastTime: -8586180329480043694
+    m_lastTime: -8586179342258910584
     List: []
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
     ParentPath: Default Work Unit
     guid: 9f25bccb9420d449bb3ad4100845c8ff
     GuidInternal: 
-    m_lastTime: -8586180329479464029
+    m_lastTime: -8586179342221995248
     List: []
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
     ParentPath: Default Work Unit
     guid: 3fd3c2bfe0a79341a8fed3c6dcfda912
     GuidInternal: 
-    m_lastTime: -8586180329480143590
+    m_lastTime: -8586179342221985257
     List: []
   TriggerWwu:
   - PhysicalPath: Triggers\Default Work Unit.wwu
     ParentPath: Default Work Unit
     guid: 2cd318c5e8e3b941b25eec3444187fbc
     GuidInternal: 
-    m_lastTime: -8586180329479583961
+    m_lastTime: -8586179342221975218
     List: []
   ExpandedItems:
   - /NEBULOID_WwiseProject
-  - /NEBULOID_WwiseProject/SoundBanks
-  - /NEBULOID_WwiseProject/SoundBanks/Default Work Unit
+  - /NEBULOID_WwiseProject/Auxiliary Busses
+  - /NEBULOID_WwiseProject/Auxiliary Busses/Default Work Unit
+  - /NEBULOID_WwiseProject/Events
+  - /NEBULOID_WwiseProject/Events/Default Work Unit
   autoPopulateEnabled: 1
   CurrentPluginConfig: 
