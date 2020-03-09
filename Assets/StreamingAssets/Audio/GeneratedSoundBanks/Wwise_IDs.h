@@ -13,7 +13,20 @@ namespace AK
 {
     namespace EVENTS
     {
-        static const AkUniqueID MENU_MUSIC = 4055567060U;
+        static const AkUniqueID PLAY_ALARM = 603937113U;
+        static const AkUniqueID PLAY_ARM_L = 2408728073U;
+        static const AkUniqueID PLAY_ARM_R = 2408728087U;
+        static const AkUniqueID PLAY_BULLET_HIT = 1702949728U;
+        static const AkUniqueID PLAY_CLICK = 311910498U;
+        static const AkUniqueID PLAY_FUEL_REFILL = 2045110701U;
+        static const AkUniqueID PLAY_GAME_OVER = 725000905U;
+        static const AkUniqueID PLAY_GAMEPLAY_MUSIC = 1231987938U;
+        static const AkUniqueID PLAY_GUN_SHOT = 4270212347U;
+        static const AkUniqueID PLAY_MENU_MUSIC = 2228153899U;
+        static const AkUniqueID PLAY_SHIP_HIT = 3935467706U;
+        static const AkUniqueID PLAY_SONAR = 3376092819U;
+        static const AkUniqueID POST_EVENT_PLAY_ALARM = 2220394061U;
+        static const AkUniqueID STOP_ALARM = 377487063U;
     } // namespace EVENTS
 
     namespace BANKS

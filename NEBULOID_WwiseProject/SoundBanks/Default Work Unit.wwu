@@ -5,7 +5,20 @@
 			<ChildrenList>
 				<SoundBank Name="Default" ID="{3E87E3A5-8912-4AA7-9F54-A7AB1A7EE310}">
 					<ObjectInclusionList>
-						<ObjectRef Name="Menu_Music" ID="{53A01F8B-F177-4E30-8D09-D44FD595CBA8}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Alarm" ID="{81B8C5C4-2A54-4088-A587-F238F669F847}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Gameplay_Music" ID="{124DBCEA-E68E-409B-84DF-942692D724BB}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Fuel_Refill" ID="{E110AB06-A9E1-4145-AC12-A71DFE05CBBD}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Stop_Alarm" ID="{774AA9D9-B178-4229-B45A-9E437D3978BB}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Bullet_Hit" ID="{A4978065-EC81-4313-A7BE-67EC98D6D20D}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Arm_L" ID="{763160EC-244D-43D3-ACA7-B79F7A15B8C1}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Arm_R" ID="{4878EDEB-E0EF-4760-AEA8-29E21F7EBF3F}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Gun_Shot" ID="{A0FB45BB-DEED-49EB-8EF5-34D8791BD7AB}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Post_Event_Play_Alarm" ID="{D46C40CE-8386-4BA8-B1DE-7215B208E5F9}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Sonar" ID="{79CDEAC3-56F2-4BDA-B28D-45EB5015923C}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Click" ID="{70BD6076-6664-4BE9-AF72-35B270FC14F9}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Ship_Hit" ID="{0297BFEE-4FA9-4C18-A857-1822C1C866A7}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Menu_Music" ID="{53A01F8B-F177-4E30-8D09-D44FD595CBA8}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Game_Over" ID="{CEE70ED2-6EDB-4F3A-BF30-96186EABC0E5}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>

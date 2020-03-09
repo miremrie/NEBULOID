@@ -16,11 +16,128 @@
 			<ShortName>Default</ShortName>
 			<Path>Default.bnk</Path>
 			<IncludedEvents>
-				<Event Id="4055567060" Name="Menu_Music" ObjectPath="\Events\Default Work Unit\Menu_Music" DurationType="Infinite">
+				<Event Id="603937113" Name="Play_Alarm" ObjectPath="\Events\Default Work Unit\Notifications\Play_Alarm" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="86287898" Language="SFX">
+							<ShortName>Notifications\AlarmLoop 1.wav</ShortName>
+							<Path>SFX\Notifications\AlarmLoop 1_E31C9975.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2408728073" Name="Play_Arm_L" ObjectPath="\Events\Default Work Unit\Movement\Play_Arm_L" DurationType="OneShot" DurationMin="2.004535" DurationMax="2.004535">
+					<IncludedMemoryFiles>
+						<File Id="520268854" Language="SFX">
+							<ShortName>Movement\ArmL.wav</ShortName>
+							<Path>SFX\Movement\ArmL_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2408728087" Name="Play_Arm_R" ObjectPath="\Events\Default Work Unit\Movement\Play_Arm_R" DurationType="OneShot" DurationMin="2.092381" DurationMax="2.092381">
+					<IncludedMemoryFiles>
+						<File Id="279627525" Language="SFX">
+							<ShortName>Movement\ArmR.wav</ShortName>
+							<Path>SFX\Movement\ArmR_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1702949728" Name="Play_Bullet_Hit" ObjectPath="\Events\Default Work Unit\Hits\Play_Bullet_Hit" DurationType="OneShot" DurationMin="4.012313" DurationMax="5.696916">
+					<IncludedMemoryFiles>
+						<File Id="521458492" Language="SFX">
+							<ShortName>Hits\ExpHit1.wav</ShortName>
+							<Path>SFX\Hits\ExpHit1_10C4C929.wem</Path>
+						</File>
+						<File Id="790743522" Language="SFX">
+							<ShortName>Hits\ExpHit2.wav</ShortName>
+							<Path>SFX\Hits\ExpHit2_10C4C929.wem</Path>
+						</File>
+						<File Id="874387393" Language="SFX">
+							<ShortName>Hits\ExpHit3.wav</ShortName>
+							<Path>SFX\Hits\ExpHit3_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="311910498" Name="Play_Click" ObjectPath="\Events\Default Work Unit\UI\Play_Click" DurationType="OneShot" DurationMin="0.175890" DurationMax="0.175890">
+					<IncludedMemoryFiles>
+						<File Id="329691644" Language="SFX">
+							<ShortName>UI\Click.wav</ShortName>
+							<Path>SFX\UI\Click_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2045110701" Name="Play_Fuel_Refill" ObjectPath="\Events\Default Work Unit\Notifications\Play_Fuel_Refill" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="231082383" Language="SFX">
+							<ShortName>Notifications\FuelRefillLoop.wav</ShortName>
+							<Path>SFX\Notifications\FuelRefillLoop_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="725000905" Name="Play_Game_Over" ObjectPath="\Events\Default Work Unit\Notifications\Play_Game_Over" DurationType="OneShot" DurationMin="2.950884" DurationMax="2.950884">
+					<IncludedMemoryFiles>
+						<File Id="508136954" Language="SFX">
+							<ShortName>Notifications\GAMEOVER.wav</ShortName>
+							<Path>SFX\Notifications\GAMEOVER_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1231987938" Name="Play_Gameplay_Music" ObjectPath="\Events\Default Work Unit\Play_Gameplay_Music" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="812971613" Language="SFX">
+							<ShortName>EVOID.wav</ShortName>
+							<Path>SFX\EVOID_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="4270212347" Name="Play_Gun_Shot" ObjectPath="\Events\Default Work Unit\Hits\Play_Gun_Shot" DurationType="OneShot" DurationMin="3.367052" DurationMax="4.012336">
+					<IncludedMemoryFiles>
+						<File Id="480576774" Language="SFX">
+							<ShortName>Explosions\Exp2.wav</ShortName>
+							<Path>SFX\Explosions\Exp2_10C4C929.wem</Path>
+						</File>
+						<File Id="732950509" Language="SFX">
+							<ShortName>Explosions\Exp3.wav</ShortName>
+							<Path>SFX\Explosions\Exp3_10C4C929.wem</Path>
+						</File>
+						<File Id="898425719" Language="SFX">
+							<ShortName>Explosions\Exp1.wav</ShortName>
+							<Path>SFX\Explosions\Exp1_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2228153899" Name="Play_Menu_Music" ObjectPath="\Events\Default Work Unit\Play_Menu_Music" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="621301210" Language="SFX">
 							<ShortName>MENU_EVOID.wav</ShortName>
 							<Path>SFX\MENU_EVOID_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3935467706" Name="Play_Ship_Hit" ObjectPath="\Events\Default Work Unit\Hits\Play_Ship_Hit" DurationType="OneShot" DurationMin="2.010590" DurationMax="3.045556">
+					<IncludedMemoryFiles>
+						<File Id="124221590" Language="SFX">
+							<ShortName>Hits\ObstacleHitShort.wav</ShortName>
+							<Path>SFX\Hits\ObstacleHitShort_10C4C929.wem</Path>
+						</File>
+						<File Id="165794786" Language="SFX">
+							<ShortName>Hits\ObstacleHitLong.wav</ShortName>
+							<Path>SFX\Hits\ObstacleHitLong_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3376092819" Name="Play_Sonar" ObjectPath="\Events\Default Work Unit\Play_Sonar" DurationType="OneShot" DurationMin="1.764717" DurationMax="1.764717">
+					<IncludedMemoryFiles>
+						<File Id="335917907" Language="SFX">
+							<ShortName>Notifications\Sonar.wav</ShortName>
+							<Path>SFX\Notifications\Sonar_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2220394061" Name="Post_Event_Play_Alarm" ObjectPath="\Events\Default Work Unit\Post_Event_Play_Alarm" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="377487063" Name="Stop_Alarm" ObjectPath="\Events\Default Work Unit\Notifications\Stop_Alarm" DurationType="OneShot" DurationMin="0.701756" DurationMax="0.701756">
+					<IncludedMemoryFiles>
+						<File Id="530347215" Language="SFX">
+							<ShortName>Notifications\AlarmLoop.wav</ShortName>
+							<Path>SFX\Notifications\AlarmLoop_7B579E0A.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>

@@ -3,7 +3,7 @@
 	<Events>
 		<WorkUnit Name="Default Work Unit" ID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" PersistMode="Standalone">
 			<ChildrenList>
-				<Event Name="Menu_Music" ID="{53A01F8B-F177-4E30-8D09-D44FD595CBA8}">
+				<Event Name="Play_Menu_Music" ID="{53A01F8B-F177-4E30-8D09-D44FD595CBA8}">
 					<ChildrenList>
 						<Action Name="" ID="{5EB7A744-F67A-4873-890D-8DAC93B0C74D}" ShortID="192306357">
 							<ReferenceList>
@@ -14,6 +14,178 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_Gameplay_Music" ID="{124DBCEA-E68E-409B-84DF-942692D724BB}">
+					<ChildrenList>
+						<Action Name="" ID="{998DF4E4-FF57-40B9-AB13-664C029D6CB3}" ShortID="512919944">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Gameplay" ID="{4378B889-AAAD-4213-9A93-514AEFBC8EF6}" WorkUnitID="{9F175D29-E478-4C54-971B-B3F489273424}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Folder Name="Movement" ID="{8628470A-BF9A-4A58-B48D-3B1232674AEF}" ShortID="188545209">
+					<ChildrenList>
+						<Event Name="Play_Arm_L" ID="{763160EC-244D-43D3-ACA7-B79F7A15B8C1}">
+							<ChildrenList>
+								<Action Name="" ID="{84E7852F-8BE9-4322-8C4C-88D305B3078E}" ShortID="730210004">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="ArmL" ID="{9958780E-B16C-4B31-8055-2F465CBAF9EC}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Arm_R" ID="{4878EDEB-E0EF-4760-AEA8-29E21F7EBF3F}">
+							<ChildrenList>
+								<Action Name="" ID="{CD9F80E0-D734-44CB-9189-3940735FC903}" ShortID="228106913">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="ArmR" ID="{30C626EC-8860-48CA-A4D0-0958C711CDF7}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Event Name="Play_Sonar" ID="{79CDEAC3-56F2-4BDA-B28D-45EB5015923C}">
+					<ChildrenList>
+						<Action Name="" ID="{2E2E77F8-A595-467A-8CBE-CE422553E064}" ShortID="745586997">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Sonar" ID="{A438735B-AF91-4AA5-8C7A-2CFCB35739C4}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Folder Name="Notifications" ID="{E6C2D303-5838-41A2-9919-72FF65122284}" ShortID="265461644">
+					<ChildrenList>
+						<Event Name="Play_Alarm" ID="{81B8C5C4-2A54-4088-A587-F238F669F847}">
+							<ChildrenList>
+								<Action Name="" ID="{2A527ADB-A8DF-4525-9FAB-F945F8E1FCBF}" ShortID="945950986">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="AlarmLoop" ID="{1990CE67-BF32-4727-9ED3-7F98AD4A3910}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Stop_Alarm" ID="{774AA9D9-B178-4229-B45A-9E437D3978BB}">
+							<ChildrenList>
+								<Action Name="" ID="{D2E9116B-51CC-4A2D-AFF2-22CF5FA4FC4B}" ShortID="264249575">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="AlarmLoop" ID="{1990CE67-BF32-4727-9ED3-7F98AD4A3910}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{0BE309A5-7D92-4693-A984-C0632639C23B}" ShortID="529042438">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="AlarmStop" ID="{2A5261C6-3481-477F-A48F-9E5D09B8C1D9}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Fuel_Refill" ID="{E110AB06-A9E1-4145-AC12-A71DFE05CBBD}">
+							<ChildrenList>
+								<Action Name="" ID="{34AB7D45-02CB-4948-8D62-76085A4DAB77}" ShortID="698100271">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="FuelRefillLoop" ID="{F2B983A4-7B7D-4845-84D3-0761729EDFD8}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Game_Over" ID="{CEE70ED2-6EDB-4F3A-BF30-96186EABC0E5}">
+							<ChildrenList>
+								<Action Name="" ID="{C567C44A-FB9E-4D39-8AC2-9FB972689A61}" ShortID="909193072">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="GAMEOVER" ID="{47961A9C-6B38-4AEE-8DB1-C98D43A9D089}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Hits" ID="{4C7CCC22-08BD-49BF-842E-D804CB690F10}" ShortID="468587641">
+					<ChildrenList>
+						<Event Name="Play_Ship_Hit" ID="{0297BFEE-4FA9-4C18-A857-1822C1C866A7}">
+							<ChildrenList>
+								<Action Name="" ID="{932B6D29-0616-4BDD-8404-EFEAE0C72D27}" ShortID="149154559">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="ShipHit" ID="{9F17CAFD-32DE-40DD-A3D8-A2A67643837D}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Bullet_Hit" ID="{A4978065-EC81-4313-A7BE-67EC98D6D20D}">
+							<ChildrenList>
+								<Action Name="" ID="{3ABFF4E8-97EE-41D9-BB41-43EDF6C6C657}" ShortID="516590286">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="BulletHit" ID="{920B2242-DFD5-4670-8BF9-88A7656C75D8}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Gun_Shot" ID="{A0FB45BB-DEED-49EB-8EF5-34D8791BD7AB}">
+							<ChildrenList>
+								<Action Name="" ID="{5299845C-2FBF-45CD-9BB3-574945033C9B}" ShortID="635354713">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="GunShot" ID="{1C43772D-64DD-42D5-BBE5-E28D7C80E3A7}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Event Name="Post_Event_Play_Alarm" ID="{D46C40CE-8386-4BA8-B1DE-7215B208E5F9}">
+					<ChildrenList>
+						<Action Name="" ID="{29FFCA62-BBCB-4533-B7E7-55268338B82B}" ShortID="755265953">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="41"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Play_Alarm" ID="{81B8C5C4-2A54-4088-A587-F238F669F847}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Folder Name="UI" ID="{AABA640E-1CCA-4BAD-9C8F-21E16A930D4D}" ShortID="679989621">
+					<ChildrenList>
+						<Event Name="Play_Click" ID="{70BD6076-6664-4BE9-AF72-35B270FC14F9}">
+							<ChildrenList>
+								<Action Name="" ID="{0367DF04-90DD-45C7-9897-96170B1B966F}" ShortID="288345900">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Click" ID="{EE4BDB06-A7C1-485A-A283-F990F4961665}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

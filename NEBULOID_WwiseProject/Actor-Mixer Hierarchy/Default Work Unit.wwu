@@ -77,60 +77,6 @@
 				</Folder>
 				<Folder Name="Notifications" ID="{A8A2B02A-9473-4E53-A79E-66DDA1561A98}" ShortID="670949365">
 					<ChildrenList>
-						<Sound Name="AlarmLoop 1" ID="{1990CE67-BF32-4727-9ED3-7F98AD4A3910}" ShortID="996508176">
-							<PropertyList>
-								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="AlarmLoop 1" ID="{A4DA7B6D-576E-49C7-8109-28E922EF5F7E}">
-									<Language>SFX</Language>
-									<AudioFile>Notifications\AlarmLoop 1.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="86287898"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="AlarmLoop 1" ID="{A4DA7B6D-576E-49C7-8109-28E922EF5F7E}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="AlarmLoop" ID="{2A5261C6-3481-477F-A48F-9E5D09B8C1D9}" ShortID="799659024">
-							<PropertyList>
-								<Property Name="Inclusion" Type="bool">
-									<ValueList>
-										<Value>False</Value>
-									</ValueList>
-								</Property>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="AlarmLoop" ID="{F147F1BE-C1A9-4162-96E9-A0A8503F25A9}">
-									<Language>SFX</Language>
-									<AudioFile>Notifications\AlarmLoop.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="530347215"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="AlarmLoop" ID="{F147F1BE-C1A9-4162-96E9-A0A8503F25A9}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
 						<Sound Name="Fix" ID="{E91E9B6A-D00D-4F40-B526-86FC055D820A}" ShortID="234646478">
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -154,6 +100,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="FuelRefill" ID="{198EBEB4-3BB9-4727-89A4-649EFDB22496}" ShortID="739321452">
+							<PropertyList>
+								<Property Name="Inclusion" Type="bool">
+									<ValueList>
+										<Value>False</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
@@ -176,6 +129,14 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="FuelRefillLoop" ID="{F2B983A4-7B7D-4845-84D3-0761729EDFD8}" ShortID="549753391">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>2</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
@@ -198,6 +159,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="FuelRefillShort" ID="{545558C1-C784-41BD-B5E8-F605E85405BE}" ShortID="809824118">
+							<PropertyList>
+								<Property Name="Inclusion" Type="bool">
+									<ValueList>
+										<Value>False</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
@@ -241,7 +209,10 @@
 								<ActiveSource Name="GAMEOVER" ID="{464916C5-CAB2-4985-B4AD-24937B5B5F2A}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
-						<Sound Name="Sonar" ID="{A438735B-AF91-4AA5-8C7A-2CFCB35739C4}" ShortID="583871515">
+						<Sound Name="AlarmLoop" ID="{1990CE67-BF32-4727-9ED3-7F98AD4A3910}" ShortID="996508176">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
@@ -251,16 +222,53 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="Sonar" ID="{8C45AF4D-2CBA-40A2-886B-ACD6798C3430}">
+								<AudioFileSource Name="AlarmLoop 1" ID="{A4DA7B6D-576E-49C7-8109-28E922EF5F7E}">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.00227182696196865"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimEnd" Type="Real64" Value="1.29298728950414"/>
+									</PropertyList>
 									<Language>SFX</Language>
-									<AudioFile>Notifications\Sonar.wav</AudioFile>
+									<AudioFile>Notifications\AlarmLoop 1.wav</AudioFile>
 									<MediaIDList>
-										<MediaID ID="335917907"/>
+										<MediaID ID="86287898"/>
 									</MediaIDList>
 								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="Sonar" ID="{8C45AF4D-2CBA-40A2-886B-ACD6798C3430}" Platform="Linked"/>
+								<ActiveSource Name="AlarmLoop 1" ID="{A4DA7B6D-576E-49C7-8109-28E922EF5F7E}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="AlarmStop" ID="{2A5261C6-3481-477F-A48F-9E5D09B8C1D9}" ShortID="799659024">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="AlarmLoop" ID="{F147F1BE-C1A9-4162-96E9-A0A8503F25A9}">
+									<PropertyList>
+										<Property Name="LoopBegin" Type="Real64" Value="3.36629316572181"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="3.36146410223065"/>
+										<Property Name="VolumeOffset" Type="Real64">
+											<ValueList>
+												<Value>1.4</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>Notifications\AlarmLoop.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="530347215"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="AlarmLoop" ID="{F147F1BE-C1A9-4162-96E9-A0A8503F25A9}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
@@ -268,6 +276,18 @@
 				<Folder Name="UI" ID="{CB545FDF-7D87-4E09-9ADB-1EF9A9F976F8}" ShortID="1011752587">
 					<ChildrenList>
 						<Sound Name="Click" ID="{EE4BDB06-A7C1-485A-A283-F990F4961665}" ShortID="542774353">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>100</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>4</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
@@ -507,6 +527,28 @@
 						</RandomSequenceContainer>
 					</ChildrenList>
 				</Folder>
+				<Sound Name="Sonar" ID="{A438735B-AF91-4AA5-8C7A-2CFCB35739C4}" ShortID="583871515">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Sonar" ID="{8C45AF4D-2CBA-40A2-886B-ACD6798C3430}">
+							<Language>SFX</Language>
+							<AudioFile>Notifications\Sonar.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="335917907"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Sonar" ID="{8C45AF4D-2CBA-40A2-886B-ACD6798C3430}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>
