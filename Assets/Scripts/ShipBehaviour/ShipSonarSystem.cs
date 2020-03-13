@@ -40,7 +40,7 @@ public class ShipSonarSystem : ShipSystem
                 sonarStarted = false;
                 SonarMovingLightPivot.gameObject.SetActive(false);
                 camController.RevertToStandardSize(camZoomTime, () => SonarMovingLightPivot.gameObject.SetActive(false));
-                audioController.RevertSonar(camZoomTime);
+                audioController.StopSonar();
             }
 
             sonarMoveTimer.Update(Time.deltaTime);

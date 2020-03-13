@@ -24,8 +24,32 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: e7d3747a64799c47a2d6f5b9ddeab36a
     GuidInternal: 
-    m_lastTime: -8586179342257970056
+    m_lastTime: -8586174895662898653
     List:
+    - name: Clean BUS
+      guid: a6a33b2d6777a54ca2cd71456f48764b
+      id: 1348820510
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+      - ElementName: Clean BUS
+        ObjectType: 2
+      Path: Default Work Unit\Master Audio Bus\Clean BUS
+    - name: FX BUS
+      guid: 6a1d07859056434aa6c4a15f1f14b8bd
+      id: 3948848313
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+      - ElementName: Clean BUS
+        ObjectType: 2
+      - ElementName: FX BUS
+        ObjectType: 2
+      Path: Default Work Unit\Master Audio Bus\Clean BUS\FX BUS
     - name: Master Audio Bus
       guid: d8a41415a61d2a41a17e75ca0c2149f3
       id: 3803692087
@@ -40,7 +64,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: bd999b8dad637f45917793b0e20362cb
     GuidInternal: 
-    m_lastTime: -8586178511244248160
+    m_lastTime: -8586174895662848669
     List:
     - name: Default
       guid: a5e3873e1289a74a9f54a7ab1a7ee310
@@ -56,7 +80,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 8e8fc2d5bfaacf4f92fdf483cd07cba9
     GuidInternal: 
-    m_lastTime: -8586178511252816001
+    m_lastTime: -8586174895671446605
     List:
     - name: Hits
       guid: 22cc7c4cbd08bf49842ed804cb690f10
@@ -126,8 +150,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Movement\Play_Arm_L
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 2004535
+      minDuration: 2004535
     - name: Play_Arm_R
       guid: ebed7848efe06047aea829e21f7ebf3f
       id: 2408728087
@@ -140,8 +164,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Movement\Play_Arm_R
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 2092381
+      minDuration: 2092381
     - name: Play_Bullet_Hit
       guid: 658097a481ec1343a7be67ec98d6d20d
       id: 1702949728
@@ -154,8 +178,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Hits\Play_Bullet_Hit
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 5696916
+      minDuration: 4012313
     - name: Play_Click
       guid: 7660bd706466e94baf7235b270fc14f9
       id: 311910498
@@ -168,8 +192,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\UI\Play_Click
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 175890
+      minDuration: 175890
     - name: Play_Fuel_Refill
       guid: 06ab10e1e1a94541ac12a71dfe05cbbd
       id: 2045110701
@@ -196,8 +220,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Notifications\Play_Game_Over
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 2950884
+      minDuration: 2950884
     - name: Play_Gameplay_Music
       guid: eabc4d128ee69b4084df942692d724bb
       id: 1231987938
@@ -222,8 +246,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Hits\Play_Gun_Shot
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 4012336
+      minDuration: 3367052
     - name: Play_Menu_Music
       guid: 8b1fa05377f1304e8d09d44fd595cba8
       id: 2228153899
@@ -248,29 +272,19 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Hits\Play_Ship_Hit
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 3045556
+      minDuration: 2010590
     - name: Play_Sonar
       guid: c3eacd79f256da4bb28d45eb5015923c
       id: 3376092819
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
+      - ElementName: Notifications
+        ObjectType: 4
       - ElementName: Play_Sonar
         ObjectType: 3
-      Path: Default Work Unit\Play_Sonar
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Post_Event_Play_Alarm
-      guid: ce406cd48683a84bb1de7215b208e5f9
-      id: 2220394061
-      PathAndIcons:
-      - ElementName: Default Work Unit
-        ObjectType: 12
-      - ElementName: Post_Event_Play_Alarm
-        ObjectType: 3
-      Path: Default Work Unit\Post_Event_Play_Alarm
+      Path: Default Work Unit\Notifications\Play_Sonar
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -286,8 +300,36 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Notifications\Stop_Alarm
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 701756
+      minDuration: 701756
+    - name: Stop_Fuel_Refill
+      guid: 3b3548580f70684da94a27fec339b046
+      id: 3567966343
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Notifications
+        ObjectType: 4
+      - ElementName: Stop_Fuel_Refill
+        ObjectType: 3
+      Path: Default Work Unit\Notifications\Stop_Fuel_Refill
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Stop_Sonar
+      guid: 76a5af15735f414d826e9a0aab18d67f
+      id: 2410889125
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Notifications
+        ObjectType: 4
+      - ElementName: Stop_Sonar
+        ObjectType: 3
+      Path: Default Work Unit\Notifications\Stop_Sonar
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - name: UI
       guid: 0e64baaaca1cad4b9c8f21e16a930d4d
       id: 1551306167
@@ -307,8 +349,17 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 98ae5790858eda4ab4bc84449375c967
     GuidInternal: 
-    m_lastTime: -8586179342258910584
-    List: []
+    m_lastTime: -8586174895671345982
+    List:
+    - name: Fuel_Amount
+      guid: 60c838c716dae346aec036d08c5b6455
+      id: 3548314952
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Fuel_Amount
+        ObjectType: 13
+      Path: Default Work Unit\Fuel_Amount
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
     ParentPath: Default Work Unit

@@ -11,78 +11,76 @@ public class ShipAudioController : MonoBehaviour
     public GameObject alarmPlayer;
     private const string gunshotEv = "Play_Gun_Shot", bulletHitEv = "Play_Bullet_Hit", shipHitEv = "Play_Ship_Hit";
     public GameObject gunShotPlayer, bulletHitPlayer, shipHitPlayer;
-    private const string fuelRefillEv = "Play_Fuel_Refill";
+    private const string fuelRefillEv = "Play_Fuel_Refill", fuelRefillStopEv = "Stop_Fuel_Refill";
     public GameObject fuelRefillPlayer;
     private const string gameOverEv = "Play_Game_Over";
     public GameObject gameOverPlayer;
     private const string sonarStartEv = "Play_Sonar", sonarStopEv = "Stop_Sonar";
     public GameObject sonarPlayer;
+    private const string fuelAmountRTPC = "Fuel_Amount";
+    public float fuelRefillTime;
+    private Timer fuelRefillTimer;
+    private bool refillingFuel = false;
+    private bool alarmPlaying = false;
 
     private void Awake()
     {
         Obstacle.audioController = this;
+        fuelRefillTimer = new Timer(fuelRefillTime);
     }
 
     void Update()
     {
+        UpdateFuelRefill();
+    }
 
-        //if (Input.GetKeyDown(KeyCode.T)) {
-        //    PlayHitClip();
-        //}
+    public void StopAllFX()
+    {
+        StopAlarm();
+        StopFuelRefill();
+        StopSonar();
+        AkSoundEngine.StopAll();
+        //StopMusic();
+    }
+    public void StartFuelRefill()
+    {
+        AkSoundEngine.PostEvent(fuelRefillEv, fuelRefillPlayer);
+        refillingFuel = true;
+        fuelRefillTimer.Start();
+    }
 
-        /*if (sonarOverride)
+
+    private void UpdateFuelRefill()
+    {
+        if (refillingFuel)
         {
-            sonarTimer.Update(Time.deltaTime);
-            if (sonarRevert && sonarTimer.GetCurrentTimePercent() >= 1f)
+            fuelRefillTimer.Update(Time.deltaTime);
+            if (fuelRefillTimer.GetCurrentTimePercent() >= 1)
             {
-                sonarOverride = false;
-                sonarRevert = false;
-                audioMixer.SetFloat(gameplayHighpass, regularHighPass);
-                return;
-
+                StopFuelRefill();
+                refillingFuel = false;
             }
-            float y = sonarPassPerTime.Evaluate(sonarTimer.GetCurrentTimePercent());
-
-            if (sonarRevert)
-            {
-                y = 1 - y;
-            }
-            audioMixer.SetFloat(gameplayLowpass, Mathf.Lerp(sonarLowPassAtStart, sonarLowPassDst, y));
-            audioMixer.SetFloat(gameplayHighpass, Mathf.Lerp(regularHighPass, sonarHighPassDst, y));
-        } else
-        {
-            audioMixer.SetFloat(gameplayLowpass, deathLowPassPerFuel.Evaluate(game.GetFuelPercent()));
-        }*/
+        }
     }
 
-    public void ActivateDeathLowPass()
+    public void StopFuelRefill()
     {
-
-    }
-    
-    public void ActivateNormalLowpass()
-    {
+        AkSoundEngine.PostEvent(fuelRefillStopEv, fuelRefillPlayer);
     }
 
-    public void ResetMixer()
+    public void SetFuelFX(float fuelPercent)
     {
-        ActivateNormalLowpass();
+        AkSoundEngine.SetRTPCValue(fuelAmountRTPC, (1 - fuelPercent) * 100);
     }
 
     public void ActivateSonar(float time)
     {
-        /*audioMixer.GetFloat(gameplayLowpass, out sonarLowPassAtStart);
-        sonarTimer = new Timer(time);
-        sonarTimer.Start();
-        sonarOverride = true;
-        sonarSource.Play();*/
+        AkSoundEngine.PostEvent(sonarStartEv, sonarPlayer);
     }
-    public void RevertSonar(float time)
+    public void StopSonar()
     {
-        /*sonarTimer = new Timer(time);
-        sonarTimer.Start();
-        sonarRevert = true;
-        sonarSource.Stop();*/
+        AkSoundEngine.PostEvent(sonarStopEv, sonarPlayer);
+
     }
 
     public void PlayShipHit()
@@ -102,16 +100,16 @@ public class ShipAudioController : MonoBehaviour
 
     public void PlayAlarm()
     {
-        AkSoundEngine.PostEvent(alarmStartEv, alarmPlayer);
+        if (!alarmPlaying)
+        {
+            alarmPlaying = true;
+            AkSoundEngine.PostEvent(alarmStartEv, alarmPlayer);
+        }
     }
 
     public void StopAlarm() {
+        alarmPlaying = false;
         AkSoundEngine.PostEvent(alarmStopEv, alarmPlayer);
-    }
-
-    public void PlayFuelRefill()
-    {
-        AkSoundEngine.PostEvent(fuelRefillEv, fuelRefillPlayer);
     }
 
     public void PlayGameOver()

@@ -86,6 +86,7 @@ public class ShipCreatorUI : MonoBehaviour
         }
         if (handler.GetEscapeKeyPressed())
         {
+            AkSoundEngine.StopAll();
             SceneManager.LoadScene(0);
         }
         //ShouldReselectShipNameInput();
@@ -97,6 +98,7 @@ public class ShipCreatorUI : MonoBehaviour
             && (shipCreator.currentStage == CreationStage.SelectRoom
                 || shipCreator.currentStage == CreationStage.Finished))
         {
+            AkSoundEngine.StopAll();
             shipCreator.OnSaveShip();
         }
     }

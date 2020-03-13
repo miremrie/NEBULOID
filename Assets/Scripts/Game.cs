@@ -64,18 +64,15 @@ public class Game : MonoBehaviour
 
     void UpdateDeath()
     {
-        if (currentFuel < fuelThresholdForDeathLowPass)
-        {
-            audioController.ActivateDeathLowPass();
-        }
+        audioController.SetFuelFX(GetFuelPercent());
         if (currentFuel < 0 && !dead)
         {
             audioController.PlayGameOver();
             dead = true;
             FindObjectsOfType<CharController>().ToList().ForEach(x => x.enabled = false);
             ShowGameOverScreen();
-            audioController.ActivateDeathLowPass();
         }
+
     }
 
     void UpdateUI()
@@ -85,7 +82,7 @@ public class Game : MonoBehaviour
 
     public void FuelCollected(Fuel fuel)
     {
-        audioController.PlayFuelRefill();
+        audioController.StartFuelRefill();
         currentFuel = maxFuel;
     }
 
@@ -96,7 +93,7 @@ public class Game : MonoBehaviour
 
     public void RestartGame()
     {
-        audioController.ResetMixer();
+        audioController.StopAllFX();
         int scene = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(scene, LoadSceneMode.Single);
     }
@@ -139,6 +136,7 @@ public class Game : MonoBehaviour
 
     public void GoBackToMenu()
     {
+        AkSoundEngine.StopAll();
         SceneManager.LoadScene(0);
     }
 }

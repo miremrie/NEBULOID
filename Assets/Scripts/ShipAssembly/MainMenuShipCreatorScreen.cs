@@ -75,6 +75,7 @@ public class MainMenuShipCreatorScreen : MonoBehaviour
     {
         if (handler.GetActionPressed())
         {
+            AkSoundEngine.StopAll();
             SceneManager.LoadScene(2);
         }
     }

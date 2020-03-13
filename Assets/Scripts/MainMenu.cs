@@ -23,6 +23,7 @@ public class MainMenu : MonoBehaviour
         {
             if (handler.GetActionPressed())
             {
+                AkSoundEngine.StopAll();
                 SceneManager.LoadScene(1, LoadSceneMode.Single);
             }
             if (handler.GetSubActionPressed())
