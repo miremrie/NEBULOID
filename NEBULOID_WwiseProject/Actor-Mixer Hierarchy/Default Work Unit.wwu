@@ -11,7 +11,7 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+									<ObjectRef Name="FX BUS" ID="{85071D6A-5690-4A43-A6C4-A15F1F14B8BD}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -45,7 +45,7 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+									<ObjectRef Name="FX BUS" ID="{85071D6A-5690-4A43-A6C4-A15F1F14B8BD}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -83,7 +83,7 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+									<ObjectRef Name="FX BUS" ID="{85071D6A-5690-4A43-A6C4-A15F1F14B8BD}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -142,7 +142,7 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+									<ObjectRef Name="FX BUS" ID="{85071D6A-5690-4A43-A6C4-A15F1F14B8BD}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -193,7 +193,7 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+									<ObjectRef Name="Clean BUS" ID="{2D3BA3A6-7767-4CA5-A2CD-71456F48764B}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -218,7 +218,7 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+									<ObjectRef Name="FX BUS" ID="{85071D6A-5690-4A43-A6C4-A15F1F14B8BD}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -245,7 +245,7 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+									<ObjectRef Name="FX BUS" ID="{85071D6A-5690-4A43-A6C4-A15F1F14B8BD}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -269,6 +269,59 @@
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="AlarmLoop" ID="{F147F1BE-C1A9-4162-96E9-A0A8503F25A9}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Sonar" ID="{A438735B-AF91-4AA5-8C7A-2CFCB35739C4}" ShortID="583871515">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="OutputBusLowpass" Type="int16">
+									<RTPCList>
+										<RTPC Name="" ID="{738151CD-472B-4B20-BDDF-BC65DE397757}" ShortID="418393925">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<ObjectRef Name="Fuel_Amount" ID="{C738C860-DA16-46E3-AEC0-36D08C5B6455}" WorkUnitID="{9057AE98-8E85-4ADA-B4BC-84449375C967}"/>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{2C4176C7-6CF8-4E26-AC07-168ABC09CCE2}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="65537"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>-100</YPos>
+														<Flags>5</Flags>
+													</Point>
+													<Point>
+														<XPos>100</XPos>
+														<YPos>100</YPos>
+														<Flags>37</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+									</RTPCList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Clean BUS" ID="{2D3BA3A6-7767-4CA5-A2CD-71456F48764B}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Sonar" ID="{8C45AF4D-2CBA-40A2-886B-ACD6798C3430}">
+									<Language>SFX</Language>
+									<AudioFile>Notifications\Sonar.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="335917907"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Sonar" ID="{8C45AF4D-2CBA-40A2-886B-ACD6798C3430}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
@@ -319,7 +372,7 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+									<ObjectRef Name="FX BUS" ID="{85071D6A-5690-4A43-A6C4-A15F1F14B8BD}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -375,7 +428,7 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+									<ObjectRef Name="FX BUS" ID="{85071D6A-5690-4A43-A6C4-A15F1F14B8BD}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -453,7 +506,7 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+									<ObjectRef Name="FX BUS" ID="{85071D6A-5690-4A43-A6C4-A15F1F14B8BD}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -527,28 +580,6 @@
 						</RandomSequenceContainer>
 					</ChildrenList>
 				</Folder>
-				<Sound Name="Sonar" ID="{A438735B-AF91-4AA5-8C7A-2CFCB35739C4}" ShortID="583871515">
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<AudioFileSource Name="Sonar" ID="{8C45AF4D-2CBA-40A2-886B-ACD6798C3430}">
-							<Language>SFX</Language>
-							<AudioFile>Notifications\Sonar.wav</AudioFile>
-							<MediaIDList>
-								<MediaID ID="335917907"/>
-							</MediaIDList>
-						</AudioFileSource>
-					</ChildrenList>
-					<ActiveSourceList>
-						<ActiveSource Name="Sonar" ID="{8C45AF4D-2CBA-40A2-886B-ACD6798C3430}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

@@ -1,5 +1,10 @@
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	3548314952	Fuel_Amount			\Default Work Unit\Fuel_Amount	
+
 Audio Bus	ID	Name			Wwise Object Path	Notes
+	1348820510	Clean BUS			\Default Work Unit\Master Audio Bus\Clean BUS	
 	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
+	3948848313	FX BUS			\Default Work Unit\Master Audio Bus\FX BUS	
 
 Audio Devices	ID	Name	Type				Notes
 	2317455096	No_Output	No Output			

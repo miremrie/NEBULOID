@@ -20,7 +20,7 @@
 					<IncludedMemoryFiles>
 						<File Id="86287898" Language="SFX">
 							<ShortName>Notifications\AlarmLoop 1.wav</ShortName>
-							<Path>SFX\Notifications\AlarmLoop 1_E31C9975.wem</Path>
+							<Path>SFX\Notifications\AlarmLoop 1_FF5B2032.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -124,29 +124,36 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3376092819" Name="Play_Sonar" ObjectPath="\Events\Default Work Unit\Play_Sonar" DurationType="OneShot" DurationMin="1.764717" DurationMax="1.764717">
+				<Event Id="3376092819" Name="Play_Sonar" ObjectPath="\Events\Default Work Unit\Notifications\Play_Sonar" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="335917907" Language="SFX">
 							<ShortName>Notifications\Sonar.wav</ShortName>
-							<Path>SFX\Notifications\Sonar_10C4C929.wem</Path>
+							<Path>SFX\Notifications\Sonar_D79FB2B7.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2220394061" Name="Post_Event_Play_Alarm" ObjectPath="\Events\Default Work Unit\Post_Event_Play_Alarm" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="377487063" Name="Stop_Alarm" ObjectPath="\Events\Default Work Unit\Notifications\Stop_Alarm" DurationType="OneShot" DurationMin="0.701756" DurationMax="0.701756">
 					<IncludedMemoryFiles>
 						<File Id="530347215" Language="SFX">
 							<ShortName>Notifications\AlarmLoop.wav</ShortName>
-							<Path>SFX\Notifications\AlarmLoop_7B579E0A.wem</Path>
+							<Path>SFX\Notifications\AlarmLoop_B7B4B728.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="3567966343" Name="Stop_Fuel_Refill" ObjectPath="\Events\Default Work Unit\Notifications\Stop_Fuel_Refill" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2410889125" Name="Stop_Sonar" ObjectPath="\Events\Default Work Unit\Notifications\Stop_Sonar" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 			</IncludedEvents>
+			<GameParameters>
+				<GameParameter Id="3548314952" Name="Fuel_Amount" ObjectPath="\Game Parameters\Default Work Unit\Fuel_Amount"/>
+			</GameParameters>
 		</SoundBank>
 		<SoundBank Id="1355168291" Language="SFX">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
+			<GameParameters>
+				<GameParameter Id="3548314952" Name="Fuel_Amount" ObjectPath="\Game Parameters\Default Work Unit\Fuel_Amount"/>
+			</GameParameters>
 		</SoundBank>
 	</SoundBanks>
 </SoundBanksInfo>

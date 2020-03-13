@@ -9,6 +9,41 @@
 							<ObjectRef Name="System" ID="{BAC968B1-16A5-4B3B-AED6-486F5DCDF7F8}" WorkUnitID="{2FE02B63-2D50-4E82-B518-4B5A48B2E827}"/>
 						</Reference>
 					</ReferenceList>
+					<ChildrenList>
+						<Bus Name="Clean BUS" ID="{2D3BA3A6-7767-4CA5-A2CD-71456F48764B}"/>
+						<Bus Name="FX BUS" ID="{85071D6A-5690-4A43-A6C4-A15F1F14B8BD}">
+							<PropertyList>
+								<Property Name="OutputBusLowpass" Type="int16">
+									<RTPCList>
+										<RTPC Name="" ID="{79738921-4C57-4CFB-8391-A78EF8577219}" ShortID="204320213">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<ObjectRef Name="Fuel_Amount" ID="{C738C860-DA16-46E3-AEC0-36D08C5B6455}" WorkUnitID="{9057AE98-8E85-4ADA-B4BC-84449375C967}"/>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{C6CDFCE5-75E8-4877-A725-3E8B6665E187}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="65537"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>-100</YPos>
+														<Flags>5</Flags>
+													</Point>
+													<Point>
+														<XPos>100</XPos>
+														<YPos>75</YPos>
+														<Flags>37</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+									</RTPCList>
+								</Property>
+							</PropertyList>
+						</Bus>
+					</ChildrenList>
 				</Bus>
 			</ChildrenList>
 		</WorkUnit>

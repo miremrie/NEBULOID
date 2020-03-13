@@ -51,17 +51,6 @@
 						</Event>
 					</ChildrenList>
 				</Folder>
-				<Event Name="Play_Sonar" ID="{79CDEAC3-56F2-4BDA-B28D-45EB5015923C}">
-					<ChildrenList>
-						<Action Name="" ID="{2E2E77F8-A595-467A-8CBE-CE422553E064}" ShortID="745586997">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Sonar" ID="{A438735B-AF91-4AA5-8C7A-2CFCB35739C4}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
 				<Folder Name="Notifications" ID="{E6C2D303-5838-41A2-9919-72FF65122284}" ShortID="265461644">
 					<ChildrenList>
 						<Event Name="Play_Alarm" ID="{81B8C5C4-2A54-4088-A587-F238F669F847}">
@@ -109,10 +98,100 @@
 						</Event>
 						<Event Name="Play_Game_Over" ID="{CEE70ED2-6EDB-4F3A-BF30-96186EABC0E5}">
 							<ChildrenList>
+								<Action Name="" ID="{549A6B0F-7D94-4C32-AA19-625F3EB91744}" ShortID="369068873">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="3"/>
+									</PropertyList>
+									<ReferenceList/>
+								</Action>
 								<Action Name="" ID="{C567C44A-FB9E-4D39-8AC2-9FB972689A61}" ShortID="909193072">
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="GAMEOVER" ID="{47961A9C-6B38-4AEE-8DB1-C98D43A9D089}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Sonar" ID="{79CDEAC3-56F2-4BDA-B28D-45EB5015923C}">
+							<ChildrenList>
+								<Action Name="" ID="{2E2E77F8-A595-467A-8CBE-CE422553E064}" ShortID="745586997">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Sonar" ID="{A438735B-AF91-4AA5-8C7A-2CFCB35739C4}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{A2A44A7D-82F9-4BC4-BA02-918431790EC5}" ShortID="330612185">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="29"/>
+										<Property Name="FadeTime" Type="Real64" Value="1"/>
+										<Property Name="Highpass" Type="int16" Value="49"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="FX BUS" ID="{85071D6A-5690-4A43-A6C4-A15F1F14B8BD}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{80E0519A-9E04-433A-9496-A59A0507A427}" ShortID="1022306634">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="26"/>
+										<Property Name="Lowpass" Type="int16" Value="51"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="FX BUS" ID="{85071D6A-5690-4A43-A6C4-A15F1F14B8BD}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Stop_Sonar" ID="{15AFA576-5F73-4D41-826E-9A0AAB18D67F}">
+							<ChildrenList>
+								<Action Name="" ID="{7D19154C-1A4C-4366-AF9C-A31461D326D0}" ShortID="547650363">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="FadeTime" Type="Real64" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Sonar" ID="{A438735B-AF91-4AA5-8C7A-2CFCB35739C4}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{99124A82-B02F-4D02-A752-E0A246DA9251}" ShortID="182016066">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="26"/>
+										<Property Name="FadeTime" Type="Real64" Value="1.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="FX BUS" ID="{85071D6A-5690-4A43-A6C4-A15F1F14B8BD}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{7092F27D-6E02-4449-BD00-545C242B418B}" ShortID="227359835">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="29"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="FX BUS" ID="{85071D6A-5690-4A43-A6C4-A15F1F14B8BD}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Stop_Fuel_Refill" ID="{5848353B-700F-4D68-A94A-27FEC339B046}">
+							<ChildrenList>
+								<Action Name="" ID="{664C035D-E769-4C8B-8677-5A6333A29769}" ShortID="492407053">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="FuelRefillLoop" ID="{F2B983A4-7B7D-4845-84D3-0761729EDFD8}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -157,20 +236,6 @@
 						</Event>
 					</ChildrenList>
 				</Folder>
-				<Event Name="Post_Event_Play_Alarm" ID="{D46C40CE-8386-4BA8-B1DE-7215B208E5F9}">
-					<ChildrenList>
-						<Action Name="" ID="{29FFCA62-BBCB-4533-B7E7-55268338B82B}" ShortID="755265953">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="41"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Play_Alarm" ID="{81B8C5C4-2A54-4088-A587-F238F669F847}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
 				<Folder Name="UI" ID="{AABA640E-1CCA-4BAD-9C8F-21E16A930D4D}" ShortID="679989621">
 					<ChildrenList>
 						<Event Name="Play_Click" ID="{70BD6076-6664-4BE9-AF72-35B270FC14F9}">

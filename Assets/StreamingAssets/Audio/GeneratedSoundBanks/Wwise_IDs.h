@@ -25,9 +25,15 @@ namespace AK
         static const AkUniqueID PLAY_MENU_MUSIC = 2228153899U;
         static const AkUniqueID PLAY_SHIP_HIT = 3935467706U;
         static const AkUniqueID PLAY_SONAR = 3376092819U;
-        static const AkUniqueID POST_EVENT_PLAY_ALARM = 2220394061U;
         static const AkUniqueID STOP_ALARM = 377487063U;
+        static const AkUniqueID STOP_FUEL_REFILL = 3567966343U;
+        static const AkUniqueID STOP_SONAR = 2410889125U;
     } // namespace EVENTS
+
+    namespace GAME_PARAMETERS
+    {
+        static const AkUniqueID FUEL_AMOUNT = 3548314952U;
+    } // namespace GAME_PARAMETERS
 
     namespace BANKS
     {
@@ -37,6 +43,8 @@ namespace AK
 
     namespace BUSSES
     {
+        static const AkUniqueID CLEAN_BUS = 1348820510U;
+        static const AkUniqueID FX_BUS = 3948848313U;
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;
     } // namespace BUSSES
 

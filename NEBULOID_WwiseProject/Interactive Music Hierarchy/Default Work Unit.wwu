@@ -516,7 +516,7 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+									<ObjectRef Name="FX BUS" ID="{85071D6A-5690-4A43-A6C4-A15F1F14B8BD}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -563,7 +563,7 @@
 															<PropertyList>
 																<Property Name="BeginTrimOffset" Type="Real64" Value="11500"/>
 																<Property Name="EndTrimOffset" Type="Real64" Value="159346.93877551"/>
-																<Property Name="FadeInMode" Type="int16" Value="0"/>
+																<Property Name="FadeInDuration" Type="Real64" Value="1012.43957743467"/>
 																<Property Name="FadeOutMode" Type="int16" Value="0"/>
 																<Property Name="PlayAt" Type="Real64" Value="-11500"/>
 															</PropertyList>

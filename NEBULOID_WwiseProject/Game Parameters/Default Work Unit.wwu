@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{9057AE98-8E85-4ADA-B4BC-84449375C967}" SchemaVersion="97">
 	<GameParameters>
-		<WorkUnit Name="Default Work Unit" ID="{9057AE98-8E85-4ADA-B4BC-84449375C967}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{9057AE98-8E85-4ADA-B4BC-84449375C967}" PersistMode="Standalone">
+			<ChildrenList>
+				<GameParameter Name="Fuel_Amount" ID="{C738C860-DA16-46E3-AEC0-36D08C5B6455}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="0"/>
+						<Property Name="RTPCRamping" Type="int16" Value="1"/>
+					</PropertyList>
+				</GameParameter>
+			</ChildrenList>
+		</WorkUnit>
 	</GameParameters>
 </WwiseDocument>

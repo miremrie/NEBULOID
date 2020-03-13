@@ -6,27 +6,31 @@ Event	ID	Name			Wwise Object Path	Notes
 	1231987938	Play_Gameplay_Music			\Default Work Unit\Play_Gameplay_Music	
 	1702949728	Play_Bullet_Hit			\Default Work Unit\Hits\Play_Bullet_Hit	
 	2045110701	Play_Fuel_Refill			\Default Work Unit\Notifications\Play_Fuel_Refill	
-	2220394061	Post_Event_Play_Alarm			\Default Work Unit\Post_Event_Play_Alarm	
 	2228153899	Play_Menu_Music			\Default Work Unit\Play_Menu_Music	
 	2408728073	Play_Arm_L			\Default Work Unit\Movement\Play_Arm_L	
 	2408728087	Play_Arm_R			\Default Work Unit\Movement\Play_Arm_R	
-	3376092819	Play_Sonar			\Default Work Unit\Play_Sonar	
+	2410889125	Stop_Sonar			\Default Work Unit\Notifications\Stop_Sonar	
+	3376092819	Play_Sonar			\Default Work Unit\Notifications\Play_Sonar	
+	3567966343	Stop_Fuel_Refill			\Default Work Unit\Notifications\Stop_Fuel_Refill	
 	3935467706	Play_Ship_Hit			\Default Work Unit\Hits\Play_Ship_Hit	
 	4270212347	Play_Gun_Shot			\Default Work Unit\Hits\Play_Gun_Shot	
 
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	3548314952	Fuel_Amount			\Default Work Unit\Fuel_Amount	
+
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	86287898	AlarmLoop	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Notifications\AlarmLoop 1_E31C9975.wem		\Actor-Mixer Hierarchy\Default Work Unit\Notifications\AlarmLoop		114106
+	86287898	AlarmLoop	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Notifications\AlarmLoop 1_FF5B2032.wem		\Actor-Mixer Hierarchy\Default Work Unit\Notifications\AlarmLoop		114106
 	124221590	ShipHitShort	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Hits\ObstacleHitShort_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Hits\ShipHit\ShipHitShort		177398
 	165794786	ShipHitLong	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Hits\ObstacleHitLong_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Hits\ShipHit\ShipHitLong		268682
 	231082383	FuelRefillLoop	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Notifications\FuelRefillLoop_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Notifications\FuelRefillLoop		357018
 	279627525	ArmR	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Movement\ArmR_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\ArmR\ArmR		184612
 	329691644	Click	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\UI\Click_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Click		16500
-	335917907	Sonar	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Notifications\Sonar_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sonar		311360
+	335917907	Sonar	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Notifications\Sonar_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Notifications\Sonar		311360
 	480576774	GunShot2	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Explosions\Exp2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Hits\GunShot\GunShot2		345810
 	508136954	GAMEOVER	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Notifications\GAMEOVER_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Notifications\GAMEOVER		520600
 	520268854	ArmL	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Movement\ArmL_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\ArmL\ArmL		176864
 	521458492	BulletHit1	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Hits\ExpHit1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Hits\BulletHit\BulletHit1		502532
-	530347215	AlarmStop	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Notifications\AlarmLoop_7B579E0A.wem		\Actor-Mixer Hierarchy\Default Work Unit\Notifications\AlarmStop		61958
+	530347215	AlarmStop	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Notifications\AlarmLoop_B7B4B728.wem		\Actor-Mixer Hierarchy\Default Work Unit\Notifications\AlarmStop		61958
 	621301210	MENU_EVOID	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\MENU_EVOID_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Menu\MENU_EVOID\MENU_EVOID		4164332
 	732950509	GunShot3	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Explosions\Exp3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Hits\GunShot\GunShot3		297038
 	790743522	BulletHit2	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Hits\ExpHit2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Hits\BulletHit\BulletHit2		392562
