@@ -135,7 +135,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: AnimPivotShoulder/ruka1/AnimPivotElbow
+    path: AnimPivotShoulder/ShoulderGraphics/AnimPivotElbow
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -196,7 +196,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: AnimPivotShoulder/ruka1/AnimPivotElbow/ruka2/AnimPivotWrist
+    path: AnimPivotShoulder/ShoulderGraphics/AnimPivotElbow/ElbowGraphics/AnimPivotWrist
   m_PositionCurves: []
   m_ScaleCurves: []
   m_FloatCurves: []
@@ -216,14 +216,14 @@ AnimationClip:
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 2722237948
+      path: 1116200626
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 1587405983
+      path: 1351568035
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -486,7 +486,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: AnimPivotShoulder/ruka1/AnimPivotElbow
+    path: AnimPivotShoulder/ShoulderGraphics/AnimPivotElbow
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -559,7 +559,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: AnimPivotShoulder/ruka1/AnimPivotElbow
+    path: AnimPivotShoulder/ShoulderGraphics/AnimPivotElbow
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -632,7 +632,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: AnimPivotShoulder/ruka1/AnimPivotElbow
+    path: AnimPivotShoulder/ShoulderGraphics/AnimPivotElbow
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -696,7 +696,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: AnimPivotShoulder/ruka1/AnimPivotElbow/ruka2/AnimPivotWrist
+    path: AnimPivotShoulder/ShoulderGraphics/AnimPivotElbow/ElbowGraphics/AnimPivotWrist
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -760,7 +760,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: AnimPivotShoulder/ruka1/AnimPivotElbow/ruka2/AnimPivotWrist
+    path: AnimPivotShoulder/ShoulderGraphics/AnimPivotElbow/ElbowGraphics/AnimPivotWrist
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -824,7 +824,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: AnimPivotShoulder/ruka1/AnimPivotElbow/ruka2/AnimPivotWrist
+    path: AnimPivotShoulder/ShoulderGraphics/AnimPivotElbow/ElbowGraphics/AnimPivotWrist
     classID: 4
     script: {fileID: 0}
   m_EulerEditorCurves:
@@ -865,7 +865,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: AnimPivotShoulder/ruka1/AnimPivotElbow
+    path: AnimPivotShoulder/ShoulderGraphics/AnimPivotElbow
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -875,7 +875,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: AnimPivotShoulder/ruka1/AnimPivotElbow
+    path: AnimPivotShoulder/ShoulderGraphics/AnimPivotElbow
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -885,7 +885,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: AnimPivotShoulder/ruka1/AnimPivotElbow
+    path: AnimPivotShoulder/ShoulderGraphics/AnimPivotElbow
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -895,7 +895,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: AnimPivotShoulder/ruka1/AnimPivotElbow/ruka2/AnimPivotWrist
+    path: AnimPivotShoulder/ShoulderGraphics/AnimPivotElbow/ElbowGraphics/AnimPivotWrist
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -905,7 +905,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: AnimPivotShoulder/ruka1/AnimPivotElbow/ruka2/AnimPivotWrist
+    path: AnimPivotShoulder/ShoulderGraphics/AnimPivotElbow/ElbowGraphics/AnimPivotWrist
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -915,7 +915,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: AnimPivotShoulder/ruka1/AnimPivotElbow/ruka2/AnimPivotWrist
+    path: AnimPivotShoulder/ShoulderGraphics/AnimPivotElbow/ElbowGraphics/AnimPivotWrist
     classID: 4
     script: {fileID: 0}
   m_HasGenericRootTransform: 0

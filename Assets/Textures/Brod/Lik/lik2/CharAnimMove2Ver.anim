@@ -20,9 +20,9 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 25529e7fd0ba28c40b69e49b05a28a06, type: 3}
+      value: {fileID: 21300000, guid: 0da77ff04b954ed478e4e47f2604bea9, type: 3}
     attribute: m_Sprite
-    path: CharacterNew
+    path: Character Graphics
     classID: 212
     script: {fileID: 0}
   m_SampleRate: 12
@@ -33,14 +33,14 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 1021878808
+      path: 333611947
       attribute: 0
       script: {fileID: 0}
       typeID: 212
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 25529e7fd0ba28c40b69e49b05a28a06, type: 3}
+    - {fileID: 21300000, guid: 0da77ff04b954ed478e4e47f2604bea9, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
