@@ -55,7 +55,7 @@ public class ShipHookSystem : ShipSystem
             } else if (hitSomething) //Pull ship to hook
             {
                 Vector3 keepPosition = this.transform.position;
-                ship.transform.position = ship.transform.position + (GetDirFromBase() * shipPullSpeed * Time.deltaTime);
+                ship.MoveShip(GetDirFromBase() * shipPullSpeed * Time.deltaTime);
                 this.transform.position = keepPosition;
                 if (Vector3.Distance(transform.position, hookOrigin.position) <= minDistance)
                 {

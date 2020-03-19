@@ -62,14 +62,27 @@ public class ShipMovement : MonoBehaviour
             //movementLocked = currentlyRunning >= 1;
 
 
-            shipInterior.rotation = Quaternion.identity;
-            UpdateDependentTransforms((Vector2)shipInterior.position - originalInteriorPosition);
+            if (currentlyRunning > 0)
+            {
+                UpdateDependentTransforms((Vector2)shipInterior.position - originalInteriorPosition);
+
+            }
         }
 
     }
 
+    public void MoveShip(Vector2 deltaMovement)
+    {
+        transform.position = new Vector3(transform.position.x + deltaMovement.x,
+                                        transform.position.y + deltaMovement.y,
+                                        transform.position.z);
+
+        UpdateDependentTransforms(deltaMovement);
+    }
+
     private void UpdateDependentTransforms(Vector2 delta)
     {
+        shipInterior.rotation = Quaternion.identity;
         for (int i = 0; i < shipDependentTransforms.Count; i++)
         {
             shipDependentTransforms[i].position = (Vector2)shipDependentTransforms[i].position + delta;
