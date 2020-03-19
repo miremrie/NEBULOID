@@ -13,6 +13,7 @@ public class ShipMovement : MonoBehaviour
     public bool hookLocked = false;
     private List<ShipArmSystem> armSystems = new List<ShipArmSystem>();
     public bool movementLocked;
+    public List<Transform> shipDependentTransforms;
 
     void Update()
     {
@@ -35,6 +36,7 @@ public class ShipMovement : MonoBehaviour
         {
             int currentlyRunning = 0;
             Vector3 movementVec = Vector3.zero;
+            Vector2 originalInteriorPosition = shipInterior.position;
             foreach (ShipArmSystem arm in armSystems)
             {
                 if(arm.IsMoving())
@@ -51,6 +53,7 @@ public class ShipMovement : MonoBehaviour
                     ship.RotateAround(arm.pivot.position, Vector3.forward, speed * Time.deltaTime);
                 }
             }
+
             /*if (currentlyRunning > 1)
             {
                 movementVec = -1 * movementVec.normalized;
@@ -60,8 +63,17 @@ public class ShipMovement : MonoBehaviour
 
 
             shipInterior.rotation = Quaternion.identity;
+            UpdateDependentTransforms((Vector2)shipInterior.position - originalInteriorPosition);
         }
 
+    }
+
+    private void UpdateDependentTransforms(Vector2 delta)
+    {
+        for (int i = 0; i < shipDependentTransforms.Count; i++)
+        {
+            shipDependentTransforms[i].position = (Vector2)shipDependentTransforms[i].position + delta;
+        }
     }
 
     public void Rotate(bool left)

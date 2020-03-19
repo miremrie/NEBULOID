@@ -84,8 +84,9 @@ public class CharController : MonoBehaviour
     {
         if (col.tag == Tags.ACTION_OBJECT)
         {
-            
+
             ActionControl newControl = col.gameObject.GetComponent<ActionControl>();
+
             if (currentActions.ContainsKey(newControl.actionControl))
             {
                 currentActions[newControl.actionControl] = newControl;

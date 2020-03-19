@@ -6,7 +6,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public Camera mainCam;
-    public float standardSize;
+    private float standardSize;
     public AnimationCurve sizeOverTimeCurve;
     public AnimationCurve revertingSizeCurve;
     private float dstStandardSizeMultiplier;
@@ -15,6 +15,11 @@ public class CameraController : MonoBehaviour
     public bool revertingSize = false;
     private Timer animTimer;
     private Action callback;
+
+    private void Awake()
+    {
+        standardSize = mainCam.orthographicSize;
+    }
 
     private void Update()
     {

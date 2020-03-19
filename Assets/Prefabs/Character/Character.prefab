@@ -50,9 +50,9 @@ MonoBehaviour:
   playerNumber: 0
   gamepadNumber: 3
   altInput: 1
-  speed: 0.5
-  fixedMoveDstMinOffset: 0.01
-  fixedMoveSpeed: 1
+  speed: 2
+  fixedMoveDstMinOffset: 0.1
+  fixedMoveSpeed: 4
   animator: {fileID: 8847336381689410748}
   charSpriteRenderer: {fileID: 2917806909764477764}
 --- !u!61 &8847336380807913312
@@ -68,7 +68,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00281493, y: 0.015000001}
+  m_Offset: {x: 0.001755774, y: 0.31893194}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -79,7 +79,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.011756688, y: 0.024574243}
+  m_Size: {x: 0.40581357, y: 0.564003}
   m_EdgeRadius: 0
 --- !u!50 &8847336380807913327
 Rigidbody2D:
@@ -100,7 +100,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 2
   m_SleepingMode: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!1 &8847336381689410746
 GameObject:

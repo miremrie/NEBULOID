@@ -43,10 +43,25 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 0.31893194
       objectReference: {fileID: 0}
+    - target: {fileID: 8847336380807913313, guid: a91f02c44b54fd640bd4f781a8bd544e,
+        type: 3}
+      propertyPath: speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8847336380807913313, guid: a91f02c44b54fd640bd4f781a8bd544e,
+        type: 3}
+      propertyPath: fixedMoveDstMinOffset
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8847336380807913313, guid: a91f02c44b54fd640bd4f781a8bd544e,
+        type: 3}
+      propertyPath: fixedMoveSpeed
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8847336380807913325, guid: a91f02c44b54fd640bd4f781a8bd544e,
         type: 3}
       propertyPath: m_Name
-      value: Character 1
+      value: Character 1 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8847336380807913326, guid: a91f02c44b54fd640bd4f781a8bd544e,
         type: 3}
@@ -102,6 +117,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8847336380807913327, guid: a91f02c44b54fd640bd4f781a8bd544e,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8847336381689410747, guid: a91f02c44b54fd640bd4f781a8bd544e,
         type: 3}

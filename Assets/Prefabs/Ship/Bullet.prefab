@@ -127,8 +127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59aa1b3f097ba42498acc60c4f86c4ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  col: {fileID: 0}
+  speed: 4
+  col: {fileID: 813470689943285692}
   bombTime: 0.5
   bombRadius: 0.5
 --- !u!50 &6516228024489666276
