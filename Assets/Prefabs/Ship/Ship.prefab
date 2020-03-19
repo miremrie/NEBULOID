@@ -3808,9 +3808,7 @@ MonoBehaviour:
   audioController: {fileID: 5024028211301265338}
   hookLocked: 0
   movementLocked: 0
-  shipDependentTransforms:
-  - {fileID: 0}
-  - {fileID: 0}
+  shipDependentTransforms: []
 --- !u!114 &763311237520578848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5220,6 +5218,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingOrder
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4647238081458097308, guid: 5e7a93b4ea55ba04891aec2e7d226ca9,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5440417983255435601, guid: 5e7a93b4ea55ba04891aec2e7d226ca9,
         type: 3}
