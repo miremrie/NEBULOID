@@ -5,8 +5,6 @@ using UnityEngine;
 public class ShipSonarSystem : ShipSystem
 {
     public Transform SonarMovingLightPivot;
-    public Light SonarMovingLight;
-    public Light SonarCircleLight;
     private Timer sonarMoveTimer;
     public float sonarMoveTime;
     private bool sonarStarted;

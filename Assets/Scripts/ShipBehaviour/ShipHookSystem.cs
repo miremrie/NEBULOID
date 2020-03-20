@@ -14,6 +14,7 @@ public class ShipHookSystem : ShipSystem
     private float minDistance = 0.1f;
     public Transform shipCenterOrigin;
     public Transform hookOrigin;
+    public Transform rightHookPivot, leftHookPivot;
     public ShipMovement ship;
     public Collider2D triggerCollider;
     bool wasShot = false;
@@ -22,13 +23,15 @@ public class ShipHookSystem : ShipSystem
     private Timer hookOpenTimer;
     private Quaternion systemRotWhenFired, hookRotWhenFired;
     public float hookOpenAnimationTime = 1f;
+    public float previousHookRotation;
+
 
     private const string hookOpenAnim = "HookOpen";
     private const string hookCloseAnim = "HookClose";
     private const string hookGrabAnim = "HookGrab";
     private const float hookGrabAnimOffset = 0.6667f;
-    private Timer hookGrabTimer;
-    private bool grabPrepared = false;
+    private GameObject grabbedObject;
+    private bool isGrabbedObjectDraggable = false;
 
     public override void Initialize()
     {
@@ -36,9 +39,9 @@ public class ShipHookSystem : ShipSystem
         {
             base.Initialize();
             hookOpenTimer = new Timer(hookOpenAnimationTime);
-            hookGrabTimer = new Timer(hookGrabAnimOffset);
             fireTimer = new Timer(accelerationTime);
             OffsetColliderBasedOnCollision();
+            previousHookRotation = rightHookPivot.eulerAngles.z;
         }
     }
 
@@ -58,10 +61,6 @@ public class ShipHookSystem : ShipSystem
             if (!retracting) //Hook flying
             {
                 transform.position = transform.position + (GetDirFromBase() * GetFireSpeed() * Time.deltaTime);
-                if (grabPrepared)
-                {
-                    UpdateGrab();
-                }
                 if (Vector3.Distance(transform.position, hookOrigin.position) >= maxDistance)
                 {
                     retracting = true;
@@ -72,6 +71,7 @@ public class ShipHookSystem : ShipSystem
                 Vector3 keepPosition = this.transform.position;
                 ship.MoveShip(GetDirFromBase() * shipPullSpeed * Time.deltaTime);
                 this.transform.position = keepPosition;
+                UpdateGrabDrag();
                 if (Vector3.Distance(transform.position, hookOrigin.position) <= minDistance)
                 {
                     ResetHook();
@@ -105,17 +105,18 @@ public class ShipHookSystem : ShipSystem
         wasShot = false;
         retracting = false;
         hitSomething = false;
-        grabPrepared = false;
+        isGrabbedObjectDraggable = false;
         hookAnimator.SetTrigger(hookCloseAnim);
         ship.UnlockHook();
         ship.UnlockMovement();
+        grabbedObject = null;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (wasShot && !retracting && collision.CompareTag(Tags.OBSTACLE))
         {
-            PrepareGrab();
+            PrepareGrab(collision.gameObject);
         }
     }
 
@@ -145,20 +146,29 @@ public class ShipHookSystem : ShipSystem
         return base.ReadyToUse() && !wasShot && !ship.AreHooksLocked();
     }
 
-    private void PrepareGrab()
+    private void PrepareGrab(GameObject grabbed)
     {
+        grabbedObject = grabbed;
+        Obstacle obs = grabbedObject.GetComponent<Obstacle>();
+        isGrabbedObjectDraggable = obs != null;
         hookAnimator.SetTrigger(hookGrabAnim);
-        hookGrabTimer.Start();
-        grabPrepared = true;
     }
-    private void UpdateGrab()
+
+    private void Grab()
     {
-        hookGrabTimer.Update(Time.deltaTime);
-        if (!hookGrabTimer.IsRunning())
+        previousHookRotation = rightHookPivot.eulerAngles.z;
+        hitSomething = true;
+        retracting = true;
+        ship.LockMovement();
+    }
+
+    private void UpdateGrabDrag()
+    {
+        if (hitSomething && grabbedObject != null && isGrabbedObjectDraggable)
         {
-            hitSomething = true;
-            retracting = true;
-            ship.LockMovement();
+            float angle = rightHookPivot.eulerAngles.z - previousHookRotation;
+            grabbedObject.transform.RotateAround(transform.position, Vector3.forward, angle);
+            previousHookRotation = rightHookPivot.eulerAngles.z;
         }
     }
 
