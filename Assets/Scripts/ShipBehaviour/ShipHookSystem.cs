@@ -5,13 +5,17 @@ using UnityEngine;
 public class ShipHookSystem : ShipSystem
 {
     public Animator hookAnimator;
-    public float fireSpeed, retractSpeed;
+    public float fireMaxSpeed, retractSpeed;
+    public float accelerationTime;
+    private Timer fireTimer;
+    public AnimationCurve acceleration;
     public float shipPullSpeed;
     public float maxDistance;
     private float minDistance = 0.1f;
     public Transform shipCenterOrigin;
     public Transform hookOrigin;
     public ShipMovement ship;
+    public Collider2D triggerCollider;
     bool wasShot = false;
     bool retracting = false;
     bool hitSomething = false;
@@ -22,6 +26,9 @@ public class ShipHookSystem : ShipSystem
     private const string hookOpenAnim = "HookOpen";
     private const string hookCloseAnim = "HookClose";
     private const string hookGrabAnim = "HookGrab";
+    private const float hookGrabAnimOffset = 0.6667f;
+    private Timer hookGrabTimer;
+    private bool grabPrepared = false;
 
     public override void Initialize()
     {
@@ -29,6 +36,9 @@ public class ShipHookSystem : ShipSystem
         {
             base.Initialize();
             hookOpenTimer = new Timer(hookOpenAnimationTime);
+            hookGrabTimer = new Timer(hookGrabAnimOffset);
+            fireTimer = new Timer(accelerationTime);
+            OffsetColliderBasedOnCollision();
         }
     }
 
@@ -41,12 +51,17 @@ public class ShipHookSystem : ShipSystem
     private void Move()
     {
         hookOpenTimer.Update(Time.deltaTime);
+        fireTimer.Update(Time.deltaTime);
         if (wasShot && !hookOpenTimer.IsRunning())
         {
             AdjustRotation();
             if (!retracting) //Hook flying
             {
-                transform.position = transform.position + (GetDirFromBase() * fireSpeed * Time.deltaTime);
+                transform.position = transform.position + (GetDirFromBase() * GetFireSpeed() * Time.deltaTime);
+                if (grabPrepared)
+                {
+                    UpdateGrab();
+                }
                 if (Vector3.Distance(transform.position, hookOrigin.position) >= maxDistance)
                 {
                     retracting = true;
@@ -72,6 +87,11 @@ public class ShipHookSystem : ShipSystem
         }
     }
 
+    private float GetFireSpeed()
+    {
+        return acceleration.Evaluate(fireTimer.GetCurrentTimePercentClamped()) * fireMaxSpeed;
+    }
+
     private void AdjustRotation()
     {
         //hookOrigin.rotation
@@ -85,6 +105,7 @@ public class ShipHookSystem : ShipSystem
         wasShot = false;
         retracting = false;
         hitSomething = false;
+        grabPrepared = false;
         hookAnimator.SetTrigger(hookCloseAnim);
         ship.UnlockHook();
         ship.UnlockMovement();
@@ -94,11 +115,7 @@ public class ShipHookSystem : ShipSystem
     {
         if (wasShot && !retracting && collision.CompareTag(Tags.OBSTACLE))
         {
-
-            hitSomething = true;
-            retracting = true;
-            hookAnimator.SetTrigger(hookGrabAnim);
-            ship.LockMovement();
+            PrepareGrab();
         }
     }
 
@@ -111,6 +128,7 @@ public class ShipHookSystem : ShipSystem
             wasShot = true;
             ship.LockHook();
             hookOpenTimer.Start();
+            fireTimer.Start();
             hookAnimator.ResetTrigger(hookCloseAnim);
             hookAnimator.ResetTrigger(hookGrabAnim);
             hookAnimator.SetTrigger(hookOpenAnim);
@@ -125,5 +143,34 @@ public class ShipHookSystem : ShipSystem
     public override bool ReadyToUse()
     {
         return base.ReadyToUse() && !wasShot && !ship.AreHooksLocked();
+    }
+
+    private void PrepareGrab()
+    {
+        hookAnimator.SetTrigger(hookGrabAnim);
+        hookGrabTimer.Start();
+        grabPrepared = true;
+    }
+    private void UpdateGrab()
+    {
+        hookGrabTimer.Update(Time.deltaTime);
+        if (!hookGrabTimer.IsRunning())
+        {
+            hitSomething = true;
+            retracting = true;
+            ship.LockMovement();
+        }
+    }
+
+    private void OffsetColliderBasedOnCollision()
+    {
+        float initalOffsetX = triggerCollider.offset.x;
+        float initalOffsetY = triggerCollider.offset.y;
+        float animationOffsetX = hookGrabAnimOffset * fireMaxSpeed;
+        if (initalOffsetX < 0)
+        {
+            animationOffsetX = -animationOffsetX;
+        }
+        triggerCollider.offset = new Vector2(initalOffsetX + animationOffsetX, initalOffsetY);
     }
 }

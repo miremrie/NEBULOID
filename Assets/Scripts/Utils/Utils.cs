@@ -47,6 +47,11 @@ class Timer
         return currTime / time;
     }
 
+    public float GetCurrentTimePercentClamped()
+    {
+        return Mathf.Clamp01(GetCurrentTimePercent());
+    }
+
     public void Start()
     {
         currTime = 0f;
