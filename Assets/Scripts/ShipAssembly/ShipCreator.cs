@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public enum CreationStage
 {
-    CreateName, SelectRoom, SelectSystem, PlaceSystem, Finished
+    CreateName, SelectRoom, SelectSystem, PlaceSystem, Finished, Confirmed, Canceled
 }
 
 public class ShipCreator : MonoBehaviour
@@ -15,63 +16,114 @@ public class ShipCreator : MonoBehaviour
     public ShipData shipData = new ShipData();
     public CreationStage currentStage = CreationStage.CreateName;
     private SystemData curSysData;
+    public delegate void ShipDataPrepared(ShipData shipData, bool newShip);
+    public delegate void CreationStageChanged(CreationStage stage);
+    public event CreationStageChanged onCreationStageChanged;
+    public event ShipDataPrepared onShipDataPrepared;
+    public bool hardSaveShip = true;
+    public bool areRoomsReassignable = true;
 
     private void Start()
     {
 
     }
 
+    private void PrepareData()
+    {
+        shipData = shipAssembler.GetShipData();
+
+        if (shipData == null)
+        {
+            //New Ship
+            shipData = new ShipData();
+            ChangeStage(CreationStage.CreateName);
+        }
+        if (onShipDataPrepared != null)
+        {
+            onShipDataPrepared(shipData, hardSaveShip);
+        }
+    }
+
+    private void ChangeStage(CreationStage creationStage)
+    {
+        currentStage = creationStage;
+        if (onCreationStageChanged != null)
+        {
+            onCreationStageChanged(creationStage);
+        }
+    }
+
     public void SetShipName(string name)
     {
         shipData.shipName = name;
-        currentStage = CreationStage.SelectRoom;
+        ChangeStage(CreationStage.SelectRoom);
     }
 
-    public void OnRoomSelected(RoomName name)
+    public void SelectRoom(RoomName name)
     {
-        curSysData = new SystemData();
-        curSysData.room = name;
-        currentStage = CreationStage.SelectSystem;
-    }
-
-    public void OnSystemSelected(SystemName name)
-    {
-        curSysData.system = name;
-        currentStage = CreationStage.PlaceSystem;
-        HideAllSystems();
-    }
-
-    public void OnSystemPlaced(Vector3 rotation)
-    {
-        curSysData.SetRotation(rotation);
-        shipData.AddSysData(curSysData);
-        if (shipData.systemDatas.Count >= shipAssembler.rooms.Length)
+        if (currentStage == CreationStage.SelectRoom)
         {
-            currentStage = CreationStage.Finished;
+            if (areRoomsReassignable || !shipData.systemDatas.Exists(sysData => sysData.room == name))
+            {
+                curSysData = new SystemData();
+                curSysData.room = name;
+                ChangeStage(CreationStage.SelectSystem);
+            }
+            else
+            {
+                throw new ShipCreationException($"Can't select room: Room {name} is already assigned too and rooms are not reassignable.");
+            }
         } else
         {
-            currentStage = CreationStage.SelectRoom;
+            throw new ShipCreationException($"Can't select room: Invalid CreationStage: {currentStage}");
         }
     }
 
-    public bool IsSystemAvailable(SystemName systemName)
+    public void SelectSystem(SystemName name)
     {
-        int counter = 0;
-        foreach (SystemData sysData in shipData.systemDatas)
+        if (currentStage == CreationStage.SelectSystem)
         {
-            if (sysData.system == systemName)
+            if (IsSystemAvailable(name))
             {
-                counter++;
+                curSysData.system = name;
+                ChangeStage(CreationStage.PlaceSystem);
+            } else
+            {
+                throw new ShipCreationException($"Can't select system: System would exceed max system count for that system type: {name}");
             }
-        }
-        foreach (ShipSystemWithID systemID in shipAssembler.systems)
+
+        } else
         {
-            if (systemID.name == systemName && counter >= systemID.maxSystemsOnShip)
-            {
-                return false;
-            }
+            throw new ShipCreationException($"Can't select system: Invalid CreationStage: {currentStage}");
         }
-        return true;
+
+        //HideAllSystems();
+    }
+
+    public void PlaceSystem(Vector3 rotation)
+    {
+        if (currentStage == CreationStage.PlaceSystem)
+        {
+            curSysData.SetRotation(rotation);
+            shipData.AddSysData(curSysData);
+            if (!areRoomsReassignable && shipData.systemDatas.Count >= shipAssembler.rooms.Length)
+            {
+                ChangeStage(CreationStage.Finished);
+            }
+            else
+            {
+                ChangeStage(CreationStage.SelectRoom);
+            }
+        } else
+        {
+            throw new ShipCreationException($"Can't place system: Invalid CreationStage: {currentStage}");
+        }
+    }
+
+    public bool IsSystemAvailable(SystemName name)
+    {
+        int systemCount = shipData.systemDatas.Count(sysData => sysData.system == name);
+        return shipAssembler.GetMaxSystemsOnShip(name) > systemCount;
     }
     public void HideAllSystems()
     {
@@ -107,11 +159,25 @@ public class ShipCreator : MonoBehaviour
         }
         return null;
     }
-
-    public void OnSaveShip()
+    public void ConfirmShip()
     {
         shipData.FillEmptyData();
-        SaveSystem.SaveSingleShip(shipData, true);
-        SceneManager.LoadScene(0);
+        if (hardSaveShip)
+        {
+            SaveSystem.SaveSingleShip(shipData, true);
+        }
+        ChangeStage(CreationStage.Confirmed);
+    }
+
+    public void CancelShip()
+    {
+        ChangeStage(CreationStage.Canceled);
+    }
+}
+
+public class ShipCreationException : System.Exception
+{
+    public ShipCreationException(string message) : base(message)
+    {
     }
 }

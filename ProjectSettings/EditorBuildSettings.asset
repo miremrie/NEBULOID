@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/ArcadeLevel.unity
     guid: 5d4d491dc794e17429a63ed57feeca49
   - enabled: 1
-    path: Assets/Scenes/AssemblyScene.unity
+    path: Assets/Scenes/GarageScene.unity
     guid: 711b171160b658d41a160af83e7b28ef
   m_configObjects: {}

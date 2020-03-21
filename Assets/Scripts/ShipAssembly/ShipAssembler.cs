@@ -80,4 +80,22 @@ public class ShipAssembler : MonoBehaviour
         }
         return null;
     }
+
+    public ShipData GetShipData()
+    {
+        return curShipData;
+    }
+
+    public int GetMaxSystemsOnShip(SystemName name)
+    {
+        for (int i = 0; i < systems.Length; i++)
+        {
+            if (systems[i].name == name)
+            {
+                return systems[i].maxSystemsOnShip;
+            }
+        }
+        Debug.LogWarning($"System entry for system: {name} doesn't exist");
+        return 0;
+    }
 }

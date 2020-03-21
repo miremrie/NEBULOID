@@ -46,6 +46,7 @@ public class ShipCreatorUI : MonoBehaviour
     private void Start()
     {
         RegisterController();
+        shipCreator.onShipDataPrepared += OnShipDataPrepared;
         foreach (UIRoomID room in uiRooms)
         {
             availableRooms.Add(room);
@@ -57,6 +58,14 @@ public class ShipCreatorUI : MonoBehaviour
         shipNameInputField.onEndEdit.AddListener(OnShipNameEntered);
         shipNameInputField.Select();
         ChangeStage();
+    }
+
+    private void OnShipDataPrepared(ShipData shipData, bool hardSaveShip)
+    {
+        foreach(SystemData sysData in shipData.systemDatas)
+        {
+
+        }
     }
 
     private void CheckForSecondInput()
@@ -98,8 +107,7 @@ public class ShipCreatorUI : MonoBehaviour
             && (shipCreator.currentStage == CreationStage.SelectRoom
                 || shipCreator.currentStage == CreationStage.Finished))
         {
-            AkSoundEngine.StopAll();
-            shipCreator.OnSaveShip();
+            shipCreator.ConfirmShip();
         }
     }
 
@@ -107,7 +115,7 @@ public class ShipCreatorUI : MonoBehaviour
     {
         if (handler.GetActionPressed())
         {
-            shipCreator.OnSystemPlaced(currentPlacementSystem.transform.rotation.eulerAngles);
+            shipCreator.PlaceSystem(currentPlacementSystem.transform.rotation.eulerAngles);
             availableRooms[currentlySelectedRoom].alarmIndicator.SetActive(false);
             availableRooms.RemoveAt(currentlySelectedRoom);
             if (!shipCreator.IsSystemAvailable(availableSystems[currentShipSystem]))
@@ -119,15 +127,9 @@ public class ShipCreatorUI : MonoBehaviour
             return;
         }
         int curHor = handler.GetHorizontal();
-        //int curVer = handler.GetVertical();
         if (curHor != 0)
         {
-            //Vector3 targetVector = new Vector2(curHor, curVer);
             float rotSpeed = placementRotSpeed * curHor;
-            /*targetVector = targetVector.normalized;
-            float singleStep = placementRotSpeed * Time.deltaTime;
-            float angle = Vector3.Angle(Vector3.up, targetVector);
-            Debug.Log(angle);*/
             currentPlacementSystem.transform.rotation = Quaternion.Euler(currentPlacementSystem.transform.rotation.eulerAngles + Vector3.forward * rotSpeed * Time.deltaTime);
         }
 
@@ -138,7 +140,7 @@ public class ShipCreatorUI : MonoBehaviour
     {
         if (handler.GetActionPressed())
         {
-            shipCreator.OnSystemSelected(availableSystems[currentShipSystem]);
+            shipCreator.SelectSystem(availableSystems[currentShipSystem]);
             currentPlacementSystem = shipCreator.CreateSampleSystem(availableSystems[currentShipSystem]);
             ChangeSystemText(availableSystems[currentShipSystem], false);
             ChangeStage();
@@ -164,7 +166,7 @@ public class ShipCreatorUI : MonoBehaviour
     {
         currentShipSystem = 0;
         shipCreator.ShowSystem(availableSystems[currentShipSystem]);
-        ChangeSystemText(availableSystems[currentShipSystem], true);
+        ChangeSystemText(currentlyModifying, availableSystems[currentShipSystem], true);
 
     }
 
@@ -173,7 +175,7 @@ public class ShipCreatorUI : MonoBehaviour
 
         currentlySelectedRoom = 0;
         availableRooms[currentlySelectedRoom].alarmIndicator.SetActive(true);
-        ChangeRoomText(availableRooms[currentlySelectedRoom].roomName, true);
+        ChangeRoomText(currentlyModifying, availableRooms[currentlySelectedRoom].roomName, true);
     }
 
     private void HandleSelectRoom()
@@ -187,8 +189,8 @@ public class ShipCreatorUI : MonoBehaviour
     {
         if (handler.GetActionPressed())
         {
-            shipCreator.OnRoomSelected(availableRooms[currentlySelectedRoom].roomName);
-            ChangeRoomText(availableRooms[currentlySelectedRoom].roomName, false);
+            shipCreator.SelectRoom(availableRooms[currentlySelectedRoom].roomName);
+            ChangeRoomText(currentlyModifying, availableRooms[currentlySelectedRoom].roomName, false);
             ChangeStage();
             return;
         }
@@ -209,7 +211,7 @@ public class ShipCreatorUI : MonoBehaviour
                     currentlySelectedRoom = 0;
                 }
                 ChangeImageTint(availableRooms[currentlySelectedRoom].uiImage, selectedTint);
-                ChangeRoomText(availableRooms[currentlySelectedRoom].roomName, true);
+                ChangeRoomText(currentlyModifying, availableRooms[currentlySelectedRoom].roomName, true);
                 availableRooms[currentlySelectedRoom].alarmIndicator.SetActive(true);
             }
         }
@@ -262,15 +264,15 @@ public class ShipCreatorUI : MonoBehaviour
     }
 
 
-    private void ChangeRoomText(RoomName name, bool isBeingEdited = false)
+    private void ChangeRoomText(int roomOrderIndex, RoomName name, bool isBeingEdited = false)
     {
-        roomNameDisplayTable[currentlyModifying].text = name.ToString();
-        roomNameDisplayTable[currentlyModifying].color = (isBeingEdited) ? currentlyPickingTextColor : normalTextColor;
+        roomNameDisplayTable[roomOrderIndex].text = name.ToString();
+        roomNameDisplayTable[roomOrderIndex].color = (isBeingEdited) ? currentlyPickingTextColor : normalTextColor;
     }
-    private void ChangeSystemText(SystemName name, bool isBeingEdited = false)
+    private void ChangeSystemText(int systemOrderIndex, SystemName name, bool isBeingEdited = false)
     {
-        systemNameDisplayTable[currentlyModifying].text = name.ToString();
-        systemNameDisplayTable[currentlyModifying].color = (isBeingEdited) ? currentlyPickingTextColor : normalTextColor;
+        systemNameDisplayTable[systemOrderIndex].text = name.ToString();
+        systemNameDisplayTable[systemOrderIndex].color = (isBeingEdited) ? currentlyPickingTextColor : normalTextColor;
     }
 
     private void RegisterController()
@@ -290,13 +292,4 @@ public class ShipCreatorUI : MonoBehaviour
             shipNameInputField.Select();            
         }
     }
-
-    /*private void ShouldReselectShipNameInput()
-    {
-        if (reselectInputField)
-        {
-            reselectInputField = false;
-            shipNameInputField.Select();
-        }
-    }*/
 }

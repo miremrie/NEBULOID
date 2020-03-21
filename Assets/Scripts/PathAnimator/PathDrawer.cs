@@ -33,11 +33,12 @@ public class PathDrawer : MonoBehaviour
     {
         mesh = meshFilter.mesh;
         meshFilter.sharedMesh = mesh;
+        meshRenderer.sharedMaterial = pathMaterial;
+        meshRenderer.sharedMaterial = new Material(meshRenderer.sharedMaterial);
     }
 
-    void AssignMaterials()
+    void UpdateMaterials()
     {
-        meshRenderer.sharedMaterial = pathMaterial;
         meshRenderer.sharedMaterial.mainTextureScale = new Vector3(1, textureTilingPerMeter * vPath.length);
     }
 
@@ -102,6 +103,6 @@ public class PathDrawer : MonoBehaviour
         mesh.SetTriangles(roadTriangles, 0);
         mesh.RecalculateBounds();
         meshFilter.sharedMesh = mesh;
-        AssignMaterials();
+        UpdateMaterials();
     }
 }
