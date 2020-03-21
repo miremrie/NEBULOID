@@ -1370,6 +1370,11 @@ PrefabInstance:
       propertyPath: shake
       value: 
       objectReference: {fileID: 1560085652}
+    - target: {fileID: 3039023544392594863, guid: 835fe173342e2294ea00455a759b69ed,
+        type: 3}
+      propertyPath: ship
+      value: 
+      objectReference: {fileID: 2050759953}
     - target: {fileID: 5040788851926938560, guid: 835fe173342e2294ea00455a759b69ed,
         type: 3}
       propertyPath: game
@@ -1482,6 +1487,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 655218e13b651944e8f89d2c98c080dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2050759953 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7595398177048142798, guid: 835fe173342e2294ea00455a759b69ed,
+    type: 3}
+  m_PrefabInstance: {fileID: 2050759951}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91cfce6408cb0cb43abe70e9ce65ee02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2078184263
