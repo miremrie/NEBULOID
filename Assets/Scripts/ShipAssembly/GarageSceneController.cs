@@ -1,12 +1,14 @@
-﻿using System.Collections;
+﻿using NBLD.ShipCreation;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GarageSceneController : MonoBehaviour
 {
     public ShipCreator shipCreator;
 
-    private void Start()
+    private void Awake()
     {
         Subscribe();
     }
@@ -18,6 +20,10 @@ public class GarageSceneController : MonoBehaviour
 
     private void OnCreationStageChanged(CreationStage creationStage)
     {
-
+        if (creationStage == CreationStage.Canceled || creationStage == CreationStage.Confirmed)
+        {
+            AkSoundEngine.StopAll();
+            SceneManager.LoadScene(0);
+        }
     }
 }

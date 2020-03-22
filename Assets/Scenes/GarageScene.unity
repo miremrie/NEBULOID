@@ -293,6 +293,7 @@ GameObject:
   - component: {fileID: 683856313}
   - component: {fileID: 683856318}
   - component: {fileID: 683856316}
+  - component: {fileID: 683856319}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -452,6 +453,31 @@ MonoBehaviour:
   multiPositionTypeLabel: 0
   LargeModePositions: []
   multiPositionArray: []
+--- !u!114 &683856319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 683856312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0800b116c3df7745b13fd326fd4723d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipCreator: {fileID: 899276094}
+--- !u!114 &899276094 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6370515991639609082, guid: 68e4895ae637c9848a28176d71e5cffa,
+    type: 3}
+  m_PrefabInstance: {fileID: 7467980815694672913}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a03d6d56346326479bf23e240a2b72d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &900073536
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -654,6 +680,8 @@ MonoBehaviour:
     systemDatas: []
     shipName: 
   currentStage: 0
+  hardSaveShip: 1
+  areRoomsReassignable: 1
 --- !u!1001 &7467980815694672913
 PrefabInstance:
   m_ObjectHideFlags: 0

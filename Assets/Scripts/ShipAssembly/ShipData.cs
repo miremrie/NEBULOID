@@ -96,7 +96,12 @@ public class SystemData
 
     public Quaternion GetRotation()
     {
-        return Quaternion.Euler(rotation[0], rotation[1], rotation[2]);
+        return Quaternion.Euler(GetRotationEuler());
+    }
+
+    public Vector3 GetRotationEuler()
+    {
+        return new Vector3(rotation[0], rotation[1], rotation[2]);
     }
 
     public Vector3 GetPosition()

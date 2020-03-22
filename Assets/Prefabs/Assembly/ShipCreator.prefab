@@ -4775,11 +4775,25 @@ MonoBehaviour:
   - roomName: 4
     uiImage: {fileID: 7467980815334502391}
     alarmIndicator: {fileID: 0}
-  systemNames: 0000000001000000020000000300000004000000
   selectedTint: {r: 0.130162, g: 0.5839593, b: 0.6132076, a: 0.62352943}
   unusedTint: {r: 0, g: 0, b: 0, a: 0.5019608}
   usedTint: {r: 0, g: 0, b: 0, a: 1}
   actionTitleText: {fileID: 7467980815491566637}
+  stageMessages:
+  - stage: 0
+    message: ENTER NAME
+  - stage: 1
+    message: SELECT ROOM
+  - stage: 2
+    message: SELECT SYSTEM
+  - stage: 3
+    message: PLACE SYSTEM
+  - stage: 4
+    message: YOU ARE DONE
+  - stage: 5
+    message: CREATION CONFIRMED
+  - stage: 6
+    message: CREATION CANCELED
   placementRotSpeed: 45
   roomNameDisplayTable:
   - {fileID: 7467980816796099932}
@@ -4814,3 +4828,5 @@ MonoBehaviour:
     systemDatas: []
     shipName: 
   currentStage: 0
+  hardSaveShip: 1
+  areRoomsReassignable: 1

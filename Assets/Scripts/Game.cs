@@ -12,6 +12,7 @@ public class Game : MonoBehaviour
     public float maxFuel;
     public float fuelBurnRate;
     private bool dead;
+
     public GameObject gameOverScreen;
     public Image fuelFillImage;
     public ScreenShake shake;
@@ -43,6 +44,7 @@ public class Game : MonoBehaviour
         gameOverScreen.SetActive(false);
         currentFuel = maxFuel;
         repairables = FindObjectsOfType<Repairable>();
+
     }
 
     void Update()
@@ -139,4 +141,5 @@ public class Game : MonoBehaviour
         AkSoundEngine.StopAll();
         SceneManager.LoadScene(0);
     }
+
 }

@@ -1,295 +1,359 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-[System.Serializable]
-public struct UIRoomID
+namespace NBLD.ShipCreation
 {
-    public RoomName roomName;
-    public Image uiImage;
-    public GameObject alarmIndicator;
-}
 
-public class ShipCreatorUI : MonoBehaviour
-{
-    public ShipCreator shipCreator;
-    public int primaryInput, altInput;
-    private InputHandler handler;
-    private int lastHorInputState = 0;
-    [SerializeField]
-    public UIRoomID[] uiRooms;
-    private int currentShipSystem = 0;
-    public SystemName[] systemNames;
-    private List<UIRoomID> availableRooms = new List<UIRoomID>();
-    private List<SystemName> availableSystems = new List<SystemName>();
-    public Color selectedTint, unusedTint, usedTint;
-    public Text actionTitleText;
-    private string selectRoomTitle = "SELECT ROOM";
-    private string selectSystemTitle = "SELECT SYSTEM";
-    private string placeSystemTitle = "PLACE SYSTEM";
-    private string finishedSystemTitle = "NO MORE";
-    private string enterShipNameTitle = "ENTER NAME";
-    private GameObject currentPlacementSystem;
-    public float placementRotSpeed = 10f;
-    public Text[] roomNameDisplayTable;
-    public Text[] systemNameDisplayTable;
-    public Color normalTextColor, currentlyPickingTextColor;
-    private int currentlyModifying = 0;
-    public InputField shipNameInputField;
-    //private bool reselectInputField = false;
-    public int minCharShipName = 3;
-
-    private int currentlySelectedRoom;
-
-    private void Start()
+    [System.Serializable]
+    public struct UIRoomID
     {
-        RegisterController();
-        shipCreator.onShipDataPrepared += OnShipDataPrepared;
-        foreach (UIRoomID room in uiRooms)
-        {
-            availableRooms.Add(room);
-        }
-        foreach (SystemName system in systemNames)
-        {
-            availableSystems.Add(system);
-        }
-        shipNameInputField.onEndEdit.AddListener(OnShipNameEntered);
-        shipNameInputField.Select();
-        ChangeStage();
+        public RoomName roomName;
+        public Image uiImage;
+        public GameObject alarmIndicator;
+    }
+    [System.Serializable]
+    public struct CreationStageMessage
+    {
+        public CreationStage stage;
+        public string message;
     }
 
-    private void OnShipDataPrepared(ShipData shipData, bool hardSaveShip)
+    public class ShipCreatorUI : MonoBehaviour
     {
-        foreach(SystemData sysData in shipData.systemDatas)
-        {
+        public ShipCreator shipCreator;
+        public int primaryInput, altInput;
+        private InputHandler handler;
+        private int lastHorInputState = 0;
+        [SerializeField]
+        public UIRoomID[] uiRooms;
 
-        }
-    }
+        public Color selectedTint, unusedTint, usedTint;
+        public Text actionTitleText;
+        public CreationStageMessage[] stageMessages;
+        private GameObject currentPlacementSystem;
+        public float placementRotSpeed = 10f;
+        public Text[] roomNameDisplayTable;
+        public Text[] systemNameDisplayTable;
+        public Color normalTextColor, currentlyPickingTextColor;
+        private int curEditIndexDisplayTable = 0;
+        public InputField shipNameInputField;
+        //private bool reselectInputField = false;
+        public int minCharShipName = 3;
 
-    private void CheckForSecondInput()
-    {
-        if (altInput != -1 && Input.GetButtonDown("Action" + altInput.ToString()))
+        private int currentlySelectedRoom;
+        private int currentlySelectedSystem = 0;
+        private List<RoomName> roomTextIndex = new List<RoomName>();
+        private Dictionary<RoomName, GameObject> roomToAttachedSystem = new Dictionary<RoomName, GameObject>();
+
+        private void Awake()
         {
-            int tmp = altInput;
-            altInput = primaryInput;
-            primaryInput = tmp;
             RegisterController();
-        }
-    }
+            shipCreator.onCreationStageChanged += ChangeStage;
 
-    private void Update()
-    {
-        CheckForSecondInput();
-        CheckForFinishEditing();
-        if (shipCreator.currentStage == CreationStage.SelectRoom)
-        {
-            HandleSelectRoom();
-        } else if (shipCreator.currentStage == CreationStage.SelectSystem)
-        {
-            HandleSelectSystem();
-        } else if (shipCreator.currentStage == CreationStage.PlaceSystem)
-        {
-            HandlePlaceSystem();
+            shipNameInputField.onEndEdit.AddListener(OnShipNameEntered);
+            shipNameInputField.Select();
         }
-        if (handler.GetEscapeKeyPressed())
-        {
-            AkSoundEngine.StopAll();
-            SceneManager.LoadScene(0);
-        }
-        //ShouldReselectShipNameInput();
-    }
 
-    private void CheckForFinishEditing()
-    {
-        if (handler.GetSubActionPressed() 
-            && (shipCreator.currentStage == CreationStage.SelectRoom
-                || shipCreator.currentStage == CreationStage.Finished))
-        {
-            shipCreator.ConfirmShip();
-        }
-    }
 
-    private void HandlePlaceSystem()
-    {
-        if (handler.GetActionPressed())
+        private void ChangeStage(CreationStage stage)
         {
-            shipCreator.PlaceSystem(currentPlacementSystem.transform.rotation.eulerAngles);
-            availableRooms[currentlySelectedRoom].alarmIndicator.SetActive(false);
-            availableRooms.RemoveAt(currentlySelectedRoom);
-            if (!shipCreator.IsSystemAvailable(availableSystems[currentShipSystem]))
+            actionTitleText.text = stageMessages.First(sm => sm.stage == stage).message;
+            switch (shipCreator.currentStage)
             {
-                availableSystems.RemoveAt(currentShipSystem);
+                case (CreationStage.CreateName):
+                    break;
+                case (CreationStage.SelectRoom):
+                {
+                    shipNameInputField.transform.parent.gameObject.SetActive(false);
+                    ResetRoomSelection();
+                    ReengageRoomSelection();
+                    break;
+                }
+                case (CreationStage.SelectSystem):
+                {
+                    RoomName currentRoom = shipCreator.GetCurrentEditRoom();
+                    RegisterNewRoomDisplayText(currentRoom);
+                    if (roomToAttachedSystem.ContainsKey(currentRoom))
+                    {
+                        Destroy(roomToAttachedSystem[currentRoom]);
+                        roomToAttachedSystem.Remove(currentRoom);
+                    }
+                    ChangeRoomText(curEditIndexDisplayTable, shipCreator.GetCurrentEditRoom().ToString(), false);
+                    ReengageSystemSelection();
+                    break;
+                }
+                case (CreationStage.PlaceSystem):
+                {
+                    shipCreator.HideAllSystems();
+                    RoomName currentRoom = shipCreator.GetCurrentEditRoom();
+                    SystemName currentSystem = shipCreator.GetCurrentEditSystem();
+                    currentPlacementSystem = shipCreator.CreateSampleSystem(currentSystem);
+                    roomToAttachedSystem.Add(currentRoom, currentPlacementSystem);
+                    ChangeSystemText(curEditIndexDisplayTable, currentSystem, false);
+                    break;
+                }
+
+                case (CreationStage.Finished):
+                    ResetRoomSelection();
+                    break;
+                case (CreationStage.Confirmed):
+                    ResetRoomSelection();
+                    ResetPlacedSystems();
+                    break;
+                case (CreationStage.Canceled):
+                    ResetRoomSelection();
+                    ResetPlacedSystems();
+                    break;
             }
-            currentlyModifying++;
-            ChangeStage();
-            return;
-        }
-        int curHor = handler.GetHorizontal();
-        if (curHor != 0)
-        {
-            float rotSpeed = placementRotSpeed * curHor;
-            currentPlacementSystem.transform.rotation = Quaternion.Euler(currentPlacementSystem.transform.rotation.eulerAngles + Vector3.forward * rotSpeed * Time.deltaTime);
         }
 
-
-    }
-
-    private void HandleSelectSystem()
-    {
-        if (handler.GetActionPressed())
+        private void Update()
         {
-            shipCreator.SelectSystem(availableSystems[currentShipSystem]);
-            currentPlacementSystem = shipCreator.CreateSampleSystem(availableSystems[currentShipSystem]);
-            ChangeSystemText(availableSystems[currentShipSystem], false);
-            ChangeStage();
-            return;
-        }
-        int curHor = GetDiscreteHor();
-        if (curHor != 0)
-        {
-            currentShipSystem += curHor;
-            if (currentShipSystem >= availableSystems.Count)
+            CheckForSecondInput();
+            CheckForFinishEditing();
+            if (shipCreator.currentStage == CreationStage.SelectRoom)
             {
-                currentShipSystem = 0;
-            } else if (currentShipSystem < 0)
-            {
-                currentShipSystem = availableSystems.Count - 1;
+                HandleRoomSelection();
             }
-            shipCreator.ShowSystem(availableSystems[currentShipSystem]);
-            ChangeSystemText(availableSystems[currentShipSystem], true);
+            else if (shipCreator.currentStage == CreationStage.SelectSystem)
+            {
+                HandleSelectSystem();
+            }
+            else if (shipCreator.currentStage == CreationStage.PlaceSystem)
+            {
+                HandlePlaceSystem();
+            }
+            //ShouldReselectShipNameInput();
         }
-    }
 
-    private void ResetSelectedSystem()
-    {
-        currentShipSystem = 0;
-        shipCreator.ShowSystem(availableSystems[currentShipSystem]);
-        ChangeSystemText(currentlyModifying, availableSystems[currentShipSystem], true);
-
-    }
-
-    private void ResetSelectedRoom()
-    {
-
-        currentlySelectedRoom = 0;
-        availableRooms[currentlySelectedRoom].alarmIndicator.SetActive(true);
-        ChangeRoomText(currentlyModifying, availableRooms[currentlySelectedRoom].roomName, true);
-    }
-
-    private void HandleSelectRoom()
-    {
-        ChangeRoomSelection();
-    }
-
-
-
-    private void ChangeRoomSelection()
-    {
-        if (handler.GetActionPressed())
+        private void CheckForFinishEditing()
         {
-            shipCreator.SelectRoom(availableRooms[currentlySelectedRoom].roomName);
-            ChangeRoomText(currentlyModifying, availableRooms[currentlySelectedRoom].roomName, false);
-            ChangeStage();
-            return;
+            if (handler.GetSubActionPressed()
+                && (shipCreator.currentStage == CreationStage.SelectRoom
+                    || shipCreator.currentStage == CreationStage.Finished))
+            {
+                shipCreator.ConfirmShip();
+            }
+            if (handler.GetEscapeKeyPressed())
+            {
+                shipCreator.CancelShip();
+            }
         }
-        int curHor = GetDiscreteHor();
-        if (curHor != 0)
+
+        private void HandlePlaceSystem()
         {
-            if (availableRooms.Count > 1)
+            if (handler.GetActionPressed())
+            {
+                shipCreator.PlaceSystem(currentPlacementSystem.transform.rotation.eulerAngles);
+                return;
+            }
+            int curHor = handler.GetHorizontal();
+            if (curHor != 0)
+            {
+                float rotSpeed = placementRotSpeed * curHor;
+                currentPlacementSystem.transform.rotation = Quaternion.Euler(currentPlacementSystem.transform.rotation.eulerAngles + Vector3.forward * rotSpeed * Time.deltaTime);
+            }
+        }
+
+        private void HandleSelectSystem()
+        {
+            if (handler.GetActionPressed())
+            {
+                shipCreator.SelectSystem(shipCreator.GetSystemNameForID(currentlySelectedSystem));
+                
+                return;
+            }
+            int curHor = GetDiscreteHor();
+            if (curHor != 0)
+            {
+                SetNewSelectedSystem(currentlySelectedSystem, curHor);
+                ShowSystemSelection();
+            }
+        }
+
+        private void ReengageSystemSelection()
+        {
+            SetNewSelectedSystem(0);
+            ShowSystemSelection();
+        }
+
+        private void ReengageRoomSelection()
+        {
+            SetNewSelectedRoom(0);
+            SetRoomHighlightState(currentlySelectedRoom, true);
+        }
+        private void ResetRoomSelection()
+        {
+            SetRoomHighlightState(currentlySelectedRoom, false);
+        }
+        private void ResetPlacedSystems()
+        {
+            foreach(KeyValuePair<RoomName, GameObject> pair in roomToAttachedSystem)
+            {
+                Destroy(pair.Value);
+            }
+            roomToAttachedSystem.Clear();
+        }
+
+        private void HandleRoomSelection()
+        {
+            if (handler.GetActionPressed())
+            {
+                shipCreator.SelectRoom(uiRooms[currentlySelectedRoom].roomName);
+                return;
+            }
+            int curHor = GetDiscreteHor();
+            if (curHor != 0)
             {
                 int oldSelectedRoom = currentlySelectedRoom;
-                ChangeImageTint(availableRooms[oldSelectedRoom].uiImage, unusedTint);
-                availableRooms[oldSelectedRoom].alarmIndicator.SetActive(false);
-                currentlySelectedRoom += curHor;
+                SetRoomHighlightState(oldSelectedRoom, false);
+
+                SetNewSelectedRoom(oldSelectedRoom, curHor);
+
+                SetRoomHighlightState(currentlySelectedRoom, true);
+            }
+        }
+
+        private void SetNewSelectedRoom(int previousRoom, int dir = 1)
+        {
+            for (int i = dir; Mathf.Abs(i) < uiRooms.Length; i += dir)
+            {
+                currentlySelectedRoom = (previousRoom + i);
                 if (currentlySelectedRoom < 0)
+                    currentlySelectedRoom = uiRooms.Length + currentlySelectedRoom;
+                if (currentlySelectedRoom >= uiRooms.Length)
+                    currentlySelectedRoom = currentlySelectedRoom % uiRooms.Length;
+
+                if (shipCreator.IsRoomAvailable(uiRooms[currentlySelectedRoom].roomName))
                 {
-                    currentlySelectedRoom = availableRooms.Count - 1;
-                } else if (currentlySelectedRoom == availableRooms.Count)
-                {
-                    currentlySelectedRoom = 0;
+                    break;
                 }
-                ChangeImageTint(availableRooms[currentlySelectedRoom].uiImage, selectedTint);
-                ChangeRoomText(currentlyModifying, availableRooms[currentlySelectedRoom].roomName, true);
-                availableRooms[currentlySelectedRoom].alarmIndicator.SetActive(true);
             }
         }
 
-    }
-
-
-    private void ChangeStage()
-    {
-        switch (shipCreator.currentStage)
+        private void SetNewSelectedSystem(int previousSystem, int dir = 1)
         {
-            case (CreationStage.CreateName):
-                actionTitleText.text = enterShipNameTitle;
-                break;
-            case (CreationStage.SelectRoom):
+            int systemCount = shipCreator.GetAllSystemsCount();
+            for (int i = dir; Mathf.Abs(i) < systemCount; i += dir)
             {
-                ResetSelectedRoom();
-                actionTitleText.text = selectRoomTitle;
-                break;
+                currentlySelectedSystem = (previousSystem + i);
+                if (currentlySelectedSystem < 0)
+                    currentlySelectedSystem = systemCount + currentlySelectedSystem;
+                if (currentlySelectedSystem >= systemCount)
+                    currentlySelectedSystem = currentlySelectedSystem % systemCount;
+
+                if (shipCreator.IsSystemAvailable(shipCreator.GetSystemNameForID(currentlySelectedSystem)))
+                {
+                    break;
+                }
             }
-            case (CreationStage.SelectSystem):
+        }
+
+        private void RegisterNewRoomDisplayText(RoomName name)
+        {
+            if (!roomTextIndex.Contains(name))
             {
-                ResetSelectedSystem();
-                actionTitleText.text = selectSystemTitle;
-                break;
+                roomTextIndex.Add(name);
             }
-            case (CreationStage.PlaceSystem):
-                actionTitleText.text = placeSystemTitle;
-                break;
-            case (CreationStage.Finished):
-                actionTitleText.text = finishedSystemTitle;
-                break;
+            curEditIndexDisplayTable = roomTextIndex.IndexOf(name);
+        }
+
+        //UI Changes
+
+        private void ShowSystemSelection()
+        {
+            SystemName name = shipCreator.GetSystemNameForID(currentlySelectedSystem);
+            shipCreator.ShowSystem(name);
+            ChangeSystemText(curEditIndexDisplayTable, name, true);
+        }
+
+        private void SetRoomHighlightState(int roomID, bool highlighted)
+        {
+            UIRoomID uiRoom = uiRooms[roomID];
+            Color tint = highlighted ? selectedTint : unusedTint;
+            ChangeImageTint(uiRoom.uiImage, tint);
+            uiRoom.alarmIndicator.SetActive(highlighted);
+
+            if (roomTextIndex.Contains(uiRoom.roomName))
+            {
+                int textIndex = roomTextIndex.IndexOf(uiRoom.roomName);
+                ChangeRoomText(textIndex, uiRoom.roomName, highlighted);
+            }
+            else
+            {
+                if (highlighted)
+                {
+                    ChangeRoomText(roomTextIndex.Count, uiRoom.roomName, highlighted);
+                }
+                else
+                {
+                    ChangeRoomText(roomTextIndex.Count, "", highlighted);
+                }
+            }
+        }
+
+        private void ChangeImageTint(Image image, Color tint)
+        {
+            image.color = tint;
+        }
+        private void ChangeRoomText(int roomOrderIndex, RoomName room, bool isBeingEdited = false)
+        {
+            ChangeRoomText(roomOrderIndex, room.ToString(), isBeingEdited);
+        }
+        private void ChangeRoomText(int roomOrderIndex, string text, bool isBeingEdited = false)
+        {
+            roomNameDisplayTable[roomOrderIndex].text = text;
+            roomNameDisplayTable[roomOrderIndex].color = (isBeingEdited) ? currentlyPickingTextColor : normalTextColor;
+        }
+        private void ChangeSystemText(int systemOrderIndex, SystemName name, bool isBeingEdited = false)
+        {
+            systemNameDisplayTable[systemOrderIndex].text = name.ToString();
+            systemNameDisplayTable[systemOrderIndex].color = (isBeingEdited) ? currentlyPickingTextColor : normalTextColor;
+        }
+
+        private void OnShipNameEntered(string name)
+        {
+            if (name.Length >= minCharShipName)
+            {
+                shipCreator.SetShipName(name);
+            }
+            else
+            {
+                shipNameInputField.Select();
+            }
+        }
+
+        //Input
+        private void RegisterController()
+        {
+            handler = InputHandler.RegisterController(primaryInput);
+        }
+
+        private void CheckForSecondInput()
+        {
+            if (altInput != -1 && Input.GetButtonDown("Action" + altInput.ToString()))
+            {
+                int tmp = altInput;
+                altInput = primaryInput;
+                primaryInput = tmp;
+                RegisterController();
+            }
+        }
+
+        private int GetDiscreteHor()
+        {
+            int newState = handler.GetHorizontal();
+            if (newState != lastHorInputState)
+            {
+                lastHorInputState = newState;
+                return lastHorInputState;
+            }
+            return 0;
         }
     }
 
-    private void ChangeImageTint(Image image, Color tint)
-    {
-        image.color = tint;
-    }
-
-    private int GetDiscreteHor()
-    {
-        int newState = handler.GetHorizontal();
-        if (newState != lastHorInputState)
-        {
-            lastHorInputState = newState;
-            return lastHorInputState;
-        }
-        return 0;
-    }
-
-
-    private void ChangeRoomText(int roomOrderIndex, RoomName name, bool isBeingEdited = false)
-    {
-        roomNameDisplayTable[roomOrderIndex].text = name.ToString();
-        roomNameDisplayTable[roomOrderIndex].color = (isBeingEdited) ? currentlyPickingTextColor : normalTextColor;
-    }
-    private void ChangeSystemText(int systemOrderIndex, SystemName name, bool isBeingEdited = false)
-    {
-        systemNameDisplayTable[systemOrderIndex].text = name.ToString();
-        systemNameDisplayTable[systemOrderIndex].color = (isBeingEdited) ? currentlyPickingTextColor : normalTextColor;
-    }
-
-    private void RegisterController()
-    {
-        handler = InputHandler.RegisterController(primaryInput);
-    }
-
-    private void OnShipNameEntered(string name)
-    {
-        if (name.Length >= minCharShipName)
-        {
-            shipNameInputField.transform.parent.gameObject.SetActive(false);
-            shipCreator.SetShipName(name);
-            ChangeStage();
-        } else
-        {
-            shipNameInputField.Select();            
-        }
-    }
 }

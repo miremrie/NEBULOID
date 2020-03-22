@@ -22,6 +22,7 @@ public class ShipAssembler : MonoBehaviour
     public Transform systemsRoot;
     private AllSaveData saveData;
     private ShipData curShipData;
+    private List<GameObject> currentSystems = new List<GameObject>();
     public bool inEditMode = false;
 
     private void Awake()
@@ -33,7 +34,21 @@ public class ShipAssembler : MonoBehaviour
             AssembleShip(curShipData);
         }
     }
-
+    public void ReassembleShip(ShipData shipData)
+    {
+        foreach(SystemData systemData in curShipData.systemDatas)
+        {
+            RoomControl roomControl = GetRoomControl(systemData.room);
+            roomControl.shipSystem = null;
+            roomControl.hasAssignedSystem = true;
+        }
+        for (int i = 0; i < currentSystems.Count; i++)
+        {
+            Destroy(currentSystems[i]);
+        }
+        currentSystems.Clear();
+        AssembleShip(shipData);
+    }
     public void AssembleShip(ShipData shipData)
     {
         foreach(SystemData systemData in shipData.systemDatas)
@@ -75,6 +90,8 @@ public class ShipAssembler : MonoBehaviour
                 go.transform.rotation = rotation;
                 go.transform.position = position;
                 go.SetActive(true);
+                currentSystems.Add(go);
+
                 return go.GetComponentInChildren<ShipSystem>();
             }
         }
