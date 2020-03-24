@@ -23,11 +23,6 @@ public class PathDrawer : MonoBehaviour
         AssignMeshComponents();
     }
 
-    private void ResetPositionAndOrientation()
-    {
-        meshHolder.transform.position = Vector3.zero;
-        meshHolder.transform.rotation = Quaternion.identity;
-    }
     // Add MeshRenderer and MeshFilter components to this gameobject if not already attached
     void AssignMeshComponents()
     {
@@ -44,7 +39,6 @@ public class PathDrawer : MonoBehaviour
 
     public void UpdateMesh(BezierPath bPath)
     {
-        ResetPositionAndOrientation();
         vPath = new VertexPath(bPath, transform, vertexSpacing);
         Vector3[] verts = new Vector3[vPath.NumPoints * 8];
         Vector2[] uvs = new Vector2[verts.Length];

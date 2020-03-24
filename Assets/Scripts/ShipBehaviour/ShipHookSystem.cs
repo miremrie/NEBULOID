@@ -24,6 +24,7 @@ public class ShipHookSystem : ShipSystem
     private Quaternion systemRotWhenFired, hookRotWhenFired;
     public float hookOpenAnimationTime = 1f;
     public float previousHookRotation;
+    public float originalZRotation = 90;
 
 
     private const string hookOpenAnim = "HookOpen";
@@ -57,7 +58,6 @@ public class ShipHookSystem : ShipSystem
         fireTimer.Update(Time.deltaTime);
         if (wasShot && !hookOpenTimer.IsRunning())
         {
-            AdjustRotation();
             if (!retracting) //Hook flying
             {
                 transform.position = transform.position + (GetDirFromBase() * GetFireSpeed() * Time.deltaTime);
@@ -85,6 +85,11 @@ public class ShipHookSystem : ShipSystem
                 }
             }
         }
+    }
+
+    private void LateUpdate()
+    {
+        AdjustRotation();
     }
 
     private float GetFireSpeed()

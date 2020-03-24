@@ -110,10 +110,10 @@ MonoBehaviour:
       - 0
       globalNormalsAngle: 0
       flipNormals: 0
-    vertexPathUpToDate: 1
+    vertexPathUpToDate: 0
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0.01
-    showTransformTool: 0
+    showTransformTool: 1
     showPathBounds: 0
     showPerSegmentBounds: 0
     displayAnchorPoints: 1
@@ -547,6 +547,7 @@ MonoBehaviour:
   triggerCollider: {fileID: 842461276549946521}
   hookOpenAnimationTime: 1
   previousHookRotation: 0
+  originalZRotation: 90
 --- !u!95 &8713795994505403000
 Animator:
   serializedVersion: 3
