@@ -17,6 +17,7 @@ public class PathDrawer : MonoBehaviour
     public float textureTilingPerMeter = 1;
     public float vertexSpacing = 1;
     public VertexPath vPath;
+    private const string MainTextureParam = "_BaseMap";
 
     private void Start()
     {
@@ -28,13 +29,14 @@ public class PathDrawer : MonoBehaviour
     {
         mesh = meshFilter.mesh;
         meshFilter.sharedMesh = mesh;
-        meshRenderer.sharedMaterial = pathMaterial;
-        meshRenderer.sharedMaterial = new Material(meshRenderer.sharedMaterial);
+        meshRenderer.material = pathMaterial;
+        
+        meshRenderer.material = new Material(meshRenderer.material);
     }
 
     void UpdateMaterials()
     {
-        meshRenderer.sharedMaterial.mainTextureScale = new Vector3(1, textureTilingPerMeter * vPath.length);
+        meshRenderer.material.SetTextureScale(MainTextureParam, new Vector2(1, textureTilingPerMeter * vPath.length));
     }
 
     public void UpdateMesh(BezierPath bPath)
