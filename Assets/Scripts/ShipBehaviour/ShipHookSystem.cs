@@ -33,6 +33,7 @@ public class ShipHookSystem : ShipSystem
     private const float hookGrabAnimOffset = 0.6667f;
     private GameObject grabbedObject;
     private bool isGrabbedObjectDraggable = false;
+    private bool isGrabbing = false;
 
     public override void Initialize()
     {
@@ -89,7 +90,10 @@ public class ShipHookSystem : ShipSystem
 
     private void LateUpdate()
     {
-        AdjustRotation();
+        if (wasShot)
+        {
+            AdjustRotation();
+        }
     }
 
     private float GetFireSpeed()
@@ -110,6 +114,7 @@ public class ShipHookSystem : ShipSystem
         wasShot = false;
         retracting = false;
         hitSomething = false;
+        isGrabbing = false;
         isGrabbedObjectDraggable = false;
         hookAnimator.SetTrigger(hookCloseAnim);
         ship.UnlockHook();
@@ -164,12 +169,18 @@ public class ShipHookSystem : ShipSystem
         previousHookRotation = rightHookPivot.eulerAngles.z;
         hitSomething = true;
         retracting = true;
+        isGrabbing = true;
         ship.LockMovement();
+    }
+
+    private void StopGrab()
+    {
+        isGrabbing = false;
     }
 
     private void UpdateGrabDrag()
     {
-        if (hitSomething && grabbedObject != null && isGrabbedObjectDraggable)
+        if (hitSomething && isGrabbing && grabbedObject != null && isGrabbedObjectDraggable)
         {
             float angle = rightHookPivot.eulerAngles.z - previousHookRotation;
             grabbedObject.transform.RotateAround(transform.position, Vector3.forward, angle);
