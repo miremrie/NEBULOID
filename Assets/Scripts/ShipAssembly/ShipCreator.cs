@@ -19,7 +19,7 @@ namespace NBLD.ShipCreation
         public CreationStage currentStage = CreationStage.CreateName;
         private SystemData curSysData;
         public delegate void ShipDataPrepared(ShipData shipData, bool newShip);
-        public delegate void CreationStageChanged(CreationStage stage);
+        public delegate void CreationStageChanged(CreationStage stage, CreationStage previousStage);
         public event CreationStageChanged onCreationStageChanged;
         public event ShipDataPrepared onShipDataPrepared;
         public bool hardSaveShip = true;
@@ -53,10 +53,11 @@ namespace NBLD.ShipCreation
 
         private void ChangeStage(CreationStage creationStage)
         {
+            CreationStage previousStage = currentStage;
             currentStage = creationStage;
             if (onCreationStageChanged != null)
             {
-                onCreationStageChanged(creationStage);
+                onCreationStageChanged(creationStage, previousStage);
             }
         }
 
@@ -169,6 +170,11 @@ namespace NBLD.ShipCreation
             {
                 throw new ShipCreationException("No system is currently being edited");
             }
+        }
+
+        public Vector3 GetCurrentEditRotation()
+        {
+            return curSysData.GetRotationEuler();
         }
 
         public bool IsRoomAvailable(RoomName name)

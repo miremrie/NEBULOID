@@ -59,7 +59,7 @@ namespace NBLD.ShipCreation
         }
 
 
-        private void ChangeStage(CreationStage stage)
+        private void ChangeStage(CreationStage stage, CreationStage previousStage)
         {
             actionTitleText.text = stageMessages.First(sm => sm.stage == stage).message;
             switch (shipCreator.currentStage)
@@ -68,6 +68,10 @@ namespace NBLD.ShipCreation
                     break;
                 case (CreationStage.SelectRoom):
                 {
+                    if (previousStage == CreationStage.PlaceSystem)
+                    {
+                        RotatePlaceSystem(shipCreator.GetCurrentEditRotation());
+                    }
                     shipNameInputField.transform.parent.gameObject.SetActive(false);
                     ResetRoomSelection();
                     ReengageRoomSelection();
@@ -98,9 +102,17 @@ namespace NBLD.ShipCreation
                 }
 
                 case (CreationStage.Finished):
+                    if (previousStage == CreationStage.PlaceSystem)
+                    {
+                        RotatePlaceSystem(shipCreator.GetCurrentEditRotation());
+                    }
                     ResetRoomSelection();
                     break;
                 case (CreationStage.Confirmed):
+                    if (previousStage == CreationStage.PlaceSystem)
+                    {
+                        RotatePlaceSystem(shipCreator.GetCurrentEditRotation());
+                    }
                     ResetRoomSelection();
                     ResetPlacedSystems();
                     break;
@@ -155,7 +167,7 @@ namespace NBLD.ShipCreation
             if (curHor != 0)
             {
                 float rotSpeed = placementRotSpeed * curHor;
-                currentPlacementSystem.transform.rotation = Quaternion.Euler(currentPlacementSystem.transform.rotation.eulerAngles + Vector3.forward * rotSpeed * Time.deltaTime);
+                RotatePlaceSystem(currentPlacementSystem.transform.rotation.eulerAngles + Vector3.forward * rotSpeed * Time.deltaTime);
             }
         }
 
@@ -263,6 +275,11 @@ namespace NBLD.ShipCreation
         }
 
         //UI Changes
+
+        private void RotatePlaceSystem(Vector3 eulerRotation)
+        {
+            currentPlacementSystem.transform.rotation = Quaternion.Euler(eulerRotation);
+        }
 
         private void ShowSystemSelection()
         {

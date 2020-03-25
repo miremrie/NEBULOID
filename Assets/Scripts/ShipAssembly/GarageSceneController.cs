@@ -18,7 +18,7 @@ public class GarageSceneController : MonoBehaviour
         shipCreator.onCreationStageChanged += OnCreationStageChanged;
     }
 
-    private void OnCreationStageChanged(CreationStage creationStage)
+    private void OnCreationStageChanged(CreationStage creationStage, CreationStage previousStage)
     {
         if (creationStage == CreationStage.Canceled || creationStage == CreationStage.Confirmed)
         {
