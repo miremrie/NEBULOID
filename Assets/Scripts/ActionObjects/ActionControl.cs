@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ActionControl : MonoBehaviour
 {
-    public InputControl actionControl;
+    public ButtonInputControl actionControl;
 
     public virtual void DoAction(CharController controller)
     {

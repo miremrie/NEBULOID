@@ -10,6 +10,7 @@ public class InputHandler
     private string actionKey;
     private string subActionKey;
     private string escapeKey;
+
     //private float deadZone = 0.1f;
     public InputHandler()
     {
@@ -35,18 +36,18 @@ public class InputHandler
         return movement;
     }
 
-    public bool GetControlPressed(InputControl actionButton)
+    public bool GetControlPressed(ButtonInputControl actionButton)
     {
 
         switch (actionButton)
         {
-            case (InputControl.Action):
+            case (ButtonInputControl.Action):
                 return GetActionPressed();
-            case (InputControl.Down):
+            case (ButtonInputControl.Down):
                 return GetDownActionPressed();
-            case (InputControl.Up):
+            case (ButtonInputControl.Up):
                 return GetUpActionPressed();
-            case (InputControl.SubAction):
+            case (ButtonInputControl.SubAction):
                 return GetSubActionPressed();
             default:
                 return false;

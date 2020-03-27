@@ -352,7 +352,7 @@ namespace NBLD.ShipCreation
 
         private void CheckForSecondInput()
         {
-            if (altInput != -1 && Input.GetButtonDown("Action" + altInput.ToString()))
+            if (altInput != -1 && UnityEngine.Input.GetButtonDown("Action" + altInput.ToString()))
             {
                 int tmp = altInput;
                 altInput = primaryInput;

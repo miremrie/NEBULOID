@@ -1,8 +1,9 @@
-﻿using System.Collections;
+﻿using CustomInput;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum InputControl
+public enum ButtonInputControl
 {
     Up, Down, Left, Right, Action, SubAction
 }
@@ -10,6 +11,7 @@ public enum InputControl
 public class CharController : MonoBehaviour
 {
     public Game game;
+    public CharacterInput charInput;
     public int playerNumber;
     [Header("Input")]
     public int gamepadNumber;
@@ -31,7 +33,7 @@ public class CharController : MonoBehaviour
     private int curMovementDirection = 0;
 
     private bool lockedForActions = false;
-    private Dictionary<InputControl, ActionControl> currentActions = new Dictionary<InputControl, ActionControl>();
+    private Dictionary<ButtonInputControl, ActionControl> currentActions = new Dictionary<ButtonInputControl, ActionControl>();
 
     private void Awake()
     {
@@ -71,7 +73,7 @@ public class CharController : MonoBehaviour
 
     private void ExecuteAction()
     {
-        foreach (KeyValuePair<InputControl, ActionControl> action in currentActions)
+        foreach (KeyValuePair<ButtonInputControl, ActionControl> action in currentActions)
         {
             if (action.Value != null && handler.GetControlPressed(action.Key))
             {
