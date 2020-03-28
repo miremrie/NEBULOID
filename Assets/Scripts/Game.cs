@@ -71,7 +71,7 @@ public class Game : MonoBehaviour
         {
             audioController.PlayGameOver();
             dead = true;
-            FindObjectsOfType<CharController>().ToList().ForEach(x => x.enabled = false);
+            FindObjectsOfType<Char2Controller>().ToList().ForEach(x => x.enabled = false);
             ShowGameOverScreen();
         }
 

@@ -8,7 +8,7 @@ public enum ButtonInputControl
     Up, Down, Left, Right, Action, SubAction
 }
 
-public class CharController : MonoBehaviour
+public class Char2Controller : MonoBehaviour
 {
     public Game game;
     public CharacterInput charInput;

@@ -2,7 +2,7 @@
     "name": "CharacterInput",
     "maps": [
         {
-            "name": "Inside Controls",
+            "name": "Character",
             "id": "f8c787fd-bb8a-4175-b372-008f40a26bf4",
             "actions": [
                 {
@@ -14,7 +14,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "UpAction",
+                    "name": "Up",
                     "type": "Button",
                     "id": "7c8f497d-fdd8-44c2-b1f3-1987b366087d",
                     "expectedControlType": "",
@@ -22,7 +22,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "DownAction",
+                    "name": "Down",
                     "type": "Button",
                     "id": "cc743d31-ac53-4311-a132-da1084d28290",
                     "expectedControlType": "",
@@ -50,6 +50,14 @@
                     "type": "Button",
                     "id": "119b7394-5f85-4208-bbca-b838e11ad8d3",
                     "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "MoveAssist",
+                    "type": "Button",
+                    "id": "77340b09-b5e4-4bff-bc98-25bf4c2c2e7b",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
                 }
@@ -293,7 +301,7 @@
                     "interactions": "",
                     "processors": "StickDeadzone",
                     "groups": "Keyboard1;Gamepad;Keyboard2",
-                    "action": "UpAction",
+                    "action": "Up",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -304,7 +312,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad;Keyboard1;Keyboard2",
-                    "action": "UpAction",
+                    "action": "Up",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -315,7 +323,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard1",
-                    "action": "UpAction",
+                    "action": "Up",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -326,7 +334,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard2",
-                    "action": "UpAction",
+                    "action": "Up",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -337,7 +345,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad;Keyboard1;Keyboard2",
-                    "action": "DownAction",
+                    "action": "Down",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -348,7 +356,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad;Keyboard1;Keyboard2",
-                    "action": "DownAction",
+                    "action": "Down",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -359,7 +367,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard1",
-                    "action": "DownAction",
+                    "action": "Down",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -370,7 +378,40 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard2",
-                    "action": "DownAction",
+                    "action": "Down",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "432fa433-0e2e-45c6-8bd9-d7cc09ce992d",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard1",
+                    "action": "MoveAssist",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8c18677c-d850-4095-b49a-67afdaff330b",
+                    "path": "<Keyboard>/j",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard2",
+                    "action": "MoveAssist",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "efb4a8d9-14df-488b-b44a-fdc183457860",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad;Keyboard1;Keyboard2",
+                    "action": "MoveAssist",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

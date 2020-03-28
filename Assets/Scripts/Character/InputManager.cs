@@ -24,7 +24,7 @@ namespace NBLD.Input
         public UserDevice(string keyboardScheme, string gamepadScheme)
         {
             this.user = InputUser.CreateUserWithoutPairedDevices();
-            CharacterInput input = new CharacterInput();
+            CustomInput.CharacterInput input = new CustomInput.CharacterInput();
             
             this.inputActions = input;
             user.AssociateActionsWithUser(inputActions);
@@ -77,11 +77,11 @@ namespace NBLD.Input
     public class InputManager : MonoBehaviour
     {
         public int numberOfUsers;
-        public InsideCharController[] charControllers;
+        public NBLD.Input.CharInputManager[] characterManagers;
         public string[] usersKeyboardSchemeNames;
         public string gamepadSchemeName;
         public int firstGamepadUser = 1;
-        private CharacterInput characterInput;
+        private CustomInput.CharacterInput characterInput;
         private UserDevice[] users;
         private List<Gamepad> takenGamepads = new List<Gamepad>();
 
@@ -93,7 +93,7 @@ namespace NBLD.Input
             for (var i = 0; i < numberOfUsers; i++)
             {
                 users[i] = new UserDevice(usersKeyboardSchemeNames[i], gamepadSchemeName);
-                charControllers[i].InitializeInput(users[i]);
+                characterManagers[i].InitializeInput(users[i]);
             }
 
             Subscribe();

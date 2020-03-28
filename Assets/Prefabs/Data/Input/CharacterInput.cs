@@ -17,7 +17,7 @@ namespace CustomInput
     ""name"": ""CharacterInput"",
     ""maps"": [
         {
-            ""name"": ""Inside Controls"",
+            ""name"": ""Character"",
             ""id"": ""f8c787fd-bb8a-4175-b372-008f40a26bf4"",
             ""actions"": [
                 {
@@ -29,7 +29,7 @@ namespace CustomInput
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""UpAction"",
+                    ""name"": ""Up"",
                     ""type"": ""Button"",
                     ""id"": ""7c8f497d-fdd8-44c2-b1f3-1987b366087d"",
                     ""expectedControlType"": """",
@@ -37,7 +37,7 @@ namespace CustomInput
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""DownAction"",
+                    ""name"": ""Down"",
                     ""type"": ""Button"",
                     ""id"": ""cc743d31-ac53-4311-a132-da1084d28290"",
                     ""expectedControlType"": """",
@@ -65,6 +65,14 @@ namespace CustomInput
                     ""type"": ""Button"",
                     ""id"": ""119b7394-5f85-4208-bbca-b838e11ad8d3"",
                     ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""MoveAssist"",
+                    ""type"": ""Button"",
+                    ""id"": ""77340b09-b5e4-4bff-bc98-25bf4c2c2e7b"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
                 }
@@ -308,7 +316,7 @@ namespace CustomInput
                     ""interactions"": """",
                     ""processors"": ""StickDeadzone"",
                     ""groups"": ""Keyboard1;Gamepad;Keyboard2"",
-                    ""action"": ""UpAction"",
+                    ""action"": ""Up"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -319,7 +327,7 @@ namespace CustomInput
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad;Keyboard1;Keyboard2"",
-                    ""action"": ""UpAction"",
+                    ""action"": ""Up"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -330,7 +338,7 @@ namespace CustomInput
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard1"",
-                    ""action"": ""UpAction"",
+                    ""action"": ""Up"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -341,7 +349,7 @@ namespace CustomInput
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard2"",
-                    ""action"": ""UpAction"",
+                    ""action"": ""Up"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -352,7 +360,7 @@ namespace CustomInput
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad;Keyboard1;Keyboard2"",
-                    ""action"": ""DownAction"",
+                    ""action"": ""Down"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -363,7 +371,7 @@ namespace CustomInput
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad;Keyboard1;Keyboard2"",
-                    ""action"": ""DownAction"",
+                    ""action"": ""Down"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -374,7 +382,7 @@ namespace CustomInput
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard1"",
-                    ""action"": ""DownAction"",
+                    ""action"": ""Down"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -385,7 +393,40 @@ namespace CustomInput
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard2"",
-                    ""action"": ""DownAction"",
+                    ""action"": ""Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""432fa433-0e2e-45c6-8bd9-d7cc09ce992d"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard1"",
+                    ""action"": ""MoveAssist"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8c18677c-d850-4095-b49a-67afdaff330b"",
+                    ""path"": ""<Keyboard>/j"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard2"",
+                    ""action"": ""MoveAssist"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""efb4a8d9-14df-488b-b44a-fdc183457860"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad;Keyboard1;Keyboard2"",
+                    ""action"": ""MoveAssist"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -438,14 +479,15 @@ namespace CustomInput
         }
     ]
 }");
-            // Inside Controls
-            m_InsideControls = asset.FindActionMap("Inside Controls", throwIfNotFound: true);
-            m_InsideControls_Move = m_InsideControls.FindAction("Move", throwIfNotFound: true);
-            m_InsideControls_UpAction = m_InsideControls.FindAction("UpAction", throwIfNotFound: true);
-            m_InsideControls_DownAction = m_InsideControls.FindAction("DownAction", throwIfNotFound: true);
-            m_InsideControls_Action = m_InsideControls.FindAction("Action", throwIfNotFound: true);
-            m_InsideControls_SubAction = m_InsideControls.FindAction("SubAction", throwIfNotFound: true);
-            m_InsideControls_Talk = m_InsideControls.FindAction("Talk", throwIfNotFound: true);
+            // Character
+            m_Character = asset.FindActionMap("Character", throwIfNotFound: true);
+            m_Character_Move = m_Character.FindAction("Move", throwIfNotFound: true);
+            m_Character_Up = m_Character.FindAction("Up", throwIfNotFound: true);
+            m_Character_Down = m_Character.FindAction("Down", throwIfNotFound: true);
+            m_Character_Action = m_Character.FindAction("Action", throwIfNotFound: true);
+            m_Character_SubAction = m_Character.FindAction("SubAction", throwIfNotFound: true);
+            m_Character_Talk = m_Character.FindAction("Talk", throwIfNotFound: true);
+            m_Character_MoveAssist = m_Character.FindAction("MoveAssist", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -492,65 +534,70 @@ namespace CustomInput
             asset.Disable();
         }
 
-        // Inside Controls
-        private readonly InputActionMap m_InsideControls;
-        private IInsideControlsActions m_InsideControlsActionsCallbackInterface;
-        private readonly InputAction m_InsideControls_Move;
-        private readonly InputAction m_InsideControls_UpAction;
-        private readonly InputAction m_InsideControls_DownAction;
-        private readonly InputAction m_InsideControls_Action;
-        private readonly InputAction m_InsideControls_SubAction;
-        private readonly InputAction m_InsideControls_Talk;
-        public struct InsideControlsActions
+        // Character
+        private readonly InputActionMap m_Character;
+        private ICharacterActions m_CharacterActionsCallbackInterface;
+        private readonly InputAction m_Character_Move;
+        private readonly InputAction m_Character_Up;
+        private readonly InputAction m_Character_Down;
+        private readonly InputAction m_Character_Action;
+        private readonly InputAction m_Character_SubAction;
+        private readonly InputAction m_Character_Talk;
+        private readonly InputAction m_Character_MoveAssist;
+        public struct CharacterActions
         {
             private @CharacterInput m_Wrapper;
-            public InsideControlsActions(@CharacterInput wrapper) { m_Wrapper = wrapper; }
-            public InputAction @Move => m_Wrapper.m_InsideControls_Move;
-            public InputAction @UpAction => m_Wrapper.m_InsideControls_UpAction;
-            public InputAction @DownAction => m_Wrapper.m_InsideControls_DownAction;
-            public InputAction @Action => m_Wrapper.m_InsideControls_Action;
-            public InputAction @SubAction => m_Wrapper.m_InsideControls_SubAction;
-            public InputAction @Talk => m_Wrapper.m_InsideControls_Talk;
-            public InputActionMap Get() { return m_Wrapper.m_InsideControls; }
+            public CharacterActions(@CharacterInput wrapper) { m_Wrapper = wrapper; }
+            public InputAction @Move => m_Wrapper.m_Character_Move;
+            public InputAction @Up => m_Wrapper.m_Character_Up;
+            public InputAction @Down => m_Wrapper.m_Character_Down;
+            public InputAction @Action => m_Wrapper.m_Character_Action;
+            public InputAction @SubAction => m_Wrapper.m_Character_SubAction;
+            public InputAction @Talk => m_Wrapper.m_Character_Talk;
+            public InputAction @MoveAssist => m_Wrapper.m_Character_MoveAssist;
+            public InputActionMap Get() { return m_Wrapper.m_Character; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
             public bool enabled => Get().enabled;
-            public static implicit operator InputActionMap(InsideControlsActions set) { return set.Get(); }
-            public void SetCallbacks(IInsideControlsActions instance)
+            public static implicit operator InputActionMap(CharacterActions set) { return set.Get(); }
+            public void SetCallbacks(ICharacterActions instance)
             {
-                if (m_Wrapper.m_InsideControlsActionsCallbackInterface != null)
+                if (m_Wrapper.m_CharacterActionsCallbackInterface != null)
                 {
-                    @Move.started -= m_Wrapper.m_InsideControlsActionsCallbackInterface.OnMove;
-                    @Move.performed -= m_Wrapper.m_InsideControlsActionsCallbackInterface.OnMove;
-                    @Move.canceled -= m_Wrapper.m_InsideControlsActionsCallbackInterface.OnMove;
-                    @UpAction.started -= m_Wrapper.m_InsideControlsActionsCallbackInterface.OnUpAction;
-                    @UpAction.performed -= m_Wrapper.m_InsideControlsActionsCallbackInterface.OnUpAction;
-                    @UpAction.canceled -= m_Wrapper.m_InsideControlsActionsCallbackInterface.OnUpAction;
-                    @DownAction.started -= m_Wrapper.m_InsideControlsActionsCallbackInterface.OnDownAction;
-                    @DownAction.performed -= m_Wrapper.m_InsideControlsActionsCallbackInterface.OnDownAction;
-                    @DownAction.canceled -= m_Wrapper.m_InsideControlsActionsCallbackInterface.OnDownAction;
-                    @Action.started -= m_Wrapper.m_InsideControlsActionsCallbackInterface.OnAction;
-                    @Action.performed -= m_Wrapper.m_InsideControlsActionsCallbackInterface.OnAction;
-                    @Action.canceled -= m_Wrapper.m_InsideControlsActionsCallbackInterface.OnAction;
-                    @SubAction.started -= m_Wrapper.m_InsideControlsActionsCallbackInterface.OnSubAction;
-                    @SubAction.performed -= m_Wrapper.m_InsideControlsActionsCallbackInterface.OnSubAction;
-                    @SubAction.canceled -= m_Wrapper.m_InsideControlsActionsCallbackInterface.OnSubAction;
-                    @Talk.started -= m_Wrapper.m_InsideControlsActionsCallbackInterface.OnTalk;
-                    @Talk.performed -= m_Wrapper.m_InsideControlsActionsCallbackInterface.OnTalk;
-                    @Talk.canceled -= m_Wrapper.m_InsideControlsActionsCallbackInterface.OnTalk;
+                    @Move.started -= m_Wrapper.m_CharacterActionsCallbackInterface.OnMove;
+                    @Move.performed -= m_Wrapper.m_CharacterActionsCallbackInterface.OnMove;
+                    @Move.canceled -= m_Wrapper.m_CharacterActionsCallbackInterface.OnMove;
+                    @Up.started -= m_Wrapper.m_CharacterActionsCallbackInterface.OnUp;
+                    @Up.performed -= m_Wrapper.m_CharacterActionsCallbackInterface.OnUp;
+                    @Up.canceled -= m_Wrapper.m_CharacterActionsCallbackInterface.OnUp;
+                    @Down.started -= m_Wrapper.m_CharacterActionsCallbackInterface.OnDown;
+                    @Down.performed -= m_Wrapper.m_CharacterActionsCallbackInterface.OnDown;
+                    @Down.canceled -= m_Wrapper.m_CharacterActionsCallbackInterface.OnDown;
+                    @Action.started -= m_Wrapper.m_CharacterActionsCallbackInterface.OnAction;
+                    @Action.performed -= m_Wrapper.m_CharacterActionsCallbackInterface.OnAction;
+                    @Action.canceled -= m_Wrapper.m_CharacterActionsCallbackInterface.OnAction;
+                    @SubAction.started -= m_Wrapper.m_CharacterActionsCallbackInterface.OnSubAction;
+                    @SubAction.performed -= m_Wrapper.m_CharacterActionsCallbackInterface.OnSubAction;
+                    @SubAction.canceled -= m_Wrapper.m_CharacterActionsCallbackInterface.OnSubAction;
+                    @Talk.started -= m_Wrapper.m_CharacterActionsCallbackInterface.OnTalk;
+                    @Talk.performed -= m_Wrapper.m_CharacterActionsCallbackInterface.OnTalk;
+                    @Talk.canceled -= m_Wrapper.m_CharacterActionsCallbackInterface.OnTalk;
+                    @MoveAssist.started -= m_Wrapper.m_CharacterActionsCallbackInterface.OnMoveAssist;
+                    @MoveAssist.performed -= m_Wrapper.m_CharacterActionsCallbackInterface.OnMoveAssist;
+                    @MoveAssist.canceled -= m_Wrapper.m_CharacterActionsCallbackInterface.OnMoveAssist;
                 }
-                m_Wrapper.m_InsideControlsActionsCallbackInterface = instance;
+                m_Wrapper.m_CharacterActionsCallbackInterface = instance;
                 if (instance != null)
                 {
                     @Move.started += instance.OnMove;
                     @Move.performed += instance.OnMove;
                     @Move.canceled += instance.OnMove;
-                    @UpAction.started += instance.OnUpAction;
-                    @UpAction.performed += instance.OnUpAction;
-                    @UpAction.canceled += instance.OnUpAction;
-                    @DownAction.started += instance.OnDownAction;
-                    @DownAction.performed += instance.OnDownAction;
-                    @DownAction.canceled += instance.OnDownAction;
+                    @Up.started += instance.OnUp;
+                    @Up.performed += instance.OnUp;
+                    @Up.canceled += instance.OnUp;
+                    @Down.started += instance.OnDown;
+                    @Down.performed += instance.OnDown;
+                    @Down.canceled += instance.OnDown;
                     @Action.started += instance.OnAction;
                     @Action.performed += instance.OnAction;
                     @Action.canceled += instance.OnAction;
@@ -560,10 +607,13 @@ namespace CustomInput
                     @Talk.started += instance.OnTalk;
                     @Talk.performed += instance.OnTalk;
                     @Talk.canceled += instance.OnTalk;
+                    @MoveAssist.started += instance.OnMoveAssist;
+                    @MoveAssist.performed += instance.OnMoveAssist;
+                    @MoveAssist.canceled += instance.OnMoveAssist;
                 }
             }
         }
-        public InsideControlsActions @InsideControls => new InsideControlsActions(this);
+        public CharacterActions @Character => new CharacterActions(this);
         private int m_Keyboard1SchemeIndex = -1;
         public InputControlScheme Keyboard1Scheme
         {
@@ -591,14 +641,15 @@ namespace CustomInput
                 return asset.controlSchemes[m_Keyboard2SchemeIndex];
             }
         }
-        public interface IInsideControlsActions
+        public interface ICharacterActions
         {
             void OnMove(InputAction.CallbackContext context);
-            void OnUpAction(InputAction.CallbackContext context);
-            void OnDownAction(InputAction.CallbackContext context);
+            void OnUp(InputAction.CallbackContext context);
+            void OnDown(InputAction.CallbackContext context);
             void OnAction(InputAction.CallbackContext context);
             void OnSubAction(InputAction.CallbackContext context);
             void OnTalk(InputAction.CallbackContext context);
+            void OnMoveAssist(InputAction.CallbackContext context);
         }
     }
 }
