@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="135">
 	<RootPaths>
-		<ProjectRoot>D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>D:\Unity\NEBULOID\NEBULOID_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>D:\Unity\NEBULOID\NEBULOID_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>D:\Unity\NEBULOID\NEBULOID_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -104,6 +104,110 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="1434616913" Name="Play_Hook_Cable_Back" ObjectPath="\Events\Default Work Unit\Movement\Hook\Cable\Play_Hook_Cable_Back" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="80018712" Language="SFX">
+							<ShortName>HookBackStart.wav</ShortName>
+							<Path>SFX\HookBackStart_10C4C929.wem</Path>
+						</File>
+						<File Id="542189354" Language="SFX">
+							<ShortName>HookBackLoop.wav</ShortName>
+							<Path>SFX\HookBackLoop_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1422781286" Name="Play_Hook_Cable_Grab" ObjectPath="\Events\Default Work Unit\Movement\Hook\Cable\Play_Hook_Cable_Grab" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="669341810" Language="SFX">
+							<ShortName>HookLoop.wav</ShortName>
+							<Path>SFX\HookLoop_D79FB2B7.wem</Path>
+						</File>
+						<File Id="884707605" Language="SFX">
+							<ShortName>HookStart.wav</ShortName>
+							<Path>SFX\HookStart_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2582351913" Name="Play_Hook_ClawBite" ObjectPath="\Events\Default Work Unit\Movement\Hook\Claw\Play_Hook_ClawBite" DurationType="OneShot" DurationMin="1.100450" DurationMax="1.653717">
+					<IncludedMemoryFiles>
+						<File Id="53106075" Language="SFX">
+							<ShortName>4 - ClawBite.wav</ShortName>
+							<Path>SFX\4 - ClawBite_10C4C929.wem</Path>
+						</File>
+						<File Id="134160763" Language="SFX">
+							<ShortName>1 - ClawBite.wav</ShortName>
+							<Path>SFX\1 - ClawBite_10C4C929.wem</Path>
+						</File>
+						<File Id="405090761" Language="SFX">
+							<ShortName>3 - ClawBite.wav</ShortName>
+							<Path>SFX\3 - ClawBite_10C4C929.wem</Path>
+						</File>
+						<File Id="882834192" Language="SFX">
+							<ShortName>2 - ClawBite.wav</ShortName>
+							<Path>SFX\2 - ClawBite_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3700767316" Name="Play_Hook_ClawBitePrep" ObjectPath="\Events\Default Work Unit\Movement\Hook\Claw\Play_Hook_ClawBitePrep" DurationType="OneShot" DurationMin="1.637381" DurationMax="2.333823">
+					<IncludedMemoryFiles>
+						<File Id="183631485" Language="SFX">
+							<ShortName>4 - ClawBitePrep.wav</ShortName>
+							<Path>SFX\4 - ClawBitePrep_10C4C929.wem</Path>
+						</File>
+						<File Id="415235210" Language="SFX">
+							<ShortName>3 - ClawBitePrep.wav</ShortName>
+							<Path>SFX\3 - ClawBitePrep_10C4C929.wem</Path>
+						</File>
+						<File Id="614939510" Language="SFX">
+							<ShortName>1 - ClawBitePrep.wav</ShortName>
+							<Path>SFX\1 - ClawBitePrep_10C4C929.wem</Path>
+						</File>
+						<File Id="726397064" Language="SFX">
+							<ShortName>2 - ClawBitePrep.wav</ShortName>
+							<Path>SFX\2 - ClawBitePrep_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3637158234" Name="Play_Hook_ClawLock" ObjectPath="\Events\Default Work Unit\Movement\Hook\Claw\Play_Hook_ClawLock" DurationType="OneShot" DurationMin="1.333211" DurationMax="2.023508">
+					<IncludedMemoryFiles>
+						<File Id="106730093" Language="SFX">
+							<ShortName>1 - ClawLock.wav</ShortName>
+							<Path>SFX\1 - ClawLock_10C4C929.wem</Path>
+						</File>
+						<File Id="427815737" Language="SFX">
+							<ShortName>4 - ClawLock.wav</ShortName>
+							<Path>SFX\4 - ClawLock_10C4C929.wem</Path>
+						</File>
+						<File Id="827833385" Language="SFX">
+							<ShortName>3 - ClawLock.wav</ShortName>
+							<Path>SFX\3 - ClawLock_10C4C929.wem</Path>
+						</File>
+						<File Id="966974960" Language="SFX">
+							<ShortName>2 - ClawLock.wav</ShortName>
+							<Path>SFX\2 - ClawLock_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1303580447" Name="Play_Hook_ClawOpen" ObjectPath="\Events\Default Work Unit\Movement\Hook\Claw\Play_Hook_ClawOpen" DurationType="OneShot" DurationMin="1.788008" DurationMax="2.554781">
+					<IncludedMemoryFiles>
+						<File Id="549127255" Language="SFX">
+							<ShortName>2 - ClawOpen.wav</ShortName>
+							<Path>SFX\2 - ClawOpen_10C4C929.wem</Path>
+						</File>
+						<File Id="615568309" Language="SFX">
+							<ShortName>3 - ClawOpen.wav</ShortName>
+							<Path>SFX\3 - ClawOpen_10C4C929.wem</Path>
+						</File>
+						<File Id="869259325" Language="SFX">
+							<ShortName>1 - ClawOpen.wav</ShortName>
+							<Path>SFX\1 - ClawOpen_10C4C929.wem</Path>
+						</File>
+						<File Id="1002772589" Language="SFX">
+							<ShortName>4 - ClawOpen.wav</ShortName>
+							<Path>SFX\4 - ClawOpen_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="2228153899" Name="Play_Menu_Music" ObjectPath="\Events\Default Work Unit\Play_Menu_Music" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="621301210" Language="SFX">
@@ -141,9 +245,26 @@
 					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="3567966343" Name="Stop_Fuel_Refill" ObjectPath="\Events\Default Work Unit\Notifications\Stop_Fuel_Refill" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2934156779" Name="Stop_Hook_Cable" ObjectPath="\Events\Default Work Unit\Movement\Hook\Cable\Stop_Hook_Cable" DurationType="OneShot" DurationMin="1.790000" DurationMax="1.790000">
+					<IncludedMemoryFiles>
+						<File Id="767327232" Language="SFX">
+							<ShortName>HookStop.wav</ShortName>
+							<Path>SFX\HookStop_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="117524643" Name="Stop_Hook_Cable_Back" ObjectPath="\Events\Default Work Unit\Movement\Hook\Cable\Stop_Hook_Cable_Back" DurationType="OneShot" DurationMin="0.950000" DurationMax="0.950000">
+					<IncludedMemoryFiles>
+						<File Id="830784053" Language="SFX">
+							<ShortName>HookBackStop.wav</ShortName>
+							<Path>SFX\HookBackStop_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="2410889125" Name="Stop_Sonar" ObjectPath="\Events\Default Work Unit\Notifications\Stop_Sonar" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 			</IncludedEvents>
 			<GameParameters>
+				<GameParameter Id="2759611267" Name="Hook_Speed_Pitch" ObjectPath="\Game Parameters\Default Work Unit\Hook_Speed_Pitch"/>
 				<GameParameter Id="3548314952" Name="Fuel_Amount" ObjectPath="\Game Parameters\Default Work Unit\Fuel_Amount"/>
 			</GameParameters>
 		</SoundBank>

@@ -11,8 +11,16 @@
 						<ObjectRef Name="Stop_Alarm" ID="{774AA9D9-B178-4229-B45A-9E437D3978BB}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Bullet_Hit" ID="{A4978065-EC81-4313-A7BE-67EC98D6D20D}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Arm_L" ID="{763160EC-244D-43D3-ACA7-B79F7A15B8C1}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Hook_Cable_Grab" ID="{D466F3BD-EAB7-46CA-A533-3D751095A8DA}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Hook_Cable_Back" ID="{B6C3F690-8673-4731-A318-37AE779CBC5F}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Stop_Hook_Cable" ID="{3182E49D-C5CF-4751-9440-2B122732D2D2}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Arm_R" ID="{4878EDEB-E0EF-4760-AEA8-29E21F7EBF3F}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Hook_ClawBitePrep" ID="{0F88CE63-CCE4-483E-8AC4-C3610D8117EF}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Stop_Hook_Cable_Back" ID="{C8BFFDD3-1D01-4946-A4EB-DBECC2841140}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Hook_ClawBite" ID="{B8B2F65F-9A3A-49D5-B190-78ECEDFB2FA5}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Gun_Shot" ID="{A0FB45BB-DEED-49EB-8EF5-34D8791BD7AB}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Hook_ClawLock" ID="{BF397A9F-E163-4B81-BE30-EB024380BD8C}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Hook_ClawOpen" ID="{3D81A5B7-A5C2-4BB0-963D-8E6171E89E15}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Sonar" ID="{79CDEAC3-56F2-4BDA-B28D-45EB5015923C}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Click" ID="{70BD6076-6664-4BE9-AF72-35B270FC14F9}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Ship_Hit" ID="{0297BFEE-4FA9-4C18-A857-1822C1C866A7}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>

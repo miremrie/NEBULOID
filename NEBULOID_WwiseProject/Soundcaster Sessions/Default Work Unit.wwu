@@ -56,6 +56,42 @@
 					</ModuleList>
 					<RTPCValueList ShowAll="true">
 						<RTPCValue>
+							<GameParameterRef Name="Hook_Speed_Pitch" ID="{E75A2049-D833-42A5-BDB5-45348D8B8D5A}"/>
+							<Value>0</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="Fuel_Amount" ID="{C738C860-DA16-46E3-AEC0-36D08C5B6455}"/>
+							<Value>0</Value>
+						</RTPCValue>
+					</RTPCValueList>
+					<CurrentStateList ShowAll="true"/>
+					<CurrentSwitchList ShowAll="true"/>
+				</SoundcasterSession>
+				<SoundcasterSession Name="Hook" ID="{C2A0D0C7-89C5-41D9-BCD3-9FF6EB14E108}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="Play_Hook_Cable_Grab" ID="{D466F3BD-EAB7-46CA-A533-3D751095A8DA}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Play_Hook_Cable_Back" ID="{B6C3F690-8673-4731-A318-37AE779CBC5F}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}"/>
+							<Position X="0" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Stop_Hook_Cable" ID="{3182E49D-C5CF-4751-9440-2B122732D2D2}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}"/>
+							<Position X="1" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Stop_Hook_Cable_Back" ID="{C8BFFDD3-1D01-4946-A4EB-DBECC2841140}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}"/>
+							<Position X="1" Y="1"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true">
+						<RTPCValue>
+							<GameParameterRef Name="Hook_Speed_Pitch" ID="{E75A2049-D833-42A5-BDB5-45348D8B8D5A}"/>
+							<Value>0</Value>
+						</RTPCValue>
+						<RTPCValue>
 							<GameParameterRef Name="Fuel_Amount" ID="{C738C860-DA16-46E3-AEC0-36D08C5B6455}"/>
 							<Value>0</Value>
 						</RTPCValue>

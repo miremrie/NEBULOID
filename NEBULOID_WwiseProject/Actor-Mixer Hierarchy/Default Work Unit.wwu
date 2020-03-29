@@ -73,6 +73,820 @@
 								</Sound>
 							</ChildrenList>
 						</RandomSequenceContainer>
+						<Folder Name="Hook" ID="{B57238C5-2A7C-4CE4-BC58-883E27BC981E}" ShortID="810342997">
+							<ChildrenList>
+								<Folder Name="Claw" ID="{C509601B-6FFA-45EE-AA70-CF2FE436A3EA}" ShortID="597665845">
+									<ChildrenList>
+										<RandomSequenceContainer Name="ClawBite" ID="{1FD069C3-11BD-46BB-A269-3945D047D7DB}" ShortID="537646792">
+											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{3938318C-03F6-44BB-9F11-FBCD0403441E}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="328"/>
+																	<Property Name="Min" Type="Real64" Value="-101"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-9</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="1 - ClawBite" ID="{DDA1D9B5-6DEC-4BF5-B143-6A8809073114}" ShortID="48416595">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="1 - ClawBite" ID="{AF06EC78-7591-465D-AE26-477112B8EF2D}">
+															<Language>SFX</Language>
+															<AudioFile>1 - ClawBite.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="134160763"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="1 - ClawBite" ID="{AF06EC78-7591-465D-AE26-477112B8EF2D}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="2 - ClawBite" ID="{E48C91C6-610E-4449-B6D5-8E55E8CDB163}" ShortID="540241288">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="2 - ClawBite" ID="{248D11B7-8ECC-40C8-B63D-348DB5D0552A}">
+															<Language>SFX</Language>
+															<AudioFile>2 - ClawBite.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="882834192"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="2 - ClawBite" ID="{248D11B7-8ECC-40C8-B63D-348DB5D0552A}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="3 - ClawBite" ID="{C9D9AD21-77F1-4726-AEDE-86A17A250FD5}" ShortID="168445812">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="3 - ClawBite" ID="{768B36C6-C0CE-4A60-930A-5BEA7D56E414}">
+															<Language>SFX</Language>
+															<AudioFile>3 - ClawBite.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="405090761"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="3 - ClawBite" ID="{768B36C6-C0CE-4A60-930A-5BEA7D56E414}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="4 - ClawBite" ID="{C798E932-95B3-464F-A9F0-7C95C5210E98}" ShortID="739906591">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="4 - ClawBite" ID="{8FDDF457-4A8F-4884-8CE4-3C2293974FAC}">
+															<Language>SFX</Language>
+															<AudioFile>4 - ClawBite.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="53106075"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="4 - ClawBite" ID="{8FDDF457-4A8F-4884-8CE4-3C2293974FAC}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="ClawBitePrep" ID="{C34F556C-F0D5-40D5-AC1A-FFD2495EF0B9}" ShortID="797744199">
+											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{3FCDFD96-3E36-477E-A153-154D2B6401EF}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="202"/>
+																	<Property Name="Min" Type="Real64" Value="-126"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-9</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="1 - ClawBitePrep" ID="{EDFFF952-6413-4F3A-99EB-90F26DA95B46}" ShortID="996800662">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="1 - ClawBitePrep" ID="{14D3828F-4FD0-4A15-B5EB-226EEBADE8BE}">
+															<Language>SFX</Language>
+															<AudioFile>1 - ClawBitePrep.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="614939510"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="1 - ClawBitePrep" ID="{14D3828F-4FD0-4A15-B5EB-226EEBADE8BE}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="2 - ClawBitePrep" ID="{5E358358-0B72-4F4E-9250-112483BAE503}" ShortID="446496514">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="2 - ClawBitePrep" ID="{40D52A25-855D-4511-BCF2-A3CA62FD255D}">
+															<Language>SFX</Language>
+															<AudioFile>2 - ClawBitePrep.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="726397064"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="2 - ClawBitePrep" ID="{40D52A25-855D-4511-BCF2-A3CA62FD255D}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="3 - ClawBitePrep" ID="{5B69CEB0-3CF2-4A03-97FB-53F396FB9290}" ShortID="107088007">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="3 - ClawBitePrep" ID="{ED063A08-CB90-4470-A8E9-EA700520CCBE}">
+															<Language>SFX</Language>
+															<AudioFile>3 - ClawBitePrep.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="415235210"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="3 - ClawBitePrep" ID="{ED063A08-CB90-4470-A8E9-EA700520CCBE}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="4 - ClawBitePrep" ID="{0280A4E7-7EC5-444D-A7B0-4D285618FB01}" ShortID="77072838">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="4 - ClawBitePrep" ID="{90DB35E6-98AF-4B68-A242-A1AD3EEC8CEA}">
+															<Language>SFX</Language>
+															<AudioFile>4 - ClawBitePrep.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="183631485"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="4 - ClawBitePrep" ID="{90DB35E6-98AF-4B68-A242-A1AD3EEC8CEA}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="ClawLock" ID="{0ED046B0-1D0D-439A-9555-708C5D32E957}" ShortID="761065757">
+											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{C918B9D4-B2D8-4564-8F74-E15EAF5BBC7E}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="227"/>
+																	<Property Name="Min" Type="Real64" Value="-76"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-9</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="1 - ClawLock" ID="{153BCB3E-B2A7-47B1-B905-42C1DCADD924}" ShortID="202343686">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="1 - ClawLock" ID="{8C1020FD-14A1-4A50-88A6-1AA2F5E1DA89}">
+															<Language>SFX</Language>
+															<AudioFile>1 - ClawLock.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="106730093"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="1 - ClawLock" ID="{8C1020FD-14A1-4A50-88A6-1AA2F5E1DA89}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="2 - ClawLock" ID="{B275B5E4-252F-40F9-8146-6FA96FBFDB7F}" ShortID="381219519">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="2 - ClawLock" ID="{AA00CC84-9036-40FA-98E7-E57B8E5365D1}">
+															<Language>SFX</Language>
+															<AudioFile>2 - ClawLock.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="966974960"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="2 - ClawLock" ID="{AA00CC84-9036-40FA-98E7-E57B8E5365D1}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="3 - ClawLock" ID="{1EAD6102-7C8E-4157-9EBA-17D7C19CFCA1}" ShortID="503718496">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="3 - ClawLock" ID="{EB22165F-1DD9-4944-BFB6-37BAEFF5894B}">
+															<Language>SFX</Language>
+															<AudioFile>3 - ClawLock.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="827833385"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="3 - ClawLock" ID="{EB22165F-1DD9-4944-BFB6-37BAEFF5894B}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="4 - ClawLock" ID="{A3D325BF-9093-4A2C-9F86-D2A31DA1B31B}" ShortID="1023538391">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="4 - ClawLock" ID="{5C168A34-C5FA-4AB9-8EE1-DD3AB1A684C5}">
+															<Language>SFX</Language>
+															<AudioFile>4 - ClawLock.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="427815737"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="4 - ClawLock" ID="{5C168A34-C5FA-4AB9-8EE1-DD3AB1A684C5}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="ClawOpen" ID="{315FABFD-8E13-4A21-BAF1-305266605987}" ShortID="772403508">
+											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{F4E8BF0F-3C25-4C58-AA91-90A30008885D}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="303"/>
+																	<Property Name="Min" Type="Real64" Value="-101"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-9</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="1 - ClawOpen" ID="{5B33FA22-3E5C-48A0-BE16-8FA9FDFAA5FF}" ShortID="662055544">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="1 - ClawOpen" ID="{45B0460B-2603-4CA3-BBC0-FE35139552E1}">
+															<Language>SFX</Language>
+															<AudioFile>1 - ClawOpen.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="869259325"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="1 - ClawOpen" ID="{45B0460B-2603-4CA3-BBC0-FE35139552E1}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="2 - ClawOpen" ID="{B78EE158-9C96-4FDE-BA81-0D4683BD7370}" ShortID="695317415">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="2 - ClawOpen" ID="{6BB5CEA3-B5BC-4202-95D4-08D895CB6140}">
+															<Language>SFX</Language>
+															<AudioFile>2 - ClawOpen.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="549127255"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="2 - ClawOpen" ID="{6BB5CEA3-B5BC-4202-95D4-08D895CB6140}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="3 - ClawOpen" ID="{0ECE064E-813E-42C2-964E-786AC13B5AD4}" ShortID="792345232">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="3 - ClawOpen" ID="{4E041739-967D-42A3-920F-ABE2A98E0B80}">
+															<Language>SFX</Language>
+															<AudioFile>3 - ClawOpen.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="615568309"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="3 - ClawOpen" ID="{4E041739-967D-42A3-920F-ABE2A98E0B80}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="4 - ClawOpen" ID="{A4D196B4-CF62-4C09-9EE9-BDCA766A3D16}" ShortID="845872410">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="4 - ClawOpen" ID="{7FCFD261-F02F-4973-9D4A-72919F00192F}">
+															<Language>SFX</Language>
+															<AudioFile>4 - ClawOpen.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="1002772589"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="4 - ClawOpen" ID="{7FCFD261-F02F-4973-9D4A-72919F00192F}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+									</ChildrenList>
+								</Folder>
+								<Folder Name="Cable" ID="{E965786F-3BAB-41A0-846C-FBECCB74CED9}" ShortID="230926383">
+									<ChildrenList>
+										<RandomSequenceContainer Name="HookBack" ID="{88488561-1B22-4A9E-B0D1-B790F3BBDF84}" ShortID="749951169">
+											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<RTPCList>
+														<RTPC Name="" ID="{0A1EC16F-D528-485F-A37F-9E5B9B6A1657}" ShortID="1053539216">
+															<ReferenceList>
+																<Reference Name="ControlInput">
+																	<ObjectRef Name="Hook_Speed_Pitch" ID="{E75A2049-D833-42A5-BDB5-45348D8B8D5A}" WorkUnitID="{9057AE98-8E85-4ADA-B4BC-84449375C967}"/>
+																</Reference>
+															</ReferenceList>
+															<Curve Name="" ID="{83D1C05B-B413-4BB0-A2E2-C8C566718B0A}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="65537"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>0</YPos>
+																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>180</XPos>
+																		<YPos>1000</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</RTPC>
+													</RTPCList>
+												</Property>
+												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+												<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="HookBackLoop" ID="{69413488-C0AD-448C-B012-2951BA7C81E5}" ShortID="823108492">
+													<PropertyList>
+														<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="HookBackLoop" ID="{B4DAC269-C22F-47F2-AEC8-F4BF6BE691A4}">
+															<PropertyList>
+																<Property Name="VolumeOffset" Type="Real64">
+																	<ValueList>
+																		<Value>-2.5</Value>
+																	</ValueList>
+																</Property>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>HookBackLoop.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="542189354"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="HookBackLoop" ID="{B4DAC269-C22F-47F2-AEC8-F4BF6BE691A4}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="HookBackStart" ID="{E9D40AD4-C89A-42C8-B0D4-A5E5FE7622FA}" ShortID="80229875">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="HookBackStart" ID="{09027241-864E-48F3-81E5-C02C2A13DAC3}">
+															<PropertyList>
+																<Property Name="VolumeOffset" Type="Real64">
+																	<ValueList>
+																		<Value>-2.5</Value>
+																	</ValueList>
+																</Property>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>HookBackStart.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="80018712"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="HookBackStart" ID="{09027241-864E-48F3-81E5-C02C2A13DAC3}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+											<Playlist>
+												<ItemRef Name="HookBackStart" ID="{E9D40AD4-C89A-42C8-B0D4-A5E5FE7622FA}"/>
+												<ItemRef Name="HookBackLoop" ID="{69413488-C0AD-448C-B012-2951BA7C81E5}"/>
+											</Playlist>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="HookGrab" ID="{BD8D2BA6-64B5-4DC7-ACE6-94DEF0CC8ABA}" ShortID="313343936">
+											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<RTPCList>
+														<RTPC Name="" ID="{B1296C91-CBCD-48F4-84A5-03B108CFAC55}" ShortID="1068117413">
+															<ReferenceList>
+																<Reference Name="ControlInput">
+																	<ObjectRef Name="Hook_Speed_Pitch" ID="{E75A2049-D833-42A5-BDB5-45348D8B8D5A}" WorkUnitID="{9057AE98-8E85-4ADA-B4BC-84449375C967}"/>
+																</Reference>
+															</ReferenceList>
+															<Curve Name="" ID="{7C4DCD5A-5B4C-4FDC-8D4D-345BA06268B7}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="65537"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>0</YPos>
+																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>180</XPos>
+																		<YPos>1000</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</RTPC>
+													</RTPCList>
+												</Property>
+												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+												<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="HookStart" ID="{358D0D64-2F97-4110-A7EC-02907C5D0B51}" ShortID="119162000">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="HookStart" ID="{BFF5CC69-C668-4FBE-BA4B-83C040A877F2}">
+															<PropertyList>
+																<Property Name="VolumeOffset" Type="Real64">
+																	<ValueList>
+																		<Value>2</Value>
+																	</ValueList>
+																</Property>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>HookStart.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="884707605"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="HookStart" ID="{BFF5CC69-C668-4FBE-BA4B-83C040A877F2}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="HookLoop" ID="{AA4B59E8-7578-4518-A98B-E75917B9C685}" ShortID="619300270">
+													<PropertyList>
+														<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="HookLoop" ID="{5CF1D452-14F5-49E3-B46E-FD5B5E91449A}">
+															<PropertyList>
+																<Property Name="VolumeOffset" Type="Real64">
+																	<ValueList>
+																		<Value>2</Value>
+																	</ValueList>
+																</Property>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>HookLoop.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="669341810"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="HookLoop" ID="{5CF1D452-14F5-49E3-B46E-FD5B5E91449A}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+											<Playlist>
+												<ItemRef Name="HookStart" ID="{358D0D64-2F97-4110-A7EC-02907C5D0B51}"/>
+												<ItemRef Name="HookLoop" ID="{AA4B59E8-7578-4518-A98B-E75917B9C685}"/>
+											</Playlist>
+										</RandomSequenceContainer>
+										<Sound Name="HookBackStop" ID="{3BCA3EF4-3EFF-492B-BBC2-A7C5AD4096D2}" ShortID="686536232">
+											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<RTPCList>
+														<RTPC Name="" ID="{B6FD6864-5545-4074-BB2F-2007B11C717F}" ShortID="226411133">
+															<ReferenceList>
+																<Reference Name="ControlInput">
+																	<ObjectRef Name="Hook_Speed_Pitch" ID="{E75A2049-D833-42A5-BDB5-45348D8B8D5A}" WorkUnitID="{9057AE98-8E85-4ADA-B4BC-84449375C967}"/>
+																</Reference>
+															</ReferenceList>
+															<Curve Name="" ID="{6752316C-F7E5-43B9-B1DC-CBAD42708F27}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="65537"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>0</YPos>
+																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>180</XPos>
+																		<YPos>1000</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</RTPC>
+													</RTPCList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="HookBackStop" ID="{F8D4C1BB-202B-4E73-8CA8-95D9E01A8B6C}">
+													<Language>SFX</Language>
+													<AudioFile>HookBackStop.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="830784053"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="HookBackStop" ID="{F8D4C1BB-202B-4E73-8CA8-95D9E01A8B6C}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="HookStop" ID="{836E474D-C1F7-4984-A6D6-0271B7D2C3DF}" ShortID="72204985">
+											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<RTPCList>
+														<RTPC Name="" ID="{3B5C3A6C-0AE8-4742-9D34-FB5A6E985949}" ShortID="831251966">
+															<ReferenceList>
+																<Reference Name="ControlInput">
+																	<ObjectRef Name="Hook_Speed_Pitch" ID="{E75A2049-D833-42A5-BDB5-45348D8B8D5A}" WorkUnitID="{9057AE98-8E85-4ADA-B4BC-84449375C967}"/>
+																</Reference>
+															</ReferenceList>
+															<Curve Name="" ID="{DEE58CD4-4C94-4FB8-AF63-993B0E8FA036}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="65537"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>0</YPos>
+																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>180</XPos>
+																		<YPos>1000</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</RTPC>
+													</RTPCList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="HookStop" ID="{50429FFB-E8AB-4490-9C97-BDFA6C561E31}">
+													<Language>SFX</Language>
+													<AudioFile>HookStop.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="767327232"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="HookStop" ID="{50429FFB-E8AB-4490-9C97-BDFA6C561E31}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</Folder>
+							</ChildrenList>
+						</Folder>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Notifications" ID="{A8A2B02A-9473-4E53-A79E-66DDA1561A98}" ShortID="670949365">

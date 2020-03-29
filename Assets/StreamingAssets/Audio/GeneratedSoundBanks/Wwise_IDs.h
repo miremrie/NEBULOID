@@ -22,17 +22,26 @@ namespace AK
         static const AkUniqueID PLAY_GAME_OVER = 725000905U;
         static const AkUniqueID PLAY_GAMEPLAY_MUSIC = 1231987938U;
         static const AkUniqueID PLAY_GUN_SHOT = 4270212347U;
+        static const AkUniqueID PLAY_HOOK_CABLE_BACK = 1434616913U;
+        static const AkUniqueID PLAY_HOOK_CABLE_GRAB = 1422781286U;
+        static const AkUniqueID PLAY_HOOK_CLAWBITE = 2582351913U;
+        static const AkUniqueID PLAY_HOOK_CLAWBITEPREP = 3700767316U;
+        static const AkUniqueID PLAY_HOOK_CLAWLOCK = 3637158234U;
+        static const AkUniqueID PLAY_HOOK_CLAWOPEN = 1303580447U;
         static const AkUniqueID PLAY_MENU_MUSIC = 2228153899U;
         static const AkUniqueID PLAY_SHIP_HIT = 3935467706U;
         static const AkUniqueID PLAY_SONAR = 3376092819U;
         static const AkUniqueID STOP_ALARM = 377487063U;
         static const AkUniqueID STOP_FUEL_REFILL = 3567966343U;
+        static const AkUniqueID STOP_HOOK_CABLE = 2934156779U;
+        static const AkUniqueID STOP_HOOK_CABLE_BACK = 117524643U;
         static const AkUniqueID STOP_SONAR = 2410889125U;
     } // namespace EVENTS
 
     namespace GAME_PARAMETERS
     {
         static const AkUniqueID FUEL_AMOUNT = 3548314952U;
+        static const AkUniqueID HOOK_SPEED_PITCH = 2759611267U;
     } // namespace GAME_PARAMETERS
 
     namespace BANKS

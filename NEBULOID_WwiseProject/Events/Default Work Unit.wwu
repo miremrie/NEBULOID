@@ -49,6 +49,156 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Folder Name="Hook" ID="{D5A247CE-406B-4325-8281-413293C54CFF}" ShortID="471782621">
+							<ChildrenList>
+								<Folder Name="Cable" ID="{ED62B033-D3FD-4A90-880B-493DB2ABDE14}" ShortID="817985903">
+									<ChildrenList>
+										<Event Name="Stop_Hook_Cable" ID="{3182E49D-C5CF-4751-9440-2B122732D2D2}">
+											<ChildrenList>
+												<Action Name="" ID="{9336135D-D3D0-4080-B410-AB447E4AB5EE}" ShortID="332610267">
+													<PropertyList>
+														<Property Name="ActionType" Type="int16" Value="39"/>
+														<Property Name="Delay" Type="Real64" Value="0.5"/>
+														<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="Hook_Speed_Pitch" ID="{E75A2049-D833-42A5-BDB5-45348D8B8D5A}" WorkUnitID="{9057AE98-8E85-4ADA-B4BC-84449375C967}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+												<Action Name="" ID="{5BA36B4A-FB82-483E-9AEC-B58F478CDDB8}" ShortID="573292716">
+													<PropertyList>
+														<Property Name="ActionType" Type="int16" Value="2"/>
+														<Property Name="Delay" Type="Real64" Value="0.5"/>
+														<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="HookGrab" ID="{BD8D2BA6-64B5-4DC7-ACE6-94DEF0CC8ABA}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+												<Action Name="" ID="{156E48A0-C4B9-4A2C-A356-8CAF68366881}" ShortID="413577284">
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="HookStop" ID="{836E474D-C1F7-4984-A6D6-0271B7D2C3DF}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+											</ChildrenList>
+										</Event>
+										<Event Name="Stop_Hook_Cable_Back" ID="{C8BFFDD3-1D01-4946-A4EB-DBECC2841140}">
+											<ChildrenList>
+												<Action Name="" ID="{A4141295-F44E-46DB-8811-E707B99B0E53}" ShortID="1015126821">
+													<PropertyList>
+														<Property Name="ActionType" Type="int16" Value="2"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="HookBack" ID="{88488561-1B22-4A9E-B0D1-B790F3BBDF84}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+												<Action Name="" ID="{7DAF3506-12F4-477F-94EA-C8055E5B61ED}" ShortID="819481391">
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="HookBackStop" ID="{3BCA3EF4-3EFF-492B-BBC2-A7C5AD4096D2}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+												<Action Name="" ID="{E879B2AD-C077-4E99-B94A-3642ECABF3EB}" ShortID="1024346451">
+													<PropertyList>
+														<Property Name="ActionType" Type="int16" Value="39"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="Hook_Speed_Pitch" ID="{E75A2049-D833-42A5-BDB5-45348D8B8D5A}" WorkUnitID="{9057AE98-8E85-4ADA-B4BC-84449375C967}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+											</ChildrenList>
+										</Event>
+										<Event Name="Play_Hook_Cable_Grab" ID="{D466F3BD-EAB7-46CA-A533-3D751095A8DA}">
+											<ChildrenList>
+												<Action Name="" ID="{F094D413-7842-45B8-8930-0854492A2A7D}" ShortID="752513103">
+													<PropertyList>
+														<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="HookGrab" ID="{BD8D2BA6-64B5-4DC7-ACE6-94DEF0CC8ABA}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+											</ChildrenList>
+										</Event>
+										<Event Name="Play_Hook_Cable_Back" ID="{B6C3F690-8673-4731-A318-37AE779CBC5F}">
+											<ChildrenList>
+												<Action Name="" ID="{8B46AF4E-FB1A-4B49-8F98-047D33A9A94B}" ShortID="687946096">
+													<PropertyList>
+														<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="HookBack" ID="{88488561-1B22-4A9E-B0D1-B790F3BBDF84}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+											</ChildrenList>
+										</Event>
+									</ChildrenList>
+								</Folder>
+								<Folder Name="Claw" ID="{A37E88C7-C060-43D0-817C-90B0DA3182A0}" ShortID="429089660">
+									<ChildrenList>
+										<Event Name="Play_Hook_ClawBite" ID="{B8B2F65F-9A3A-49D5-B190-78ECEDFB2FA5}">
+											<ChildrenList>
+												<Action Name="" ID="{49D6CDC0-6897-458D-B7CC-4DBBFC34E038}" ShortID="915245380">
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="ClawBite" ID="{1FD069C3-11BD-46BB-A269-3945D047D7DB}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+											</ChildrenList>
+										</Event>
+										<Event Name="Play_Hook_ClawBitePrep" ID="{0F88CE63-CCE4-483E-8AC4-C3610D8117EF}">
+											<ChildrenList>
+												<Action Name="" ID="{1C605E7B-C344-4F30-9D5E-94678A76D0D0}" ShortID="276508610">
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="ClawBitePrep" ID="{C34F556C-F0D5-40D5-AC1A-FFD2495EF0B9}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+											</ChildrenList>
+										</Event>
+										<Event Name="Play_Hook_ClawLock" ID="{BF397A9F-E163-4B81-BE30-EB024380BD8C}">
+											<ChildrenList>
+												<Action Name="" ID="{AE63F3DC-1990-4F67-B505-0F96F057C0C2}" ShortID="155358281">
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="ClawLock" ID="{0ED046B0-1D0D-439A-9555-708C5D32E957}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+											</ChildrenList>
+										</Event>
+										<Event Name="Play_Hook_ClawOpen" ID="{3D81A5B7-A5C2-4BB0-963D-8E6171E89E15}">
+											<ChildrenList>
+												<Action Name="" ID="{9DBAF1B1-5AD0-4168-BF25-EE593B943659}" ShortID="396274974">
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="ClawOpen" ID="{315FABFD-8E13-4A21-BAF1-305266605987}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+											</ChildrenList>
+										</Event>
+									</ChildrenList>
+								</Folder>
+							</ChildrenList>
+						</Folder>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Notifications" ID="{E6C2D303-5838-41A2-9919-72FF65122284}" ShortID="265461644">
