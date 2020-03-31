@@ -5,23 +5,43 @@ using UnityEngine.Audio;
 
 public class ShipAudioController : MonoBehaviour
 {
+    //Arm
     private const string leftArmEv = "Play_Arm_L", rightArmEv = "Play_Arm_R";
     public GameObject leftArmPlayer, rightArmPlayer;
+    //Alarm
     private const string alarmStartEv = "Play_Alarm", alarmStopEv = "Stop_Alarm";
     public GameObject alarmPlayer;
+    //Gun, bullet, expolosions
     private const string gunshotEv = "Play_Gun_Shot", bulletHitEv = "Play_Bullet_Hit", shipHitEv = "Play_Ship_Hit";
     public GameObject gunShotPlayer, bulletHitPlayer, shipHitPlayer;
-    private const string fuelRefillEv = "Play_Fuel_Refill", fuelRefillStopEv = "Stop_Fuel_Refill";
-    public GameObject fuelRefillPlayer;
-    private const string gameOverEv = "Play_Game_Over";
-    public GameObject gameOverPlayer;
+
+    //Sonar
     private const string sonarStartEv = "Play_Sonar", sonarStopEv = "Stop_Sonar";
     public GameObject sonarPlayer;
+
+    //Hook
+    public GameObject hookCablePlayer;
+    private const string hookCableFwdEv = "Play_Hook_Cable_Grab", hookCableFwdStopEv = "Stop_Hook_Cable";
+    private const string hookCableBackEv = "Play_Hook_Cable_Back", hookCableBackStopEv = "Stop_Hook_Cable_Back";
+    private const string hookSpeedPitchRTPC = "Speed_Pitch";
+    public GameObject hookClawPlayer;
+    private const string hookClawOpenEv = "Play_Hook_ClawOpen", hookClawOpenAndLockEv = "Play_Hook_ClawLock";
+    public GameObject hookClawBitePlayer;
+    private const string hookClawBitePrepEv = "Play_Hook_ClawBitePrep", hookClawBiteEv = "Play_Hook_ClawBite";
+    
+    //Fuel
+    private const string fuelRefillEv = "Play_Fuel_Refill", fuelRefillStopEv = "Stop_Fuel_Refill";
     private const string fuelAmountRTPC = "Fuel_Amount";
+    public GameObject fuelRefillPlayer;
+    //Gameover
+    private const string gameOverEv = "Play_Game_Over";
+    public GameObject gameOverPlayer;
+
     public float fuelRefillTime;
     private Timer fuelRefillTimer;
     private bool refillingFuel = false;
     private bool alarmPlaying = false;
+    private float minSpeedPitchValue = 0, maxSpeedPitchValue = 50;
 
     private void Awake()
     {
@@ -125,5 +145,45 @@ public class ShipAudioController : MonoBehaviour
     public void PlayRightArm()
     {
         AkSoundEngine.PostEvent(rightArmEv, rightArmPlayer);
+    }
+
+    public void PlayCableForward()
+    {
+        AkSoundEngine.PostEvent(hookCableFwdEv, hookCablePlayer);
+    }
+    public void StopCableForward()
+    {
+        AkSoundEngine.PostEvent(hookCableFwdStopEv, hookCablePlayer);
+    }
+    public void PlayCableBack()
+    {
+        AkSoundEngine.PostEvent(hookCableBackEv, hookCablePlayer);
+    }
+    public void StopCableBack()
+    {
+        AkSoundEngine.PostEvent(hookCableBackStopEv, hookCablePlayer);
+    }
+    public void UpdateHookSpeedPitch(float speed, float maxSpeed, float minSpeed = 0)
+    {
+        float t = (speed - minSpeed) / (maxSpeed - minSpeed);
+        float pitchValue = Mathf.Lerp(minSpeedPitchValue, maxSpeedPitchValue, t);
+        AkSoundEngine.SetRTPCValue(hookSpeedPitchRTPC, pitchValue);
+    }
+
+    public void PlayHookOpen()
+    {
+        AkSoundEngine.PostEvent(hookClawOpenEv, hookClawPlayer);
+    }
+    public void PlayHookOpenAndLock()
+    {
+        AkSoundEngine.PostEvent(hookClawOpenAndLockEv, hookClawPlayer);
+    }
+    public void PlayHookBitePrep()
+    {
+        AkSoundEngine.PostEvent(hookClawBitePrepEv, hookClawBitePlayer);
+    }
+    public void PlayHookBite()
+    {
+        AkSoundEngine.PostEvent(hookClawBiteEv, hookClawBitePlayer);
     }
 }
