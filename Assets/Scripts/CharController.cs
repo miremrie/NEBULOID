@@ -1,4 +1,5 @@
 ﻿using CustomInput;
+using NBLD.UseActions;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +11,7 @@ public enum ButtonInputControl
 
 public class Char2Controller : MonoBehaviour
 {
-    public Game game;
+    /*public Game game;
     public CharacterInput charInput;
     public int playerNumber;
     [Header("Input")]
@@ -33,7 +34,7 @@ public class Char2Controller : MonoBehaviour
     private int curMovementDirection = 0;
 
     private bool lockedForActions = false;
-    private Dictionary<ButtonInputControl, ActionControl> currentActions = new Dictionary<ButtonInputControl, ActionControl>();
+    private Dictionary<ButtonInputControl, InsideUseAction> currentActions = new Dictionary<ButtonInputControl, InsideUseAction>();
 
     private void Awake()
     {
@@ -73,7 +74,7 @@ public class Char2Controller : MonoBehaviour
 
     private void ExecuteAction()
     {
-        foreach (KeyValuePair<ButtonInputControl, ActionControl> action in currentActions)
+        foreach (KeyValuePair<ButtonInputControl, InsideUseAction> action in currentActions)
         {
             if (action.Value != null && handler.GetControlPressed(action.Key))
             {
@@ -87,7 +88,7 @@ public class Char2Controller : MonoBehaviour
         if (col.tag == Tags.ACTION_OBJECT)
         {
 
-            ActionControl newControl = col.gameObject.GetComponent<ActionControl>();
+            InsideUseAction newControl = col.gameObject.GetComponent<InsideUseAction>();
 
             if (currentActions.ContainsKey(newControl.actionControl))
             {
@@ -103,7 +104,7 @@ public class Char2Controller : MonoBehaviour
     {
         if (col.tag == Tags.ACTION_OBJECT)
         {
-            ActionControl leavingActionControl = col.gameObject.GetComponent<ActionControl>();
+            InsideUseAction leavingActionControl = col.gameObject.GetComponent<InsideUseAction>();
             if (currentActions.ContainsKey(leavingActionControl.actionControl))
             {
                 leavingActionControl.OnExitAction(this);
@@ -111,6 +112,9 @@ public class Char2Controller : MonoBehaviour
             }
         }
     }
+
+
+
 
     public void FixedMoveTo(Transform dest)
     {
@@ -132,10 +136,12 @@ public class Char2Controller : MonoBehaviour
             {
                 transform.Translate((fixedMoveDst.position - transform.position).normalized * fixedMoveSpeed * Time.deltaTime);
             }
-
         }
-
     }
+
+
+
+
 
     private void AnimateMovement()
     {
@@ -160,6 +166,6 @@ public class Char2Controller : MonoBehaviour
     private void RegisterController()
     {
         handler = InputHandler.RegisterController(gamepadNumber);
-    }
+    }*/
 
 }

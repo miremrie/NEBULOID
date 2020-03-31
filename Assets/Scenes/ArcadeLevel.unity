@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -307,6 +307,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 384905161}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &384905163 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4380688033734573628, guid: 019949c9899dcf544b7e03021ca9095f,
+    type: 3}
+  m_PrefabInstance: {fileID: 384905161}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6973f7f4089e78e4fb7c3ceb54e0bf24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &451330216
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,6 +377,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &501002366 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8508198433876253514, guid: 4939f5c355de92c4187cfa30da65b634,
+    type: 3}
+  m_PrefabInstance: {fileID: 655361960}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &506103003
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,6 +455,12 @@ MonoBehaviour:
   fuzz: 0.2
   seed: 7
   maxSizeAdd: 1
+--- !u!1 &516038469 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8508198434842948698, guid: 4939f5c355de92c4187cfa30da65b634,
+    type: 3}
+  m_PrefabInstance: {fileID: 655361960}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &538758061
 GameObject:
   m_ObjectHideFlags: 0
@@ -462,8 +492,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxFuel: 100
   fuelBurnRate: 2
-  gameOverScreen: {fileID: 0}
-  fuelFillImage: {fileID: 0}
+  gameOverScreen: {fileID: 516038469}
+  fuelFillImage: {fileID: 501002366}
   shake: {fileID: 1560085652}
   smokePrefab: {fileID: 1823494547589178577, guid: f882811d383c33f4991ba6c8ac97b7e7,
     type: 3}
@@ -758,6 +788,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 877500769}
+  - component: {fileID: 877500770}
   m_Layer: 0
   m_Name: Characters
   m_TagString: Untagged
@@ -781,6 +812,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &877500770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877500768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c00117ff4c3149241b3ef7c8cb96da34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfUsers: 2
+  characterManagers:
+  - {fileID: 1055087564}
+  - {fileID: 384905163}
+  usersKeyboardSchemeNames:
+  - Keyboard1
+  - Keyboard2
+  gamepadSchemeName: Gamepad
+  firstGamepadUser: 1
 --- !u!1001 &1055087562
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -861,6 +913,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1055087562}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1055087564 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2565986283274569285, guid: d4c35564ce8c21b4fabdeca5b48bb906,
+    type: 3}
+  m_PrefabInstance: {fileID: 1055087562}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6973f7f4089e78e4fb7c3ceb54e0bf24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1185245426 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7595398177048142799, guid: 835fe173342e2294ea00455a759b69ed,

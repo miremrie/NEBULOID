@@ -9,7 +9,7 @@ namespace NBLD.Character
         public override void OnMoveAssistPerformed()
         {
             base.OnMoveAssistPerformed();
-            charInputManager.ChangeState(Input.CharacterState.Inside);
+            charInputManager.ChangeState(CharacterState.Inside);
         }
     }
 

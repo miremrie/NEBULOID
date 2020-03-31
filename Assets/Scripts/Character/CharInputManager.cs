@@ -9,27 +9,14 @@ using NBLD.Character;
 
 namespace NBLD.Input
 {
-    public enum CharacterState
-    {
-        Inside, Outside, Dead
-    }
-
     public class CharInputManager : MonoBehaviour
     {
         public int index;
-        private Vector2 movement;
-        private bool actionPress, subActionPress, escapePress, talkPress;
-        private int playerIndex = 0;
         public List<CharController> charControllers = new List<CharController>();
         public CharController activeChar;
         private bool activeCharExists = false;
         private CustomInput.CharacterInput input;
         public CharacterState state;
-
-        public void Awake()
-        {
-
-        }
 
         public void RegisterController(CharController charController)
         {

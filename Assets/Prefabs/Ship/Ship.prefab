@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aff9e8efc4e3584a89e5242d4fac9bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionControl: 1
+  actionControl: 3
   otherSide: {fileID: 1503261890}
 --- !u!1 &1176545221
 GameObject:
@@ -372,7 +372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aff9e8efc4e3584a89e5242d4fac9bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionControl: 0
+  actionControl: 2
   otherSide: {fileID: 493309763}
 --- !u!1 &38844119882064714
 GameObject:
@@ -444,7 +444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aff9e8efc4e3584a89e5242d4fac9bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionControl: 1
+  actionControl: 3
   otherSide: {fileID: 4963268801973174441}
 --- !u!1 &130872024338172622
 GameObject:
@@ -818,7 +818,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69de1434ae70e7643a5395cf196ca0a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionControl: 4
+  actionControl: 0
   repairable: {fileID: 5040788851926938560}
   roomAnimator: {fileID: 3795665906741120693}
   shipSystem: {fileID: 0}
@@ -2017,7 +2017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aff9e8efc4e3584a89e5242d4fac9bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionControl: 0
+  actionControl: 2
   otherSide: {fileID: 7096063060455768061}
 --- !u!1 &4755784031426102358
 GameObject:
@@ -2370,7 +2370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69de1434ae70e7643a5395cf196ca0a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionControl: 4
+  actionControl: 0
   repairable: {fileID: 5625323299240325634}
   roomAnimator: {fileID: 4717102838088957216}
   shipSystem: {fileID: 8323507948655161712}
@@ -2465,7 +2465,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69de1434ae70e7643a5395cf196ca0a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionControl: 4
+  actionControl: 0
   repairable: {fileID: 5625323299245406784}
   roomAnimator: {fileID: 521392967384240751}
   shipSystem: {fileID: 0}
@@ -2697,7 +2697,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69de1434ae70e7643a5395cf196ca0a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionControl: 4
+  actionControl: 0
   repairable: {fileID: 5625323299509387940}
   roomAnimator: {fileID: 5695031473503409926}
   shipSystem: {fileID: 1692948615594598724}
@@ -2828,7 +2828,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69de1434ae70e7643a5395cf196ca0a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionControl: 4
+  actionControl: 0
   repairable: {fileID: 5625323300134583405}
   roomAnimator: {fileID: 9192171909670611027}
   shipSystem: {fileID: 0}
@@ -3299,7 +3299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aff9e8efc4e3584a89e5242d4fac9bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionControl: 1
+  actionControl: 3
   otherSide: {fileID: 6324434363118106365}
 --- !u!1 &6073073336856100890
 GameObject:
@@ -4268,7 +4268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aff9e8efc4e3584a89e5242d4fac9bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionControl: 0
+  actionControl: 2
   otherSide: {fileID: 2480408305186175445}
 --- !u!1 &8018708545754002229
 GameObject:
@@ -4836,7 +4836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aff9e8efc4e3584a89e5242d4fac9bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionControl: 1
+  actionControl: 3
   otherSide: {fileID: 4613847481369032630}
 --- !u!1 &9025693994626442135
 GameObject:

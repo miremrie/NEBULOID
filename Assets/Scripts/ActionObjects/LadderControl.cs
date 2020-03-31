@@ -1,13 +1,19 @@
-﻿using System.Collections;
+﻿using NBLD.Character;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LadderControl : ActionControl
+namespace NBLD.UseActions
 {
-    public Transform otherSide;
-
-    public override void DoAction(Char2Controller controller)
+    public class LadderControl : InsideUseAction
     {
-        controller.FixedMoveTo(otherSide);
+        public Transform otherSide;
+
+        public override void DoAction(InsideCharController controller)
+        {
+            controller.TransportTo(otherSide);
+        }
     }
 }
+
+

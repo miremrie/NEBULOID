@@ -77,22 +77,22 @@ namespace NBLD.Input
     public class InputManager : MonoBehaviour
     {
         public int numberOfUsers;
-        public NBLD.Input.CharInputManager[] characterManagers;
-        public string[] usersKeyboardSchemeNames;
+        public List<CharInputManager> characterManagers;
+        public List<string> usersKeyboardSchemeNames;
         public string gamepadSchemeName;
         public int firstGamepadUser = 1;
         private CustomInput.CharacterInput characterInput;
-        private UserDevice[] users;
+        private List<UserDevice> users;
         private List<Gamepad> takenGamepads = new List<Gamepad>();
 
         void Start()
         {
             InputUser.listenForUnpairedDeviceActivity = numberOfUsers;
-            users = new UserDevice[numberOfUsers];
+            users = new List<UserDevice>();
 
             for (var i = 0; i < numberOfUsers; i++)
             {
-                users[i] = new UserDevice(usersKeyboardSchemeNames[i], gamepadSchemeName);
+                users.Add(new UserDevice(usersKeyboardSchemeNames[i], gamepadSchemeName));
                 characterManagers[i].InitializeInput(users[i]);
             }
 
@@ -101,7 +101,7 @@ namespace NBLD.Input
 
         private void Subscribe()
         {
-            InputUser.onChange += OnControlsChanged;
+            //InputUser.onChange += OnControlsChanged;
             InputUser.onUnpairedDeviceUsed += ListenForUnpairedGamepads;
         }
 
@@ -117,13 +117,13 @@ namespace NBLD.Input
 
         private void Unsubscribe()
         {
-            InputUser.onChange -= OnControlsChanged;
+            //InputUser.onChange -= OnControlsChanged;
             InputUser.onUnpairedDeviceUsed -= ListenForUnpairedGamepads;
         }
 
 
 
-        void OnControlsChanged(InputUser user, InputUserChange change, InputDevice device)
+        /*void OnControlsChanged(InputUser user, InputUserChange change, InputDevice device)
         {
             if (device is Gamepad)
             {
@@ -138,15 +138,15 @@ namespace NBLD.Input
                     userDevice.DeactivateGamepad();
                 }
             }
-        }
+        }*/
 
         void ListenForUnpairedGamepads(InputControl control, InputEventPtr inputEventPtr)
         {
             if (control.device is Gamepad)
             {
-                for (var i = 0; i < users.Length; i++)
+                for (var i = 0; i < users.Count; i++)
                 {
-                    int index = (firstGamepadUser + i) % users.Length;
+                    int index = (firstGamepadUser + i) % users.Count;
                     // find a user without a paired device
                     if (!users[index].HasGamepadSet() && !takenGamepads.Contains((Gamepad)control.device))
                     {

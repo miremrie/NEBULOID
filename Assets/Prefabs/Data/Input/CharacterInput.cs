@@ -79,7 +79,7 @@ namespace CustomInput
             ],
             ""bindings"": [
                 {
-                    ""name"": ""Movement"",
+                    ""name"": ""WASD"",
                     ""id"": ""f4e4fea1-1602-4d2d-af8b-b7d5e82eec33"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
@@ -156,7 +156,7 @@ namespace CustomInput
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""Movement"",
+                    ""name"": ""Arrow Keys"",
                     ""id"": ""70d2e337-b46e-4521-a1b4-11b913df210b"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
