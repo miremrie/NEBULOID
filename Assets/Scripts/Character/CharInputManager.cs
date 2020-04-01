@@ -17,6 +17,24 @@ namespace NBLD.Input
         private bool activeCharExists = false;
         private CustomInput.CharacterInput input;
         public CharacterState state;
+        private bool inputInitialized = false;
+
+        private void OnEnable()
+        {
+            if (inputInitialized)
+            {
+                Subscribe();
+            }
+        }
+
+        private void OnDisable()
+        {
+            if (inputInitialized)
+            {
+                Unsubscribe();
+                input.Dispose();
+            }
+        }
 
         public void RegisterController(CharController charController)
         {
@@ -29,32 +47,34 @@ namespace NBLD.Input
         public void InitializeInput(UserDevice userDevice)
         {
             input = (CustomInput.CharacterInput)userDevice.inputActions;
+            
             Subscribe();
+            inputInitialized = true;
             ChangeState(state);
         }
 
         public void Subscribe()
         {
-            input.Character.Move.performed += ctx => OnMovement(ctx.ReadValue<Vector2>());
-            input.Character.Action.performed += _ => OnAction();
-            input.Character.SubAction.performed += _ => OnSubAction();
-            input.Character.Up.performed += _ => OnUp();
-            input.Character.Down.performed += _ => OnDown();
-            input.Character.Talk.performed += _ => OnTalk();
-            input.Character.MoveAssist.started += _ => OnMoveAssistStarted();
-            input.Character.MoveAssist.performed += _ => OnMoveAssistPerformed();
+            input.Character.Move.performed += OnMovement;
+            input.Character.Action.performed += OnAction;
+            input.Character.SubAction.performed += OnSubAction;
+            input.Character.Up.performed += OnUp;
+            input.Character.Down.performed += OnDown;
+            input.Character.Talk.performed += OnTalk;
+            input.Character.MoveAssist.started += OnMoveAssistStarted;
+            input.Character.MoveAssist.performed += OnMoveAssistPerformed;
         }
 
         public void Unsubscribe()
         {
-            input.Character.Move.performed -= ctx => OnMovement(ctx.ReadValue<Vector2>());
-            input.Character.Action.performed -= _ => OnAction();
-            input.Character.SubAction.performed -= _ => OnSubAction();
-            input.Character.Up.performed -= _ => OnUp();
-            input.Character.Down.performed -= _ => OnDown();
-            input.Character.Talk.performed -= _ => OnTalk();
-            input.Character.MoveAssist.started -= _ => OnMoveAssistStarted();
-            input.Character.MoveAssist.performed -= _ => OnMoveAssistPerformed();
+            input.Character.Move.performed -= OnMovement;
+            input.Character.Action.performed -= OnAction;
+            input.Character.SubAction.performed -= OnSubAction;
+            input.Character.Up.performed -= OnUp;
+            input.Character.Down.performed -= OnDown;
+            input.Character.Talk.performed -= OnTalk;
+            input.Character.MoveAssist.started -= OnMoveAssistStarted;
+            input.Character.MoveAssist.performed -= OnMoveAssistPerformed;
         } 
 
         public void ChangeState(CharacterState newState)
@@ -64,8 +84,9 @@ namespace NBLD.Input
             state = newState;
         }
 
-        private void OnMovement(Vector2 movement)
+        private void OnMovement(InputAction.CallbackContext context)
         {
+            Vector2 movement = context.ReadValue<Vector2>();
             Debug.Log($"{index}: Move {movement}");
             if (activeCharExists)
             {
@@ -73,7 +94,7 @@ namespace NBLD.Input
             }
         }
 
-        private void OnUp()
+        private void OnUp(InputAction.CallbackContext context)
         {
             Debug.Log($"{index}: Up");
             if (activeCharExists)
@@ -82,7 +103,7 @@ namespace NBLD.Input
             }
         }
 
-        private void OnDown()
+        private void OnDown(InputAction.CallbackContext context)
         {
             Debug.Log($"{index}: Down");
             if (activeCharExists)
@@ -91,7 +112,7 @@ namespace NBLD.Input
             }
         }
 
-        private void OnAction()
+        private void OnAction(InputAction.CallbackContext context)
         {
             Debug.Log($"{index}: Action");
             if (activeCharExists)
@@ -100,7 +121,7 @@ namespace NBLD.Input
             }
         }
 
-        private void OnSubAction()
+        private void OnSubAction(InputAction.CallbackContext context)
         {
             Debug.Log($"{index}: SubAction");
             if (activeCharExists)
@@ -109,7 +130,7 @@ namespace NBLD.Input
             }
         }
 
-        private void OnTalk()
+        private void OnTalk(InputAction.CallbackContext context)
         {
             Debug.Log($"{index}: Talk");
             if (activeCharExists)
@@ -118,7 +139,7 @@ namespace NBLD.Input
             }
         }
 
-        private void OnMoveAssistStarted()
+        private void OnMoveAssistStarted(InputAction.CallbackContext context)
         {
             Debug.Log($"{index}: MoveAssist");
             if (activeCharExists)
@@ -127,7 +148,7 @@ namespace NBLD.Input
             }
         }
 
-        private void OnMoveAssistPerformed()
+        private void OnMoveAssistPerformed(InputAction.CallbackContext context)
         {
             Debug.Log($"{index}: MoveAssistPerformed");
             if (activeCharExists)

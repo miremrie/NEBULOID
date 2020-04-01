@@ -15,23 +15,19 @@ namespace NBLD.Input
     {
         public InputUser user;
         public Gamepad gamepad;
-        private InputControlScheme keyboardScheme;
-        public IInputActionCollection inputActions;
+        private string keyboardScheme;
+        public CharacterInput inputActions;
         private bool gamepadSet = false;
         private bool gamepadActive = false;
-        private InputControlScheme gamepadScheme;
 
         public UserDevice(string keyboardScheme, string gamepadScheme)
         {
             this.user = InputUser.CreateUserWithoutPairedDevices();
             CustomInput.CharacterInput input = new CustomInput.CharacterInput();
-            
             this.inputActions = input;
             user.AssociateActionsWithUser(inputActions);
 
-            this.keyboardScheme = this.inputActions.controlSchemes.First(cs => cs.name == keyboardScheme);
-            this.gamepadScheme = this.inputActions.controlSchemes.First(cs => cs.name == gamepadScheme);
-
+            this.keyboardScheme = keyboardScheme;            
             ActivateKeyboard();
         }
 
@@ -58,10 +54,9 @@ namespace NBLD.Input
         {
             gamepadActive = false;
             InputUser.PerformPairingWithDevice(Keyboard.current, user);
-
-            user.ActivateControlScheme(keyboardScheme);
             inputActions.Enable();
             user.AssociateActionsWithUser(inputActions);
+            user.ActivateControlScheme(keyboardScheme);
         }
 
         public bool HasGamepadSet()
@@ -72,6 +67,12 @@ namespace NBLD.Input
         public bool IsUsingGamepad()
         {
             return gamepadActive;
+        }
+
+        public void Dispose()
+        {
+            inputActions.Dispose();
+            user.UnpairDevicesAndRemoveUser();
         }
     }
     public class InputManager : MonoBehaviour
@@ -93,9 +94,9 @@ namespace NBLD.Input
             for (var i = 0; i < numberOfUsers; i++)
             {
                 users.Add(new UserDevice(usersKeyboardSchemeNames[i], gamepadSchemeName));
-                characterManagers[i].InitializeInput(users[i]);
+                //characterManagers[i].InitializeInput(users[i]);
             }
-
+            
             Subscribe();
         }
 
@@ -108,6 +109,10 @@ namespace NBLD.Input
         private void OnDisable()
         {
             Unsubscribe();
+            for(int i = 0; i < users.Count; i++)
+            {
+                users[i].Dispose();
+            }
         }
 
         private void OnDestroy()
@@ -123,7 +128,7 @@ namespace NBLD.Input
 
 
 
-        /*void OnControlsChanged(InputUser user, InputUserChange change, InputDevice device)
+        void OnControlsChanged(InputUser user, InputUserChange change, InputDevice device)
         {
             if (device is Gamepad)
             {
@@ -138,7 +143,7 @@ namespace NBLD.Input
                     userDevice.DeactivateGamepad();
                 }
             }
-        }*/
+        }
 
         void ListenForUnpairedGamepads(InputControl control, InputEventPtr inputEventPtr)
         {

@@ -227,6 +227,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a17584372aa52db428d1293a5f96abe8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &373113078 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4380688033734573628, guid: 019949c9899dcf544b7e03021ca9095f,
+    type: 3}
+  m_PrefabInstance: {fileID: 384905161}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6973f7f4089e78e4fb7c3ceb54e0bf24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &384905161
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -243,6 +255,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Character 2 Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844000482113244328, guid: 019949c9899dcf544b7e03021ca9095f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3844000482113244331, guid: 019949c9899dcf544b7e03021ca9095f,
         type: 3}
@@ -307,18 +324,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 384905161}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &384905163 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4380688033734573628, guid: 019949c9899dcf544b7e03021ca9095f,
-    type: 3}
-  m_PrefabInstance: {fileID: 384905161}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6973f7f4089e78e4fb7c3ceb54e0bf24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &451330216
 GameObject:
   m_ObjectHideFlags: 0
@@ -827,7 +832,7 @@ MonoBehaviour:
   numberOfUsers: 2
   characterManagers:
   - {fileID: 1055087564}
-  - {fileID: 384905163}
+  - {fileID: 373113078}
   usersKeyboardSchemeNames:
   - Keyboard1
   - Keyboard2
