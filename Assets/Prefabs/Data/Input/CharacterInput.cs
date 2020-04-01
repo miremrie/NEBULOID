@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
-namespace CustomInput
+namespace GeneratedInputActions
 {
     public class @CharacterInput : IInputActionCollection, IDisposable
     {

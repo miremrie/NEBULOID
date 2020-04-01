@@ -213,6 +213,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 0
+--- !u!1 &110442545
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 110442547}
+  - component: {fileID: 110442546}
+  m_Layer: 0
+  m_Name: Input
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &110442546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110442545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6d0f8c148a12534d84975a814b22ee1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holdDuration: 1
+  navigationDeadzoneValue: 0.4
+--- !u!4 &110442547
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110442545}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &138721846
 GameObject:
   m_ObjectHideFlags: 0
@@ -1204,6 +1249,7 @@ MonoBehaviour:
   currentlySelectedShip: 0
   scrollRect: {fileID: 1914408862}
   scrollBar: {fileID: 903741524}
+  heldVerticalChangeSelectionTime: 0.1
 --- !u!1 &631544783
 GameObject:
   m_ObjectHideFlags: 0
@@ -2644,16 +2690,35 @@ MonoBehaviour:
   m_GameObject: {fileID: 1778592970}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalAxis: Hor0
-  m_VerticalAxis: Ver0
-  m_SubmitButton: Action0
-  m_CancelButton: Action1
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_ActionsAsset: {fileID: -944628639613478452, guid: cef28ffa1cb794f4db1c221badde9a3d,
+    type: 3}
+  m_PointAction: {fileID: 1054132383583890850, guid: cef28ffa1cb794f4db1c221badde9a3d,
+    type: 3}
+  m_MoveAction: {fileID: 3710738434707379630, guid: cef28ffa1cb794f4db1c221badde9a3d,
+    type: 3}
+  m_SubmitAction: {fileID: 2064916234097673511, guid: cef28ffa1cb794f4db1c221badde9a3d,
+    type: 3}
+  m_CancelAction: {fileID: -1967631576421560919, guid: cef28ffa1cb794f4db1c221badde9a3d,
+    type: 3}
+  m_LeftClickAction: {fileID: 8056856818456041789, guid: cef28ffa1cb794f4db1c221badde9a3d,
+    type: 3}
+  m_MiddleClickAction: {fileID: 3279352641294131588, guid: cef28ffa1cb794f4db1c221badde9a3d,
+    type: 3}
+  m_RightClickAction: {fileID: 3837173908680883260, guid: cef28ffa1cb794f4db1c221badde9a3d,
+    type: 3}
+  m_ScrollWheelAction: {fileID: 4502412055082496612, guid: cef28ffa1cb794f4db1c221badde9a3d,
+    type: 3}
+  m_TrackedDevicePositionAction: {fileID: 4754684134866288074, guid: cef28ffa1cb794f4db1c221badde9a3d,
+    type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: 1025543830046995696, guid: cef28ffa1cb794f4db1c221badde9a3d,
+    type: 3}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0
 --- !u!114 &1778592972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3143,6 +3208,7 @@ GameObject:
   - component: {fileID: 2031471732}
   - component: {fileID: 2031471737}
   - component: {fileID: 2031471735}
+  - component: {fileID: 2031471738}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3302,3 +3368,34 @@ MonoBehaviour:
   unloadTriggerList: 958ca0ea
   bankNameInternal: 
   valueGuidInternal: 
+--- !u!114 &2031471738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2031471731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2

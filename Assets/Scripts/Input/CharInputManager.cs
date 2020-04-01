@@ -1,4 +1,4 @@
-﻿using CustomInput;
+﻿using GeneratedInputActions;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,7 +15,7 @@ namespace NBLD.Input
         public List<CharController> charControllers = new List<CharController>();
         public CharController activeChar;
         private bool activeCharExists = false;
-        private CustomInput.CharacterInput input;
+        private CharacterInput input;
         public CharacterState state;
         private bool inputInitialized = false;
 
@@ -46,7 +46,7 @@ namespace NBLD.Input
 
         public void InitializeInput(UserDevice userDevice)
         {
-            input = (CustomInput.CharacterInput)userDevice.inputActions;
+            input = userDevice.inputActions;
             
             Subscribe();
             inputInitialized = true;

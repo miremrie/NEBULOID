@@ -1,4 +1,4 @@
-﻿using CustomInput;
+﻿using GeneratedInputActions;
 using NBLD.Character;
 using System;
 using System.Collections;
@@ -23,7 +23,7 @@ namespace NBLD.Input
         public UserDevice(string keyboardScheme, string gamepadScheme)
         {
             this.user = InputUser.CreateUserWithoutPairedDevices();
-            CustomInput.CharacterInput input = new CustomInput.CharacterInput();
+            CharacterInput input = new CharacterInput();
             this.inputActions = input;
             user.AssociateActionsWithUser(inputActions);
 
@@ -82,7 +82,7 @@ namespace NBLD.Input
         public List<string> usersKeyboardSchemeNames;
         public string gamepadSchemeName;
         public int firstGamepadUser = 1;
-        private CustomInput.CharacterInput characterInput;
+        private CharacterInput characterInput;
         private List<UserDevice> users;
         private List<Gamepad> takenGamepads = new List<Gamepad>();
 
@@ -94,16 +94,10 @@ namespace NBLD.Input
             for (var i = 0; i < numberOfUsers; i++)
             {
                 users.Add(new UserDevice(usersKeyboardSchemeNames[i], gamepadSchemeName));
-                //characterManagers[i].InitializeInput(users[i]);
+                characterManagers[i].InitializeInput(users[i]);
             }
             
             Subscribe();
-        }
-
-        private void Subscribe()
-        {
-            //InputUser.onChange += OnControlsChanged;
-            InputUser.onUnpairedDeviceUsed += ListenForUnpairedGamepads;
         }
 
         private void OnDisable()
@@ -120,13 +114,16 @@ namespace NBLD.Input
             Unsubscribe();
         }
 
+        private void Subscribe()
+        {
+            //InputUser.onChange += OnControlsChanged;
+            InputUser.onUnpairedDeviceUsed += ListenForUnpairedGamepads;
+        }
         private void Unsubscribe()
         {
             //InputUser.onChange -= OnControlsChanged;
             InputUser.onUnpairedDeviceUsed -= ListenForUnpairedGamepads;
         }
-
-
 
         void OnControlsChanged(InputUser user, InputUserChange change, InputDevice device)
         {
