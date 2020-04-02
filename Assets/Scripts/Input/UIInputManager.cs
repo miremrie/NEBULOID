@@ -13,18 +13,17 @@ namespace NBLD.Input
         public float navigationDeadzoneValue = 0.4f;
 
         public delegate void UINavigation(Vector2 navigation);
+        public delegate void UINavigationInt(Vector2Int navigation);
         public delegate void UIAction();
-        public delegate void UIButtonHeld(int value, float time);
         public static event UINavigation onNavigation, onNavigationChanged;
+        public static event UINavigationInt onNavigationChangedInt;
         public static event UIAction onSubmit, onCancel, onChangeSelect, onEscape;
-        public static event UIButtonHeld onHorizontalHeld, onVerticalHeld;
         private UIInput uiInput;
         private bool inputInitialized = false;
         //Input values
         private Vector2 navigation = Vector2.zero;
         //Hold Values
-        private int xHoldValue = 0, yHoldValue = 0;
-        private Timer xHoldTimer, yHoldTimer;
+        public static AxisHeldInputProc horizontalHoldProcessor, verticalHoldProcessor;
 
         private void OnEnable()
         {
@@ -44,10 +43,8 @@ namespace NBLD.Input
         private void Initialize()
         {
             uiInput = new UIInput();
-            xHoldTimer = new Timer(holdDuration);
-            xHoldTimer.Start();
-            yHoldTimer = new Timer(holdDuration);
-            yHoldTimer.Start();
+            horizontalHoldProcessor = new AxisHeldInputProc(holdDuration, 0, navigationDeadzoneValue);
+            verticalHoldProcessor = new AxisHeldInputProc(holdDuration, 0, navigationDeadzoneValue);
             uiInput.Enable();
             inputInitialized = true;
         }
@@ -72,7 +69,7 @@ namespace NBLD.Input
         private void Update()
         {
             UpdateNavigation();
-            UpdateHeldEvents();
+            UpdateHoldEventsTime();
         }
 
         //Events
@@ -83,35 +80,37 @@ namespace NBLD.Input
                 onNavigation(navigation);
             }
         }
-        private void UpdateHeldEvents()
+
+        private void UpdateHoldEventsTime()
         {
-            UpdateNavigationHeldTime();
-            if (IsXBeingHeld())
+            horizontalHoldProcessor.UpdateTime(Time.deltaTime);
+            verticalHoldProcessor.UpdateTime(Time.deltaTime);
+        }
+        private void UpdateAxisHoldValues(Vector2 navigation)
+        {
+            horizontalHoldProcessor.SetValue(navigation.x);
+            verticalHoldProcessor.SetValue(navigation.y);
+        }
+
+        private void TryNavigationChangeInt(Vector2 oldNav, Vector2 newNav)
+        {
+            Vector2Int oldNavInt = GetIntNavigation(oldNav);
+            Vector2Int newNavInt = GetIntNavigation(newNav);
+            if (oldNav.x != newNav.x || oldNav.y != newNav.y)
             {
-                if (onHorizontalHeld != null)
+                if (onNavigationChangedInt != null)
                 {
-                    //TODO: Should we pass real time since press, or time since it started holding
-                    Debug.Log($"Horizontal Hold {xHoldValue} for {xHoldTimer.GetCurrentTime()}");
-                    onHorizontalHeld(xHoldValue, xHoldTimer.GetCurrentTime());
-                }
-            }
-            if (IsYBeingHeld())
-            {
-                if (onVerticalHeld != null)
-                {
-                    //TODO: Should we pass real time since press, or time since it started holding
-                    Debug.Log($"Vertical Hold {yHoldValue} for {yHoldTimer.GetCurrentTime()}");
-                    onVerticalHeld(yHoldValue, yHoldTimer.GetCurrentTime());
+                    onNavigationChangedInt(newNavInt);
                 }
             }
         }
 
         private void InputNavigationChanged(InputAction.CallbackContext context)
         {
+            Vector2 oldNav = navigation;
             navigation = context.ReadValue<Vector2>();
-            Debug.Log($"Navigation Changed {navigation}");
-            CheckNavigationHeldStatus(navigation);
-
+            TryNavigationChangeInt(oldNav, navigation);
+            UpdateAxisHoldValues(navigation);
             if (onNavigationChanged != null)
             {
                 onNavigationChanged(navigation);
@@ -151,52 +150,19 @@ namespace NBLD.Input
             }
         }
 
-        private void UpdateNavigationHeldTime()
+        //Helper
+        private Vector2Int GetIntNavigation(Vector2 navigation)
         {
-            if (xHoldValue != 0)
+            Vector2Int output = Vector2Int.zero;
+            if (Mathf.Abs(navigation.x) >= Mathf.Abs(navigationDeadzoneValue))
             {
-                xHoldTimer.Update(Time.deltaTime);
+                output.x = (int)Mathf.Sign(navigation.x);
             }
-            if (yHoldValue != 0)
+            if (Mathf.Abs(navigation.y) >= Mathf.Abs(navigationDeadzoneValue))
             {
-                yHoldTimer.Update(Time.deltaTime);
+                output.y = (int)Mathf.Sign(navigation.y);
             }
-        }
-
-        private bool IsXBeingHeld()
-        {
-            return xHoldValue != 0 && !xHoldTimer.IsRunning();
-        }
-
-        private bool IsYBeingHeld()
-        {
-            return yHoldValue != 0 && !yHoldTimer.IsRunning();
-        }
-
-        private void CheckNavigationHeldStatus(Vector2 newNavigation)
-        {
-            int newXHoldValue = GetNewHoldValue(newNavigation.x);
-            if (xHoldValue == 0 || xHoldValue != newXHoldValue)
-            {
-                xHoldValue = newXHoldValue;
-                xHoldTimer.Start();
-            }
-            int newYHoldValue = GetNewHoldValue(newNavigation.y);
-            if (yHoldValue == 0 || yHoldValue != newYHoldValue)
-            {
-                yHoldValue = newYHoldValue;
-                yHoldTimer.Start();
-            }
-        }
-
-        private int GetNewHoldValue(float newValue)
-        {
-            int newDiscreteValue = 0;
-            if (Mathf.Abs(newValue) > navigationDeadzoneValue)
-            {
-                newDiscreteValue = (newValue > 0) ? 1 : -1;
-            }
-            return newDiscreteValue;
+            return output;
         }
     }
 }

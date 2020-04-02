@@ -44,17 +44,17 @@ namespace NBLD.MainMenu
         }
         private void Subscribe()
         {
-            NBLD.Input.UIInputManager.onNavigationChanged += OnNavigationChanged;
+            NBLD.Input.UIInputManager.onNavigationChangedInt += OnNavigationChanged;
             NBLD.Input.UIInputManager.onCancel += OnCancel;
             NBLD.Input.UIInputManager.onChangeSelect += OnChangeSelect;
-            NBLD.Input.UIInputManager.onVerticalHeld += OnNavigationHeld;
+            NBLD.Input.UIInputManager.verticalHoldProcessor.onAxisBeingHeldInt += OnNavigationHeld;
         }
         private void Unsubscribe()
         {
-            NBLD.Input.UIInputManager.onNavigationChanged -= OnNavigationChanged;
+            NBLD.Input.UIInputManager.onNavigationChangedInt -= OnNavigationChanged;
             NBLD.Input.UIInputManager.onCancel -= OnCancel;
             NBLD.Input.UIInputManager.onChangeSelect -= OnChangeSelect;
-            NBLD.Input.UIInputManager.onVerticalHeld -= OnNavigationHeld;
+            NBLD.Input.UIInputManager.verticalHoldProcessor.onAxisBeingHeldInt -= OnNavigationHeld;
         }
 
         private void FillShipEntries()
@@ -120,9 +120,9 @@ namespace NBLD.MainMenu
             DismissSelection();
             mainMenu.ChangeShipSelectionMode(false);
         }
-        private void OnNavigationChanged(Vector2 navigation)
+        private void OnNavigationChanged(Vector2Int navigation)
         {
-            ChangeSelection(-Mathf.RoundToInt(navigation.normalized.y));
+            ChangeSelection(-Mathf.RoundToInt(navigation.y));
         }
         private void OnNavigationHeld(int value, float time)
         {
