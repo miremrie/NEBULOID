@@ -21,26 +21,32 @@ public class CampaignGame : MonoBehaviour
     {
         ChangeState(GameState.Gameplay);
     }
-
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
     {
-        UpdateGameState();
+        Subscribe();
     }
-
+    private void OnDisable()
+    {
+        Unsubscribe();
+    }
+    private void Subscribe()
+    {
+        NBLD.Input.UIInputManager.onChangeSelect += UpdateGameState;
+    }
+    private void Unsubscribe()
+    {
+        NBLD.Input.UIInputManager.onChangeSelect -= UpdateGameState;
+    }
 
     public void UpdateGameState()
     {
-        if (Input.GetKeyDown(KeyCode.G))
+        if (currentState == GameState.Gameplay)
         {
-            if (currentState == GameState.Gameplay)
-            {
-                ChangeState(GameState.Garage);
-            }
-            else
-            {
-                ChangeState(GameState.Gameplay);
-            }
+            ChangeState(GameState.Garage);
+        }
+        else
+        {
+            ChangeState(GameState.Gameplay);
         }
     }
 

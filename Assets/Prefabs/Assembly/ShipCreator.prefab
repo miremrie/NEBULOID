@@ -4792,7 +4792,8 @@ MonoBehaviour:
     message: CREATION CONFIRMED
   - stage: 6
     message: CREATION CANCELED
-  placementRotSpeed: 0.5
+  placementRotSpeed: 45
+  placementTowardsRotSpeed: 5
   roomNameDisplayTable:
   - {fileID: 7467980816796099932}
   - {fileID: 7467980816477450488}
@@ -4810,6 +4811,7 @@ MonoBehaviour:
   shipNameInputField: {fileID: 6862442394533908280}
   minCharShipName: 3
   heldVerticalChangeSelectionTime: 0.05
+  placeSystemTowardsDirection: 1
 --- !u!114 &6370515991639609082
 MonoBehaviour:
   m_ObjectHideFlags: 0

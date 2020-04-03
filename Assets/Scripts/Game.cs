@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NBLD.Character;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,24 +19,8 @@ public class Game : MonoBehaviour
     public ScreenShake shake;
     private Repairable[] repairables;
     public GameObject smokePrefab;
-
-    public Texture2D emptyTex;
-    public Texture2D fullTex;
-
-    public GUIStyle progress_empty, progress_full;
-
-    public float guiOffset;
-    public float healthWidth;
-    public float healthHeight;
-
-
   
-    public float fuelThresholdForDeathLowPass = 10;
-
     public GameObject explosionParticle;
-
-    public InputHandler firstPlayerHandler;
-
 
     public ShipAudioController audioController;
 
@@ -71,7 +56,7 @@ public class Game : MonoBehaviour
         {
             audioController.PlayGameOver();
             dead = true;
-            FindObjectsOfType<Char2Controller>().ToList().ForEach(x => x.enabled = false);
+            FindObjectsOfType<CharController>().ToList().ForEach(x => x.enabled = false);
             ShowGameOverScreen();
         }
 

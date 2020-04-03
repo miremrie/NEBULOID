@@ -9,7 +9,6 @@ namespace NBLD.MainMenu
     {
         public int primaryInput, altInput;
         public GameObject shipSelectionScreen, shipSelectionPrompt;
-        public InputHandler handler;
         public bool inShipSelectionMode = false;
 
         void Start()

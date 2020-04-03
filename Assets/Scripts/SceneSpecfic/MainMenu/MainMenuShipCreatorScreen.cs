@@ -8,7 +8,6 @@ namespace NBLD.MainMenu
 {
     public class MainMenuShipCreatorScreen : MonoBehaviour
     {
-        InputHandler handler;
         AllSaveData saveData;
 
         public MainMenu mainMenu;
