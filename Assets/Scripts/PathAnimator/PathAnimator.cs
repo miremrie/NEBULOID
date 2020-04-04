@@ -4,7 +4,7 @@ using UnityEngine;
 using PathCreation;
 using System;
 
-namespace NBLD.PathAnimation
+namespace NBLD.Graphics.Path
 {
     public class PathAnimator : MonoBehaviour
     {
@@ -18,7 +18,6 @@ namespace NBLD.PathAnimation
         public Vector3 startInertia, endInertia;
         public float inertiaDropFactor;
         public float maxInertiaVector;
-        public float cumulativeLength;
         private VertexPath path;
         public float[] distancesBetweenAnchors;
         public bool animatePoints = true;
@@ -26,6 +25,7 @@ namespace NBLD.PathAnimation
         private void Start()
         {
             SetOriginalPoints();
+            pathDrawer.Initalize(pathCreator.bezierPath);
         }
 
         private void SetOriginalPoints()
@@ -43,7 +43,7 @@ namespace NBLD.PathAnimation
         }
 
         // Update is called once per frame
-        void LateUpdate()
+        void Update()
         {
             MovePoints();
             if (animatePoints)
@@ -53,10 +53,8 @@ namespace NBLD.PathAnimation
                 UpdateOriginalPointsByInertia();
                 AnimatePoints();
             }
-            pathCreator.bezierPath.NotifyPathModified();
+            //pathCreator.bezierPath.NotifyPathModified();
             pathDrawer.UpdateMesh(pathCreator.bezierPath);
-
-            UpdateSegmentCount();
         }
 
 
@@ -111,12 +109,6 @@ namespace NBLD.PathAnimation
             endInertia = Vector3.ClampMagnitude(end + endInertia, maxInertiaVector);
 
         }
-
-        private void UpdateSegmentCount()
-        {
-            cumulativeLength = pathDrawer.vPath.length;
-        }
-
 
         void AnimatePoints()
         {
