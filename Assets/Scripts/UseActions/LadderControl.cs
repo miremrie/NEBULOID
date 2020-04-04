@@ -9,7 +9,7 @@ namespace NBLD.UseActions
     {
         public Transform otherSide;
 
-        public override void DoAction(InsideCharController controller)
+        public override void DoAction(InsideCharBehaviour controller)
         {
             controller.TransportTo(otherSide);
         }

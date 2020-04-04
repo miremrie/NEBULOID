@@ -1,4 +1,5 @@
 ﻿using NBLD.Character;
+using NBLD.ShipSystems;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,18 +8,12 @@ namespace NBLD.UseActions
 {
     public class RoomControl : InsideUseAction
     {
-        private bool actionObjectReady = true;
         public Repairable repairable;
         public Animator roomAnimator;
         private const string activeAnimName = "RoomActionActivated";
         public ShipSystem shipSystem;
         public bool hasAssignedSystem = false;
-        private InsideCharController repairingCharacter;
-
-        public virtual bool IsActionObjectReady()
-        {
-            return actionObjectReady;
-        }
+        private InsideCharBehaviour repairingCharacter;
 
         private void Update()
         {
@@ -26,7 +21,6 @@ namespace NBLD.UseActions
             {
                 UpdateRoomAnimationState();
             }
-
         }
 
         private void UpdateRoomAnimationState()
@@ -37,23 +31,23 @@ namespace NBLD.UseActions
             }
         }
 
-        public override void DoAction(InsideCharController controller)
+        public override void DoAction(InsideCharBehaviour behaviour)
         {
             if (hasAssignedSystem && repairable.IsRepaired() && shipSystem.ReadyToUse())
             {
                 roomAnimator.SetBool(activeAnimName, true);
-                shipSystem.DoAction();
+                shipSystem.DoAction(behaviour);
             }
             else
             {
-                repairingCharacter = controller;
+                repairingCharacter = behaviour;
                 repairable.StartRepairing();
             }
         }
 
-        public override void OnExitAction(InsideCharController controller)
+        public override void OnExitAction(InsideCharBehaviour behaviour)
         {
-            if (repairingCharacter == controller)
+            if (repairingCharacter == behaviour)
                 repairable.StopRepairing();
         }
     }

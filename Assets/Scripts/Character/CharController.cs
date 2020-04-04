@@ -17,12 +17,24 @@ namespace NBLD.Character
     public class CharController : MonoBehaviour
     {
         [Header("Input")]
-        public CharacterState activeState;
         public CharInputManager charInputManager;
 
         [Header("Animation")]
         public Animator animator;
         public SpriteRenderer charSpriteRenderer;
+
+        [Header("Physics")]
+        public List<Collider2D> colliders = new List<Collider2D>();
+
+        [Header("Behaviours")]
+        public InsideCharBehaviour insideBehaviour;
+        public OutsideCharBehaviour outsideBehaviour;
+        private CharBehaviour activeBehaviour;
+
+        [Header("States")]
+        public CharacterState state;
+        public bool isDead = false;
+
 
         //Actions
         protected Dictionary<UseActionButton, UseAction> availableActions = new Dictionary<UseActionButton, UseAction>();
@@ -30,26 +42,56 @@ namespace NBLD.Character
         public void Start()
         {
             charInputManager.RegisterController(this);
+            insideBehaviour.Initialize(this, charSpriteRenderer, animator);
+            outsideBehaviour.Initialize(this, charSpriteRenderer, animator);
+            activeBehaviour = insideBehaviour;
         }
+        //States
+        public void ChangeState(CharacterState state)
+        {
+            if (state == CharacterState.Outside)
+            {
+                activeBehaviour = outsideBehaviour;
+            } else if (state == CharacterState.Inside)
+            {
+                activeBehaviour = insideBehaviour;
+            } else if (state == CharacterState.Dead)
+            {
+                isDead = true;
+            }
+        }
+
         //Actions
-        protected virtual bool CheckIfActionAvailable(UseActionButton useButton)
+        public virtual bool TryGetAction(UseActionButton useButton, out UseAction action)
+        {
+            if (CheckIfActionAvailable(useButton))
+            {
+                action = availableActions[useButton];
+                return true;
+            } else
+            {
+                action = null;
+                return false;
+            }
+        }
+        public virtual bool CheckIfActionAvailable(UseActionButton useButton)
         {
             return availableActions.ContainsKey(useButton) 
-                && availableActions[useButton].AvailableForCharacterState() == charInputManager.state;
+                && availableActions[useButton].AvailableForCharacterState() == state;
         }
-        protected virtual void ExecuteAction(UseAction action)
-        {
-
-        }
-        protected virtual void DismissAction(UseAction action)
-        {
-
-        }
-        protected virtual void CheckThenExecuteAction(UseActionButton useButton)
+        /*public virtual void CheckThenExecuteAction(UseActionButton useButton)
         {
             if (CheckIfActionAvailable(useButton))
             {
                 ExecuteAction(availableActions[useButton]);
+            }
+        }*/
+
+        public void SetCollidersActive(bool active)
+        {
+            foreach(Collider2D col in colliders)
+            {
+                col.enabled = active;
             }
         }
         //Collisions
@@ -58,15 +100,16 @@ namespace NBLD.Character
             if (col.tag == Tags.ACTION_OBJECT)
             {
                 UseAction newControl = col.gameObject.GetComponent<UseAction>();
-                if (newControl.AvailableForCharacterState() == charInputManager.state)
+                if (newControl.AvailableForCharacterState() == state)
                 {
-                    if (availableActions.ContainsKey(newControl.actionControl))
+                    Debug.Log($"Registered Action: {newControl.actionButton}");
+                    if (availableActions.ContainsKey(newControl.actionButton))
                     {
-                        availableActions[newControl.actionControl] = newControl;
+                        availableActions[newControl.actionButton] = newControl;
                     }
                     else
                     {
-                        availableActions.Add(newControl.actionControl, newControl);
+                        availableActions.Add(newControl.actionButton, newControl);
                     }
                 }
             }
@@ -76,57 +119,57 @@ namespace NBLD.Character
         {
             if (col.tag == Tags.ACTION_OBJECT)
             {
-                InsideUseAction leavingActionControl = col.gameObject.GetComponent<InsideUseAction>();
-                if (leavingActionControl.AvailableForCharacterState() == charInputManager.state)
+                UseAction leavingActionControl = col.gameObject.GetComponent<UseAction>();
+                if (leavingActionControl.AvailableForCharacterState() == state)
                 {
-                    if (availableActions.ContainsKey(leavingActionControl.actionControl))
+                    if (availableActions.ContainsKey(leavingActionControl.actionButton))
                     {
-                        DismissAction(availableActions[leavingActionControl.actionControl]);
-                        availableActions.Remove(leavingActionControl.actionControl);
+                        activeBehaviour.DismissAction(availableActions[leavingActionControl.actionButton]);
+                        availableActions.Remove(leavingActionControl.actionButton);
                     }
                 }
             }
         }
 
         //Input Events
-        public virtual void OnMovement(Vector2 movement)
+        public void OnMovement(Vector2 movement)
         {
-            Debug.Log($"{activeState}: {movement}");
+            activeBehaviour.OnMovement(movement);
         }
 
-        public virtual void OnUp()
+        public void OnUp()
         {
-            Debug.Log($"{activeState}: Up Action");
+            activeBehaviour.OnUp();
         }
 
-        public virtual void OnDown()
+        public void OnDown()
         {
-            Debug.Log($"{activeState}: Down Action");
+            activeBehaviour.OnDown();
         }
 
-        public virtual void OnAction()
+        public void OnAction()
         {
-            Debug.Log($"{activeState}: Action");
+            activeBehaviour.OnAction();
         }
 
-        public virtual void OnSubAction()
+        public void OnSubAction()
         {
-            Debug.Log($"{activeState}: SubAction");
+            activeBehaviour.OnSubAction();
         }
 
-        public virtual void OnTalk()
+        public void OnTalk()
         {
-            Debug.Log($"{activeState}: Talk");
+            activeBehaviour.OnTalk();
         }
 
-        public virtual void OnMoveAssistStarted()
+        public void OnMoveAssistStarted()
         {
-            Debug.Log($"{activeState}: MoveAssistStarted");
+            activeBehaviour.OnMoveAssistStarted();
         }
 
-        public virtual void OnMoveAssistPerformed()
+        public void OnMoveAssistPerformed()
         {
-            Debug.Log($"{activeState}: MoveAssistPerformed");
+            activeBehaviour.OnMoveAssistPerformed();
         }
     }
 }

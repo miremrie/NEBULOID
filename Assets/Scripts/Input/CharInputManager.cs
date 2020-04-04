@@ -12,11 +12,8 @@ namespace NBLD.Input
     public class CharInputManager : MonoBehaviour
     {
         public int index;
-        public List<CharController> charControllers = new List<CharController>();
-        public CharController activeChar;
-        private bool activeCharExists = false;
+        public CharController charController;
         private CharacterInput input;
-        public CharacterState state;
         private bool inputInitialized = false;
 
         private void OnEnable()
@@ -38,10 +35,7 @@ namespace NBLD.Input
 
         public void RegisterController(CharController charController)
         {
-            if (!charControllers.Contains(charController))
-            {
-                charControllers.Add(charController);
-            }
+            this.charController = charController;
         }
 
         public void InitializeInput(UserDevice userDevice)
@@ -50,7 +44,6 @@ namespace NBLD.Input
             
             Subscribe();
             inputInitialized = true;
-            ChangeState(state);
         }
 
         public void Subscribe()
@@ -77,84 +70,55 @@ namespace NBLD.Input
             input.Character.MoveAssist.performed -= OnMoveAssistPerformed;
         } 
 
-        public void ChangeState(CharacterState newState)
-        {
-            activeChar = charControllers.Find(c => c.activeState == newState);
-            activeCharExists = activeChar != null;
-            state = newState;
-        }
-
         private void OnMovement(InputAction.CallbackContext context)
         {
             Vector2 movement = context.ReadValue<Vector2>();
             Debug.Log($"{index}: Move {movement}");
-            if (activeCharExists)
-            {
-                activeChar.OnMovement(movement);
-            }
+
+            charController.OnMovement(movement);
         }
 
         private void OnUp(InputAction.CallbackContext context)
         {
             Debug.Log($"{index}: Up");
-            if (activeCharExists)
-            {
-                activeChar.OnUp();
-            }
+            charController.OnUp();
         }
 
         private void OnDown(InputAction.CallbackContext context)
         {
             Debug.Log($"{index}: Down");
-            if (activeCharExists)
-            {
-                activeChar.OnDown();
-            }
+            charController.OnDown();
         }
 
         private void OnAction(InputAction.CallbackContext context)
         {
             Debug.Log($"{index}: Action");
-            if (activeCharExists)
-            {
-                activeChar.OnAction();
-            }
+            charController.OnAction();
         }
 
         private void OnSubAction(InputAction.CallbackContext context)
         {
             Debug.Log($"{index}: SubAction");
-            if (activeCharExists)
-            {
-                activeChar.OnSubAction();
-            }
+            charController.OnSubAction();
         }
 
         private void OnTalk(InputAction.CallbackContext context)
         {
             Debug.Log($"{index}: Talk");
-            if (activeCharExists)
-            {
-                activeChar.OnTalk();
-            }
+            charController.OnTalk();
         }
 
         private void OnMoveAssistStarted(InputAction.CallbackContext context)
         {
             Debug.Log($"{index}: MoveAssist");
-            if (activeCharExists)
-            {
-                activeChar.OnMoveAssistStarted();
-            }
+            charController.OnMoveAssistStarted();
         }
 
         private void OnMoveAssistPerformed(InputAction.CallbackContext context)
         {
             Debug.Log($"{index}: MoveAssistPerformed");
-            if (activeCharExists)
-            {
-                activeChar.OnMoveAssistPerformed();
-            }
+            charController.OnMoveAssistPerformed();
         }
+        
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine;
 namespace NBLD.Character
 {
 
-    public class InsideCharController : CharController
+    public class InsideCharBehaviour : CharBehaviour
     {
         [Header("Movement")]
         public float moveSpeed;
@@ -37,7 +37,7 @@ namespace NBLD.Character
             animator.SetBool(moveAnimName, moveDirection != 0);
             if (moveDirection != 0)
             {
-                charSpriteRenderer.flipX = moveDirection > 0;
+                spriteRenderer.flipX = moveDirection > 0;
             }
             animator.SetBool(moveVerAnimName, isTransporting);
         }
@@ -80,12 +80,12 @@ namespace NBLD.Character
         }
 
         //Actions
-        protected override void ExecuteAction(UseAction action)
+        public override void ExecuteAction(UseAction action)
         {
             InsideUseAction iuAction = (InsideUseAction)action;
             iuAction.DoAction(this);
         }
-        protected override void DismissAction(UseAction action)
+        public override void DismissAction(UseAction action)
         {
             InsideUseAction iuAction = (InsideUseAction)action;
             iuAction.OnExitAction(this);
@@ -99,17 +99,17 @@ namespace NBLD.Character
         public override void OnAction()
         {
             base.OnAction();
-            CheckThenExecuteAction(UseActionButton.Action);
+            TryExecuteAction(UseActionButton.Action);
         }
         public override void OnUp()
         {
             base.OnUp();
-            CheckThenExecuteAction(UseActionButton.Up);
+            TryExecuteAction(UseActionButton.Up);
         }
         public override void OnDown()
         {
-            base.OnUp();
-            CheckThenExecuteAction(UseActionButton.Down);
+            base.OnDown();
+            TryExecuteAction(UseActionButton.Down);
         }
     }
 }

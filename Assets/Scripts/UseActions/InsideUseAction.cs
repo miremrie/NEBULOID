@@ -13,11 +13,11 @@ namespace NBLD.UseActions
             return CharacterState.Inside;
         }
 
-        public virtual void DoAction(InsideCharController controller)
+        public virtual void DoAction(InsideCharBehaviour controller)
         {
         }
 
-        public virtual void OnExitAction(InsideCharController controller)
+        public virtual void OnExitAction(InsideCharBehaviour controller)
         {
         }
     }

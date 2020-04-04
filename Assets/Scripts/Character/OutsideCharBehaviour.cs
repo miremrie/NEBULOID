@@ -4,12 +4,11 @@ using UnityEngine;
 
 namespace NBLD.Character
 {
-    public class OutsideCharController : CharController
+    public class OutsideCharBehaviour : CharBehaviour
     {
         public override void OnMoveAssistPerformed()
         {
             base.OnMoveAssistPerformed();
-            charInputManager.ChangeState(CharacterState.Inside);
         }
     }
 

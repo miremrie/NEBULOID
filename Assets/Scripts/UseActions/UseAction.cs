@@ -7,7 +7,7 @@ namespace NBLD.UseActions
 {
     public abstract class UseAction : MonoBehaviour
     {
-        public UseActionButton actionControl;
+        public UseActionButton actionButton;
 
         public abstract CharacterState AvailableForCharacterState();
     }
