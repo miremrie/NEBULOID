@@ -24,7 +24,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: e7d3747a64799c47a2d6f5b9ddeab36a
     GuidInternal: 
-    m_lastTime: -8586161168595729309
+    m_lastTime: -8586155151959364265
     List:
     - name: Clean BUS
       guid: a6a33b2d6777a54ca2cd71456f48764b
@@ -45,11 +45,9 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: Master Audio Bus
         ObjectType: 2
-      - ElementName: Clean BUS
-        ObjectType: 2
       - ElementName: FX BUS
         ObjectType: 2
-      Path: Default Work Unit\Master Audio Bus\Clean BUS\FX BUS
+      Path: Default Work Unit\Master Audio Bus\FX BUS
     - name: Master Audio Bus
       guid: d8a41415a61d2a41a17e75ca0c2149f3
       id: 3803692087
@@ -64,7 +62,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: bd999b8dad637f45917793b0e20362cb
     GuidInternal: 
-    m_lastTime: -8586159504378481040
+    m_lastTime: -8586155167842885824
     List:
     - name: Default
       guid: a5e3873e1289a74a9f54a7ab1a7ee310
@@ -80,7 +78,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 8e8fc2d5bfaacf4f92fdf483cd07cba9
     GuidInternal: 
-    m_lastTime: -8586159504388731560
+    m_lastTime: -8586155151962674311
     List:
     - name: Cable
       guid: 33b062edfdd3904a880b493db2abde14
@@ -202,8 +200,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Movement\Play_Arm_L
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 2004535
+      minDuration: 2004535
     - name: Play_Arm_R
       guid: ebed7848efe06047aea829e21f7ebf3f
       id: 2408728087
@@ -216,8 +214,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Movement\Play_Arm_R
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 2092381
+      minDuration: 2092381
     - name: Play_Bullet_Hit
       guid: 658097a481ec1343a7be67ec98d6d20d
       id: 1702949728
@@ -230,8 +228,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Hits\Play_Bullet_Hit
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 5696916
+      minDuration: 4012313
     - name: Play_Click
       guid: 7660bd706466e94baf7235b270fc14f9
       id: 311910498
@@ -244,8 +242,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\UI\Play_Click
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 175890
+      minDuration: 175890
     - name: Play_Fuel_Refill
       guid: 06ab10e1e1a94541ac12a71dfe05cbbd
       id: 2045110701
@@ -272,8 +270,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Notifications\Play_Game_Over
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 2950884
+      minDuration: 2950884
     - name: Play_Gameplay_Music
       guid: eabc4d128ee69b4084df942692d724bb
       id: 1231987938
@@ -284,8 +282,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Play_Gameplay_Music
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Play_Gun_Shot
       guid: bb45fba0eddeeb498ef534d8791bd7ab
       id: 4270212347
@@ -298,8 +296,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Hits\Play_Gun_Shot
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 4012336
+      minDuration: 3367052
     - name: Play_Hook_Cable_Back
       guid: 90f6c3b673863147a31837ae779cbc5f
       id: 1434616913
@@ -352,8 +350,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Movement\Hook\Claw\Play_Hook_ClawBite
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 1653717
+      minDuration: 1100450
     - name: Play_Hook_ClawBitePrep
       guid: 63ce880fe4cc3e488ac4c3610d8117ef
       id: 3700767316
@@ -370,8 +368,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Movement\Hook\Claw\Play_Hook_ClawBitePrep
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 2333823
+      minDuration: 1637381
     - name: Play_Hook_ClawLock
       guid: 9f7a39bf63e1814bbe30eb024380bd8c
       id: 3637158234
@@ -388,8 +386,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Movement\Hook\Claw\Play_Hook_ClawLock
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 2023508
+      minDuration: 1333211
     - name: Play_Hook_ClawOpen
       guid: b7a5813dc2a5b04b963d8e6171e89e15
       id: 1303580447
@@ -406,8 +404,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Movement\Hook\Claw\Play_Hook_ClawOpen
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 2554781
+      minDuration: 1788008
     - name: Play_Menu_Music
       guid: 8b1fa05377f1304e8d09d44fd595cba8
       id: 2228153899
@@ -432,8 +430,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Hits\Play_Ship_Hit
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 3045556
+      minDuration: 2010590
     - name: Play_Sonar
       guid: c3eacd79f256da4bb28d45eb5015923c
       id: 3376092819
@@ -445,7 +443,7 @@ MonoBehaviour:
       - ElementName: Play_Sonar
         ObjectType: 3
       Path: Default Work Unit\Notifications\Play_Sonar
-      maxAttenuation: 0
+      maxAttenuation: 1000000
       maxDuration: -1
       minDuration: -1
     - name: Stop_Alarm
@@ -460,8 +458,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Notifications\Stop_Alarm
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 701756
+      minDuration: 701756
     - name: Stop_Fuel_Refill
       guid: 3b3548580f70684da94a27fec339b046
       id: 3567966343
@@ -474,8 +472,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Notifications\Stop_Fuel_Refill
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Stop_Hook_Cable
       guid: 9de48231cfc5514794402b122732d2d2
       id: 2934156779
@@ -492,8 +490,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Movement\Hook\Cable\Stop_Hook_Cable
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 1790000
+      minDuration: 1790000
     - name: Stop_Hook_Cable_Back
       guid: d3fdbfc8011d4649a4ebdbecc2841140
       id: 117524643
@@ -510,8 +508,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Movement\Hook\Cable\Stop_Hook_Cable_Back
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 950000
+      minDuration: 950000
     - name: Stop_Sonar
       guid: 76a5af15735f414d826e9a0aab18d67f
       id: 2410889125
@@ -524,8 +522,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Notifications\Stop_Sonar
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: UI
       guid: 0e64baaaca1cad4b9c8f21e16a930d4d
       id: 1551306167
@@ -545,7 +543,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 98ae5790858eda4ab4bc84449375c967
     GuidInternal: 
-    m_lastTime: -8586159504388681534
+    m_lastTime: -8586155151962664305
     List:
     - name: Fuel_Amount
       guid: 60c838c716dae346aec036d08c5b6455
@@ -565,6 +563,15 @@ MonoBehaviour:
       - ElementName: Hook_Speed_Pitch
         ObjectType: 13
       Path: Default Work Unit\Hook_Speed_Pitch
+    - name: Sonar_Position
+      guid: 5f0b502440e22d469890abfd2c3253b9
+      id: 3214858684
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Sonar_Position
+        ObjectType: 13
+      Path: Default Work Unit\Sonar_Position
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
     ParentPath: Default Work Unit
@@ -588,15 +595,14 @@ MonoBehaviour:
     List: []
   ExpandedItems:
   - /NEBULOID_WwiseProject
-  - /NEBULOID_WwiseProject/Auxiliary Busses
-  - /NEBULOID_WwiseProject/Auxiliary Busses/Default Work Unit
   - /NEBULOID_WwiseProject/Events
   - /NEBULOID_WwiseProject/Events/Default Work Unit
+  - /NEBULOID_WwiseProject/Events/Default Work Unit/Hits
   - /NEBULOID_WwiseProject/Events/Default Work Unit/Movement
   - /NEBULOID_WwiseProject/Events/Default Work Unit/Movement/Hook
   - /NEBULOID_WwiseProject/Events/Default Work Unit/Movement/Hook/Cable
   - /NEBULOID_WwiseProject/Events/Default Work Unit/Movement/Hook/Claw
-  - /NEBULOID_WwiseProject/SoundBanks
-  - /NEBULOID_WwiseProject/SoundBanks/Default Work Unit
+  - /NEBULOID_WwiseProject/Events/Default Work Unit/Notifications
+  - /NEBULOID_WwiseProject/Events/Default Work Unit/UI
   autoPopulateEnabled: 1
   CurrentPluginConfig: 
