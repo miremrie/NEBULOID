@@ -80,7 +80,14 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1231987938" Name="Play_Gameplay_Music" ObjectPath="\Events\Default Work Unit\Play_Gameplay_Music" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1231987938" Name="Play_Gameplay_Music" ObjectPath="\Events\Default Work Unit\Play_Gameplay_Music" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="74626025" Language="SFX">
+							<ShortName>inhale.wav</ShortName>
+							<Path>SFX\inhale_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="4270212347" Name="Play_Gun_Shot" ObjectPath="\Events\Default Work Unit\Hits\Play_Gun_Shot" DurationType="OneShot" DurationMin="3.367052" DurationMax="4.012336">
 					<IncludedMemoryFiles>
 						<File Id="480576774" Language="SFX">
@@ -186,10 +193,6 @@
 						<File Id="549127255" Language="SFX">
 							<ShortName>2 - ClawOpen.wav</ShortName>
 							<Path>SFX\2 - ClawOpen_10C4C929.wem</Path>
-						</File>
-						<File Id="615568309" Language="SFX">
-							<ShortName>3 - ClawOpen.wav</ShortName>
-							<Path>SFX\3 - ClawOpen_10C4C929.wem</Path>
 						</File>
 						<File Id="869259325" Language="SFX">
 							<ShortName>1 - ClawOpen.wav</ShortName>

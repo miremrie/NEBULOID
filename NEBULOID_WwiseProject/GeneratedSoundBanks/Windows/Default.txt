@@ -33,6 +33,7 @@ Effect plug-ins	ID	Name	Type				Notes
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	53106075	4 - ClawBite	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\4 - ClawBite_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawBite\4 - ClawBite		238204
+	74626025	inhale	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\inhale_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Gameplay\TempMus\inhale		11460120
 	80018712	HookBackStart	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\HookBackStart_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Cable\HookBack\HookBackStart		68860
 	86287898	AlarmLoop	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Notifications\AlarmLoop 1_FF5B2032.wem		\Actor-Mixer Hierarchy\Default Work Unit\Notifications\AlarmLoop		114106
 	106730093	1 - ClawLock	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\1 - ClawLock_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawLock\1 - ClawLock		268192
@@ -54,7 +55,6 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	542189354	HookBackLoop	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\HookBackLoop_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Cable\HookBack\HookBackLoop		63568
 	549127255	2 - ClawOpen	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\2 - ClawOpen_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawOpen\2 - ClawOpen		425188
 	614939510	1 - ClawBitePrep	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\1 - ClawBitePrep_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawBitePrep\1 - ClawBitePrep		374032
-	615568309	3 - ClawOpen	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\3 - ClawOpen_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawOpen\3 - ClawOpen		388144
 	621301210	MENU_EVOID	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\MENU_EVOID_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Menu\MENU_EVOID\MENU_EVOID		4164332
 	669341810	HookLoop	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\HookLoop_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Cable\HookGrab\HookLoop		225856
 	726397064	2 - ClawBitePrep	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\2 - ClawBitePrep_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawBitePrep\2 - ClawBitePrep		382852
