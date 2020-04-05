@@ -327,7 +327,7 @@
 								</Action>
 								<Action Name="" ID="{99124A82-B02F-4D02-A752-E0A246DA9251}" ShortID="182016066">
 									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="26"/>
+										<Property Name="ActionType" Type="int16" Value="27"/>
 										<Property Name="Delay" Type="Real64" Value="0.75"/>
 										<Property Name="FadeTime" Type="Real64" Value="1"/>
 										<Property Name="Lowpass" Type="int16" Value="50"/>
@@ -340,7 +340,7 @@
 								</Action>
 								<Action Name="" ID="{7092F27D-6E02-4449-BD00-545C242B418B}" ShortID="227359835">
 									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="29"/>
+										<Property Name="ActionType" Type="int16" Value="30"/>
 										<Property Name="Delay" Type="Real64" Value="0.75"/>
 										<Property Name="FadeTime" Type="Real64" Value="1"/>
 										<Property Name="Highpass" Type="int16" Value="60"/>

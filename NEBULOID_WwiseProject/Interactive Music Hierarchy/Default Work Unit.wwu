@@ -496,12 +496,22 @@
 							<Playlist>
 								<MusicPlaylistItem Name="" ID="{CAFE78AD-EF15-4AE7-8A60-E588F81AD435}" ShortID="18338789">
 									<PropertyList>
-										<Property Name="LoopCount" Type="int16" Value="0"/>
-										<Property Name="PlayMode" Type="int16" Value="1"/>
+										<Property Name="LoopCount" Type="int16" Value="0">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{95811204-5189-42EC-86C0-3D1F70464885}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
 									</PropertyList>
 									<ChildrenList>
 										<MusicPlaylistItem Name="" ID="{D78342F8-A380-4363-AA89-A01A3708257C}" ShortID="184613113">
 											<PropertyList>
+												<Property Name="LoopCount" Type="int16" Value="0"/>
 												<Property Name="PlaylistItemType" Type="int16" Value="1"/>
 											</PropertyList>
 											<SegmentRef Name="MENU_EVOID" ID="{2F4FD936-A77A-49A2-858B-F88606232E02}"/>
@@ -511,6 +521,14 @@
 							</Playlist>
 						</MusicPlaylistContainer>
 						<MusicPlaylistContainer Name="Gameplay" ID="{4378B889-AAAD-4213-9A93-514AEFBC8EF6}" ShortID="877067812">
+							<PropertyList>
+								<Property Name="Tempo" Type="Real64" Value="80"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-9</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
@@ -519,6 +537,74 @@
 									<ObjectRef Name="FX BUS" ID="{85071D6A-5690-4A43-A6C4-A15F1F14B8BD}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
 								</Reference>
 							</ReferenceList>
+							<ChildrenList>
+								<MusicSegment Name="TempMus" ID="{B62EAC73-1E29-4D85-8897-286B11A2533B}" ShortID="210727076">
+									<PropertyList>
+										<Property Name="EndPosition" Type="Real64" Value="76883.8272865239"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<MusicTrack Name="inhale" ID="{AC1AE1FE-A456-4B02-85B1-5178D2880FAB}" ShortID="658496610">
+											<ReferenceList>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="inhale" ID="{E4E985BD-7454-4EA9-AE1B-2D67927F8D9C}">
+													<Language>SFX</Language>
+													<AudioFile>inhale.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="74626025"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{51D77D9B-2496-42AC-939E-70C127FE35D0}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{DB79A659-32AC-4B75-9C53-22A7AE6F233A}">
+													<ClipList>
+														<MusicClip Name="inhale" ID="{F40DBB72-B737-445E-8774-320309572FA8}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="64966.3038548753"/>
+																<Property Name="FadeInMode" Type="int16" Value="0"/>
+																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+															</PropertyList>
+															<AudioSourceRef Name="inhale" ID="{E4E985BD-7454-4EA9-AE1B-2D67927F8D9C}"/>
+														</MusicClip>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+									</ChildrenList>
+									<CueList>
+										<MusicCue Name="Entry Cue" ID="{5CE11C16-1FDB-490D-A668-25A449ADCE06}">
+											<PropertyList>
+												<Property Name="TimeMs" Type="Real64" Value="21283.0188679245"/>
+											</PropertyList>
+										</MusicCue>
+										<MusicCue Name="Exit Cue" ID="{B1FC358D-A574-4CBC-9BC7-239336A323CD}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="1"/>
+												<Property Name="TimeMs" Type="Real64" Value="63643.4909917853"/>
+											</PropertyList>
+										</MusicCue>
+									</CueList>
+								</MusicSegment>
+							</ChildrenList>
 							<TransitionList>
 								<MusicTransition Name="Root" ID="{1316D039-B356-453B-B100-B5B174697675}">
 									<PropertyList>
@@ -535,8 +621,27 @@
 							<Playlist>
 								<MusicPlaylistItem Name="" ID="{D26F6984-8AC9-47CF-8044-4DAB77D2BE8E}" ShortID="73357308">
 									<PropertyList>
-										<Property Name="LoopCount" Type="int16" Value="0"/>
+										<Property Name="LoopCount" Type="int16" Value="0">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{5BDB7B7E-A448-473C-AA8C-35A985B3D3A4}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
 									</PropertyList>
+									<ChildrenList>
+										<MusicPlaylistItem Name="" ID="{449463EB-D362-43C0-90DE-012E37F40AE7}" ShortID="1059651534">
+											<PropertyList>
+												<Property Name="LoopCount" Type="int16" Value="0"/>
+												<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+											</PropertyList>
+											<SegmentRef Name="TempMus" ID="{B62EAC73-1E29-4D85-8897-286B11A2533B}"/>
+										</MusicPlaylistItem>
+									</ChildrenList>
 								</MusicPlaylistItem>
 							</Playlist>
 						</MusicPlaylistContainer>
