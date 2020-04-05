@@ -272,11 +272,24 @@
 										</Reference>
 									</ReferenceList>
 								</Action>
+								<Action Name="" ID="{653F5E28-5EAD-480B-9936-08FA0A67AB22}" ShortID="1069239510">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="11"/>
+										<Property Name="Delay" Type="Real64" Value="0.75"/>
+										<Property Name="FadeTime" Type="Real64" Value="1"/>
+										<Property Name="Volume" Type="Real64" Value="-6"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="FX BUS" ID="{85071D6A-5690-4A43-A6C4-A15F1F14B8BD}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
 								<Action Name="" ID="{A2A44A7D-82F9-4BC4-BA02-918431790EC5}" ShortID="330612185">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="29"/>
-										<Property Name="FadeTime" Type="Real64" Value="1"/>
-										<Property Name="Highpass" Type="int16" Value="49"/>
+										<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+										<Property Name="Highpass" Type="int16" Value="50"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -287,7 +300,8 @@
 								<Action Name="" ID="{80E0519A-9E04-433A-9496-A59A0507A427}" ShortID="1022306634">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="26"/>
-										<Property Name="Lowpass" Type="int16" Value="51"/>
+										<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+										<Property Name="Lowpass" Type="int16" Value="60"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -302,6 +316,7 @@
 								<Action Name="" ID="{7D19154C-1A4C-4366-AF9C-A31461D326D0}" ShortID="547650363">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="Delay" Type="Real64" Value="0.75"/>
 										<Property Name="FadeTime" Type="Real64" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
@@ -313,7 +328,9 @@
 								<Action Name="" ID="{99124A82-B02F-4D02-A752-E0A246DA9251}" ShortID="182016066">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="26"/>
-										<Property Name="FadeTime" Type="Real64" Value="1.5"/>
+										<Property Name="Delay" Type="Real64" Value="0.75"/>
+										<Property Name="FadeTime" Type="Real64" Value="1"/>
+										<Property Name="Lowpass" Type="int16" Value="50"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -324,6 +341,20 @@
 								<Action Name="" ID="{7092F27D-6E02-4449-BD00-545C242B418B}" ShortID="227359835">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="29"/>
+										<Property Name="Delay" Type="Real64" Value="0.75"/>
+										<Property Name="FadeTime" Type="Real64" Value="1"/>
+										<Property Name="Highpass" Type="int16" Value="60"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="FX BUS" ID="{85071D6A-5690-4A43-A6C4-A15F1F14B8BD}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{EA5ADE84-B382-404A-883D-432F04145AF2}" ShortID="444351233">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="11"/>
+										<Property Name="FadeTime" Type="Real64" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">

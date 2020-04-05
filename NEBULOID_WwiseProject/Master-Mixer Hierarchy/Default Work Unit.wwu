@@ -10,7 +10,21 @@
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<Bus Name="Clean BUS" ID="{2D3BA3A6-7767-4CA5-A2CD-71456F48764B}"/>
+						<Bus Name="Clean BUS" ID="{2D3BA3A6-7767-4CA5-A2CD-71456F48764B}">
+							<ReferenceList>
+								<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+									<ObjectRef Name="CleanBusEq" ID="{A664D017-75E6-472A-A45D-C2133DC48C49}" WorkUnitID="{CBEB4FB4-DE7F-4413-A97A-8CCDCE3E12E0}"/>
+								</Reference>
+							</ReferenceList>
+							<PositioningInfo>
+								<Panner Name="" ID="{EBDDF7E2-C87E-4AC9-8D59-C3C01AA572D3}">
+									<PropertyList>
+										<Property Name="PanX" Type="Real64" Value="-0.606060606060606"/>
+										<Property Name="PanY" Type="Real64" Value="0.428265524625262"/>
+									</PropertyList>
+								</Panner>
+							</PositioningInfo>
+						</Bus>
 						<Bus Name="FX BUS" ID="{85071D6A-5690-4A43-A6C4-A15F1F14B8BD}">
 							<PropertyList>
 								<Property Name="OutputBusLowpass" Type="int16">

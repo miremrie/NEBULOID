@@ -42,6 +42,7 @@ namespace AK
     {
         static const AkUniqueID FUEL_AMOUNT = 3548314952U;
         static const AkUniqueID HOOK_SPEED_PITCH = 2759611267U;
+        static const AkUniqueID SONAR_POSITION = 3214858684U;
     } // namespace GAME_PARAMETERS
 
     namespace BANKS

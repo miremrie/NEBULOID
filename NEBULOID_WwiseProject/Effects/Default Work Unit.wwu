@@ -1,6 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{CBEB4FB4-DE7F-4413-A97A-8CCDCE3E12E0}" SchemaVersion="97">
 	<Effects>
-		<WorkUnit Name="Default Work Unit" ID="{CBEB4FB4-DE7F-4413-A97A-8CCDCE3E12E0}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{CBEB4FB4-DE7F-4413-A97A-8CCDCE3E12E0}" PersistMode="Standalone">
+			<ChildrenList>
+				<Effect Name="CleanBusEq" ID="{A664D017-75E6-472A-A45D-C2133DC48C49}" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3"/>
+				<Effect Name="New_iZotope_Trash_Delay" ID="{6F7965C0-2945-485D-8960-6A4F56D6776D}" PluginName="iZotope Trash Delay" CompanyID="259" PluginID="4" PluginType="3">
+					<PropertyList>
+						<Property Name="WetOut" Type="Real32" Value="82"/>
+					</PropertyList>
+				</Effect>
+				<Effect Name="New_iZotope_Hybrid_Reverb" ID="{F56E02EA-4706-4361-981F-69CCB144646D}" PluginName="iZotope Hybrid Reverb" CompanyID="259" PluginID="2" PluginType="3">
+					<PropertyList>
+						<Property Name="DecayHighFrequency" Type="Real32" Value="8000"/>
+						<Property Name="DecayHighRatio" Type="Real32" Value="2.240449"/>
+						<Property Name="DecayLowFrequency" Type="Real32" Value="800"/>
+						<Property Name="DecayLowRatio" Type="Real32" Value="0.3303125"/>
+						<Property Name="DecayMidRatio" Type="Real32" Value="0.4292387"/>
+						<Property Name="DecayTime" Type="Real32" Value="2.767606"/>
+						<Property Name="FrontWet" Type="Real32" Value="-0.9"/>
+						<Property Name="PredelayFront" Type="Real32" Value="2.8125"/>
+						<Property Name="PredelayRear" Type="Real32" Value="2.8125"/>
+					</PropertyList>
+					<ChildrenList>
+						<PluginMediaSource Name="Midiverb Ambience 2" ID="{272DCC32-0F11-4F65-9113-A937AE797197}">
+							<ParentPluginID>135219</ParentPluginID>
+							<PropertyList>
+								<Property Name="DataFileName" Type="string" Value="Midiverb Ambience 2.wav"/>
+							</PropertyList>
+							<MediaIDList>
+								<MediaID ID="114711114"/>
+							</MediaIDList>
+						</PluginMediaSource>
+					</ChildrenList>
+				</Effect>
+				<Effect Name="New_Wwise_Gain" ID="{FADF9089-A5C4-4632-9562-24867ECC6E24}" PluginName="Wwise Gain" CompanyID="0" PluginID="139" PluginType="3">
+					<PropertyList>
+						<Property Name="FullBandGain" Type="Real32" Value="12.5"/>
+					</PropertyList>
+				</Effect>
+			</ChildrenList>
+		</WorkUnit>
 	</Effects>
 </WwiseDocument>

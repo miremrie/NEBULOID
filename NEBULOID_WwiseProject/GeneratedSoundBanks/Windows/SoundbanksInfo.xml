@@ -80,14 +80,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1231987938" Name="Play_Gameplay_Music" ObjectPath="\Events\Default Work Unit\Play_Gameplay_Music" DurationType="Infinite">
-					<IncludedMemoryFiles>
-						<File Id="812971613" Language="SFX">
-							<ShortName>EVOID.wav</ShortName>
-							<Path>SFX\EVOID_D79FB2B7.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
+				<Event Id="1231987938" Name="Play_Gameplay_Music" ObjectPath="\Events\Default Work Unit\Play_Gameplay_Music" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="4270212347" Name="Play_Gun_Shot" ObjectPath="\Events\Default Work Unit\Hits\Play_Gun_Shot" DurationType="OneShot" DurationMin="3.367052" DurationMax="4.012336">
 					<IncludedMemoryFiles>
 						<File Id="480576774" Language="SFX">
@@ -228,11 +221,11 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3376092819" Name="Play_Sonar" ObjectPath="\Events\Default Work Unit\Notifications\Play_Sonar" DurationType="Infinite">
+				<Event Id="3376092819" Name="Play_Sonar" ObjectPath="\Events\Default Work Unit\Notifications\Play_Sonar" MaxAttenuation="1.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
-						<File Id="335917907" Language="SFX">
-							<ShortName>Notifications\Sonar.wav</ShortName>
-							<Path>SFX\Notifications\Sonar_D79FB2B7.wem</Path>
+						<File Id="788548806" Language="SFX">
+							<ShortName>Sonar.wav</ShortName>
+							<Path>SFX\Sonar_6AD58737.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -265,6 +258,7 @@
 			</IncludedEvents>
 			<GameParameters>
 				<GameParameter Id="2759611267" Name="Hook_Speed_Pitch" ObjectPath="\Game Parameters\Default Work Unit\Hook_Speed_Pitch"/>
+				<GameParameter Id="3214858684" Name="Sonar_Position" ObjectPath="\Game Parameters\Default Work Unit\Sonar_Position"/>
 				<GameParameter Id="3548314952" Name="Fuel_Amount" ObjectPath="\Game Parameters\Default Work Unit\Fuel_Amount"/>
 			</GameParameters>
 		</SoundBank>

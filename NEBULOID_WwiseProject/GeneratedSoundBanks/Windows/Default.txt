@@ -25,7 +25,11 @@ Event	ID	Name			Wwise Object Path	Notes
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	2759611267	Hook_Speed_Pitch			\Default Work Unit\Hook_Speed_Pitch	
+	3214858684	Sonar_Position			\Default Work Unit\Sonar_Position	
 	3548314952	Fuel_Amount			\Default Work Unit\Fuel_Amount	
+
+Effect plug-ins	ID	Name	Type				Notes
+	3216246379	Space_Dreaming	Wwise RoomVerb			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	53106075	4 - ClawBite	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\4 - ClawBite_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawBite\4 - ClawBite		238204
@@ -39,7 +43,6 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	231082383	FuelRefillLoop	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Notifications\FuelRefillLoop_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Notifications\FuelRefillLoop		357018
 	279627525	ArmR	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Movement\ArmR_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\ArmR\ArmR		184612
 	329691644	Click	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\UI\Click_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Click		16500
-	335917907	Sonar	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Notifications\Sonar_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Notifications\Sonar		311360
 	405090761	3 - ClawBite	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\3 - ClawBite_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawBite\3 - ClawBite		234676
 	415235210	3 - ClawBitePrep	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\3 - ClawBitePrep_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawBitePrep\3 - ClawBitePrep		324644
 	427815737	4 - ClawLock	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\4 - ClawLock_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawLock\4 - ClawLock		341680
@@ -57,8 +60,8 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	726397064	2 - ClawBitePrep	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\2 - ClawBitePrep_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawBitePrep\2 - ClawBitePrep		382852
 	732950509	GunShot3	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Explosions\Exp3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Hits\GunShot\GunShot3		297038
 	767327232	HookStop	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\HookStop_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Cable\HookStop		315820
+	788548806	Sonar	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Sonar_6AD58737.wem		\Actor-Mixer Hierarchy\Default Work Unit\Notifications\Sonar		862272
 	790743522	BulletHit2	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Hits\ExpHit2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Hits\BulletHit\BulletHit2		392562
-	812971613	EVOID	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\EVOID_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Gameplay\EVOID\EVOID		28108864
 	827833385	3 - ClawLock	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\3 - ClawLock_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawLock\3 - ClawLock		330284
 	830784053	HookBackStop	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\HookBackStop_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Cable\HookBackStop		167644
 	869259325	1 - ClawOpen	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\1 - ClawOpen_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawOpen\1 - ClawOpen		384616

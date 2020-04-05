@@ -38,6 +38,14 @@
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
+							<PositioningInfo>
+								<Panner Name="" ID="{720CE442-EC01-454B-90D0-CEF8F547CFB2}">
+									<PropertyList>
+										<Property Name="PanX" Type="Real64" Value="-0.202020202020209"/>
+										<Property Name="PanY" Type="Real64" Value="0.428265524625262"/>
+									</PropertyList>
+								</Panner>
+							</PositioningInfo>
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="ArmR" ID="{30C626EC-8860-48CA-A4D0-0958C711CDF7}" ShortID="215083739">
 							<ReferenceList>
@@ -599,7 +607,7 @@
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
 												</Reference>
 												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+													<ObjectRef Name="FX BUS" ID="{85071D6A-5690-4A43-A6C4-A15F1F14B8BD}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
@@ -708,7 +716,7 @@
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
 												</Reference>
 												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+													<ObjectRef Name="FX BUS" ID="{85071D6A-5690-4A43-A6C4-A15F1F14B8BD}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
@@ -815,7 +823,7 @@
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
 												</Reference>
 												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+													<ObjectRef Name="FX BUS" ID="{85071D6A-5690-4A43-A6C4-A15F1F14B8BD}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
@@ -867,7 +875,7 @@
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
 												</Reference>
 												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+													<ObjectRef Name="FX BUS" ID="{85071D6A-5690-4A43-A6C4-A15F1F14B8BD}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
@@ -892,7 +900,78 @@
 				<Folder Name="Notifications" ID="{A8A2B02A-9473-4E53-A79E-66DDA1561A98}" ShortID="670949365">
 					<ChildrenList>
 						<Sound Name="Fix" ID="{E91E9B6A-D00D-4F40-B526-86FC055D820A}" ShortID="234646478">
+							<PropertyList>
+								<Property Name="3DSpatialization" Type="int16" Value="2"/>
+								<Property Name="HoldEmitterPositionOrientation" Type="bool" Value="True"/>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="SpeakerPanning3DSpatializationMix" Type="int32" Value="51"/>
+							</PropertyList>
 							<ReferenceList>
+								<Reference Name="Attenuation">
+									<Custom CreatedFrom="{F114429E-DFC6-4BAC-B460-C48F28D2165C}">
+										<Attenuation Name="New Attenuation (Custom)" ID="{9FA47305-A8E3-46F5-9D48-502AE46BC73B}" ShortID="543425281">
+											<CurveUsageInfoList>
+												<VolumeDryUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
+														<Curve Name="VolumeDry" ID="{5A257BC3-58A1-497F-9FCB-089A12D383AC}">
+															<PropertyList>
+																<Property Name="Flags" Type="int32" Value="3"/>
+															</PropertyList>
+															<PointList>
+																<Point>
+																	<XPos>0</XPos>
+																	<YPos>0</YPos>
+																	<Flags>5</Flags>
+																</Point>
+																<Point>
+																	<XPos>100</XPos>
+																	<YPos>-200</YPos>
+																	<Flags>37</Flags>
+																</Point>
+															</PointList>
+														</Curve>
+													</CurveUsageInfo>
+												</VolumeDryUsage>
+												<VolumeWetGameUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
+												</VolumeWetGameUsage>
+												<VolumeWetUserUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
+												</VolumeWetUserUsage>
+												<LowPassFilterUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+												</LowPassFilterUsage>
+												<HighPassFilterUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+												</HighPassFilterUsage>
+												<SpreadUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+												</SpreadUsage>
+												<FocusUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="None">
+														<Curve Name="Focus" ID="{3F8E6395-8E39-43FD-8BA7-F3768C608D6E}">
+															<PropertyList>
+																<Property Name="Flags" Type="int32" Value="1"/>
+															</PropertyList>
+															<PointList>
+																<Point>
+																	<XPos>0</XPos>
+																	<YPos>100</YPos>
+																	<Flags>5</Flags>
+																</Point>
+																<Point>
+																	<XPos>100</XPos>
+																	<YPos>0</YPos>
+																	<Flags>37</Flags>
+																</Point>
+															</PointList>
+														</Curve>
+													</CurveUsageInfo>
+												</FocusUsage>
+											</CurveUsageInfoList>
+										</Attenuation>
+									</Custom>
+								</Reference>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
 								</Reference>
@@ -909,6 +988,10 @@
 									</MediaIDList>
 								</AudioFileSource>
 							</ChildrenList>
+							<PositioningInfo>
+								<Panner Name="" ID="{10363C28-4876-418F-B1C0-D258A3B99353}"/>
+								<Position Name="" ID="{19E9E46D-A34F-4A8E-8037-295596FE6F88}"/>
+							</PositioningInfo>
 							<ActiveSourceList>
 								<ActiveSource Name="Fix" ID="{2355635E-EBF5-4243-B4E9-494ADDC58556}" Platform="Linked"/>
 							</ActiveSourceList>
@@ -1026,6 +1109,7 @@
 						<Sound Name="AlarmLoop" ID="{1990CE67-BF32-4727-9ED3-7F98AD4A3910}" ShortID="996508176">
 							<PropertyList>
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="SpeakerPanning" Type="int16" Value="1"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -1049,6 +1133,14 @@
 									</MediaIDList>
 								</AudioFileSource>
 							</ChildrenList>
+							<PositioningInfo>
+								<Panner Name="" ID="{F722A32B-EA83-4FD3-A35F-A4F4A483FF2C}">
+									<PropertyList>
+										<Property Name="PanX" Type="Real64" Value="-2.82828282828283"/>
+										<Property Name="PanY" Type="Real64" Value="1.71306209850107"/>
+									</PropertyList>
+								</Panner>
+							</PositioningInfo>
 							<ActiveSourceList>
 								<ActiveSource Name="AlarmLoop 1" ID="{A4DA7B6D-576E-49C7-8109-28E922EF5F7E}" Platform="Linked"/>
 							</ActiveSourceList>
@@ -1087,7 +1179,19 @@
 						</Sound>
 						<Sound Name="Sonar" ID="{A438735B-AF91-4AA5-8C7A-2CFCB35739C4}" ShortID="583871515">
 							<PropertyList>
+								<Property Name="3DPosition" Type="int16" Value="1"/>
+								<Property Name="3DSpatialization" Type="int16" Value="2"/>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>57</Value>
+									</ValueList>
+								</Property>
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>51</Value>
+									</ValueList>
+								</Property>
 								<Property Name="OutputBusLowpass" Type="int16">
 									<RTPCList>
 										<RTPC Name="" ID="{738151CD-472B-4B20-BDDF-BC65DE397757}" ShortID="418393925">
@@ -1116,26 +1220,124 @@
 										</RTPC>
 									</RTPCList>
 								</Property>
+								<Property Name="RenderEffect0" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+								<Property Name="SpeakerPanning" Type="int16" Value="1"/>
+								<Property Name="SpeakerPanning3DSpatializationMix" Type="int32" Value="49"/>
 							</PropertyList>
 							<ReferenceList>
+								<Reference Name="Attenuation">
+									<ObjectRef Name="Spin" ID="{FB3F9BB4-67BE-4A64-A028-3A7CA4B0C949}" WorkUnitID="{BE88A6EF-2B68-4FA1-AD31-1E4DA0A21D1C}"/>
+								</Reference>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+								</Reference>
+								<Reference Name="Effect0" PluginName="Wwise Delay" CompanyID="0" PluginID="106" PluginType="3">
+									<ObjectRef Name="Echoes_Linear" ID="{D20F3717-EBA2-4E3A-84F8-C8BD431563FB}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+								</Reference>
+								<Reference Name="Effect1" CompanyID="4095" PluginID="65535" PluginType="15">
+									<ObjectRef Name="Space_Dreaming" ID="{4FF7C4B2-37B0-4DFF-8E8A-1420102AE2DD}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
 								</Reference>
 								<Reference Name="OutputBus">
 									<ObjectRef Name="Clean BUS" ID="{2D3BA3A6-7767-4CA5-A2CD-71456F48764B}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="Sonar" ID="{8C45AF4D-2CBA-40A2-886B-ACD6798C3430}">
+								<AudioFileSource Name="Sonar" ID="{5BE57C4C-6802-4815-AC4B-2F1118F97AF7}">
+									<PropertyList>
+										<Property Name="VolumeOffset" Type="Real64">
+											<ValueList>
+												<Value>24</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<Language>SFX</Language>
-									<AudioFile>Notifications\Sonar.wav</AudioFile>
+									<AudioFile>Sonar.wav</AudioFile>
 									<MediaIDList>
-										<MediaID ID="335917907"/>
+										<MediaID ID="788548806"/>
 									</MediaIDList>
 								</AudioFileSource>
 							</ChildrenList>
+							<PositioningInfo>
+								<Panner Name="" ID="{3F09232C-C5F1-49C9-B142-8E4280AA1930}">
+									<PropertyList>
+										<Property Name="PanX" Type="Real64" Value="-9.0909090909091"/>
+										<Property Name="PanY" Type="Real64" Value="75.1605995717345"/>
+									</PropertyList>
+								</Panner>
+								<Position Name="" ID="{0B89D63F-8BDA-4598-9D03-AF919772A7FB}">
+									<PropertyList>
+										<Property Name="PanX" Type="Real64">
+											<RTPCList>
+												<RTPC Name="" ID="{662FC45E-87C8-43D1-B1E3-9425225C3E2F}" ShortID="1063593569">
+													<ReferenceList>
+														<Reference Name="ControlInput">
+															<ObjectRef Name="Sonar_Position" ID="{24500B5F-E240-462D-9890-ABFD2C3253B9}" WorkUnitID="{9057AE98-8E85-4ADA-B4BC-84449375C967}"/>
+														</Reference>
+													</ReferenceList>
+													<Curve Name="" ID="{D247BFC0-57C2-422E-9A94-DACEBAF4E953}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="1"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>-200</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>180</XPos>
+																<YPos>200</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</RTPC>
+											</RTPCList>
+										</Property>
+										<Property Name="PanY" Type="Real64">
+											<RTPCList>
+												<RTPC Name="" ID="{7DB1A8D3-5DF3-4733-9421-6AEFD7457D0B}" ShortID="517157596">
+													<ReferenceList>
+														<Reference Name="ControlInput">
+															<ObjectRef Name="Sonar_Position" ID="{24500B5F-E240-462D-9890-ABFD2C3253B9}" WorkUnitID="{9057AE98-8E85-4ADA-B4BC-84449375C967}"/>
+														</Reference>
+													</ReferenceList>
+													<Curve Name="" ID="{EFBE4330-624B-4FB8-AF13-F5A7CA661885}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="1"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>200</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>0.001</XPos>
+																<YPos>200</YPos>
+																<Flags>0</Flags>
+															</Point>
+															<Point>
+																<XPos>180</XPos>
+																<YPos>-200</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</RTPC>
+											</RTPCList>
+										</Property>
+										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+										<Property Name="PlayMechanismTransitionTime" Type="Real64" Value="0"/>
+									</PropertyList>
+								</Position>
+							</PositioningInfo>
 							<ActiveSourceList>
-								<ActiveSource Name="Sonar" ID="{8C45AF4D-2CBA-40A2-886B-ACD6798C3430}" Platform="Linked"/>
+								<ActiveSource Name="Sonar" ID="{5BE57C4C-6802-4815-AC4B-2F1118F97AF7}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
