@@ -12,6 +12,7 @@ public class ShipSonarSystem : ShipSystem
     public float newCamSize;
     public float camZoomTime;
     public ShipAudioController audioController;
+    public GameObject audioEmitter;
 
     public override void Initialize()
     {
@@ -38,7 +39,7 @@ public class ShipSonarSystem : ShipSystem
                 sonarStarted = false;
                 SonarMovingLightPivot.gameObject.SetActive(false);
                 camController.RevertToStandardSize(camZoomTime, () => SonarMovingLightPivot.gameObject.SetActive(false));
-                audioController.StopSonar();
+                audioController.StopSonar(audioEmitter);
             }
 
             sonarMoveTimer.Update(Time.deltaTime);
@@ -52,7 +53,7 @@ public class ShipSonarSystem : ShipSystem
         sonarStarted = true;
         sonarMoveTimer.Start();
         camController.ChangeSizeOverTime(newCamSize, camZoomTime);
-        audioController.ActivateSonar(camZoomTime);
+        audioController.ActivateSonar(camZoomTime, audioEmitter);
     }
 
 }

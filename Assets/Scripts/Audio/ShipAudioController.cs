@@ -17,7 +17,7 @@ public class ShipAudioController : MonoBehaviour
 
     //Sonar
     private const string sonarStartEv = "Play_Sonar", sonarStopEv = "Stop_Sonar";
-    public GameObject sonarPlayer;
+    //public GameObject sonarPlayer;
 
     //Hook
     public GameObject hookCablePlayer;
@@ -56,9 +56,9 @@ public class ShipAudioController : MonoBehaviour
 
     public void StopAllFX()
     {
-        StopAlarm();
-        StopFuelRefill();
-        StopSonar();
+        //StopAlarm();
+        //StopFuelRefill();
+        //StopSonar(audioEmitter);
         AkSoundEngine.StopAll();
         //StopMusic();
     }
@@ -93,13 +93,13 @@ public class ShipAudioController : MonoBehaviour
         AkSoundEngine.SetRTPCValue(fuelAmountRTPC, (1 - fuelPercent) * 100);
     }
 
-    public void ActivateSonar(float time)
+    public void ActivateSonar(float time, GameObject sonarEmitter)
     {
-        AkSoundEngine.PostEvent(sonarStartEv, sonarPlayer);
+        AkSoundEngine.PostEvent(sonarStartEv, sonarEmitter);
     }
-    public void StopSonar()
+    public void StopSonar(GameObject sonarEmitter)
     {
-        AkSoundEngine.PostEvent(sonarStopEv, sonarPlayer);
+        AkSoundEngine.PostEvent(sonarStopEv, sonarEmitter);
 
     }
 
