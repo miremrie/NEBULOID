@@ -5,7 +5,7 @@
 			<ChildrenList>
 				<Attenuation Name="Spin" ID="{FB3F9BB4-67BE-4A64-A028-3A7CA4B0C949}" ShortID="98032333">
 					<PropertyList>
-						<Property Name="RadiusMax" Type="Real64" Value="1"/>
+						<Property Name="RadiusMax" Type="Real64" Value="15"/>
 					</PropertyList>
 					<CurveUsageInfoList>
 						<VolumeDryUsage>
@@ -17,11 +17,11 @@
 									<PointList>
 										<Point>
 											<XPos>0</XPos>
-											<YPos>-0</YPos>
+											<YPos>0</YPos>
 											<Flags>5</Flags>
 										</Point>
 										<Point>
-											<XPos>1</XPos>
+											<XPos>15</XPos>
 											<YPos>-10.7635</YPos>
 											<Flags>37</Flags>
 										</Point>
@@ -48,7 +48,7 @@
 											<Flags>5</Flags>
 										</Point>
 										<Point>
-											<XPos>1</XPos>
+											<XPos>15</XPos>
 											<YPos>100</YPos>
 											<Flags>37</Flags>
 										</Point>
@@ -72,7 +72,7 @@
 											<Flags>5</Flags>
 										</Point>
 										<Point>
-											<XPos>1</XPos>
+											<XPos>15</XPos>
 											<YPos>100</YPos>
 											<Flags>37</Flags>
 										</Point>
@@ -93,7 +93,7 @@
 											<Flags>5</Flags>
 										</Point>
 										<Point>
-											<XPos>1</XPos>
+											<XPos>15</XPos>
 											<YPos>0</YPos>
 											<Flags>37</Flags>
 										</Point>

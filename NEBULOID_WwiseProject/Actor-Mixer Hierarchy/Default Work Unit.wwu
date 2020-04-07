@@ -1243,6 +1243,7 @@
 								</Property>
 								<Property Name="SpeakerPanning" Type="int16" Value="1"/>
 								<Property Name="SpeakerPanning3DSpatializationMix" Type="int32" Value="49"/>
+								<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Attenuation">
