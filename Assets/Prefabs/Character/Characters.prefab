@@ -28,7 +28,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1196842054702337237}
+  - {fileID: 5437730566674427749}
   - {fileID: 1138121951954124975}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberOfUsers: 2
   characterManagers:
-  - {fileID: 1805942475828756034}
+  - {fileID: 4820335663426461170}
   - {fileID: 457288528264114744}
   usersKeyboardSchemeNames:
   - Keyboard1
@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6973f7f4089e78e4fb7c3ceb54e0bf24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &4220939312660019207
+--- !u!1001 &7023771893470944183
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -218,24 +218,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3030852666065220829, guid: d4c35564ce8c21b4fabdeca5b48bb906,
-        type: 3}
-      propertyPath: game
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4c35564ce8c21b4fabdeca5b48bb906, type: 3}
---- !u!4 &1196842054702337237 stripped
+--- !u!4 &5437730566674427749 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3030852666065220818, guid: d4c35564ce8c21b4fabdeca5b48bb906,
     type: 3}
-  m_PrefabInstance: {fileID: 4220939312660019207}
+  m_PrefabInstance: {fileID: 7023771893470944183}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1805942475828756034 stripped
+--- !u!114 &4820335663426461170 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2565986283274569285, guid: d4c35564ce8c21b4fabdeca5b48bb906,
     type: 3}
-  m_PrefabInstance: {fileID: 4220939312660019207}
+  m_PrefabInstance: {fileID: 7023771893470944183}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1

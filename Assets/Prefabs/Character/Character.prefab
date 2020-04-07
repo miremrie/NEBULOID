@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7248610399864135634}
   - component: {fileID: 8710618289686752147}
   - component: {fileID: 2816976512444012041}
+  - component: {fileID: 4265162992504635029}
   m_Layer: 8
   m_Name: Character
   m_TagString: Untagged
@@ -111,14 +112,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charInputManager: {fileID: 8312513569760865785}
-  animator: {fileID: 8847336381689410748}
+  animator: {fileID: 4265162992504635029}
   charSpriteRenderer: {fileID: 2917806909764477764}
   colliders:
   - {fileID: 8847336380807913312}
   insideBehaviour: {fileID: 8710618289686752147}
   outsideBehaviour: {fileID: 2816976512444012041}
   state: 0
-  isDead: 0
+  transitionSpeed: 2
+  transitionMinOffset: 0.01
 --- !u!114 &8710618289686752147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,8 +133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cbe8d8253a127248b575013233cf9f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
-  transportSpeed: 5
+  moveSpeed: 5
+  transportSpeed: 2
 --- !u!114 &2816976512444012041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,6 +147,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 052ff28aaf633e54e8b78b4e78c48c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationSpeed: 45
+  moveSpeed: 2
+--- !u!95 &4265162992504635029
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8847336380807913325}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8847336381689410746
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,7 +177,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8847336381689410747}
-  - component: {fileID: 8847336381689410748}
   m_Layer: 8
   m_Name: CharacterPivot
   m_TagString: Untagged
@@ -177,25 +199,6 @@ Transform:
   m_Father: {fileID: 8847336380807913326}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &8847336381689410748
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8847336381689410746}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 97f21950620112f4a91e3c879f0535c7, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &7340442598611791417
 PrefabInstance:
   m_ObjectHideFlags: 0

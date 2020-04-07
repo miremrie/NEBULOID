@@ -109,6 +109,7 @@ namespace NBLD.Character
         public override void OnDown()
         {
             base.OnDown();
+            Debug.Log("Down Action");
             TryExecuteAction(UseActionButton.Down);
         }
     }

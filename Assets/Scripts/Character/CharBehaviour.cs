@@ -27,7 +27,7 @@ namespace NBLD.Character
         protected void TryExecuteAction(UseActionButton button)
         {
             UseAction action;
-            if (charController.TryGetAction(UseActionButton.Up, out action))
+            if (charController.TryGetAction(button, out action))
             {
                 ExecuteAction(action);
             }

@@ -33,7 +33,14 @@ namespace NBLD.Character
 
         [Header("States")]
         public CharacterState state;
-        public bool isDead = false;
+
+        [Header("Transition")]
+        public float transitionSpeed;
+        public float transitionMinOffset = 0.01f;
+        private Transform transitionStart, transitionDst;
+        private bool isTransitioning = false, transitionStartReached = false, transitionPrepAnimationOver;
+        private const string transitionPrepAnimKey = "PrepTransition";
+        private const string transitionEndAnimKey = "EndTransition";
 
 
         //Actions
@@ -46,6 +53,12 @@ namespace NBLD.Character
             outsideBehaviour.Initialize(this, charSpriteRenderer, animator);
             activeBehaviour = insideBehaviour;
         }
+
+        private void Update()
+        {
+            UpdateEjectTransition();
+        }
+
         //States
         public void ChangeState(CharacterState state)
         {
@@ -57,12 +70,12 @@ namespace NBLD.Character
                 activeBehaviour = insideBehaviour;
             } else if (state == CharacterState.Dead)
             {
-                isDead = true;
+                //isDead = true;
             }
         }
 
         //Actions
-        public virtual bool TryGetAction(UseActionButton useButton, out UseAction action)
+        public bool TryGetAction(UseActionButton useButton, out UseAction action)
         {
             if (CheckIfActionAvailable(useButton))
             {
@@ -94,15 +107,70 @@ namespace NBLD.Character
                 col.enabled = active;
             }
         }
+
+        //Eject Transition
+        public void PerformTransition(Transform start, Transform dst, CharacterState newState, bool clearActions = true)
+        {
+            isTransitioning = true;
+            transitionStart = start;
+            transitionDst = dst;
+            SetCollidersActive(false);
+            ChangeState(newState);
+            if (clearActions)
+            {
+                availableActions.Clear();
+            }
+        }
+        public void StopTransition()
+        {
+            animator.SetTrigger(transitionEndAnimKey);
+            isTransitioning = false;
+            transitionStartReached = false;
+            transitionPrepAnimationOver = false;
+            SetCollidersActive(true);
+        }
+        private void UpdateTransitionStartPos()
+        {
+            if (transitionMinOffset >= Vector3.Distance(transform.position, transitionStart.position))
+            {
+                transitionStartReached = true;
+                transform.position = transitionStart.position;
+                animator.SetTrigger(transitionPrepAnimKey);
+            }
+            Vector3 direction = (transitionStart.position - transform.position).normalized;
+            transform.Translate(direction * transitionSpeed * Time.deltaTime);
+        }
+        private void TransitionPrepAnimationOver()
+        {
+            transitionPrepAnimationOver = true;
+        }
+        public void UpdateEjectTransition()
+        {
+            if (isTransitioning)
+            {
+                if (!transitionStartReached)
+                {
+                    UpdateTransitionStartPos();
+                } else if (transitionPrepAnimationOver) {
+                    if (transitionMinOffset >= Vector3.Distance(transform.position, transitionDst.position))
+                    {
+                        transform.position = transitionDst.position;
+                        StopTransition();
+                    }
+                    Vector3 direction = (transitionDst.position - transform.position).normalized;
+                    transform.Translate(direction * transitionSpeed * Time.deltaTime);
+                }
+            }
+        }
+
         //Collisions
-        protected virtual void OnTriggerEnter2D(Collider2D col)
+        protected void OnTriggerEnter2D(Collider2D col)
         {
             if (col.tag == Tags.ACTION_OBJECT)
             {
                 UseAction newControl = col.gameObject.GetComponent<UseAction>();
                 if (newControl.AvailableForCharacterState() == state)
                 {
-                    Debug.Log($"Registered Action: {newControl.actionButton}");
                     if (availableActions.ContainsKey(newControl.actionButton))
                     {
                         availableActions[newControl.actionButton] = newControl;
@@ -115,7 +183,7 @@ namespace NBLD.Character
             }
         }
 
-        protected virtual void OnTriggerExit2D(Collider2D col)
+        protected void OnTriggerExit2D(Collider2D col)
         {
             if (col.tag == Tags.ACTION_OBJECT)
             {
@@ -136,7 +204,6 @@ namespace NBLD.Character
         {
             activeBehaviour.OnMovement(movement);
         }
-
         public void OnUp()
         {
             activeBehaviour.OnUp();

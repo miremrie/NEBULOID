@@ -7,7 +7,7 @@ namespace NBLD.ShipSystems
 {
     public class ShipEjectSystem : ShipSystem
     {
-        public Transform outsidePipeEnd, insidePipeEnd;
+        public Transform outsidePipeEnd, insidePipeEnd, outsideFloorPos, insideFloorPos;
         private CharController charController;
         private bool occupied = false;
 
@@ -24,7 +24,7 @@ namespace NBLD.ShipSystems
         {
             occupied = true;
             charController = charBehaviour.charController;
-            
+            charController.PerformTransition(insideFloorPos, outsideFloorPos, CharacterState.Outside, true);
         }
     }
 }
