@@ -50,8 +50,11 @@ namespace NBLD.ShipSystems
 
         public virtual bool ReadyToUse()
         {
-
             return !cooldownTimer.IsRunning();
+        }
+        public virtual void OnExitAction(CharBehaviour charBehaviour)
+        {
+
         }
     }
 }

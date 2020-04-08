@@ -73,50 +73,50 @@ namespace NBLD.Input
         private void OnMovement(InputAction.CallbackContext context)
         {
             Vector2 movement = context.ReadValue<Vector2>();
-            Debug.Log($"{index}: Move {movement}");
+            //Debug.Log($"{index}: Move {movement}");
 
             charController.OnMovement(movement);
         }
 
         private void OnUp(InputAction.CallbackContext context)
         {
-            Debug.Log($"{index}: Up");
+            //Debug.Log($"{index}: Up");
             charController.OnUp();
         }
 
         private void OnDown(InputAction.CallbackContext context)
         {
-            Debug.Log($"{index}: Down");
+            //Debug.Log($"{index}: Down");
             charController.OnDown();
         }
 
         private void OnAction(InputAction.CallbackContext context)
         {
-            Debug.Log($"{index}: Action");
+            //Debug.Log($"{index}: Action");
             charController.OnAction();
         }
 
         private void OnSubAction(InputAction.CallbackContext context)
         {
-            Debug.Log($"{index}: SubAction");
+            //Debug.Log($"{index}: SubAction");
             charController.OnSubAction();
         }
 
         private void OnTalk(InputAction.CallbackContext context)
         {
-            Debug.Log($"{index}: Talk");
+            //Debug.Log($"{index}: Talk");
             charController.OnTalk();
         }
 
         private void OnMoveAssistStarted(InputAction.CallbackContext context)
         {
-            Debug.Log($"{index}: MoveAssist");
+            //Debug.Log($"{index}: MoveAssist");
             charController.OnMoveAssistStarted();
         }
 
         private void OnMoveAssistPerformed(InputAction.CallbackContext context)
         {
-            Debug.Log($"{index}: MoveAssistPerformed");
+            //Debug.Log($"{index}: MoveAssistPerformed");
             charController.OnMoveAssistPerformed();
         }
         

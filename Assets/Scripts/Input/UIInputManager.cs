@@ -118,7 +118,7 @@ namespace NBLD.Input
         }
         private void OnInputSubmit(InputAction.CallbackContext context)
         {
-            Debug.Log("Submit");
+            //Debug.Log("Submit");
             if (onSubmit != null)
             {
                 onSubmit();
@@ -126,7 +126,7 @@ namespace NBLD.Input
         }
         private void OnInputCancel(InputAction.CallbackContext context)
         {
-            Debug.Log("Cancel");
+            //Debug.Log("Cancel");
             if (onCancel != null)
             {
                 onCancel();
@@ -134,7 +134,7 @@ namespace NBLD.Input
         }
         private void OnInputChangeSelect(InputAction.CallbackContext context)
         {
-            Debug.Log("ChangeSelect");
+            //Debug.Log("ChangeSelect");
             if (onChangeSelect != null)
             {
                 onChangeSelect();
@@ -143,7 +143,7 @@ namespace NBLD.Input
 
         private void OnEscape(InputAction.CallbackContext context)
         {
-            Debug.Log("Escape");
+            //Debug.Log("Escape");
             if (onEscape != null)
             {
                 onEscape();

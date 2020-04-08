@@ -39,10 +39,17 @@ namespace NBLD.Character
         [Header("Transition")]
         public float transitionSpeed;
         public float transitionMinOffset = 0.01f;
+        public float transitionMinAngleOffset = 5;
+        public float rotationSpeed = 45;
+        public float targetAngle = 0;
         private Transform transitionStart, transitionDst;
-        private bool inTransition = false, transitionStartReached = false, transitionPrepAnimationOver;
-        private const string transitionPrepAnimKey = "PrepTransition";
-        private const string transitionEndAnimKey = "EndTransition";
+        private bool inTransition = false, transitionStartReached = false;
+        private bool transitionPrepAnimStarted = false, transitionPrepAnimationOver = false, transitionPrepRotationOver = false;
+        private const string transitionPrepOutAnimKey = "PrepOutTransition";
+        private const string transitionEndOutAnimKey = "EndOutTransition";
+        private const string transitionPrepInAnimKey = "PrepInTransition";
+        private const string transitionEndInAnimKey = "EndInTransition";
+
 
 
         //Actions
@@ -77,6 +84,7 @@ namespace NBLD.Character
             {
                 //isDead = true;
             }
+            this.state = state;
         }
         private void ActivateBehaviour(CharBehaviour newActive)
         {
@@ -121,7 +129,15 @@ namespace NBLD.Character
                 col.enabled = active;
             }
         }
-
+        //Movement
+        public void ApplyForceMovement(Vector2 velocity, bool clearPrevious = true)
+        {
+            if (clearPrevious)
+            {
+                rb2D.velocity = Vector2.zero;
+            }
+            rb2D.AddForce(velocity);
+        }
         //Eject Transition
         public void PerformTransition(Transform start, Transform dst, CharacterState newState, bool clearActions = true)
         {
@@ -134,13 +150,19 @@ namespace NBLD.Character
             {
                 availableActions.Clear();
             }
+
+            //If going inside, character should be facing right
+            //If going outside, character should be facing left
+            rb2D.velocity = Vector2.zero;
+            charSpriteRenderer.flipX = newState == CharacterState.Inside; 
         }
-        public void StopTransition()
+        public void FinishTransition()
         {
-            animator.SetTrigger(transitionEndAnimKey);
             inTransition = false;
             transitionStartReached = false;
             transitionPrepAnimationOver = false;
+            transitionPrepRotationOver = false;
+            transitionPrepAnimStarted = false;
             SetCollidersActive(true);
         }
         private void UpdateTransitionStartPos()
@@ -149,10 +171,25 @@ namespace NBLD.Character
             {
                 transitionStartReached = true;
                 transform.position = transitionStart.position;
-                animator.SetTrigger(transitionPrepAnimKey);
             }
-            Vector3 direction = (transitionStart.position - transform.position).normalized;
-            transform.Translate(direction * transitionSpeed * Time.deltaTime);
+            else
+            {
+                Vector3 direction = (transitionStart.position - transform.position).normalized;
+                transform.Translate(direction * transitionSpeed * Time.deltaTime);
+            }
+        }
+        private void UpdateTransitionStartRot()
+        {
+            Quaternion targetRot = Quaternion.Euler(0, 0, targetAngle);
+
+            if (transitionMinAngleOffset >= Mathf.Abs(Mathf.DeltaAngle(transform.rotation.eulerAngles.z, targetAngle)))
+            {
+                transform.rotation = targetRot;
+                transitionPrepRotationOver = true;
+            } else
+            {
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRot, rotationSpeed * Time.deltaTime);
+            }
         }
         private void TransitionPrepAnimationOver()
         {
@@ -162,14 +199,38 @@ namespace NBLD.Character
         {
             if (inTransition)
             {
-                if (!transitionStartReached)
+                if (!transitionPrepRotationOver)
+                {
+                    UpdateTransitionStartRot();
+                }
+                if (transitionPrepRotationOver && !transitionStartReached)
                 {
                     UpdateTransitionStartPos();
-                } else if (transitionPrepAnimationOver) {
+                }
+                if (transitionStartReached && transitionPrepRotationOver && !transitionPrepAnimStarted)
+                {
+                    transitionPrepAnimStarted = true;
+                    if (state == CharacterState.Outside)
+                    {
+                        animator.SetTrigger(transitionPrepOutAnimKey);
+                    }
+                    else
+                    {
+                        animator.SetTrigger(transitionPrepInAnimKey);
+                    }
+                }
+                if (transitionPrepAnimationOver) {
                     if (transitionMinOffset >= Vector3.Distance(transform.position, transitionDst.position))
                     {
                         transform.position = transitionDst.position;
-                        StopTransition();
+                        if (state == CharacterState.Outside)
+                        {
+                            animator.SetTrigger(transitionEndOutAnimKey);
+                        }
+                        else
+                        {
+                            animator.SetTrigger(transitionEndInAnimKey);
+                        }
                     }
                     Vector3 direction = (transitionDst.position - transform.position).normalized;
                     transform.Translate(direction * transitionSpeed * Time.deltaTime);

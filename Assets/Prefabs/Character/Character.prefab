@@ -614,8 +614,11 @@ MonoBehaviour:
   insideBehaviour: {fileID: 8710618289686752147}
   outsideBehaviour: {fileID: 2816976512444012041}
   state: 0
-  transitionSpeed: 2
+  transitionSpeed: 1
   transitionMinOffset: 0.01
+  transitionMinAngleOffset: 5
+  rotationSpeed: 90
+  targetAngle: 0
 --- !u!114 &8710618289686752147
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ namespace NBLD.UseActions
         private const string activeAnimName = "RoomActionActivated";
         public ShipSystem shipSystem;
         public bool hasAssignedSystem = false;
-        private InsideCharBehaviour repairingCharacter;
+        private InsideCharBehaviour workingChar;
 
         private void Update()
         {
@@ -33,6 +33,7 @@ namespace NBLD.UseActions
 
         public override void DoAction(InsideCharBehaviour behaviour)
         {
+            workingChar = behaviour;
             if (hasAssignedSystem && repairable.IsRepaired() && shipSystem.ReadyToUse())
             {
                 roomAnimator.SetBool(activeAnimName, true);
@@ -40,15 +41,18 @@ namespace NBLD.UseActions
             }
             else
             {
-                repairingCharacter = behaviour;
                 repairable.StartRepairing();
             }
         }
 
         public override void OnExitAction(InsideCharBehaviour behaviour)
         {
-            if (repairingCharacter == behaviour)
+            if (workingChar == behaviour)
+            {
+                workingChar = null;
                 repairable.StopRepairing();
+                shipSystem.OnExitAction(behaviour);
+            }
         }
     }
 }

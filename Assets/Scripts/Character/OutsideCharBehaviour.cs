@@ -1,4 +1,5 @@
 ﻿using NBLD.UI;
+using NBLD.UseActions;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -65,19 +66,34 @@ namespace NBLD.Character
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
             }
         }
+        //Actions
+        public override void ExecuteAction(UseAction action)
+        {
+            OutsideUseAction iuAction = (OutsideUseAction)action;
+            iuAction.DoAction(this);
+        }
+        public override void DismissAction(UseAction action)
+        {
+            OutsideUseAction iuAction = (OutsideUseAction)action;
+            iuAction.OnExitAction(this);
+        }
         //Events
         public override void OnMovement(Vector2 movement)
         {
             base.OnMovement(movement);
             if (movement.x != 0 || movement.y != 0)
             {
-                Debug.Log(Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg - 180);
                 targetRotation = Quaternion.Euler(0, 0, (Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg) - 180);
                 isRotating = true;
             } else
             {
                 isRotating = false;
             }
+        }
+        public override void OnAction()
+        {
+            base.OnAction();
+            TryExecuteAction(UseActionButton.Action);
         }
 
         public override void OnMoveAssistPerformed()
