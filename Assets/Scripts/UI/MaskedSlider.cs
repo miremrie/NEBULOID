@@ -25,7 +25,7 @@ namespace NBLD.UI
             }
         }
 
-        public void UpdateValue(float value)
+        public virtual void UpdateValue(float value)
         {
             float distance = (value - minVal) / maxVal;
             distance = Mathf.Clamp01(distance);
@@ -33,6 +33,10 @@ namespace NBLD.UI
 
             mask.SetInsetAndSizeFromParentEdge(relativeEdge, -distance * size, size);
             fill.SetInsetAndSizeFromParentEdge(relativeEdge, distance * size, size);
+        }
+        protected float GetPercentValue(float value)
+        {
+            return Mathf.Clamp01((value - minVal) / (maxVal - minVal));
         }
 
         public void Show()

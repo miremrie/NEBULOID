@@ -10,12 +10,14 @@ namespace NBLD.Character
         protected Animator animator;
         public CharController charController { get; protected set; }
         protected SpriteRenderer spriteRenderer;
+        protected Rigidbody2D rb2D;
 
-        public void Initialize(CharController charController, SpriteRenderer spriteRenderer, Animator animator)
+        public void Initialize(CharController charController, Rigidbody2D rigidbody, SpriteRenderer spriteRenderer, Animator animator)
         {
             this.animator = animator;
             this.charController = charController;
             this.spriteRenderer = spriteRenderer;
+            this.rb2D = rigidbody;
         }
 
         public virtual void ExecuteAction(UseAction action)

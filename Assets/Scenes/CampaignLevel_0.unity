@@ -1281,6 +1281,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 342161895}
     m_Modifications:
+    - target: {fileID: 1268707442534137875, guid: 4cea72866e3357144bb6bea8a74721cc,
+        type: 3}
+      propertyPath: ship
+      value: 
+      objectReference: {fileID: 2050759953}
     - target: {fileID: 4220939312553409196, guid: 4cea72866e3357144bb6bea8a74721cc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1341,6 +1346,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Characters
       objectReference: {fileID: 0}
+    - target: {fileID: 6135734973031854041, guid: 4cea72866e3357144bb6bea8a74721cc,
+        type: 3}
+      propertyPath: ship
+      value: 
+      objectReference: {fileID: 2050759953}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cea72866e3357144bb6bea8a74721cc, type: 3}
 --- !u!4 &323400191 stripped
@@ -1352,12 +1362,6 @@ Transform:
 --- !u!4 &323400192 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1138121951954124975, guid: 4cea72866e3357144bb6bea8a74721cc,
-    type: 3}
-  m_PrefabInstance: {fileID: 323400190}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &323400193 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1196842054702337237, guid: 4cea72866e3357144bb6bea8a74721cc,
     type: 3}
   m_PrefabInstance: {fileID: 323400190}
   m_PrefabAsset: {fileID: 0}
@@ -1579,7 +1583,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxFuel: 100
-  fuelBurnRate: 2
+  fuelBurnRate: 0.5
   gameOverScreen: {fileID: 1596660096}
   fuelFillImage: {fileID: 97040016}
   shake: {fileID: 1560085652}
@@ -1776,6 +1780,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6618639463991037841, guid: 8933b87cebe90554983fef8ec1fddb73,
     type: 3}
   m_PrefabInstance: {fileID: 6618639465253345514}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1389595364 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5437730566674427749, guid: 4cea72866e3357144bb6bea8a74721cc,
+    type: 3}
+  m_PrefabInstance: {fileID: 323400190}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1528859820
 GameObject:
@@ -2138,21 +2148,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6646820933662137597, guid: 835fe173342e2294ea00455a759b69ed,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6646820933662137597, guid: 835fe173342e2294ea00455a759b69ed,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6646820933662137597, guid: 835fe173342e2294ea00455a759b69ed,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6848609875809285176, guid: 835fe173342e2294ea00455a759b69ed,
         type: 3}
       propertyPath: m_VertexStreams.Array.size
@@ -2182,7 +2177,7 @@ PrefabInstance:
         type: 3}
       propertyPath: shipDependentTransforms.Array.data[0]
       value: 
-      objectReference: {fileID: 323400193}
+      objectReference: {fileID: 1389595364}
     - target: {fileID: 7595398177048142798, guid: 835fe173342e2294ea00455a759b69ed,
         type: 3}
       propertyPath: shipDependentTransforms.Array.data[1]

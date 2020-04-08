@@ -16,6 +16,7 @@ namespace NBLD.Character
     }
     public class CharController : MonoBehaviour
     {
+        public ShipSystems.ShipMovement ship;
         [Header("Input")]
         public CharInputManager charInputManager;
 
@@ -25,6 +26,7 @@ namespace NBLD.Character
 
         [Header("Physics")]
         public List<Collider2D> colliders = new List<Collider2D>();
+        public Rigidbody2D rb2D;
 
         [Header("Behaviours")]
         public InsideCharBehaviour insideBehaviour;
@@ -38,7 +40,7 @@ namespace NBLD.Character
         public float transitionSpeed;
         public float transitionMinOffset = 0.01f;
         private Transform transitionStart, transitionDst;
-        private bool isTransitioning = false, transitionStartReached = false, transitionPrepAnimationOver;
+        private bool inTransition = false, transitionStartReached = false, transitionPrepAnimationOver;
         private const string transitionPrepAnimKey = "PrepTransition";
         private const string transitionEndAnimKey = "EndTransition";
 
@@ -49,9 +51,10 @@ namespace NBLD.Character
         public void Start()
         {
             charInputManager.RegisterController(this);
-            insideBehaviour.Initialize(this, charSpriteRenderer, animator);
-            outsideBehaviour.Initialize(this, charSpriteRenderer, animator);
-            activeBehaviour = insideBehaviour;
+            insideBehaviour.Initialize(this, rb2D, charSpriteRenderer, animator);
+            outsideBehaviour.Initialize(this, rb2D, charSpriteRenderer, animator);
+            outsideBehaviour.enabled = false;
+            ChangeState(CharacterState.Inside);
         }
 
         private void Update()
@@ -64,14 +67,25 @@ namespace NBLD.Character
         {
             if (state == CharacterState.Outside)
             {
-                activeBehaviour = outsideBehaviour;
+                ActivateBehaviour(outsideBehaviour);
+                ship.RemoveDependentTransform(transform);
             } else if (state == CharacterState.Inside)
             {
-                activeBehaviour = insideBehaviour;
+                ActivateBehaviour(insideBehaviour);
+                ship.AddDependentTransform(transform);
             } else if (state == CharacterState.Dead)
             {
                 //isDead = true;
             }
+        }
+        private void ActivateBehaviour(CharBehaviour newActive)
+        {
+            if (activeBehaviour != null)
+            {
+                activeBehaviour.enabled = false;
+            }
+            activeBehaviour = newActive;
+            activeBehaviour.enabled = true;
         }
 
         //Actions
@@ -111,7 +125,7 @@ namespace NBLD.Character
         //Eject Transition
         public void PerformTransition(Transform start, Transform dst, CharacterState newState, bool clearActions = true)
         {
-            isTransitioning = true;
+            inTransition = true;
             transitionStart = start;
             transitionDst = dst;
             SetCollidersActive(false);
@@ -124,7 +138,7 @@ namespace NBLD.Character
         public void StopTransition()
         {
             animator.SetTrigger(transitionEndAnimKey);
-            isTransitioning = false;
+            inTransition = false;
             transitionStartReached = false;
             transitionPrepAnimationOver = false;
             SetCollidersActive(true);
@@ -146,7 +160,7 @@ namespace NBLD.Character
         }
         public void UpdateEjectTransition()
         {
-            if (isTransitioning)
+            if (inTransition)
             {
                 if (!transitionStartReached)
                 {
@@ -202,41 +216,65 @@ namespace NBLD.Character
         //Input Events
         public void OnMovement(Vector2 movement)
         {
-            activeBehaviour.OnMovement(movement);
+            if (!inTransition)
+            {
+                activeBehaviour.OnMovement(movement);
+            }
         }
         public void OnUp()
         {
-            activeBehaviour.OnUp();
+            if (!inTransition)
+            {
+                activeBehaviour.OnUp();
+            }
         }
 
         public void OnDown()
         {
-            activeBehaviour.OnDown();
+            if (!inTransition)
+            {
+                activeBehaviour.OnDown();
+            }
         }
 
         public void OnAction()
         {
-            activeBehaviour.OnAction();
+            if (!inTransition)
+            {
+                activeBehaviour.OnAction();
+            }
         }
 
         public void OnSubAction()
         {
-            activeBehaviour.OnSubAction();
+            if (!inTransition)
+            {
+                activeBehaviour.OnSubAction();
+            }
         }
 
         public void OnTalk()
         {
-            activeBehaviour.OnTalk();
+            if (!inTransition)
+            {
+                activeBehaviour.OnTalk();
+            }
         }
 
         public void OnMoveAssistStarted()
         {
-            activeBehaviour.OnMoveAssistStarted();
+            if (!inTransition)
+            {
+                activeBehaviour.OnMoveAssistStarted();
+            }
         }
 
         public void OnMoveAssistPerformed()
         {
-            activeBehaviour.OnMoveAssistPerformed();
+            if (!inTransition)
+            {
+                activeBehaviour.OnMoveAssistPerformed();
+            }
         }
     }
 }

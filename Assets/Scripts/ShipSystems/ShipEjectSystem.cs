@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using NBLD.Character;
+using NBLD.Graphics.Path;
 using UnityEngine;
 
 namespace NBLD.ShipSystems
@@ -8,6 +9,7 @@ namespace NBLD.ShipSystems
     public class ShipEjectSystem : ShipSystem
     {
         public Transform outsidePipeEnd, insidePipeEnd, outsideFloorPos, insideFloorPos;
+        public PathAnimator hoseAnimator;
         private CharController charController;
         private bool occupied = false;
 
@@ -25,6 +27,8 @@ namespace NBLD.ShipSystems
             occupied = true;
             charController = charBehaviour.charController;
             charController.PerformTransition(insideFloorPos, outsideFloorPos, CharacterState.Outside, true);
+            hoseAnimator.gameObject.SetActive(true);
+            hoseAnimator.endFollow = charController.outsideBehaviour.hoseAttachSpot;
         }
     }
 }

@@ -15,7 +15,7 @@ namespace NBLD.ShipSystems
         public bool hookLocked = false;
         private List<ShipArmSystem> armSystems = new List<ShipArmSystem>();
         public bool movementLocked;
-        public List<Transform> shipDependentTransforms;
+        public List<Transform> shipDependentTransforms = new List<Transform>();
 
         void Update()
         {
@@ -142,6 +142,21 @@ namespace NBLD.ShipSystems
         public void RegisterArm(ShipArmSystem shipArmSystem)
         {
             armSystems.Add(shipArmSystem);
+        }
+
+        public void AddDependentTransform(Transform transform)
+        {
+            if (!shipDependentTransforms.Contains(transform))
+            {
+                shipDependentTransforms.Add(transform);
+            }
+        }
+        public void RemoveDependentTransform(Transform transform)
+        {
+            if (shipDependentTransforms.Contains(transform))
+            {
+                shipDependentTransforms.Remove(transform);
+            }
         }
     }
 }

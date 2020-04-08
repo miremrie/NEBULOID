@@ -12,7 +12,7 @@ public class Game : MonoBehaviour
     private float currentFuel;
     public float maxFuel;
     public float fuelBurnRate;
-    private bool dead;
+    private bool gameIsOver;
 
     public GameObject gameOverScreen;
     public Image fuelFillImage;
@@ -31,7 +31,22 @@ public class Game : MonoBehaviour
         repairables = FindObjectsOfType<Repairable>();
 
     }
-
+    private void OnEnable()
+    {
+        Subscribe();
+    }
+    private void OnDisable()
+    {
+        Unsubscribe();
+    }
+    private void Subscribe()
+    {
+        NBLD.Input.UIInputManager.onSubmit += OnSubmit;
+    }
+    private void Unsubscribe()
+    {
+        NBLD.Input.UIInputManager.onSubmit -= OnSubmit;
+    }
     void Update()
     {
         currentFuel -= fuelBurnRate * Time.deltaTime;
@@ -39,8 +54,6 @@ public class Game : MonoBehaviour
         UpdateDeath();
 
         UpdateUI();
-
-        UpdateRestart();
     }
 
     internal void BulletHit(Obstacle obstacle)
@@ -52,10 +65,10 @@ public class Game : MonoBehaviour
     void UpdateDeath()
     {
         audioController.SetFuelFX(GetFuelPercent());
-        if (currentFuel < 0 && !dead)
+        if (currentFuel < 0 && !gameIsOver)
         {
             audioController.PlayGameOver();
-            dead = true;
+            gameIsOver = true;
             FindObjectsOfType<CharController>().ToList().ForEach(x => x.enabled = false);
             ShowGameOverScreen();
         }
@@ -113,9 +126,9 @@ public class Game : MonoBehaviour
         return currentFuel / maxFuel;
     }
 
-    public void UpdateRestart()
+    public void OnSubmit()
     {
-        if (dead && (Input.GetButtonDown("Action0") || Input.GetButtonDown("Action1") || Input.GetButtonDown("Action2"))) {
+        if (gameIsOver) {
             RestartGame();
         }
 

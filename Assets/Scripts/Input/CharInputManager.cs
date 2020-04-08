@@ -54,7 +54,7 @@ namespace NBLD.Input
             input.Character.Up.performed += OnUp;
             input.Character.Down.performed += OnDown;
             input.Character.Talk.performed += OnTalk;
-            input.Character.MoveAssist.started += OnMoveAssistStarted;
+            input.Character.MoveAssist.performed += OnMoveAssistStarted;
             input.Character.MoveAssist.performed += OnMoveAssistPerformed;
         }
 

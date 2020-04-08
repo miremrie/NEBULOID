@@ -47,6 +47,10 @@ namespace NBLD.Graphics.Path
         void AssignMeshComponents()
         {
             mesh = meshFilter.mesh;
+            if (mesh == null)
+            {
+                mesh = new Mesh();
+            }
             meshFilter.sharedMesh = mesh;
             meshRenderer.material = pathMaterial;
 

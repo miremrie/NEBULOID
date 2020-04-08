@@ -18,7 +18,6 @@ namespace NBLD.Character
 
         private bool lockedByTransport;
 
-
         //Animation
         private const string moveAnimName = "Move";
         private const string moveVerAnimName = "MoveVer";
