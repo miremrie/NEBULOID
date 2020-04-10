@@ -4757,8 +4757,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shipCreator: {fileID: 6370515991639609082}
-  primaryInput: 0
-  altInput: 1
   uiRooms:
   - roomName: 0
     uiImage: {fileID: 7467980816317850707}
@@ -4795,6 +4793,7 @@ MonoBehaviour:
   - stage: 6
     message: CREATION CANCELED
   placementRotSpeed: 45
+  placementTowardsRotSpeed: 5
   roomNameDisplayTable:
   - {fileID: 7467980816796099932}
   - {fileID: 7467980816477450488}
@@ -4811,6 +4810,8 @@ MonoBehaviour:
   currentlyPickingTextColor: {r: 0.6603774, g: 0.11525454, b: 0.11525454, a: 1}
   shipNameInputField: {fileID: 6862442394533908280}
   minCharShipName: 3
+  heldVerticalChangeSelectionTime: 0.05
+  placeSystemTowardsDirection: 1
 --- !u!114 &6370515991639609082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4830,3 +4831,4 @@ MonoBehaviour:
   currentStage: 0
   hardSaveShip: 1
   areRoomsReassignable: 1
+  updateAssemblerOnConfirm: 0

@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 namespace NBLD.ShipCreation
 {
-
     [System.Serializable]
     public struct UIRoomID
     {
@@ -25,9 +24,6 @@ namespace NBLD.ShipCreation
     public class ShipCreatorUI : MonoBehaviour
     {
         public ShipCreator shipCreator;
-        public int primaryInput, altInput;
-        private InputHandler handler;
-        private int lastHorInputState = 0;
         [SerializeField]
         public UIRoomID[] uiRooms;
 
@@ -35,7 +31,7 @@ namespace NBLD.ShipCreation
         public Text actionTitleText;
         public CreationStageMessage[] stageMessages;
         private GameObject currentPlacementSystem;
-        public float placementRotSpeed = 10f;
+        public float placementRotSpeed = 10f, placementTowardsRotSpeed = 0.05f;
         public Text[] roomNameDisplayTable;
         public Text[] systemNameDisplayTable;
         public Color normalTextColor, currentlyPickingTextColor;
@@ -43,19 +39,56 @@ namespace NBLD.ShipCreation
         public InputField shipNameInputField;
         //private bool reselectInputField = false;
         public int minCharShipName = 3;
+        public float heldVerticalChangeSelectionTime = 0.05f;
+        private Timer heldVerticalTimer;
 
         private int currentlySelectedRoom;
         private int currentlySelectedSystem = 0;
         private List<RoomName> roomTextIndex = new List<RoomName>();
         private Dictionary<RoomName, GameObject> roomToAttachedSystem = new Dictionary<RoomName, GameObject>();
+        public bool placeSystemTowardsDirection;
 
         private void Awake()
         {
-            RegisterController();
             shipCreator.onCreationStageChanged += ChangeStage;
-
-            shipNameInputField.onEndEdit.AddListener(OnShipNameEntered);
+            heldVerticalTimer = new Timer(heldVerticalChangeSelectionTime);
             shipNameInputField.Select();
+        }
+        private void OnEnable()
+        {
+            Subscribe();
+        }
+        private void OnDisable()
+        {
+            Unsubscribe();
+        }
+        private void Subscribe()
+        {
+            //UI Items
+            shipNameInputField.onEndEdit.AddListener(OnShipNameEntered);
+            //Input
+            NBLD.Input.UIInputManager.onSubmit += OnSubmit;
+            NBLD.Input.UIInputManager.onCancel += OnCancel;
+            NBLD.Input.UIInputManager.onEscape += OnCancel;
+            NBLD.Input.UIInputManager.onChangeSelect += OnChangeSelect;
+            NBLD.Input.UIInputManager.onNavigationChangedInt += OnNavigationChangedInt;
+            NBLD.Input.UIInputManager.verticalHoldProcessor.onAxisBeingHeldInt += OnNavigationHeldInt;
+            NBLD.Input.UIInputManager.onNavigation += OnNavigation;
+        }
+
+        private void Unsubscribe()
+        {
+            //UI Items
+            shipNameInputField.onEndEdit.RemoveListener(OnShipNameEntered);
+            //Input
+            NBLD.Input.UIInputManager.onSubmit -= OnSubmit;
+            NBLD.Input.UIInputManager.onCancel -= OnCancel;
+            NBLD.Input.UIInputManager.onEscape -= OnCancel;
+            NBLD.Input.UIInputManager.onChangeSelect -= OnChangeSelect;
+            NBLD.Input.UIInputManager.onNavigationChangedInt -= OnNavigationChangedInt;
+            NBLD.Input.UIInputManager.verticalHoldProcessor.onAxisBeingHeldInt -= OnNavigationHeldInt;
+            NBLD.Input.UIInputManager.onNavigation -= OnNavigation;
+
         }
 
 
@@ -123,70 +156,137 @@ namespace NBLD.ShipCreation
             }
         }
 
-        private void Update()
+        //Events
+        private void OnSubmit()
         {
-            CheckForSecondInput();
-            CheckForFinishEditing();
             if (shipCreator.currentStage == CreationStage.SelectRoom)
             {
-                HandleRoomSelection();
+                OnSelectRoomSubmit();
             }
             else if (shipCreator.currentStage == CreationStage.SelectSystem)
             {
-                HandleSelectSystem();
+                OnSelectSystemSubmit();
             }
             else if (shipCreator.currentStage == CreationStage.PlaceSystem)
             {
-                HandlePlaceSystem();
+                OnPlaceSystemSubmit();
             }
-            //ShouldReselectShipNameInput();
         }
-
-        private void CheckForFinishEditing()
+        private void OnNavigation(Vector2 navigation)
         {
-            if (handler.GetSubActionPressed()
-                && (shipCreator.currentStage == CreationStage.SelectRoom
-                    || shipCreator.currentStage == CreationStage.Finished))
+            if (shipCreator.currentStage == CreationStage.PlaceSystem)
             {
-                shipCreator.ConfirmShip();
-            }
-            if (handler.GetEscapeKeyPressed())
-            {
-                shipCreator.CancelShip();
+                OnPlaceSystemChange(navigation);
             }
         }
-
-        private void HandlePlaceSystem()
+        private void OnNavigationHeldInt(int value, float time)
         {
-            if (handler.GetActionPressed())
+            if (!heldVerticalTimer.IsRunning())
             {
-                shipCreator.PlaceSystem(currentPlacementSystem.transform.rotation.eulerAngles);
-                return;
+                IntNavigationChange(value);
+                heldVerticalTimer.Start();
             }
-            int curHor = handler.GetHorizontal();
-            if (curHor != 0)
-            {
-                float rotSpeed = placementRotSpeed * curHor;
-                RotatePlaceSystem(currentPlacementSystem.transform.rotation.eulerAngles + Vector3.forward * rotSpeed * Time.deltaTime);
-            }
+            heldVerticalTimer.Update(Time.deltaTime);
         }
-
-        private void HandleSelectSystem()
+        private void OnNavigationChangedInt(Vector2Int navigation)
         {
-            if (handler.GetActionPressed())
+            IntNavigationChange(navigation.y);
+        }
+        private void OnChangeSelect()
+        {
+            if (shipCreator.currentStage == CreationStage.SelectRoom
+                || shipCreator.currentStage == CreationStage.Finished)
             {
-                shipCreator.SelectSystem(shipCreator.GetSystemNameForID(currentlySelectedSystem));
-                
-                return;
+                ConfirmShip();
             }
-            int curHor = GetDiscreteHor();
-            if (curHor != 0)
+        }
+        private void OnCancel()
+        {
+            if (shipCreator.currentStage != CreationStage.CreateName)
             {
-                SetNewSelectedSystem(currentlySelectedSystem, curHor);
-                ShowSystemSelection();
+                CancelShip();
             }
         }
 
+        //FinishEditing Event
+        private void ConfirmShip()
+        {
+            shipCreator.ConfirmShip();
+        }
+        private void CancelShip()
+        {
+            shipCreator.CancelShip();
+        }
+        private void IntNavigationChange(int direction)
+        {
+            if (shipCreator.currentStage == CreationStage.SelectRoom)
+            {
+                OnSelectRoomChange(direction);
+            }
+            else if (shipCreator.currentStage == CreationStage.SelectSystem)
+            {
+                OnSelectSystemChange(direction);
+            }
+        }
+        //Place System
+        private void OnPlaceSystemSubmit()
+        {
+            shipCreator.PlaceSystem(currentPlacementSystem.transform.rotation.eulerAngles);
+        }
+        private void OnPlaceSystemChange(Vector2 changeDirection)
+        {
+            Vector3 eulerAngles = currentPlacementSystem.transform.rotation.eulerAngles;
+            if (placeSystemTowardsDirection)
+            {
+                if (Mathf.Abs(changeDirection.x) > 0 || Mathf.Abs(changeDirection.y) > 0)
+                {
+                    float curAngle = currentPlacementSystem.transform.rotation.eulerAngles.z;
+                    float changeAngle = Mathf.Atan2(changeDirection.y, changeDirection.x) * Mathf.Rad2Deg - 180;
+                    float deltaAngle = Mathf.DeltaAngle(curAngle, changeAngle);
+                    deltaAngle *= placementTowardsRotSpeed * Time.deltaTime;
+                    eulerAngles += Vector3.forward * deltaAngle;
+                    //Debug.Log($"a {curAngle} cA = {changeAngle}, dA {deltaAngle}");
+                    //Vector3 curDir = new Vector3(Mathf.Cos(curAngle), Mathf.Sin(curAngle));
+                    //Vector3 newDir = Vector3.Slerp(curDir.normalized, changeDirection.normalized, placementTowardsRotSpeed * Time.deltaTime);
+                    //Vector3 newDir = Vector3.RotateTowards(curDir.normalized, changeDirection.normalized, placementTowardsRotSpeed * Time.deltaTime, 0);
+                    
+                    //eulerAngles = currentPlacementSystem.transform.rotation.eulerAngles + Vector3.forward * Vector3.SignedAngle(curDir.normalized, newDir.normalized, Vector3.forward);
+                    //Debug.Log($"D {curDir.normalized}, cD {changeDirection.normalized}, nD {newDir}, eA {eulerAngles}");
+
+                }
+            } else
+            {
+                float rotSpeed = placementRotSpeed * changeDirection.y;
+                eulerAngles += Vector3.forward * rotSpeed * Time.deltaTime;
+            }
+            RotatePlaceSystem(eulerAngles);
+
+        }
+        //Select System Events
+        private void OnSelectSystemSubmit()
+        {
+            shipCreator.SelectSystem(shipCreator.GetSystemNameForID(currentlySelectedSystem));
+        }
+        private void OnSelectSystemChange(int changeDirection)
+        {
+            SetNewSelectedSystem(currentlySelectedSystem, changeDirection);
+            ShowSystemSelection();
+        }
+        //Select Room Events
+        private void OnSelectRoomSubmit()
+        {
+            shipCreator.SelectRoom(uiRooms[currentlySelectedRoom].roomName);
+        }
+        private void OnSelectRoomChange(int direction)
+        {
+            int oldSelectedRoom = currentlySelectedRoom;
+            SetRoomHighlightState(oldSelectedRoom, false);
+
+            SetNewSelectedRoom(oldSelectedRoom, direction);
+
+            SetRoomHighlightState(currentlySelectedRoom, true);
+        }
+        //Reset Values
         private void ReengageSystemSelection()
         {
             SetNewSelectedSystem(0);
@@ -204,32 +304,12 @@ namespace NBLD.ShipCreation
         }
         private void ResetPlacedSystems()
         {
-            foreach(KeyValuePair<RoomName, GameObject> pair in roomToAttachedSystem)
+            foreach (KeyValuePair<RoomName, GameObject> pair in roomToAttachedSystem)
             {
                 Destroy(pair.Value);
             }
             roomToAttachedSystem.Clear();
         }
-
-        private void HandleRoomSelection()
-        {
-            if (handler.GetActionPressed())
-            {
-                shipCreator.SelectRoom(uiRooms[currentlySelectedRoom].roomName);
-                return;
-            }
-            int curHor = GetDiscreteHor();
-            if (curHor != 0)
-            {
-                int oldSelectedRoom = currentlySelectedRoom;
-                SetRoomHighlightState(oldSelectedRoom, false);
-
-                SetNewSelectedRoom(oldSelectedRoom, curHor);
-
-                SetRoomHighlightState(currentlySelectedRoom, true);
-            }
-        }
-
         private void SetNewSelectedRoom(int previousRoom, int dir = 1)
         {
             for (int i = dir; Mathf.Abs(i) < uiRooms.Length; i += dir)
@@ -342,34 +422,6 @@ namespace NBLD.ShipCreation
             {
                 shipNameInputField.Select();
             }
-        }
-
-        //Input
-        private void RegisterController()
-        {
-            handler = InputHandler.RegisterController(primaryInput);
-        }
-
-        private void CheckForSecondInput()
-        {
-            if (altInput != -1 && Input.GetButtonDown("Action" + altInput.ToString()))
-            {
-                int tmp = altInput;
-                altInput = primaryInput;
-                primaryInput = tmp;
-                RegisterController();
-            }
-        }
-
-        private int GetDiscreteHor()
-        {
-            int newState = handler.GetHorizontal();
-            if (newState != lastHorInputState)
-            {
-                lastHorInputState = newState;
-                return lastHorInputState;
-            }
-            return 0;
         }
     }
 

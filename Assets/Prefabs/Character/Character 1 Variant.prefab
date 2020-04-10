@@ -18,10 +18,30 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.42
       objectReference: {fileID: 0}
+    - target: {fileID: 4265162992504635029, guid: a91f02c44b54fd640bd4f781a8bd544e,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 97f21950620112f4a91e3c879f0535c7, type: 2}
     - target: {fileID: 8279063703412352995, guid: a91f02c44b54fd640bd4f781a8bd544e,
         type: 3}
       propertyPath: m_Name
       value: Character Graphics
+      objectReference: {fileID: 0}
+    - target: {fileID: 8647758045015476130, guid: a91f02c44b54fd640bd4f781a8bd544e,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.2569865
+      objectReference: {fileID: 0}
+    - target: {fileID: 8647758045015476130, guid: a91f02c44b54fd640bd4f781a8bd544e,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.990566
+      objectReference: {fileID: 0}
+    - target: {fileID: 8647758045015476130, guid: a91f02c44b54fd640bd4f781a8bd544e,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.28079706
       objectReference: {fileID: 0}
     - target: {fileID: 8847336380807913312, guid: a91f02c44b54fd640bd4f781a8bd544e,
         type: 3}

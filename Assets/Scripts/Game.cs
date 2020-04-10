@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NBLD.Character;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,31 +12,15 @@ public class Game : MonoBehaviour
     private float currentFuel;
     public float maxFuel;
     public float fuelBurnRate;
-    private bool dead;
+    private bool gameIsOver;
 
     public GameObject gameOverScreen;
     public Image fuelFillImage;
     public ScreenShake shake;
     private Repairable[] repairables;
     public GameObject smokePrefab;
-
-    public Texture2D emptyTex;
-    public Texture2D fullTex;
-
-    public GUIStyle progress_empty, progress_full;
-
-    public float guiOffset;
-    public float healthWidth;
-    public float healthHeight;
-
-
   
-    public float fuelThresholdForDeathLowPass = 10;
-
     public GameObject explosionParticle;
-
-    public InputHandler firstPlayerHandler;
-
 
     public ShipAudioController audioController;
 
@@ -46,7 +31,22 @@ public class Game : MonoBehaviour
         repairables = FindObjectsOfType<Repairable>();
 
     }
-
+    private void OnEnable()
+    {
+        Subscribe();
+    }
+    private void OnDisable()
+    {
+        Unsubscribe();
+    }
+    private void Subscribe()
+    {
+        NBLD.Input.UIInputManager.onSubmit += OnSubmit;
+    }
+    private void Unsubscribe()
+    {
+        NBLD.Input.UIInputManager.onSubmit -= OnSubmit;
+    }
     void Update()
     {
         currentFuel -= fuelBurnRate * Time.deltaTime;
@@ -54,8 +54,6 @@ public class Game : MonoBehaviour
         UpdateDeath();
 
         UpdateUI();
-
-        UpdateRestart();
     }
 
     internal void BulletHit(Obstacle obstacle)
@@ -67,10 +65,10 @@ public class Game : MonoBehaviour
     void UpdateDeath()
     {
         audioController.SetFuelFX(GetFuelPercent());
-        if (currentFuel < 0 && !dead)
+        if (currentFuel < 0 && !gameIsOver)
         {
             audioController.PlayGameOver();
-            dead = true;
+            gameIsOver = true;
             FindObjectsOfType<CharController>().ToList().ForEach(x => x.enabled = false);
             ShowGameOverScreen();
         }
@@ -128,9 +126,9 @@ public class Game : MonoBehaviour
         return currentFuel / maxFuel;
     }
 
-    public void UpdateRestart()
+    public void OnSubmit()
     {
-        if (dead && (Input.GetButtonDown("Action0") || Input.GetButtonDown("Action1") || Input.GetButtonDown("Action2"))) {
+        if (gameIsOver) {
             RestartGame();
         }
 

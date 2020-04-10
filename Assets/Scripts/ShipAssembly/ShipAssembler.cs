@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using NBLD.UseActions;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NBLD.ShipSystems;
 
 [System.Serializable]
 public struct RoomControlWithID {

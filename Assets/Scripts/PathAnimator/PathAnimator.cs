@@ -4,7 +4,7 @@ using UnityEngine;
 using PathCreation;
 using System;
 
-namespace NBLD.PathAnimation
+namespace NBLD.Graphics.Path
 {
     public class PathAnimator : MonoBehaviour
     {
@@ -12,20 +12,23 @@ namespace NBLD.PathAnimation
         public PathDrawer pathDrawer;
         public Vector3[] originalPoints;
         public float speed = 1f;
-        public float rangeMin = -0.9f, rangeMax = 0.9f;
+        public float perlinAnimScale = 0.4f;
+        public float minDistancePerlinAnim = 3f;
+        public bool scalePerlinWithDistance;
         public float period = 1f;
         public Transform startFollow, endFollow;
         public Vector3 startInertia, endInertia;
         public float inertiaDropFactor;
         public float maxInertiaVector;
-        public float cumulativeLength;
         private VertexPath path;
         public float[] distancesBetweenAnchors;
         public bool animatePoints = true;
 
+
         private void Start()
         {
             SetOriginalPoints();
+            pathDrawer.Initalize(pathCreator.bezierPath);
         }
 
         private void SetOriginalPoints()
@@ -43,20 +46,17 @@ namespace NBLD.PathAnimation
         }
 
         // Update is called once per frame
-        void LateUpdate()
+        void Update()
         {
             MovePoints();
             if (animatePoints)
             {
-                AnimatePoints();
                 UpdateInertia();
                 UpdateOriginalPointsByInertia();
-                AnimatePoints();
+                AnimateControlPoints();
             }
-            pathCreator.bezierPath.NotifyPathModified();
+            //pathCreator.bezierPath.NotifyPathModified();
             pathDrawer.UpdateMesh(pathCreator.bezierPath);
-
-            UpdateSegmentCount();
         }
 
 
@@ -111,13 +111,55 @@ namespace NBLD.PathAnimation
             endInertia = Vector3.ClampMagnitude(end + endInertia, maxInertiaVector);
 
         }
-
-        private void UpdateSegmentCount()
+        void AnimateControlPoints()
         {
-            cumulativeLength = pathDrawer.vPath.length;
+            Vector2 previousAnchor = pathCreator.bezierPath.GetPoint(0);
+            Vector2 nextAnchor = pathCreator.bezierPath.GetPoint(3);
+            float curTime = (Time.time % period) - (period * 0.5f);
+            for (int i = 1; i < pathCreator.bezierPath.NumPoints - 1; i++)
+            {
+                if (i % 3 == 0)
+                {
+                    previousAnchor = nextAnchor;
+                    nextAnchor = pathCreator.bezierPath.GetPoint(i + 3);
+                } else
+                {
+                    Vector2 position;
+                    float distance = Vector2.Distance(previousAnchor, nextAnchor);
+                    if (distance < minDistancePerlinAnim)
+                    {
+                        float percentDistance = 0.5f;
+                        position = Vector2.Lerp(previousAnchor, nextAnchor, percentDistance);
+                    } else
+                    {
+                        float percentDistance = (i % 3) * 0.33f * speed;
+                        position = Vector2.Lerp(previousAnchor, nextAnchor, percentDistance);
+
+                        float pX = Mathf.PerlinNoise(position.x, curTime);
+                        pX = pX - 0.5f;
+                        float pY = Mathf.PerlinNoise(position.y, curTime);
+                        pY = -0.5f;
+                        pY *= perlinAnimScale;
+                        if (scalePerlinWithDistance)
+                        {
+                            pY *= perlinAnimScale * distance;
+                            pX *= perlinAnimScale * distance;
+                        }
+                        else
+                        {
+                            pY *= perlinAnimScale;
+                            pX *= perlinAnimScale;
+                        }
+                        position += new Vector2(pX, pY);
+                    }
+
+
+                    //midPoint = midPoint.normalized * speed;
+
+                    pathCreator.bezierPath.MovePoint(i, position, true);
+                }
+            }
         }
-
-
         void AnimatePoints()
         {
             float curTime = (Time.time % period) - (period * 0.5f);
