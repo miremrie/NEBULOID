@@ -14,6 +14,7 @@ namespace NBLD.ShipSystems
         public float newCamSize;
         public float camZoomTime;
         public ShipAudioController audioController;
+        public GameObject audioEmitter;
 
         public override void Initialize()
         {
@@ -40,7 +41,7 @@ namespace NBLD.ShipSystems
                     sonarStarted = false;
                     SonarMovingLightPivot.gameObject.SetActive(false);
                     camController.RevertToStandardSize(camZoomTime, () => SonarMovingLightPivot.gameObject.SetActive(false));
-                    audioController.StopSonar();
+                    audioController.StopSonar(audioEmitter);
                 }
 
                 sonarMoveTimer.Update(Time.deltaTime);
@@ -54,7 +55,7 @@ namespace NBLD.ShipSystems
             sonarStarted = true;
             sonarMoveTimer.Start();
             camController.ChangeSizeOverTime(newCamSize, camZoomTime);
-            audioController.ActivateSonar(camZoomTime);
+            audioController.ActivateSonar(camZoomTime, audioEmitter);
         }
 
     }

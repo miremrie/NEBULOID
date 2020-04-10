@@ -7,8 +7,10 @@ namespace NBLD.ShipSystems
     public class ShipHookSystem : ShipSystem
     {
         public Animator hookAnimator;
+
         public float fireMaxSpeed, retractSpeed;
         public float accelerationTime;
+        public ShipAudioController audioController;
         private Timer fireTimer;
         public AnimationCurve acceleration;
         public float shipPullSpeed;
@@ -20,13 +22,11 @@ namespace NBLD.ShipSystems
         public ShipMovement ship;
         public Collider2D triggerCollider;
         bool wasShot = false;
+        bool shotPrepFinished = false;
         bool retracting = false;
         bool hitSomething = false;
-        private Timer hookOpenTimer;
         private Quaternion systemRotWhenFired, hookRotWhenFired;
-        public float hookOpenAnimationTime = 1f;
         public float previousHookRotation;
-        public float originalZRotation = 90;
 
 
         private const string hookOpenAnim = "HookOpen";
@@ -37,12 +37,12 @@ namespace NBLD.ShipSystems
         private bool isGrabbedObjectDraggable = false;
         private bool isGrabbing = false;
 
+
         public override void Initialize()
         {
             if (!initialized)
             {
                 base.Initialize();
-                hookOpenTimer = new Timer(hookOpenAnimationTime);
                 fireTimer = new Timer(accelerationTime);
                 OffsetColliderBasedOnCollision();
                 previousHookRotation = rightHookPivot.eulerAngles.z;
@@ -57,23 +57,26 @@ namespace NBLD.ShipSystems
 
         private void Move()
         {
-            hookOpenTimer.Update(Time.deltaTime);
             fireTimer.Update(Time.deltaTime);
-            if (wasShot && !hookOpenTimer.IsRunning())
+            if (wasShot && shotPrepFinished)
             {
+                float currentSpeed;
                 if (!retracting) //Hook flying
                 {
-                    transform.position = transform.position + (GetDirFromBase() * GetFireSpeed() * Time.deltaTime);
+                    currentSpeed = GetFireSpeed();
+                    transform.position = transform.position + (GetDirFromBase() * currentSpeed * Time.deltaTime);
+
                     if (Vector3.Distance(transform.position, hookOrigin.position) >= maxDistance)
                     {
-                        retracting = true;
+                        StartRetracting();
                         hookAnimator.SetTrigger(hookCloseAnim);
                     }
                 }
                 else if (hitSomething) //Pull ship to hook
                 {
                     Vector3 keepPosition = this.transform.position;
-                    ship.MoveShip(GetDirFromBase() * shipPullSpeed * Time.deltaTime);
+                    currentSpeed = shipPullSpeed;
+                    ship.MoveShip(GetDirFromBase() * currentSpeed * Time.deltaTime);
                     this.transform.position = keepPosition;
                     UpdateGrabDrag();
                     if (Vector3.Distance(transform.position, hookOrigin.position) <= minDistance)
@@ -83,12 +86,14 @@ namespace NBLD.ShipSystems
                 }
                 else //Hook retracting
                 {
-                    transform.position = transform.position + (-GetDirFromBase() * retractSpeed * Time.deltaTime);
+                    currentSpeed = retractSpeed;
+                    transform.position = transform.position + (-GetDirFromBase() * currentSpeed * Time.deltaTime);
                     if (Vector3.Distance(transform.position, hookOrigin.position) <= minDistance)
                     {
                         ResetHook();
                     }
                 }
+                audioController.UpdateHookSpeedPitch(currentSpeed, fireMaxSpeed);
             }
         }
 
@@ -111,19 +116,31 @@ namespace NBLD.ShipSystems
             //transform.rotation = hookRotWhenFired;
             shipCenterOrigin.rotation = systemRotWhenFired;
         }
-
+        private void StartRetracting()
+        {
+            retracting = true;
+            audioController.StopCableForward();
+            audioController.PlayCableBack();
+        }
         private void ResetHook()
         {
+            audioController.StopCableBack();
             transform.position = hookOrigin.position;
             wasShot = false;
             retracting = false;
             hitSomething = false;
             isGrabbing = false;
             isGrabbedObjectDraggable = false;
+            shotPrepFinished = false;
             hookAnimator.SetTrigger(hookCloseAnim);
             ship.UnlockHook();
             ship.UnlockMovement();
             grabbedObject = null;
+        }
+        private void FinishShotPrep()
+        {
+            shotPrepFinished = true;
+            audioController.PlayCableForward();
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -138,11 +155,11 @@ namespace NBLD.ShipSystems
         {
             if (!ship.AreHooksLocked())
             {
+                audioController.PlayHookOpen();
                 systemRotWhenFired = shipCenterOrigin.rotation;
                 hookRotWhenFired = transform.rotation;
                 wasShot = true;
                 ship.LockHook();
-                hookOpenTimer.Start();
                 fireTimer.Start();
                 hookAnimator.ResetTrigger(hookCloseAnim);
                 hookAnimator.ResetTrigger(hookGrabAnim);
@@ -162,6 +179,7 @@ namespace NBLD.ShipSystems
 
         private void PrepareGrab(GameObject grabbed)
         {
+            audioController.PlayHookBitePrep();
             grabbedObject = grabbed;
             Obstacle obs = grabbedObject.GetComponent<Obstacle>();
             isGrabbedObjectDraggable = obs != null;
@@ -170,9 +188,10 @@ namespace NBLD.ShipSystems
 
         private void Grab()
         {
+            audioController.PlayHookBite();
             previousHookRotation = rightHookPivot.eulerAngles.z;
             hitSomething = true;
-            retracting = true;
+            StartRetracting();
             isGrabbing = true;
             ship.LockMovement();
         }
@@ -202,6 +221,12 @@ namespace NBLD.ShipSystems
                 animationOffsetX = -animationOffsetX;
             }
             triggerCollider.offset = new Vector2(initalOffsetX + animationOffsetX, initalOffsetY);
+        }
+
+        //Audio - animation based events
+        private void AudioPlayHookOpenAndLocked()
+        {
+            audioController.PlayHookOpenAndLock();
         }
     }
 }
