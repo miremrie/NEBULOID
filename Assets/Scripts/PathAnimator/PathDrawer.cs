@@ -64,6 +64,10 @@ namespace NBLD.Graphics.Path
 
         public void UpdateMesh(BezierPath bPath)
         {
+            if (mesh == null)
+            {
+                AssignMeshComponents();
+            }
             Initalize(bPath);
             int vertIndex = 0;
             int triIndex = 0;
