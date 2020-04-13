@@ -10,6 +10,7 @@ TagManager:
   - Bullet
   - Wall
   - Obstacle
+  - stencil
   layers:
   - Default
   - TransparentFX
@@ -25,8 +26,8 @@ TagManager:
   - Walls
   - Ground
   - Hook
-  - 
-  - 
+  - PlanetStencil
+  - Planet
   - 
   - 
   - 

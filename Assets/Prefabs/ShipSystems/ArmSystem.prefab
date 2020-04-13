@@ -185,7 +185,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5631986107885564317}
   - component: {fileID: 5631986107885564314}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: col1
   m_TagString: ShipOuter
   m_Icon: {fileID: 0}
@@ -218,7 +218,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: 0.15721583, y: -0.75948143}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -324,7 +324,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5631986108071932881}
   - component: {fileID: 5631986108071932894}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: col1
   m_TagString: ShipOuter
   m_Icon: {fileID: 0}
@@ -357,7 +357,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: 0.18837178, y: -0.03561905}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -642,7 +642,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5631986109282379679}
   - component: {fileID: 5631986109282379676}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: col1
   m_TagString: ShipOuter
   m_Icon: {fileID: 0}
@@ -675,7 +675,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: -0.018512487, y: 0.023000285}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -730,7 +730,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5631986109516538475}
   - component: {fileID: 5631986109516538472}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: col2
   m_TagString: ShipOuter
   m_Icon: {fileID: 0}
@@ -763,7 +763,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: -0.56540847, y: 0.17576778}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -790,7 +790,8 @@ GameObject:
   - component: {fileID: 6107410204150075578}
   - component: {fileID: 7773005611536726984}
   - component: {fileID: 3872992614470362515}
-  m_Layer: 0
+  - component: {fileID: 2126465542630126481}
+  m_Layer: 14
   m_Name: Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -859,7 +860,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5631986109672672483}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -886,14 +887,85 @@ CompositeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_GeometryType: 0
+  m_GeometryType: 1
   m_GenerationType: 0
   m_EdgeRadius: 0
-  m_ColliderPaths: []
+  m_ColliderPaths:
+  - m_Collider: {fileID: 5631986109282379676}
+    m_ColliderPaths:
+    - - X: -18501361
+        Y: -14660506
+      - X: 3060220
+        Y: -1868354
+      - X: -592179
+        Y: 4287310
+      - X: -22153363
+        Y: -8504944
+  - m_Collider: {fileID: 5631986108071932894}
+    m_ColliderPaths:
+    - - X: -19718329
+        Y: -14214131
+      - X: -17396148
+        Y: -8998422
+      - X: -33050084
+        Y: -2029163
+      - X: -35371880
+        Y: -7244723
+  - m_Collider: {fileID: 5631986109516538472}
+    m_ColliderPaths:
+    - - X: -46561809
+        Y: -2098143
+      - X: -46561809
+        Y: 11053500
+      - X: -53326648
+        Y: 11053207
+      - X: -53326355
+        Y: -2098143
+  - m_Collider: {fileID: 5631986107885564314}
+    m_ColliderPaths:
+    - - X: -35352241
+        Y: -7624504
+      - X: -35352241
+        Y: -2125122
+      - X: -50083732
+        Y: -2125415
+      - X: -50083439
+        Y: -7624504
   m_CompositePaths:
-    m_Paths: []
+    m_Paths:
+    - - {x: -4.6562104, y: -0.2098143}
+      - {x: -4.6562104, y: 1.10535}
+      - {x: -5.332665, y: 1.1052914}
+      - {x: -5.3326063, y: -0.2098143}
+    - - {x: -1.8501511, y: -1.4660255}
+      - {x: 0.30600712, y: -0.1868102}
+      - {x: -0.0592431, y: 0.4287161}
+      - {x: -2.0589252, y: -0.7576826}
+      - {x: -3.3050203, y: -0.2029431}
+      - {x: -3.535224, y: -0.7198659}
+      - {x: -3.5352535, y: -0.2125122}
+      - {x: -5.0083733, y: -0.2125708}
+      - {x: -5.0083146, y: -0.7624504}
+      - {x: -3.535224, y: -0.76242113}
+      - {x: -3.5351784, y: -0.725367}
+      - {x: -1.9718208, y: -1.4213864}
+      - {x: -1.9309793, y: -1.3297871}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
+--- !u!114 &2126465542630126481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5631986109672672483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 109a9c1475b14de4bad66ff8945127c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _collider: {fileID: 3872992614470362515}
+  fillType: 0
 --- !u!1 &7404662523581043775
 GameObject:
   m_ObjectHideFlags: 0
