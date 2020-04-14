@@ -8,9 +8,9 @@ Audio Bus	ID	Name			Wwise Object Path	Notes
 	3948848313	FX BUS			\Default Work Unit\Master Audio Bus\Enviroment\FX BUS	
 
 Auxiliary Bus	ID	Name			Wwise Object Path	Notes
-	1485871687	MainRoom			\Default Work Unit\Master Audio Bus\Enviroment\MainRoom	
-	2608711957	LowerRoom			\Default Work Unit\Master Audio Bus\Enviroment\LowerRoom	
-	2902541986	UpperRoom			\Default Work Unit\Master Audio Bus\Enviroment\UpperRoom	
+	1485871687	MainRoom			\Default Work Unit\Master Audio Bus\Enviroment\FX BUS\MainRoom	
+	2608711957	LowerRoom			\Default Work Unit\Master Audio Bus\Enviroment\FX BUS\LowerRoom	
+	2902541986	UpperRoom			\Default Work Unit\Master Audio Bus\Enviroment\FX BUS\UpperRoom	
 
 Effect plug-ins	ID	Name	Type				Notes
 	325812821	Aluminium_Tank_(Custom)	Wwise RoomVerb			

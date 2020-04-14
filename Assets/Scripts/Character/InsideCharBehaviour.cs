@@ -12,9 +12,11 @@ namespace NBLD.Character
         public float moveSpeed;
         public float transportSpeed = 5f;
         private bool isTransporting;
+        private bool transportInCorrectX;
         private float transportMinOffset = 0.1f;
         private Transform transportDestination;
         private Vector2 currentMovement = Vector2.zero;
+        private int currentFloor = 1;
 
         private bool lockedByTransport;
 
@@ -24,10 +26,12 @@ namespace NBLD.Character
 
         private void Update()
         {
-            UpdateMovement();
+            if (!lockedByTransport)
+            {
+                UpdateMovement(GetCurrentMoveDirection());
+            }
             UpdateTransport();
 
-            AnimateMovement();
         }
         //Animations
         private void AnimateMovement()
@@ -37,16 +41,14 @@ namespace NBLD.Character
             if (moveDirection != 0)
             {
                 spriteRenderer.flipX = moveDirection > 0;
+                //charAudio.PlayFootsteps();
             }
-            animator.SetBool(moveVerAnimName, isTransporting);
         }
         //Movement
-        private void UpdateMovement()
+        private void UpdateMovement(int direction)
         {
-            if (!lockedByTransport)
-            {
-                transform.Translate(Vector3.right * GetCurrentMoveDirection() * moveSpeed * Time.deltaTime);
-            }
+            transform.Translate(Vector3.right * direction * moveSpeed * Time.deltaTime);
+            AnimateMovement();
         }
         private int GetCurrentMoveDirection()
         {
@@ -54,26 +56,52 @@ namespace NBLD.Character
         }
 
         //Transport
-        public void TransportTo(Transform destination)
+        public void TransportToFloor(int newFloor, Transform destination)
         {
             lockedByTransport = true;
             isTransporting = true;
+            transportInCorrectX = false;
             transportDestination = destination;
+            if (newFloor > currentFloor)
+            {
+                charAudio.PlayLadderAsc();
+            } else
+            {
+                charAudio.PlayerLadderDsc();
+            }
+            currentFloor = newFloor;
+            charAudio.SetEnvironmentBasedOnFloor(currentFloor);
         }
 
         private void UpdateTransport()
         {
             if (isTransporting)
             {
-                if (Vector3.Distance(transportDestination.position, transform.position) <= transportMinOffset)
+                if (!transportInCorrectX)
                 {
-                    transform.position = transportDestination.position;
-                    isTransporting = false;
-                    lockedByTransport = false;
-                }
-                else
+                    float xDistance = transportDestination.position.x - transform.position.x;
+                    if (Mathf.Abs(xDistance) <= transportMinOffset)
+                    {
+                        transform.position = new Vector2(transportDestination.position.x, transform.position.y);
+                        transportInCorrectX = true;
+                    } else
+                    {
+                        UpdateMovement((int)Mathf.Sign(xDistance));
+                    }
+                    return;
+                } else
                 {
-                    transform.Translate((transportDestination.position - transform.position).normalized * transportSpeed * Time.deltaTime);
+                    if (Vector3.Distance(transportDestination.position, transform.localPosition) <= transportMinOffset)
+                    {
+                        transform.position = transportDestination.position;
+                        isTransporting = false;
+                        lockedByTransport = false;
+                    }
+                    else
+                    {
+                        transform.Translate((transportDestination.position - transform.position).normalized * transportSpeed * Time.deltaTime);
+                    }
+                    animator.SetBool(moveVerAnimName, isTransporting);
                 }
             }
         }
@@ -110,6 +138,12 @@ namespace NBLD.Character
             base.OnDown();
             Debug.Log("Down Action");
             TryExecuteAction(UseActionButton.Down);
+        }
+
+        //Audio
+        public void AudioPlayFootstep()
+        {
+            charAudio.PlayFootstep();
         }
     }
 }

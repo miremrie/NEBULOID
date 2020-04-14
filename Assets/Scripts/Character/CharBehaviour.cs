@@ -1,4 +1,5 @@
-﻿using NBLD.UseActions;
+﻿using NBLD.Audio;
+using NBLD.UseActions;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,13 +12,15 @@ namespace NBLD.Character
         public CharController charController { get; protected set; }
         protected SpriteRenderer spriteRenderer;
         protected Rigidbody2D rb2D;
+        protected CharAudioController charAudio;
 
-        public void Initialize(CharController charController, Rigidbody2D rigidbody, SpriteRenderer spriteRenderer, Animator animator)
+        public void Initialize(CharController charController, Rigidbody2D rigidbody, SpriteRenderer spriteRenderer, Animator animator, CharAudioController charAudio)
         {
             this.animator = animator;
             this.charController = charController;
             this.spriteRenderer = spriteRenderer;
             this.rb2D = rigidbody;
+            this.charAudio = charAudio;
         }
 
         public virtual void ExecuteAction(UseAction action)

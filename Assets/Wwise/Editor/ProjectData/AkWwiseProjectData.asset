@@ -24,7 +24,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: e7d3747a64799c47a2d6f5b9ddeab36a
     GuidInternal: 
-    m_lastTime: -8586155151959364265
+    m_lastTime: -8586147404064257742
     List:
     - name: Clean BUS
       guid: a6a33b2d6777a54ca2cd71456f48764b
@@ -37,6 +37,17 @@ MonoBehaviour:
       - ElementName: Clean BUS
         ObjectType: 2
       Path: Default Work Unit\Master Audio Bus\Clean BUS
+    - name: Enviroment
+      guid: 51f8e4ffbff8134ab566adb0f23554ab
+      id: 3909959462
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+      - ElementName: Enviroment
+        ObjectType: 2
+      Path: Default Work Unit\Master Audio Bus\Enviroment
     - name: FX BUS
       guid: 6a1d07859056434aa6c4a15f1f14b8bd
       id: 3948848313
@@ -45,9 +56,37 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: Master Audio Bus
         ObjectType: 2
+      - ElementName: Enviroment
+        ObjectType: 2
       - ElementName: FX BUS
         ObjectType: 2
-      Path: Default Work Unit\Master Audio Bus\FX BUS
+      Path: Default Work Unit\Master Audio Bus\Enviroment\FX BUS
+    - name: LowerRoom
+      guid: a67ad28c95ab3c449831ff24494caacc
+      id: 2608711957
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+      - ElementName: Enviroment
+        ObjectType: 2
+      - ElementName: LowerRoom
+        ObjectType: 1
+      Path: Default Work Unit\Master Audio Bus\Enviroment\LowerRoom
+    - name: MainRoom
+      guid: e1e42a46f98cc443bcf70d260a4d9a35
+      id: 1485871687
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+      - ElementName: Enviroment
+        ObjectType: 2
+      - ElementName: MainRoom
+        ObjectType: 1
+      Path: Default Work Unit\Master Audio Bus\Enviroment\MainRoom
     - name: Master Audio Bus
       guid: d8a41415a61d2a41a17e75ca0c2149f3
       id: 3803692087
@@ -57,12 +96,25 @@ MonoBehaviour:
       - ElementName: Master Audio Bus
         ObjectType: 2
       Path: Default Work Unit\Master Audio Bus
+    - name: UpperRoom
+      guid: 92c69bdcd8e8664c9091a0169006ba98
+      id: 2902541986
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+      - ElementName: Enviroment
+        ObjectType: 2
+      - ElementName: UpperRoom
+        ObjectType: 1
+      Path: Default Work Unit\Master Audio Bus\Enviroment\UpperRoom
   BankWwu:
   - PhysicalPath: SoundBanks\Default Work Unit.wwu
     ParentPath: Default Work Unit
     guid: bd999b8dad637f45917793b0e20362cb
     GuidInternal: 
-    m_lastTime: -8586155167842885824
+    m_lastTime: -8586147404062095531
     List:
     - name: Default
       guid: a5e3873e1289a74a9f54a7ab1a7ee310
@@ -78,7 +130,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 8e8fc2d5bfaacf4f92fdf483cd07cba9
     GuidInternal: 
-    m_lastTime: -8586155151962674311
+    m_lastTime: -8586147404081566305
     List:
     - name: Cable
       guid: 33b062edfdd3904a880b493db2abde14
@@ -113,6 +165,24 @@ MonoBehaviour:
       - ElementName: Claw
         ObjectType: 3
       Path: Default Work Unit\Movement\Hook\Claw\Claw
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Footsteps
+      guid: e86d70c965f68547ba15b59154b6ee1e
+      id: 2385628198
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Movement
+        ObjectType: 4
+      - ElementName: Hook
+        ObjectType: 4
+      - ElementName: Footsteps
+        ObjectType: 4
+      - ElementName: Footsteps
+        ObjectType: 3
+      Path: Default Work Unit\Movement\Hook\Footsteps\Footsteps
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -244,6 +314,60 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 175890
       minDuration: 175890
+    - name: Play_Footsteps_Dsc
+      guid: 04e59da1e9d2f0459b7861654aa7f308
+      id: 3354998756
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Movement
+        ObjectType: 4
+      - ElementName: Hook
+        ObjectType: 4
+      - ElementName: Footsteps
+        ObjectType: 4
+      - ElementName: Play_Footsteps_Dsc
+        ObjectType: 3
+      Path: Default Work Unit\Movement\Hook\Footsteps\Play_Footsteps_Dsc
+      maxAttenuation: 0
+      maxDuration: 375395
+      minDuration: 222744
+    - name: Play_Footsteps_Ladder_Asc
+      guid: 9bba89febdb7914491c0e9769dd29b3d
+      id: 2002520244
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Movement
+        ObjectType: 4
+      - ElementName: Hook
+        ObjectType: 4
+      - ElementName: Footsteps
+        ObjectType: 4
+      - ElementName: Play_Footsteps_Ladder_Asc
+        ObjectType: 3
+      Path: Default Work Unit\Movement\Hook\Footsteps\Play_Footsteps_Ladder_Asc
+      maxAttenuation: 0
+      maxDuration: 393479
+      minDuration: 261519
+    - name: Play_Footsteps_Main
+      guid: bd9f12f7d75b6346967195e0facacbf4
+      id: 3571136941
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Movement
+        ObjectType: 4
+      - ElementName: Hook
+        ObjectType: 4
+      - ElementName: Footsteps
+        ObjectType: 4
+      - ElementName: Play_Footsteps_Main
+        ObjectType: 3
+      Path: Default Work Unit\Movement\Hook\Footsteps\Play_Footsteps_Main
+      maxAttenuation: 0
+      maxDuration: 348018
+      minDuration: 268844
     - name: Play_Fuel_Refill
       guid: 06ab10e1e1a94541ac12a71dfe05cbbd
       id: 2045110701
@@ -282,8 +406,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Play_Gameplay_Music
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Play_Gun_Shot
       guid: bb45fba0eddeeb498ef534d8791bd7ab
       id: 4270212347
@@ -443,7 +567,7 @@ MonoBehaviour:
       - ElementName: Play_Sonar
         ObjectType: 3
       Path: Default Work Unit\Notifications\Play_Sonar
-      maxAttenuation: 1000000
+      maxAttenuation: 15000000
       maxDuration: -1
       minDuration: -1
     - name: Stop_Alarm
@@ -543,7 +667,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 98ae5790858eda4ab4bc84449375c967
     GuidInternal: 
-    m_lastTime: -8586155151962664305
+    m_lastTime: -8586150840062640766
     List:
     - name: Fuel_Amount
       guid: 60c838c716dae346aec036d08c5b6455
@@ -584,8 +708,39 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 3fd3c2bfe0a79341a8fed3c6dcfda912
     GuidInternal: 
-    m_lastTime: -8586161168572919826
-    List: []
+    m_lastTime: -8586147404062055540
+    List:
+    - name: Floor_Type
+      guid: 76c6298fefaadf40aac69ca40161b320
+      id: 4168292868
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Floor_Type
+        ObjectType: 11
+      Path: Default Work Unit\Floor_Type
+      values:
+      - name: Floor
+        guid: 6ae242d9c5734d4a8de4d3c2aff738dc
+        id: 1088209313
+        PathAndIcons:
+        - ElementName: Floor
+          ObjectType: 10
+      - name: Ladder_Asc
+        guid: 100c608196be6442bd248df663ad5cd2
+        id: 35681451
+        PathAndIcons:
+        - ElementName: Ladder_Asc
+          ObjectType: 10
+      - name: Ladder_Dsc
+        guid: 4d33c26baad77545ac467c95de5a2fb0
+        id: 4196972182
+        PathAndIcons:
+        - ElementName: Ladder_Dsc
+          ObjectType: 10
+      ValueGuids: []
+      ValueIcons: []
+      valuesInternal: []
   TriggerWwu:
   - PhysicalPath: Triggers\Default Work Unit.wwu
     ParentPath: Default Work Unit
@@ -595,13 +750,15 @@ MonoBehaviour:
     List: []
   ExpandedItems:
   - /NEBULOID_WwiseProject
+  - /NEBULOID_WwiseProject/Auxiliary Busses
+  - /NEBULOID_WwiseProject/Auxiliary Busses/Default Work Unit
+  - /NEBULOID_WwiseProject/Auxiliary Busses/Default Work Unit/Master Audio Bus
+  - /NEBULOID_WwiseProject/Auxiliary Busses/Default Work Unit/Master Audio Bus/Enviroment
   - /NEBULOID_WwiseProject/Events
   - /NEBULOID_WwiseProject/Events/Default Work Unit
-  - /NEBULOID_WwiseProject/Events/Default Work Unit/Hits
   - /NEBULOID_WwiseProject/Events/Default Work Unit/Movement
   - /NEBULOID_WwiseProject/Events/Default Work Unit/Movement/Hook
-  - /NEBULOID_WwiseProject/Events/Default Work Unit/Movement/Hook/Cable
-  - /NEBULOID_WwiseProject/Events/Default Work Unit/Movement/Hook/Claw
+  - /NEBULOID_WwiseProject/Events/Default Work Unit/Movement/Hook/Footsteps
   - /NEBULOID_WwiseProject/Events/Default Work Unit/Notifications
   - /NEBULOID_WwiseProject/Events/Default Work Unit/UI
   autoPopulateEnabled: 1

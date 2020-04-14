@@ -197,43 +197,43 @@
 										</Event>
 									</ChildrenList>
 								</Folder>
-								<Folder Name="Footsteps" ID="{C9706DE8-F665-4785-BA15-B59154B6EE1E}" ShortID="652405010">
+							</ChildrenList>
+						</Folder>
+						<Folder Name="Footsteps" ID="{C9706DE8-F665-4785-BA15-B59154B6EE1E}" ShortID="652405010">
+							<ChildrenList>
+								<Event Name="Play_Footsteps_Main" ID="{F7129FBD-5BD7-4663-9671-95E0FACACBF4}">
 									<ChildrenList>
-										<Event Name="Play_Footsteps_Main" ID="{F7129FBD-5BD7-4663-9671-95E0FACACBF4}">
-											<ChildrenList>
-												<Action Name="" ID="{A41924D7-99A3-40B9-B410-DE8C10CFB23B}" ShortID="723131096">
-													<ReferenceList>
-														<Reference Name="Target">
-															<ObjectRef Name="FootstepsMain" ID="{4B2686D6-ACB5-4CE2-B5CF-C2E1FAC9A65D}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
-														</Reference>
-													</ReferenceList>
-												</Action>
-											</ChildrenList>
-										</Event>
-										<Event Name="Play_Footsteps_Ladder_Asc" ID="{FE89BA9B-B7BD-4491-91C0-E9769DD29B3D}">
-											<ChildrenList>
-												<Action Name="" ID="{9F9BE6EA-B0A3-43ED-9D3D-60BA9154F336}" ShortID="904305362">
-													<ReferenceList>
-														<Reference Name="Target">
-															<ObjectRef Name="FootstepsLadderAsc" ID="{526880C5-F736-4601-8744-FCE67D40EED7}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
-														</Reference>
-													</ReferenceList>
-												</Action>
-											</ChildrenList>
-										</Event>
-										<Event Name="Play_Footsteps_Dsc" ID="{A19DE504-D2E9-45F0-9B78-61654AA7F308}">
-											<ChildrenList>
-												<Action Name="" ID="{AEB8680A-79EF-4E3A-9986-D4DC48ECC486}" ShortID="950785108">
-													<ReferenceList>
-														<Reference Name="Target">
-															<ObjectRef Name="FootstepsLadderDsc" ID="{D197A650-7AA4-4F06-BAC3-90DE724BDC50}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
-														</Reference>
-													</ReferenceList>
-												</Action>
-											</ChildrenList>
-										</Event>
+										<Action Name="" ID="{A41924D7-99A3-40B9-B410-DE8C10CFB23B}" ShortID="723131096">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="FootstepsMain" ID="{4B2686D6-ACB5-4CE2-B5CF-C2E1FAC9A65D}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
 									</ChildrenList>
-								</Folder>
+								</Event>
+								<Event Name="Play_Footsteps_Ladder_Asc" ID="{FE89BA9B-B7BD-4491-91C0-E9769DD29B3D}">
+									<ChildrenList>
+										<Action Name="" ID="{9F9BE6EA-B0A3-43ED-9D3D-60BA9154F336}" ShortID="904305362">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="FootstepsLadderAsc" ID="{526880C5-F736-4601-8744-FCE67D40EED7}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Footsteps_Dsc" ID="{A19DE504-D2E9-45F0-9B78-61654AA7F308}">
+									<ChildrenList>
+										<Action Name="" ID="{AEB8680A-79EF-4E3A-9986-D4DC48ECC486}" ShortID="950785108">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="FootstepsLadderDsc" ID="{D197A650-7AA4-4F06-BAC3-90DE724BDC50}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
 							</ChildrenList>
 						</Folder>
 					</ChildrenList>

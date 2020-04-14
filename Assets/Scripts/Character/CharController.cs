@@ -17,6 +17,8 @@ namespace NBLD.Character
     public class CharController : MonoBehaviour
     {
         public ShipSystems.ShipMovement ship;
+        public Audio.CharAudioController charAudio;
+
         [Header("Input")]
         public CharInputManager charInputManager;
 
@@ -58,10 +60,11 @@ namespace NBLD.Character
         public void Start()
         {
             charInputManager.RegisterController(this);
-            insideBehaviour.Initialize(this, rb2D, charSpriteRenderer, animator);
-            outsideBehaviour.Initialize(this, rb2D, charSpriteRenderer, animator);
+            insideBehaviour.Initialize(this, rb2D, charSpriteRenderer, animator, charAudio);
+            outsideBehaviour.Initialize(this, rb2D, charSpriteRenderer, animator, charAudio);
             outsideBehaviour.enabled = false;
             ChangeState(CharacterState.Inside);
+            charAudio.SetEnvironmentBasedOnFloor(1);
         }
 
         private void Update()

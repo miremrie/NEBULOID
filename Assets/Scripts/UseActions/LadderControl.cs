@@ -7,11 +7,12 @@ namespace NBLD.UseActions
 {
     public class LadderControl : InsideUseAction
     {
-        public Transform otherSide;
+        public int destinationFloor;
+        public Transform destination;
 
         public override void DoAction(InsideCharBehaviour controller)
         {
-            controller.TransportTo(otherSide);
+            controller.TransportToFloor(destinationFloor, destination);
         }
     }
 }

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="135">
 	<RootPaths>
-		<ProjectRoot>D:\Unity\NEBULOID\NEBULOID_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>D:\Unity\NEBULOID\NEBULOID_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>D:\Unity\NEBULOID\NEBULOID_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -64,7 +64,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3354998756" Name="Play_Footsteps_Dsc" ObjectPath="\Events\Default Work Unit\Movement\Hook\Footsteps\Play_Footsteps_Dsc" DurationType="OneShot" DurationMin="0.222744" DurationMax="0.375395">
+				<Event Id="3354998756" Name="Play_Footsteps_Dsc" ObjectPath="\Events\Default Work Unit\Movement\Footsteps\Play_Footsteps_Dsc" DurationType="OneShot" DurationMin="0.222744" DurationMax="0.375395">
 					<IncludedMemoryFiles>
 						<File Id="24182909" Language="SFX">
 							<ShortName>FootstepsLadderDsc\LadderDsc-7.wav</ShortName>
@@ -108,7 +108,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2002520244" Name="Play_Footsteps_Ladder_Asc" ObjectPath="\Events\Default Work Unit\Movement\Hook\Footsteps\Play_Footsteps_Ladder_Asc" DurationType="OneShot" DurationMin="0.261519" DurationMax="0.393479">
+				<Event Id="2002520244" Name="Play_Footsteps_Ladder_Asc" ObjectPath="\Events\Default Work Unit\Movement\Footsteps\Play_Footsteps_Ladder_Asc" DurationType="OneShot" DurationMin="0.261519" DurationMax="0.393479">
 					<IncludedMemoryFiles>
 						<File Id="126468548" Language="SFX">
 							<ShortName>Footsteps LadderAsc\LadderAsc-8.wav</ShortName>
@@ -152,7 +152,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3571136941" Name="Play_Footsteps_Main" ObjectPath="\Events\Default Work Unit\Movement\Hook\Footsteps\Play_Footsteps_Main" DurationType="OneShot" DurationMin="0.268844" DurationMax="0.348018">
+				<Event Id="3571136941" Name="Play_Footsteps_Main" ObjectPath="\Events\Default Work Unit\Movement\Footsteps\Play_Footsteps_Main" DurationType="OneShot" DurationMin="0.268844" DurationMax="0.348018">
 					<IncludedMemoryFiles>
 						<File Id="20945893" Language="SFX">
 							<ShortName>FootstepsMain\FootMain-2.wav</ShortName>
@@ -402,9 +402,9 @@
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<IncludedAuxBusses>
-				<AuxBus Id="1485871687" Name="MainRoom" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Enviroment\MainRoom"/>
-				<AuxBus Id="2608711957" Name="LowerRoom" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Enviroment\LowerRoom"/>
-				<AuxBus Id="2902541986" Name="UpperRoom" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Enviroment\UpperRoom"/>
+				<AuxBus Id="1485871687" Name="MainRoom" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Enviroment\FX BUS\MainRoom"/>
+				<AuxBus Id="2608711957" Name="LowerRoom" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Enviroment\FX BUS\LowerRoom"/>
+				<AuxBus Id="2902541986" Name="UpperRoom" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Enviroment\FX BUS\UpperRoom"/>
 			</IncludedAuxBusses>
 			<GameParameters>
 				<GameParameter Id="3548314952" Name="Fuel_Amount" ObjectPath="\Game Parameters\Default Work Unit\Fuel_Amount"/>

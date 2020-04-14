@@ -63,75 +63,77 @@
 											<ObjectRef Name="System" ID="{BAC968B1-16A5-4B3B-AED6-486F5DCDF7F8}" WorkUnitID="{2FE02B63-2D50-4E82-B518-4B5A48B2E827}"/>
 										</Reference>
 									</ReferenceList>
+									<ChildrenList>
+										<AuxBus Name="UpperRoom" ID="{DC9BC692-E8D8-4C66-9091-A0169006BA98}">
+											<ReferenceList>
+												<Reference Name="Effect0">
+													<Custom CreatedFrom="{0D20C91A-F750-47E0-AE32-00E5F2AA1272}">
+														<Effect Name="Aluminium_Tank_(Custom)" ID="{AAB4B6FA-6384-4A26-85A7-16C90EA5DB23}" ShortID="862966650" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
+															<PropertyList>
+																<Property Name="DecayTime" Type="Real32" Value="1.5"/>
+																<Property Name="Density" Type="Real32" Value="100"/>
+																<Property Name="Diffusion" Type="Real32" Value="53"/>
+																<Property Name="DryLevel" Type="Real32" Value="-4.3"/>
+																<Property Name="ERFrontBackDelay" Type="Real32" Value="4"/>
+																<Property Name="ERLevel" Type="Real32" Value="-6"/>
+																<Property Name="ERPattern" Type="int32" Value="30"/>
+																<Property Name="Filter1Freq" Type="Real32" Value="490"/>
+																<Property Name="Filter2Freq" Type="Real32" Value="2200"/>
+																<Property Name="Filter2InsertPos" Type="int32" Value="0"/>
+																<Property Name="Filter2Q" Type="Real32" Value="0.1"/>
+																<Property Name="Filter3Freq" Type="Real32" Value="15000"/>
+																<Property Name="Filter3Gain" Type="Real32" Value="-3.5"/>
+																<Property Name="HFDamping" Type="Real32" Value="10"/>
+																<Property Name="PreDelay" Type="Real32" Value="83"/>
+																<Property Name="Quality" Type="int32" Value="6"/>
+																<Property Name="ReverbLevel" Type="Real32" Value="-19"/>
+																<Property Name="RoomSize" Type="Real32" Value="3"/>
+																<Property Name="StereoWidth" Type="Real32" Value="130"/>
+															</PropertyList>
+														</Effect>
+													</Custom>
+												</Reference>
+											</ReferenceList>
+										</AuxBus>
+										<AuxBus Name="LowerRoom" ID="{8CD27AA6-AB95-443C-9831-FF24494CAACC}">
+											<ReferenceList>
+												<Reference Name="Effect0" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
+													<ObjectRef Name="Aluminium_Tank" ID="{0D20C91A-F750-47E0-AE32-00E5F2AA1272}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+												</Reference>
+											</ReferenceList>
+										</AuxBus>
+										<AuxBus Name="MainRoom" ID="{462AE4E1-8CF9-43C4-BCF7-0D260A4D9A35}">
+											<ReferenceList>
+												<Reference Name="Effect0">
+													<Custom CreatedFrom="{0D20C91A-F750-47E0-AE32-00E5F2AA1272}">
+														<Effect Name="Aluminium_Tank_(Custom)" ID="{8A0524B7-46C9-4AB3-BD3D-923FE7BF79B5}" ShortID="325812821" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
+															<PropertyList>
+																<Property Name="DecayTime" Type="Real32" Value="10"/>
+																<Property Name="Density" Type="Real32" Value="100"/>
+																<Property Name="Diffusion" Type="Real32" Value="53"/>
+																<Property Name="DryLevel" Type="Real32" Value="-5.3"/>
+																<Property Name="ERLevel" Type="Real32" Value="-11"/>
+																<Property Name="ERPattern" Type="int32" Value="30"/>
+																<Property Name="Filter1Freq" Type="Real32" Value="490"/>
+																<Property Name="Filter2Freq" Type="Real32" Value="2200"/>
+																<Property Name="Filter2InsertPos" Type="int32" Value="0"/>
+																<Property Name="Filter2Q" Type="Real32" Value="0.1"/>
+																<Property Name="Filter3Freq" Type="Real32" Value="15000"/>
+																<Property Name="Filter3Gain" Type="Real32" Value="-3.5"/>
+																<Property Name="HFDamping" Type="Real32" Value="10"/>
+																<Property Name="PreDelay" Type="Real32" Value="38"/>
+																<Property Name="Quality" Type="int32" Value="6"/>
+																<Property Name="ReverbLevel" Type="Real32" Value="-15"/>
+																<Property Name="RoomSize" Type="Real32" Value="49"/>
+																<Property Name="StereoWidth" Type="Real32" Value="130"/>
+															</PropertyList>
+														</Effect>
+													</Custom>
+												</Reference>
+											</ReferenceList>
+										</AuxBus>
+									</ChildrenList>
 								</Bus>
-								<AuxBus Name="MainRoom" ID="{462AE4E1-8CF9-43C4-BCF7-0D260A4D9A35}">
-									<ReferenceList>
-										<Reference Name="Effect0">
-											<Custom CreatedFrom="{0D20C91A-F750-47E0-AE32-00E5F2AA1272}">
-												<Effect Name="Aluminium_Tank_(Custom)" ID="{8A0524B7-46C9-4AB3-BD3D-923FE7BF79B5}" ShortID="325812821" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
-													<PropertyList>
-														<Property Name="DecayTime" Type="Real32" Value="10"/>
-														<Property Name="Density" Type="Real32" Value="100"/>
-														<Property Name="Diffusion" Type="Real32" Value="53"/>
-														<Property Name="DryLevel" Type="Real32" Value="-5.3"/>
-														<Property Name="ERLevel" Type="Real32" Value="-11"/>
-														<Property Name="ERPattern" Type="int32" Value="30"/>
-														<Property Name="Filter1Freq" Type="Real32" Value="490"/>
-														<Property Name="Filter2Freq" Type="Real32" Value="2200"/>
-														<Property Name="Filter2InsertPos" Type="int32" Value="0"/>
-														<Property Name="Filter2Q" Type="Real32" Value="0.1"/>
-														<Property Name="Filter3Freq" Type="Real32" Value="15000"/>
-														<Property Name="Filter3Gain" Type="Real32" Value="-3.5"/>
-														<Property Name="HFDamping" Type="Real32" Value="10"/>
-														<Property Name="PreDelay" Type="Real32" Value="38"/>
-														<Property Name="Quality" Type="int32" Value="6"/>
-														<Property Name="ReverbLevel" Type="Real32" Value="-19"/>
-														<Property Name="RoomSize" Type="Real32" Value="49"/>
-														<Property Name="StereoWidth" Type="Real32" Value="130"/>
-													</PropertyList>
-												</Effect>
-											</Custom>
-										</Reference>
-									</ReferenceList>
-								</AuxBus>
-								<AuxBus Name="UpperRoom" ID="{DC9BC692-E8D8-4C66-9091-A0169006BA98}">
-									<ReferenceList>
-										<Reference Name="Effect0">
-											<Custom CreatedFrom="{0D20C91A-F750-47E0-AE32-00E5F2AA1272}">
-												<Effect Name="Aluminium_Tank_(Custom)" ID="{AAB4B6FA-6384-4A26-85A7-16C90EA5DB23}" ShortID="862966650" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
-													<PropertyList>
-														<Property Name="DecayTime" Type="Real32" Value="1.5"/>
-														<Property Name="Density" Type="Real32" Value="100"/>
-														<Property Name="Diffusion" Type="Real32" Value="53"/>
-														<Property Name="DryLevel" Type="Real32" Value="-4.3"/>
-														<Property Name="ERFrontBackDelay" Type="Real32" Value="4"/>
-														<Property Name="ERLevel" Type="Real32" Value="-6"/>
-														<Property Name="ERPattern" Type="int32" Value="30"/>
-														<Property Name="Filter1Freq" Type="Real32" Value="490"/>
-														<Property Name="Filter2Freq" Type="Real32" Value="2200"/>
-														<Property Name="Filter2InsertPos" Type="int32" Value="0"/>
-														<Property Name="Filter2Q" Type="Real32" Value="0.1"/>
-														<Property Name="Filter3Freq" Type="Real32" Value="15000"/>
-														<Property Name="Filter3Gain" Type="Real32" Value="-3.5"/>
-														<Property Name="HFDamping" Type="Real32" Value="10"/>
-														<Property Name="PreDelay" Type="Real32" Value="83"/>
-														<Property Name="Quality" Type="int32" Value="6"/>
-														<Property Name="ReverbLevel" Type="Real32" Value="-19"/>
-														<Property Name="RoomSize" Type="Real32" Value="3"/>
-														<Property Name="StereoWidth" Type="Real32" Value="130"/>
-													</PropertyList>
-												</Effect>
-											</Custom>
-										</Reference>
-									</ReferenceList>
-								</AuxBus>
-								<AuxBus Name="LowerRoom" ID="{8CD27AA6-AB95-443C-9831-FF24494CAACC}">
-									<ReferenceList>
-										<Reference Name="Effect0" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
-											<ObjectRef Name="Aluminium_Tank" ID="{0D20C91A-F750-47E0-AE32-00E5F2AA1272}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
-										</Reference>
-									</ReferenceList>
-								</AuxBus>
 							</ChildrenList>
 						</Bus>
 					</ChildrenList>

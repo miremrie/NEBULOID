@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="12" SoundbankVersion="135">
 	<RootPaths>
-		<ProjectRoot>D:\Unity\NEBULOID\NEBULOID_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\</SourceFilesRoot>
-		<SoundBanksRoot>D:\Unity\NEBULOID\NEBULOID_WwiseProject\GeneratedSoundBanks\Mac\</SoundBanksRoot>
+		<ProjectRoot>D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\</SourceFilesRoot>
+		<SoundBanksRoot>D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\GeneratedSoundBanks\Mac\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>D:\Unity\NEBULOID\NEBULOID_WwiseProject\GeneratedSoundBanks\Mac</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\GeneratedSoundBanks\Mac</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -402,9 +402,9 @@
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<IncludedAuxBusses>
-				<AuxBus Id="1485871687" Name="MainRoom" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Enviroment\MainRoom"/>
-				<AuxBus Id="2608711957" Name="LowerRoom" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Enviroment\LowerRoom"/>
-				<AuxBus Id="2902541986" Name="UpperRoom" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Enviroment\UpperRoom"/>
+				<AuxBus Id="1485871687" Name="MainRoom" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Enviroment\FX BUS\MainRoom"/>
+				<AuxBus Id="2608711957" Name="LowerRoom" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Enviroment\FX BUS\LowerRoom"/>
+				<AuxBus Id="2902541986" Name="UpperRoom" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Enviroment\FX BUS\UpperRoom"/>
 			</IncludedAuxBusses>
 			<GameParameters>
 				<GameParameter Id="3548314952" Name="Fuel_Amount" ObjectPath="\Game Parameters\Default Work Unit\Fuel_Amount"/>
