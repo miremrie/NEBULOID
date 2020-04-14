@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{BFC2D33F-A7E0-4193-A8FE-D3C6DCFDA912}" SchemaVersion="97">
 	<Switches>
-		<WorkUnit Name="Default Work Unit" ID="{BFC2D33F-A7E0-4193-A8FE-D3C6DCFDA912}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{BFC2D33F-A7E0-4193-A8FE-D3C6DCFDA912}" PersistMode="Standalone">
+			<ChildrenList>
+				<SwitchGroup Name="Floor_Type" ID="{8F29C676-AAEF-40DF-AAC6-9CA40161B320}">
+					<ChildrenList>
+						<Switch Name="Floor" ID="{D942E26A-73C5-4A4D-8DE4-D3C2AFF738DC}"/>
+						<Switch Name="Ladder_Asc" ID="{81600C10-BE96-4264-BD24-8DF663AD5CD2}"/>
+						<Switch Name="Ladder_Dsc" ID="{6BC2334D-D7AA-4575-AC46-7C95DE5A2FB0}"/>
+					</ChildrenList>
+				</SwitchGroup>
+			</ChildrenList>
+		</WorkUnit>
 	</Switches>
 </WwiseDocument>

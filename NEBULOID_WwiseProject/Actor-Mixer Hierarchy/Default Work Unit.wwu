@@ -1613,6 +1613,1710 @@
 						</RandomSequenceContainer>
 					</ChildrenList>
 				</Folder>
+				<ActorMixer Name="Player_02" ID="{93E31E52-0F4E-4292-94E6-EE228C0CF583}" ShortID="704820185">
+					<PropertyList>
+						<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
+						<Property Name="UserAuxSendVolume0" Type="Real64">
+							<ValueList>
+								<Value>2</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="FX BUS" ID="{85071D6A-5690-4A43-A6C4-A15F1F14B8BD}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+						</Reference>
+						<Reference Name="UserAuxSend0">
+							<ObjectRef Name="UpperRoom" ID="{DC9BC692-E8D8-4C66-9091-A0169006BA98}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<SwitchContainer Name="Footsteps" ID="{B835B7CB-D8DC-4CB9-B691-34BBD857677B}" ShortID="365807343">
+							<PropertyList>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>11</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{068E1309-0A68-468A-B53D-DE54435BFFED}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Min" Type="Real64" Value="-177"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+								</Reference>
+								<Reference Name="DefaultSwitchOrState">
+									<ObjectRef Name="Floor" ID="{D942E26A-73C5-4A4D-8DE4-D3C2AFF738DC}" WorkUnitID="{BFC2D33F-A7E0-4193-A8FE-D3C6DCFDA912}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+								</Reference>
+								<Reference Name="SwitchGroupOrStateGroup">
+									<ObjectRef Name="Floor_Type" ID="{8F29C676-AAEF-40DF-AAC6-9CA40161B320}" WorkUnitID="{BFC2D33F-A7E0-4193-A8FE-D3C6DCFDA912}"/>
+								</Reference>
+								<Reference Name="UserAuxSend0">
+									<ObjectRef Name="MainRoom" ID="{462AE4E1-8CF9-43C4-BCF7-0D260A4D9A35}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<RandomSequenceContainer Name="FootstepsLadderAsc" ID="{526880C5-F736-4601-8744-FCE67D40EED7}" ShortID="120911560">
+									<PropertyList>
+										<Property Name="Highpass" Type="int16">
+											<ValueList>
+												<Value>44</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Lowpass" Type="int16">
+											<ValueList>
+												<Value>19</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{3EA9054F-65D2-484F-9D20-17BB601E1620}">
+														<PropertyList>
+															<Property Name="Max" Type="Real64" Value="177"/>
+															<Property Name="Min" Type="Real64" Value="-152"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+										</Reference>
+										<Reference Name="UserAuxSend0">
+											<ObjectRef Name="MainRoom" ID="{462AE4E1-8CF9-43C4-BCF7-0D260A4D9A35}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="LadderAsc-1" ID="{C05F996E-16D7-43BF-884B-C1AC0691C2A0}" ShortID="1000368376">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="LadderAsc-1" ID="{2C59D78A-985F-426A-B17D-358ABC61EF2B}">
+													<Language>SFX</Language>
+													<AudioFile>Footsteps LadderAsc\LadderAsc-1.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="174540903"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="LadderAsc-1" ID="{2C59D78A-985F-426A-B17D-358ABC61EF2B}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="LadderAsc-2" ID="{7ACD45F3-2FDB-45C1-978A-16014FFE3BD6}" ShortID="718434206">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="LadderAsc-2" ID="{4646792E-D289-4CED-A34E-71857EFA594C}">
+													<Language>SFX</Language>
+													<AudioFile>Footsteps LadderAsc\LadderAsc-2.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="655215047"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="LadderAsc-2" ID="{4646792E-D289-4CED-A34E-71857EFA594C}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="LadderAsc-3" ID="{47A3B706-6630-441B-8B0F-14E2477D42B4}" ShortID="332034119">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="LadderAsc-3" ID="{0BED6108-F2D4-4FD4-8DD5-A5DB295CCCDC}">
+													<Language>SFX</Language>
+													<AudioFile>Footsteps LadderAsc\LadderAsc-3.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="505787587"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="LadderAsc-3" ID="{0BED6108-F2D4-4FD4-8DD5-A5DB295CCCDC}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="LadderAsc-4" ID="{C77A36E1-337E-4DE5-B36E-5A6D73920C99}" ShortID="992095436">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="LadderAsc-4" ID="{F12969E6-5E7F-4DF2-8BD1-629FE7E44649}">
+													<Language>SFX</Language>
+													<AudioFile>Footsteps LadderAsc\LadderAsc-4.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="1013121627"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="LadderAsc-4" ID="{F12969E6-5E7F-4DF2-8BD1-629FE7E44649}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="LadderAsc-5" ID="{14632B10-402D-4673-BD61-1B3082EBEEBE}" ShortID="563775462">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="LadderAsc-5" ID="{96615AEF-B099-40AA-8E6D-2D09157A940A}">
+													<Language>SFX</Language>
+													<AudioFile>Footsteps LadderAsc\LadderAsc-5.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="835062091"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="LadderAsc-5" ID="{96615AEF-B099-40AA-8E6D-2D09157A940A}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="LadderAsc-6" ID="{2BFF3DA7-7116-4205-8BE8-923885CBD74E}" ShortID="14457306">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="LadderAsc-6" ID="{CA671657-C6A8-4A3D-B173-423217BE8F11}">
+													<Language>SFX</Language>
+													<AudioFile>Footsteps LadderAsc\LadderAsc-6.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="439336671"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="LadderAsc-6" ID="{CA671657-C6A8-4A3D-B173-423217BE8F11}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="LadderAsc-7" ID="{A6CEDC64-4EAE-4F63-85AE-7C1498D10657}" ShortID="859411322">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="LadderAsc-7" ID="{67115101-93A3-4E16-BEAF-8A387024F2E7}">
+													<Language>SFX</Language>
+													<AudioFile>Footsteps LadderAsc\LadderAsc-7.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="305211617"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="LadderAsc-7" ID="{67115101-93A3-4E16-BEAF-8A387024F2E7}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="LadderAsc-8" ID="{3A63A556-400E-4F03-AA6D-5196A78FE029}" ShortID="585098750">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="LadderAsc-8" ID="{14A716D9-27E5-4447-8161-EFC6DCA780D0}">
+													<Language>SFX</Language>
+													<AudioFile>Footsteps LadderAsc\LadderAsc-8.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="126468548"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="LadderAsc-8" ID="{14A716D9-27E5-4447-8161-EFC6DCA780D0}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="LadderAsc-9" ID="{0257653E-D2BE-4E87-9994-AF1C6507EFA1}" ShortID="582984254">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="LadderAsc-9" ID="{354DE210-7CEE-4674-BC68-AC86F7545389}">
+													<Language>SFX</Language>
+													<AudioFile>Footsteps LadderAsc\LadderAsc-9.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="324184722"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="LadderAsc-9" ID="{354DE210-7CEE-4674-BC68-AC86F7545389}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="LadderAsc-91" ID="{C228784E-7C63-4F5E-805F-AD8AFFCAC164}" ShortID="558218218">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="LadderAsc-91" ID="{EDF3B2F9-0F61-44F2-8BD2-E505AE799DC4}">
+													<Language>SFX</Language>
+													<AudioFile>Footsteps LadderAsc\LadderAsc-91.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="566796927"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="LadderAsc-91" ID="{EDF3B2F9-0F61-44F2-8BD2-E505AE799DC4}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</RandomSequenceContainer>
+								<RandomSequenceContainer Name="FootstepsLadderDsc" ID="{D197A650-7AA4-4F06-BAC3-90DE724BDC50}" ShortID="856581417">
+									<PropertyList>
+										<Property Name="Highpass" Type="int16">
+											<ValueList>
+												<Value>46</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Lowpass" Type="int16">
+											<ValueList>
+												<Value>20</Value>
+											</ValueList>
+										</Property>
+										<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+										</Reference>
+										<Reference Name="UserAuxSend0">
+											<ObjectRef Name="MainRoom" ID="{462AE4E1-8CF9-43C4-BCF7-0D260A4D9A35}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="LadderDsc-1" ID="{ACF0F20E-CAE5-4F62-BD50-36DDC9A36108}" ShortID="968624360">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="LadderDsc-1" ID="{434F0890-07B6-4A08-B9C3-09B38FFF0FB4}">
+													<Language>SFX</Language>
+													<AudioFile>FootstepsLadderDsc\LadderDsc-1.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="750554884"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="LadderDsc-1" ID="{434F0890-07B6-4A08-B9C3-09B38FFF0FB4}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="LadderDsc-2" ID="{7BE8514B-40F2-47BB-8F98-5411E7F0352A}" ShortID="468994101">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="LadderDsc-2" ID="{F72E0BA6-97E2-40E9-94B2-A79D0201A898}">
+													<Language>SFX</Language>
+													<AudioFile>FootstepsLadderDsc\LadderDsc-2.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="324782420"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="LadderDsc-2" ID="{F72E0BA6-97E2-40E9-94B2-A79D0201A898}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="LadderDsc-3" ID="{07597B62-DAB8-4E1D-99AA-5495009DBA49}" ShortID="286237469">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="LadderDsc-3" ID="{4B1BBF3B-55F7-48AC-BC0D-20924D3FAC80}">
+													<Language>SFX</Language>
+													<AudioFile>FootstepsLadderDsc\LadderDsc-3.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="101292689"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="LadderDsc-3" ID="{4B1BBF3B-55F7-48AC-BC0D-20924D3FAC80}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="LadderDsc-4" ID="{0F074F79-8981-446D-A7FD-70A9CDFC696C}" ShortID="691108713">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="LadderDsc-4" ID="{82562F9D-407A-48EC-8A16-3948FF399AD9}">
+													<Language>SFX</Language>
+													<AudioFile>FootstepsLadderDsc\LadderDsc-4.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="680478364"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="LadderDsc-4" ID="{82562F9D-407A-48EC-8A16-3948FF399AD9}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="LadderDsc-5" ID="{66A8FC31-2E36-414F-B26B-1F66973B4724}" ShortID="937426244">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="LadderDsc-5" ID="{C95ACBF3-4227-4FD3-BB96-A8B4507D067B}">
+													<Language>SFX</Language>
+													<AudioFile>FootstepsLadderDsc\LadderDsc-5.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="765862514"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="LadderDsc-5" ID="{C95ACBF3-4227-4FD3-BB96-A8B4507D067B}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="LadderDsc-6" ID="{22568431-2296-407F-AAE4-D800534455AB}" ShortID="539639200">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="LadderDsc-6" ID="{D1B829BF-108C-4531-AEDE-8E95410BE667}">
+													<Language>SFX</Language>
+													<AudioFile>FootstepsLadderDsc\LadderDsc-6.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="590961326"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="LadderDsc-6" ID="{D1B829BF-108C-4531-AEDE-8E95410BE667}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="LadderDsc-7" ID="{5E323067-0181-4050-AA72-21052890FD68}" ShortID="761059242">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="LadderDsc-7" ID="{4A16F910-8D23-4107-A837-2E3936BE401D}">
+													<Language>SFX</Language>
+													<AudioFile>FootstepsLadderDsc\LadderDsc-7.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="24182909"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="LadderDsc-7" ID="{4A16F910-8D23-4107-A837-2E3936BE401D}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="LadderDsc-8" ID="{73331A47-0AA5-46B9-9F1A-59B877F1DEEB}" ShortID="177022233">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="LadderDsc-8" ID="{D4F2E10B-D165-46DF-B7E6-B9A007924A78}">
+													<Language>SFX</Language>
+													<AudioFile>FootstepsLadderDsc\LadderDsc-8.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="940568997"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="LadderDsc-8" ID="{D4F2E10B-D165-46DF-B7E6-B9A007924A78}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="LadderDsc-9" ID="{1ED43BA9-E2C4-4733-95F2-67B2E001CCD7}" ShortID="156158183">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="LadderDsc-9" ID="{5A668D8C-1009-4B1A-BBCD-6D12369E0C32}">
+													<Language>SFX</Language>
+													<AudioFile>FootstepsLadderDsc\LadderDsc-9.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="494277209"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="LadderDsc-9" ID="{5A668D8C-1009-4B1A-BBCD-6D12369E0C32}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="LadderDsc-91" ID="{08206BDA-5217-4397-B67D-D57AB6D54596}" ShortID="267340499">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="LadderDsc-91" ID="{026D385F-7E1D-4152-9B9A-D2FB03765CA0}">
+													<Language>SFX</Language>
+													<AudioFile>FootstepsLadderDsc\LadderDsc-91.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="197222373"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="LadderDsc-91" ID="{026D385F-7E1D-4152-9B9A-D2FB03765CA0}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</RandomSequenceContainer>
+								<RandomSequenceContainer Name="FootstepsMain" ID="{4B2686D6-ACB5-4CE2-B5CF-C2E1FAC9A65D}" ShortID="539359087">
+									<PropertyList>
+										<Property Name="Highpass" Type="int16">
+											<ValueList>
+												<Value>43</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Lowpass" Type="int16">
+											<ValueList>
+												<Value>27</Value>
+											</ValueList>
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{9EA72291-E5F3-49C3-A2B7-37E7DA974F8B}"/>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>4</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+										</Reference>
+										<Reference Name="UserAuxSend0">
+											<ObjectRef Name="MainRoom" ID="{462AE4E1-8CF9-43C4-BCF7-0D260A4D9A35}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="FootMain-1" ID="{0D4AD055-48F4-4F0A-8197-7FD85FFE0FD1}" ShortID="960149677">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="FootMain-1" ID="{D90C52EE-AFB1-4910-80F5-B443158C79A5}">
+													<Language>SFX</Language>
+													<AudioFile>FootstepsMain\FootMain-1.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="78273926"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="FootMain-1" ID="{D90C52EE-AFB1-4910-80F5-B443158C79A5}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="FootMain-2" ID="{78DA0CE4-1B6C-4C73-A06E-4CB8623AB41F}" ShortID="138633996">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="FootMain-2" ID="{403C155B-158A-4B4E-A100-1CF4CE223944}">
+													<Language>SFX</Language>
+													<AudioFile>FootstepsMain\FootMain-2.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="20945893"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="FootMain-2" ID="{403C155B-158A-4B4E-A100-1CF4CE223944}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="FootMain-3" ID="{A77F4F7B-2816-45FA-81D1-6659F3CA9C10}" ShortID="659628457">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="FootMain-3" ID="{AC372E1F-EC47-485F-95DC-BAA3D4DBCFD2}">
+													<Language>SFX</Language>
+													<AudioFile>FootstepsMain\FootMain-3.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="661249972"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="FootMain-3" ID="{AC372E1F-EC47-485F-95DC-BAA3D4DBCFD2}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="FootMain-4" ID="{F1326839-738E-4F9B-AB2E-916CC8C1795C}" ShortID="1049379161">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="FootMain-4" ID="{9BA2ED43-350D-49A9-AF39-DCC36072D420}">
+													<Language>SFX</Language>
+													<AudioFile>FootstepsMain\FootMain-4.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="294206905"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="FootMain-4" ID="{9BA2ED43-350D-49A9-AF39-DCC36072D420}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="FootMain-5" ID="{F8BB78FC-2C89-4094-ABEB-F4D78D020A7F}" ShortID="476856049">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="FootMain-5" ID="{9E75AC35-B28C-4944-96DF-46F6FCBA0942}">
+													<Language>SFX</Language>
+													<AudioFile>FootstepsMain\FootMain-5.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="530252190"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="FootMain-5" ID="{9E75AC35-B28C-4944-96DF-46F6FCBA0942}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="FootMain-6" ID="{5D00B16F-FE9F-4279-9B9E-770F8077AE54}" ShortID="449026500">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="FootMain-6" ID="{F4FAFD5B-51CE-45FE-B07D-20101076D611}">
+													<Language>SFX</Language>
+													<AudioFile>FootstepsMain\FootMain-6.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="133806398"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="FootMain-6" ID="{F4FAFD5B-51CE-45FE-B07D-20101076D611}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="FootMain-7" ID="{99D22A12-8760-4AE5-9EF2-D95D4DFF9233}" ShortID="760676541">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="FootMain-7" ID="{CBB125EC-75DA-4E4E-BA4C-3C7665C073C5}">
+													<Language>SFX</Language>
+													<AudioFile>FootstepsMain\FootMain-7.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="928490104"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="FootMain-7" ID="{CBB125EC-75DA-4E4E-BA4C-3C7665C073C5}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="FootMain-8" ID="{0E98828D-E223-4EF1-9C9B-0CF0760CA590}" ShortID="111242388">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="FootMain-8" ID="{B68AB651-312A-4C17-B42E-49689A22A4E5}">
+													<Language>SFX</Language>
+													<AudioFile>FootstepsMain\FootMain-8.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="311343295"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="FootMain-8" ID="{B68AB651-312A-4C17-B42E-49689A22A4E5}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="FootMain-9" ID="{E2269369-2DC8-4CB5-8C3B-ECAA011D5805}" ShortID="89601695">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="FootMain-9" ID="{469EA08F-3FB3-4946-B563-C7DB726CBFF7}">
+													<Language>SFX</Language>
+													<AudioFile>FootstepsMain\FootMain-9.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="241956040"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="FootMain-9" ID="{469EA08F-3FB3-4946-B563-C7DB726CBFF7}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="FootMain-91" ID="{C3C3B9E7-EFF1-431F-9BBB-E17ABB54F909}" ShortID="1050052463">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="FootMain-91" ID="{1045EE43-D75A-4ABE-BE91-5D5FF9A56EA0}">
+													<Language>SFX</Language>
+													<AudioFile>FootstepsMain\FootMain-91.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="829400276"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="FootMain-91" ID="{1045EE43-D75A-4ABE-BE91-5D5FF9A56EA0}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</RandomSequenceContainer>
+							</ChildrenList>
+							<GroupingInfo>
+								<GroupingBehaviorList>
+									<GroupingBehavior>
+										<ItemRef Name="FootstepsLadderDsc" ID="{D197A650-7AA4-4F06-BAC3-90DE724BDC50}"/>
+									</GroupingBehavior>
+									<GroupingBehavior>
+										<ItemRef Name="FootstepsLadderAsc" ID="{526880C5-F736-4601-8744-FCE67D40EED7}"/>
+									</GroupingBehavior>
+									<GroupingBehavior>
+										<ItemRef Name="FootstepsMain" ID="{4B2686D6-ACB5-4CE2-B5CF-C2E1FAC9A65D}"/>
+									</GroupingBehavior>
+								</GroupingBehaviorList>
+								<GroupingList>
+									<Grouping>
+										<SwitchRef Name="Ladder_Asc" ID="{81600C10-BE96-4264-BD24-8DF663AD5CD2}"/>
+										<ItemList>
+											<ItemRef Name="FootstepsLadderAsc" ID="{526880C5-F736-4601-8744-FCE67D40EED7}"/>
+										</ItemList>
+									</Grouping>
+									<Grouping>
+										<SwitchRef Name="Ladder_Dsc" ID="{6BC2334D-D7AA-4575-AC46-7C95DE5A2FB0}"/>
+										<ItemList>
+											<ItemRef Name="FootstepsLadderDsc" ID="{D197A650-7AA4-4F06-BAC3-90DE724BDC50}"/>
+										</ItemList>
+									</Grouping>
+									<Grouping>
+										<SwitchRef Name="Floor" ID="{D942E26A-73C5-4A4D-8DE4-D3C2AFF738DC}"/>
+										<ItemList>
+											<ItemRef Name="FootstepsMain" ID="{4B2686D6-ACB5-4CE2-B5CF-C2E1FAC9A65D}"/>
+										</ItemList>
+									</Grouping>
+								</GroupingList>
+							</GroupingInfo>
+						</SwitchContainer>
+					</ChildrenList>
+				</ActorMixer>
+				<ActorMixer Name="Player_01" ID="{5334778C-7FDE-4651-8C96-6E98477AAD30}" ShortID="817257788">
+					<PropertyList>
+						<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
+						<Property Name="UserAuxSendVolume0" Type="Real64">
+							<ValueList>
+								<Value>2</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="FX BUS" ID="{85071D6A-5690-4A43-A6C4-A15F1F14B8BD}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+						</Reference>
+						<Reference Name="UserAuxSend0">
+							<ObjectRef Name="UpperRoom" ID="{DC9BC692-E8D8-4C66-9091-A0169006BA98}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<SwitchContainer Name="Footsteps" ID="{A240E635-FFF5-4220-B299-B53BBC435FBD}" ShortID="638499434">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{BD0DE257-870F-441C-B9CD-E0BF37E4EE37}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="202"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+								</Reference>
+								<Reference Name="DefaultSwitchOrState">
+									<ObjectRef Name="Floor" ID="{D942E26A-73C5-4A4D-8DE4-D3C2AFF738DC}" WorkUnitID="{BFC2D33F-A7E0-4193-A8FE-D3C6DCFDA912}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+								</Reference>
+								<Reference Name="SwitchGroupOrStateGroup">
+									<ObjectRef Name="Floor_Type" ID="{8F29C676-AAEF-40DF-AAC6-9CA40161B320}" WorkUnitID="{BFC2D33F-A7E0-4193-A8FE-D3C6DCFDA912}"/>
+								</Reference>
+								<Reference Name="UserAuxSend0">
+									<ObjectRef Name="MainRoom" ID="{462AE4E1-8CF9-43C4-BCF7-0D260A4D9A35}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<RandomSequenceContainer Name="FootstepsLadderAsc" ID="{086AE3F5-BF29-4FCA-BFFC-1C1A8DD23D72}" ShortID="644200457">
+									<PropertyList>
+										<Property Name="Highpass" Type="int16">
+											<ValueList>
+												<Value>44</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Lowpass" Type="int16">
+											<ValueList>
+												<Value>19</Value>
+											</ValueList>
+										</Property>
+										<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+										</Reference>
+										<Reference Name="UserAuxSend0">
+											<ObjectRef Name="MainRoom" ID="{462AE4E1-8CF9-43C4-BCF7-0D260A4D9A35}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="LadderAsc-1" ID="{06C01450-7431-4740-AE42-9711297AED1B}" ShortID="693195618">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="LadderAsc-1" ID="{C46082A6-ECD2-40A3-A8DA-67C3C1FC02E4}">
+													<Language>SFX</Language>
+													<AudioFile>Footsteps LadderAsc\LadderAsc-1.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="174540903"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="LadderAsc-1" ID="{C46082A6-ECD2-40A3-A8DA-67C3C1FC02E4}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="LadderAsc-2" ID="{D7D5879B-7EA4-4354-84F7-2720FEEB19E3}" ShortID="1072264855">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="LadderAsc-2" ID="{0437CA64-FD54-4BF0-9ABD-B40309B27E41}">
+													<Language>SFX</Language>
+													<AudioFile>Footsteps LadderAsc\LadderAsc-2.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="655215047"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="LadderAsc-2" ID="{0437CA64-FD54-4BF0-9ABD-B40309B27E41}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="LadderAsc-3" ID="{92F72114-2D6E-4CA1-825A-B2F0DC639E08}" ShortID="192485983">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="LadderAsc-3" ID="{F1BF9C9E-89C9-4C94-A988-7F4DA45736E5}">
+													<Language>SFX</Language>
+													<AudioFile>Footsteps LadderAsc\LadderAsc-3.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="505787587"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="LadderAsc-3" ID="{F1BF9C9E-89C9-4C94-A988-7F4DA45736E5}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="LadderAsc-4" ID="{89974008-FFF3-48F5-B1B1-203A7254897C}" ShortID="472733626">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="LadderAsc-4" ID="{69B0FABF-3F7E-4519-AFFA-1B4C1BEBACAA}">
+													<Language>SFX</Language>
+													<AudioFile>Footsteps LadderAsc\LadderAsc-4.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="1013121627"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="LadderAsc-4" ID="{69B0FABF-3F7E-4519-AFFA-1B4C1BEBACAA}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="LadderAsc-5" ID="{8A8A021F-BF5C-4DB6-ADC1-E9A547748B46}" ShortID="430900278">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="LadderAsc-5" ID="{27EC8B2C-991C-4138-852A-3E100E9061F9}">
+													<Language>SFX</Language>
+													<AudioFile>Footsteps LadderAsc\LadderAsc-5.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="835062091"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="LadderAsc-5" ID="{27EC8B2C-991C-4138-852A-3E100E9061F9}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="LadderAsc-6" ID="{661BB5FA-FDA5-4879-96D1-5334EE5C5F74}" ShortID="549823857">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="LadderAsc-6" ID="{90A79409-5FCF-48F3-9333-A8C9097B6951}">
+													<Language>SFX</Language>
+													<AudioFile>Footsteps LadderAsc\LadderAsc-6.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="439336671"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="LadderAsc-6" ID="{90A79409-5FCF-48F3-9333-A8C9097B6951}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="LadderAsc-7" ID="{FFECF278-D32A-4D1C-9544-890183A750B4}" ShortID="102957728">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="LadderAsc-7" ID="{FE9C6481-73E1-48D3-8FEB-0B607F4D4AF4}">
+													<Language>SFX</Language>
+													<AudioFile>Footsteps LadderAsc\LadderAsc-7.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="305211617"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="LadderAsc-7" ID="{FE9C6481-73E1-48D3-8FEB-0B607F4D4AF4}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="LadderAsc-8" ID="{D2131E27-E3E9-4E97-956D-9460F653014C}" ShortID="777858903">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="LadderAsc-8" ID="{205C6AA9-30A3-430C-B41A-1FD23F6EDAB4}">
+													<Language>SFX</Language>
+													<AudioFile>Footsteps LadderAsc\LadderAsc-8.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="126468548"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="LadderAsc-8" ID="{205C6AA9-30A3-430C-B41A-1FD23F6EDAB4}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="LadderAsc-9" ID="{C8F0489E-1E8D-4F46-9E0F-AF10FF13F823}" ShortID="684302679">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="LadderAsc-9" ID="{A049D07B-7FA0-4309-A759-ADE8A91C8E3E}">
+													<Language>SFX</Language>
+													<AudioFile>Footsteps LadderAsc\LadderAsc-9.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="324184722"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="LadderAsc-9" ID="{A049D07B-7FA0-4309-A759-ADE8A91C8E3E}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="LadderAsc-91" ID="{B8674994-7362-488F-9704-4E3681F110CE}" ShortID="677830905">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="LadderAsc-91" ID="{9B774799-BB58-47E6-8F90-4165524D9E71}">
+													<Language>SFX</Language>
+													<AudioFile>Footsteps LadderAsc\LadderAsc-91.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="566796927"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="LadderAsc-91" ID="{9B774799-BB58-47E6-8F90-4165524D9E71}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</RandomSequenceContainer>
+								<RandomSequenceContainer Name="FootstepsLadderDsc" ID="{A6035D05-F58D-49A5-9516-8811913EEDDF}" ShortID="1046504689">
+									<PropertyList>
+										<Property Name="Highpass" Type="int16">
+											<ValueList>
+												<Value>46</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Lowpass" Type="int16">
+											<ValueList>
+												<Value>20</Value>
+											</ValueList>
+										</Property>
+										<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+										</Reference>
+										<Reference Name="UserAuxSend0">
+											<ObjectRef Name="MainRoom" ID="{462AE4E1-8CF9-43C4-BCF7-0D260A4D9A35}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="LadderDsc-1" ID="{ECC5328F-2EB0-49E0-BE9B-D68D33B3ABA1}" ShortID="457146060">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="LadderDsc-1" ID="{53391E5E-BBB6-464D-9189-6B2C7FB97738}">
+													<Language>SFX</Language>
+													<AudioFile>FootstepsLadderDsc\LadderDsc-1.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="750554884"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="LadderDsc-1" ID="{53391E5E-BBB6-464D-9189-6B2C7FB97738}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="LadderDsc-2" ID="{68399B2A-8693-440F-ACDE-44892FCBAB30}" ShortID="350182784">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="LadderDsc-2" ID="{F0C15764-428B-40B4-AF39-DE832EE16DFB}">
+													<Language>SFX</Language>
+													<AudioFile>FootstepsLadderDsc\LadderDsc-2.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="324782420"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="LadderDsc-2" ID="{F0C15764-428B-40B4-AF39-DE832EE16DFB}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="LadderDsc-3" ID="{41F6F2CB-4F8B-471E-87D2-FC5A16EAE225}" ShortID="378777829">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="LadderDsc-3" ID="{5B1479E9-8CA3-473D-9CB7-A6E71298B9A5}">
+													<Language>SFX</Language>
+													<AudioFile>FootstepsLadderDsc\LadderDsc-3.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="101292689"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="LadderDsc-3" ID="{5B1479E9-8CA3-473D-9CB7-A6E71298B9A5}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="LadderDsc-4" ID="{555BF1DF-550C-49AE-A255-1FAC897EADA8}" ShortID="48297670">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="LadderDsc-4" ID="{E5DB3591-BE3B-478A-B327-7547FCA891CA}">
+													<Language>SFX</Language>
+													<AudioFile>FootstepsLadderDsc\LadderDsc-4.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="680478364"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="LadderDsc-4" ID="{E5DB3591-BE3B-478A-B327-7547FCA891CA}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="LadderDsc-5" ID="{56BEC701-8CCB-4844-BA7A-0FAFC3124790}" ShortID="437120307">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="LadderDsc-5" ID="{0A2A305D-D70D-46D6-A381-BD23BBC99988}">
+													<Language>SFX</Language>
+													<AudioFile>FootstepsLadderDsc\LadderDsc-5.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="765862514"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="LadderDsc-5" ID="{0A2A305D-D70D-46D6-A381-BD23BBC99988}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="LadderDsc-6" ID="{EC578BF0-C6B6-410C-8BAC-68E12551A715}" ShortID="517749462">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="LadderDsc-6" ID="{8879CE02-0DB5-41CF-BFE2-1E4D3604CFF2}">
+													<Language>SFX</Language>
+													<AudioFile>FootstepsLadderDsc\LadderDsc-6.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="590961326"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="LadderDsc-6" ID="{8879CE02-0DB5-41CF-BFE2-1E4D3604CFF2}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="LadderDsc-7" ID="{16A76C64-6434-45D9-A5DD-B2024882A1FA}" ShortID="861259186">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="LadderDsc-7" ID="{FE151350-784D-44FC-BB39-F65A2EA83DD1}">
+													<Language>SFX</Language>
+													<AudioFile>FootstepsLadderDsc\LadderDsc-7.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="24182909"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="LadderDsc-7" ID="{FE151350-784D-44FC-BB39-F65A2EA83DD1}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="LadderDsc-8" ID="{8099E660-8A1D-449A-A8F5-E813169868B1}" ShortID="112186850">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="LadderDsc-8" ID="{4CEBE815-B5E4-483C-8DD8-5A1C9B098D4C}">
+													<Language>SFX</Language>
+													<AudioFile>FootstepsLadderDsc\LadderDsc-8.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="940568997"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="LadderDsc-8" ID="{4CEBE815-B5E4-483C-8DD8-5A1C9B098D4C}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="LadderDsc-9" ID="{C59766D9-8394-48A1-A5D4-D6A2EE13947C}" ShortID="281780945">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="LadderDsc-9" ID="{27AF0AAB-0911-4A9E-ADAA-20253CDE0DCE}">
+													<Language>SFX</Language>
+													<AudioFile>FootstepsLadderDsc\LadderDsc-9.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="494277209"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="LadderDsc-9" ID="{27AF0AAB-0911-4A9E-ADAA-20253CDE0DCE}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="LadderDsc-91" ID="{48BB099E-482A-45DE-A6EA-9145EE2E01F5}" ShortID="932007605">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="LadderDsc-91" ID="{D930B686-8688-4BB7-94F6-77EAACF4AC5E}">
+													<Language>SFX</Language>
+													<AudioFile>FootstepsLadderDsc\LadderDsc-91.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="197222373"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="LadderDsc-91" ID="{D930B686-8688-4BB7-94F6-77EAACF4AC5E}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</RandomSequenceContainer>
+								<RandomSequenceContainer Name="FootstepsMain" ID="{A481F205-A07D-4D1B-B5BB-DAC3975980C6}" ShortID="250231217">
+									<PropertyList>
+										<Property Name="Highpass" Type="int16">
+											<ValueList>
+												<Value>43</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Lowpass" Type="int16">
+											<ValueList>
+												<Value>27</Value>
+											</ValueList>
+										</Property>
+										<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>4</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+										</Reference>
+										<Reference Name="UserAuxSend0">
+											<ObjectRef Name="MainRoom" ID="{462AE4E1-8CF9-43C4-BCF7-0D260A4D9A35}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="FootMain-1" ID="{7609FD69-9727-4E29-8722-6B000D7B31BA}" ShortID="270942734">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="FootMain-1" ID="{AEBFCE1F-2309-427F-8BFC-30BCF87E09BC}">
+													<Language>SFX</Language>
+													<AudioFile>FootstepsMain\FootMain-1.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="78273926"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="FootMain-1" ID="{AEBFCE1F-2309-427F-8BFC-30BCF87E09BC}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="FootMain-2" ID="{1D551D26-757C-4B0B-AB82-2690245BFEE0}" ShortID="344558511">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="FootMain-2" ID="{A40E15C9-66A3-43DB-9B5A-E91FF69CD262}">
+													<Language>SFX</Language>
+													<AudioFile>FootstepsMain\FootMain-2.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="20945893"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="FootMain-2" ID="{A40E15C9-66A3-43DB-9B5A-E91FF69CD262}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="FootMain-3" ID="{9AA3B39E-41FD-4A31-9BC6-DB8577D3AEE6}" ShortID="310792501">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="FootMain-3" ID="{58186BA2-D8A9-4064-8B43-368582E12B3D}">
+													<Language>SFX</Language>
+													<AudioFile>FootstepsMain\FootMain-3.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="661249972"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="FootMain-3" ID="{58186BA2-D8A9-4064-8B43-368582E12B3D}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="FootMain-4" ID="{D2F95687-1E86-4AAB-B398-AA5DCA04EB29}" ShortID="871335834">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="FootMain-4" ID="{E1A2898E-8056-4213-83E8-1E2405EFBE46}">
+													<Language>SFX</Language>
+													<AudioFile>FootstepsMain\FootMain-4.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="294206905"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="FootMain-4" ID="{E1A2898E-8056-4213-83E8-1E2405EFBE46}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="FootMain-5" ID="{D7F84BCB-E957-4DC5-B0A4-7A85D41D3389}" ShortID="527915632">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="FootMain-5" ID="{C56A5FD2-FCB6-437D-833E-D07AA74A9CF8}">
+													<Language>SFX</Language>
+													<AudioFile>FootstepsMain\FootMain-5.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="530252190"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="FootMain-5" ID="{C56A5FD2-FCB6-437D-833E-D07AA74A9CF8}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="FootMain-6" ID="{F8262BC4-3226-4BC3-BC7D-7C624CBBC250}" ShortID="194090293">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="FootMain-6" ID="{DF7B32E5-73E9-451F-9D32-80900EA99BA2}">
+													<Language>SFX</Language>
+													<AudioFile>FootstepsMain\FootMain-6.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="133806398"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="FootMain-6" ID="{DF7B32E5-73E9-451F-9D32-80900EA99BA2}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="FootMain-7" ID="{4D6FECE5-1C60-4AF1-888A-C1AA9C8E191D}" ShortID="1038934418">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="FootMain-7" ID="{A46EFFCC-9F09-4EC1-928E-229D2223BFF7}">
+													<Language>SFX</Language>
+													<AudioFile>FootstepsMain\FootMain-7.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="928490104"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="FootMain-7" ID="{A46EFFCC-9F09-4EC1-928E-229D2223BFF7}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="FootMain-8" ID="{3A9E9DDA-4BB1-4C52-8B21-8A2B526A460D}" ShortID="547251520">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="FootMain-8" ID="{E9656462-8FDB-496B-9F96-B201BB32C6C4}">
+													<Language>SFX</Language>
+													<AudioFile>FootstepsMain\FootMain-8.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="311343295"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="FootMain-8" ID="{E9656462-8FDB-496B-9F96-B201BB32C6C4}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="FootMain-9" ID="{3036F45F-511B-45F1-A4AE-54FC1D8057D3}" ShortID="295047412">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="FootMain-9" ID="{3A1C9FFA-5BD4-4744-A354-452931B31817}">
+													<Language>SFX</Language>
+													<AudioFile>FootstepsMain\FootMain-9.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="241956040"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="FootMain-9" ID="{3A1C9FFA-5BD4-4744-A354-452931B31817}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="FootMain-91" ID="{8AB93D50-E4BE-4B0F-829D-2A9FFEE8F8CD}" ShortID="447493959">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="FootMain-91" ID="{9DB97576-B10D-4CC1-B1FA-0DDAA5198564}">
+													<Language>SFX</Language>
+													<AudioFile>FootstepsMain\FootMain-91.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="829400276"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="FootMain-91" ID="{9DB97576-B10D-4CC1-B1FA-0DDAA5198564}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</RandomSequenceContainer>
+							</ChildrenList>
+							<GroupingInfo>
+								<GroupingBehaviorList>
+									<GroupingBehavior>
+										<ItemRef Name="FootstepsLadderDsc" ID="{A6035D05-F58D-49A5-9516-8811913EEDDF}"/>
+									</GroupingBehavior>
+									<GroupingBehavior>
+										<ItemRef Name="FootstepsMain" ID="{A481F205-A07D-4D1B-B5BB-DAC3975980C6}"/>
+									</GroupingBehavior>
+									<GroupingBehavior>
+										<ItemRef Name="FootstepsLadderAsc" ID="{086AE3F5-BF29-4FCA-BFFC-1C1A8DD23D72}"/>
+									</GroupingBehavior>
+								</GroupingBehaviorList>
+								<GroupingList>
+									<Grouping>
+										<SwitchRef Name="Ladder_Asc" ID="{81600C10-BE96-4264-BD24-8DF663AD5CD2}"/>
+										<ItemList>
+											<ItemRef Name="FootstepsLadderAsc" ID="{086AE3F5-BF29-4FCA-BFFC-1C1A8DD23D72}"/>
+										</ItemList>
+									</Grouping>
+									<Grouping>
+										<SwitchRef Name="Ladder_Dsc" ID="{6BC2334D-D7AA-4575-AC46-7C95DE5A2FB0}"/>
+										<ItemList>
+											<ItemRef Name="FootstepsLadderDsc" ID="{A6035D05-F58D-49A5-9516-8811913EEDDF}"/>
+										</ItemList>
+									</Grouping>
+									<Grouping>
+										<SwitchRef Name="Floor" ID="{D942E26A-73C5-4A4D-8DE4-D3C2AFF738DC}"/>
+										<ItemList>
+											<ItemRef Name="FootstepsMain" ID="{A481F205-A07D-4D1B-B5BB-DAC3975980C6}"/>
+										</ItemList>
+									</Grouping>
+								</GroupingList>
+							</GroupingInfo>
+						</SwitchContainer>
+					</ChildrenList>
+				</ActorMixer>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>
