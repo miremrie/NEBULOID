@@ -18,6 +18,9 @@ namespace AK
         static const AkUniqueID PLAY_ARM_R = 2408728087U;
         static const AkUniqueID PLAY_BULLET_HIT = 1702949728U;
         static const AkUniqueID PLAY_CLICK = 311910498U;
+        static const AkUniqueID PLAY_FOOTSTEPS_DSC = 3354998756U;
+        static const AkUniqueID PLAY_FOOTSTEPS_LADDER_ASC = 2002520244U;
+        static const AkUniqueID PLAY_FOOTSTEPS_MAIN = 3571136941U;
         static const AkUniqueID PLAY_FUEL_REFILL = 2045110701U;
         static const AkUniqueID PLAY_GAME_OVER = 725000905U;
         static const AkUniqueID PLAY_GAMEPLAY_MUSIC = 1231987938U;
@@ -38,6 +41,22 @@ namespace AK
         static const AkUniqueID STOP_SONAR = 2410889125U;
     } // namespace EVENTS
 
+    namespace SWITCHES
+    {
+        namespace FLOOR_TYPE
+        {
+            static const AkUniqueID GROUP = 4168292868U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID FLOOR = 1088209313U;
+                static const AkUniqueID LADDER_ASC = 35681451U;
+                static const AkUniqueID LADDER_DSC = 4196972182U;
+            } // namespace SWITCH
+        } // namespace FLOOR_TYPE
+
+    } // namespace SWITCHES
+
     namespace GAME_PARAMETERS
     {
         static const AkUniqueID FUEL_AMOUNT = 3548314952U;
@@ -54,9 +73,17 @@ namespace AK
     namespace BUSSES
     {
         static const AkUniqueID CLEAN_BUS = 1348820510U;
+        static const AkUniqueID ENVIROMENT = 3909959462U;
         static const AkUniqueID FX_BUS = 3948848313U;
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;
     } // namespace BUSSES
+
+    namespace AUX_BUSSES
+    {
+        static const AkUniqueID LOWERROOM = 2608711957U;
+        static const AkUniqueID MAINROOM = 1485871687U;
+        static const AkUniqueID UPPERROOM = 2902541986U;
+    } // namespace AUX_BUSSES
 
     namespace AUDIO_DEVICES
     {

@@ -4,10 +4,19 @@ Game Parameter	ID	Name			Wwise Object Path	Notes
 Audio Bus	ID	Name			Wwise Object Path	Notes
 	1348820510	Clean BUS			\Default Work Unit\Master Audio Bus\Clean BUS	
 	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
-	3948848313	FX BUS			\Default Work Unit\Master Audio Bus\FX BUS	
+	3909959462	Enviroment			\Default Work Unit\Master Audio Bus\Enviroment	
+	3948848313	FX BUS			\Default Work Unit\Master Audio Bus\Enviroment\FX BUS	
+
+Auxiliary Bus	ID	Name			Wwise Object Path	Notes
+	1485871687	MainRoom			\Default Work Unit\Master Audio Bus\Enviroment\MainRoom	
+	2608711957	LowerRoom			\Default Work Unit\Master Audio Bus\Enviroment\LowerRoom	
+	2902541986	UpperRoom			\Default Work Unit\Master Audio Bus\Enviroment\UpperRoom	
 
 Effect plug-ins	ID	Name	Type				Notes
+	325812821	Aluminium_Tank_(Custom)	Wwise RoomVerb			
 	619485492	CleanBusEq	Wwise Parametric EQ			
+	862966650	Aluminium_Tank_(Custom)	Wwise RoomVerb			
+	3290519051	Aluminium_Tank	Wwise RoomVerb			
 
 Audio Devices	ID	Name	Type				Notes
 	2317455096	No_Output	No Output			

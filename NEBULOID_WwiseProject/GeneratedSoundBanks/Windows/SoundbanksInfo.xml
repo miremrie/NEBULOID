@@ -64,6 +64,138 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="3354998756" Name="Play_Footsteps_Dsc" ObjectPath="\Events\Default Work Unit\Movement\Hook\Footsteps\Play_Footsteps_Dsc" DurationType="OneShot" DurationMin="0.222744" DurationMax="0.375395">
+					<IncludedMemoryFiles>
+						<File Id="24182909" Language="SFX">
+							<ShortName>FootstepsLadderDsc\LadderDsc-7.wav</ShortName>
+							<Path>SFX\FootstepsLadderDsc\LadderDsc-7_10C4C929.wem</Path>
+						</File>
+						<File Id="101292689" Language="SFX">
+							<ShortName>FootstepsLadderDsc\LadderDsc-3.wav</ShortName>
+							<Path>SFX\FootstepsLadderDsc\LadderDsc-3_10C4C929.wem</Path>
+						</File>
+						<File Id="197222373" Language="SFX">
+							<ShortName>FootstepsLadderDsc\LadderDsc-91.wav</ShortName>
+							<Path>SFX\FootstepsLadderDsc\LadderDsc-91_10C4C929.wem</Path>
+						</File>
+						<File Id="324782420" Language="SFX">
+							<ShortName>FootstepsLadderDsc\LadderDsc-2.wav</ShortName>
+							<Path>SFX\FootstepsLadderDsc\LadderDsc-2_10C4C929.wem</Path>
+						</File>
+						<File Id="494277209" Language="SFX">
+							<ShortName>FootstepsLadderDsc\LadderDsc-9.wav</ShortName>
+							<Path>SFX\FootstepsLadderDsc\LadderDsc-9_10C4C929.wem</Path>
+						</File>
+						<File Id="590961326" Language="SFX">
+							<ShortName>FootstepsLadderDsc\LadderDsc-6.wav</ShortName>
+							<Path>SFX\FootstepsLadderDsc\LadderDsc-6_10C4C929.wem</Path>
+						</File>
+						<File Id="680478364" Language="SFX">
+							<ShortName>FootstepsLadderDsc\LadderDsc-4.wav</ShortName>
+							<Path>SFX\FootstepsLadderDsc\LadderDsc-4_10C4C929.wem</Path>
+						</File>
+						<File Id="750554884" Language="SFX">
+							<ShortName>FootstepsLadderDsc\LadderDsc-1.wav</ShortName>
+							<Path>SFX\FootstepsLadderDsc\LadderDsc-1_10C4C929.wem</Path>
+						</File>
+						<File Id="765862514" Language="SFX">
+							<ShortName>FootstepsLadderDsc\LadderDsc-5.wav</ShortName>
+							<Path>SFX\FootstepsLadderDsc\LadderDsc-5_10C4C929.wem</Path>
+						</File>
+						<File Id="940568997" Language="SFX">
+							<ShortName>FootstepsLadderDsc\LadderDsc-8.wav</ShortName>
+							<Path>SFX\FootstepsLadderDsc\LadderDsc-8_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2002520244" Name="Play_Footsteps_Ladder_Asc" ObjectPath="\Events\Default Work Unit\Movement\Hook\Footsteps\Play_Footsteps_Ladder_Asc" DurationType="OneShot" DurationMin="0.261519" DurationMax="0.393479">
+					<IncludedMemoryFiles>
+						<File Id="126468548" Language="SFX">
+							<ShortName>Footsteps LadderAsc\LadderAsc-8.wav</ShortName>
+							<Path>SFX\Footsteps LadderAsc\LadderAsc-8_10C4C929.wem</Path>
+						</File>
+						<File Id="174540903" Language="SFX">
+							<ShortName>Footsteps LadderAsc\LadderAsc-1.wav</ShortName>
+							<Path>SFX\Footsteps LadderAsc\LadderAsc-1_10C4C929.wem</Path>
+						</File>
+						<File Id="305211617" Language="SFX">
+							<ShortName>Footsteps LadderAsc\LadderAsc-7.wav</ShortName>
+							<Path>SFX\Footsteps LadderAsc\LadderAsc-7_10C4C929.wem</Path>
+						</File>
+						<File Id="324184722" Language="SFX">
+							<ShortName>Footsteps LadderAsc\LadderAsc-9.wav</ShortName>
+							<Path>SFX\Footsteps LadderAsc\LadderAsc-9_10C4C929.wem</Path>
+						</File>
+						<File Id="439336671" Language="SFX">
+							<ShortName>Footsteps LadderAsc\LadderAsc-6.wav</ShortName>
+							<Path>SFX\Footsteps LadderAsc\LadderAsc-6_10C4C929.wem</Path>
+						</File>
+						<File Id="505787587" Language="SFX">
+							<ShortName>Footsteps LadderAsc\LadderAsc-3.wav</ShortName>
+							<Path>SFX\Footsteps LadderAsc\LadderAsc-3_10C4C929.wem</Path>
+						</File>
+						<File Id="566796927" Language="SFX">
+							<ShortName>Footsteps LadderAsc\LadderAsc-91.wav</ShortName>
+							<Path>SFX\Footsteps LadderAsc\LadderAsc-91_10C4C929.wem</Path>
+						</File>
+						<File Id="655215047" Language="SFX">
+							<ShortName>Footsteps LadderAsc\LadderAsc-2.wav</ShortName>
+							<Path>SFX\Footsteps LadderAsc\LadderAsc-2_10C4C929.wem</Path>
+						</File>
+						<File Id="835062091" Language="SFX">
+							<ShortName>Footsteps LadderAsc\LadderAsc-5.wav</ShortName>
+							<Path>SFX\Footsteps LadderAsc\LadderAsc-5_10C4C929.wem</Path>
+						</File>
+						<File Id="1013121627" Language="SFX">
+							<ShortName>Footsteps LadderAsc\LadderAsc-4.wav</ShortName>
+							<Path>SFX\Footsteps LadderAsc\LadderAsc-4_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3571136941" Name="Play_Footsteps_Main" ObjectPath="\Events\Default Work Unit\Movement\Hook\Footsteps\Play_Footsteps_Main" DurationType="OneShot" DurationMin="0.268844" DurationMax="0.348018">
+					<IncludedMemoryFiles>
+						<File Id="20945893" Language="SFX">
+							<ShortName>FootstepsMain\FootMain-2.wav</ShortName>
+							<Path>SFX\FootstepsMain\FootMain-2_10C4C929.wem</Path>
+						</File>
+						<File Id="78273926" Language="SFX">
+							<ShortName>FootstepsMain\FootMain-1.wav</ShortName>
+							<Path>SFX\FootstepsMain\FootMain-1_10C4C929.wem</Path>
+						</File>
+						<File Id="133806398" Language="SFX">
+							<ShortName>FootstepsMain\FootMain-6.wav</ShortName>
+							<Path>SFX\FootstepsMain\FootMain-6_10C4C929.wem</Path>
+						</File>
+						<File Id="241956040" Language="SFX">
+							<ShortName>FootstepsMain\FootMain-9.wav</ShortName>
+							<Path>SFX\FootstepsMain\FootMain-9_10C4C929.wem</Path>
+						</File>
+						<File Id="294206905" Language="SFX">
+							<ShortName>FootstepsMain\FootMain-4.wav</ShortName>
+							<Path>SFX\FootstepsMain\FootMain-4_10C4C929.wem</Path>
+						</File>
+						<File Id="311343295" Language="SFX">
+							<ShortName>FootstepsMain\FootMain-8.wav</ShortName>
+							<Path>SFX\FootstepsMain\FootMain-8_10C4C929.wem</Path>
+						</File>
+						<File Id="530252190" Language="SFX">
+							<ShortName>FootstepsMain\FootMain-5.wav</ShortName>
+							<Path>SFX\FootstepsMain\FootMain-5_10C4C929.wem</Path>
+						</File>
+						<File Id="661249972" Language="SFX">
+							<ShortName>FootstepsMain\FootMain-3.wav</ShortName>
+							<Path>SFX\FootstepsMain\FootMain-3_10C4C929.wem</Path>
+						</File>
+						<File Id="829400276" Language="SFX">
+							<ShortName>FootstepsMain\FootMain-91.wav</ShortName>
+							<Path>SFX\FootstepsMain\FootMain-91_10C4C929.wem</Path>
+						</File>
+						<File Id="928490104" Language="SFX">
+							<ShortName>FootstepsMain\FootMain-7.wav</ShortName>
+							<Path>SFX\FootstepsMain\FootMain-7_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="2045110701" Name="Play_Fuel_Refill" ObjectPath="\Events\Default Work Unit\Notifications\Play_Fuel_Refill" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="231082383" Language="SFX">
@@ -269,6 +401,11 @@
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
+			<IncludedAuxBusses>
+				<AuxBus Id="1485871687" Name="MainRoom" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Enviroment\MainRoom"/>
+				<AuxBus Id="2608711957" Name="LowerRoom" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Enviroment\LowerRoom"/>
+				<AuxBus Id="2902541986" Name="UpperRoom" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Enviroment\UpperRoom"/>
+			</IncludedAuxBusses>
 			<GameParameters>
 				<GameParameter Id="3548314952" Name="Fuel_Amount" ObjectPath="\Game Parameters\Default Work Unit\Fuel_Amount"/>
 			</GameParameters>

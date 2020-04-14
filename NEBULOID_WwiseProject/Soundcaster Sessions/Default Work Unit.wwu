@@ -69,7 +69,9 @@
 						</RTPCValue>
 					</RTPCValueList>
 					<CurrentStateList ShowAll="true"/>
-					<CurrentSwitchList ShowAll="true"/>
+					<CurrentSwitchList ShowAll="true">
+						<CurrentSwitchRef Name="Floor" ID="{D942E26A-73C5-4A4D-8DE4-D3C2AFF738DC}"/>
+					</CurrentSwitchList>
 				</SoundcasterSession>
 				<SoundcasterSession Name="Hook And Claw" ID="{C2A0D0C7-89C5-41D9-BCD3-9FF6EB14E108}">
 					<ModuleList>
