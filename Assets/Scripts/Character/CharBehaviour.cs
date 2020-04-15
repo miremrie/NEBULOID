@@ -23,6 +23,11 @@ namespace NBLD.Character
             this.charAudio = charAudio;
         }
 
+        protected virtual void Start()
+        {
+
+        }
+
         public virtual void ExecuteAction(UseAction action)
         {
         }

@@ -18,8 +18,9 @@ namespace NBLD.Character
         private Quaternion targetRotation;
         private Timer moveTimer;
 
-        private void Start()
+        protected override void Start()
         {
+            base.Start();
             moveTimer = new Timer(moveSpeed.keys[moveSpeed.length - 1].time);
             moveTimer.Start();
             moveIntensityUI.Initalize(0, moveSpeedMultiplier);

@@ -17,12 +17,21 @@ namespace NBLD.Character
         private Transform transportDestination;
         private Vector2 currentMovement = Vector2.zero;
         private int currentFloor = 1;
+        private float transportAudioFrequency = 0.05f;
+        private Timer transportTimer;
+        private bool transportAscending;
 
         private bool lockedByTransport;
 
         //Animation
         private const string moveAnimName = "Move";
         private const string moveVerAnimName = "MoveVer";
+
+        protected override void Start()
+        {
+            base.Start();
+            transportTimer = new Timer(transportAudioFrequency);
+        }
 
         private void Update()
         {
@@ -62,13 +71,7 @@ namespace NBLD.Character
             isTransporting = true;
             transportInCorrectX = false;
             transportDestination = destination;
-            if (newFloor > currentFloor)
-            {
-                charAudio.PlayLadderAsc();
-            } else
-            {
-                charAudio.PlayerLadderDsc();
-            }
+            transportAscending = newFloor > currentFloor;
             currentFloor = newFloor;
             charAudio.SetEnvironmentBasedOnFloor(currentFloor);
         }
@@ -91,6 +94,21 @@ namespace NBLD.Character
                     return;
                 } else
                 {
+                    if (transportTimer.IsRunning())
+                    {
+                        transportTimer.Update(Time.deltaTime);
+                    } else
+                    {
+                        if (transportAscending)
+                        {
+                            charAudio.PlayLadderAsc();
+                        }
+                        else
+                        {
+                            charAudio.PlayerLadderDsc();
+                        }
+                        transportTimer.Start();
+                    }
                     if (Vector3.Distance(transportDestination.position, transform.localPosition) <= transportMinOffset)
                     {
                         transform.position = transportDestination.position;
