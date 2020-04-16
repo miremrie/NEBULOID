@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace MarchingSquares
@@ -23,23 +24,15 @@ namespace MarchingSquares
         public List<VoxelStencilCollider> stencilsInRange;
 
         public VoxelStencilCollider initialStencil;
-        private List<VoxelGridSurface> surfaceColliderUpdateList = new List<VoxelGridSurface>();
+        List<VoxelGrid> surfaceColliderUpdateList = new List<VoxelGrid>();
 
         int framesToSkipCount;
         public int framesToSkipCollisionUpdate = 10;
 
         public Material overrideMaterial;
+        
+        ContactFilter2D gridFilter = new ContactFilter2D();
 
-        private void OnTriggerEnter2D(Collider2D collision)
-        {
-            var c = collision.GetComponent<VoxelStencilCollider>();
-            if (c != null) stencilsInRange.Add(c);
-        }
-        private void OnTriggerExit2D(Collider2D collision)
-        {
-            var c = collision.GetComponent<VoxelStencilCollider>();
-            if (c != null && stencilsInRange.Contains(c)) stencilsInRange.Remove(c);
-        }
 
         private void Awake()
         {
@@ -60,16 +53,59 @@ namespace MarchingSquares
 
         private void Start()
         {
-            if (initialStencil != null) CreateCircleMesh(); 
+            if (initialStencil != null) CreateInitialShape();
 
+            gridFilter.useTriggers = true;
+            gridFilter.SetLayerMask(gridLayerMask);
+            gridFilter.useLayerMask = true;
         }
 
-        private void FixedUpdate()
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            var c = collision.GetComponent<VoxelStencilCollider>();
+            if (c != null) stencilsInRange.Add(c);
+        }
+
+        private void OnTriggerExit2D(Collider2D collision)
+        {
+            var c = collision.GetComponent<VoxelStencilCollider>();
+            if (c != null && stencilsInRange.Contains(c)) stencilsInRange.Remove(c);
+        }
+        
+        private void CreateInitialShape()
+        {
+            EditVoxels(initialStencil, true);
+            foreach (var c in chunks) { c.RefreshIfDirty(); }
+            UpdateMeshes();
+            Destroy(initialStencil.gameObject);
+        }
+
+        private void Update()
         {
             stencilsInRange.RemoveAll(x => x == null);
-            ApplyStencils();
-            UpdateMeshes();
+
+            if (stencilsInRange.Count > 0)
+            {
+                FilterGrids();
+                ApplyStencils();
+                UpdateMeshes();
+            }
             UpdateColliders();
+        }
+
+        Collider2D[] results = new Collider2D[1];
+        public LayerMask gridLayerMask;
+        HashSet<VoxelGrid> gridsToEdit = new HashSet<VoxelGrid>();
+
+        private void FilterGrids()
+        {
+            foreach (var c in chunks)
+            {
+                results[0] = null;
+                c.boundsTrigger.OverlapCollider(gridFilter,results);
+                if (results[0] != null) { gridsToEdit.Add(c); }
+                //Debug.Log(results);
+            }
         }
 
         private void ApplyStencils()
@@ -78,6 +114,8 @@ namespace MarchingSquares
             {
                 EditVoxels(s);
             }
+
+            gridsToEdit.Clear();
         }
 
         private void UpdateMeshes()
@@ -96,19 +134,13 @@ namespace MarchingSquares
                 framesToSkipCount = 0;
                 foreach (var s in surfaceColliderUpdateList)
                 {
-                    s.SetPolygonColliderPath();
+                    s.surface.SetPolygonColliderPath();
+                    s.waitingForCollisionUpdate = false; 
                 }
                 surfaceColliderUpdateList.Clear();
             }
         }
 
-        private void CreateCircleMesh()
-        {
-            EditVoxels(initialStencil, true);
-            foreach (var c in chunks) { c.RefreshIfDirty(); }
-
-            Destroy(initialStencil.gameObject);
-        }
 
         private void CreateChunk(int i, int x, int y)
         {
@@ -166,18 +198,22 @@ namespace MarchingSquares
             xStart = yStart = 0;
             xEnd = yEnd = chunkResolution - 1;
 
+            // go in reverse order for neighbour handling
             for (int y = yEnd; y >= yStart; y--)
             {
                 int i = y * chunkResolution + xEnd;
                 for (int x = xEnd; x >= xStart; x--, i--)
                 {
-                    activeStencil.SetGridTransform(chunks[i].transform);
-                    chunks[i].Apply(activeStencil, ignoreFilter);
+                    var c = chunks[i];
+                    if (ignoreFilter || gridsToEdit.Contains(c))
+                    {
+                        c.Apply(activeStencil);
+                    }
                 }
             }
         }
 
-        internal void AddSurfaceToUpdate(VoxelGridSurface surface)
+        internal void AddSurfaceToUpdate(VoxelGrid surface)
         {
             if (!surfaceColliderUpdateList.Contains(surface)) surfaceColliderUpdateList.Add(surface);
         }

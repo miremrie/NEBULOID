@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1503580280536661492}
   - component: {fileID: 6308387749778556253}
   - component: {fileID: 5192411658551604940}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: axe_silver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,7 +144,7 @@ GameObject:
   - component: {fileID: 5188459664973620617}
   - component: {fileID: 1539373398411853477}
   - component: {fileID: 7900257207855343490}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: axe_silver (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -277,7 +277,7 @@ GameObject:
   - component: {fileID: 4800564631871593903}
   - component: {fileID: 4800564631871593552}
   - component: {fileID: 4800564631871593553}
-  m_Layer: 9
+  m_Layer: 14
   m_Name: InitialStencil
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -339,7 +339,7 @@ GameObject:
   - component: {fileID: 4800564632722131169}
   - component: {fileID: 4800564632722131198}
   - component: {fileID: 4800564632722131199}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -419,8 +419,8 @@ GameObject:
   - component: {fileID: 4800564632852927393}
   - component: {fileID: 4800564632852927423}
   - component: {fileID: 4800564632852927422}
-  m_Layer: 8
-  m_Name: Voxel Map
+  m_Layer: 15
+  m_Name: Planet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -457,11 +457,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   voxelResolution: 6
   chunkResolution: 6
-  maxFeatureAngle: 45
+  maxFeatureAngle: 135
   voxelGridPrefab: {fileID: 11400000, guid: 336f31b3fb8e941b398b8a96aae18062, type: 3}
+  stencilsInRange: []
   initialStencil: {fileID: 4800564631871593553}
   framesToSkipCollisionUpdate: 15
   overrideMaterial: {fileID: 0}
+  gridLayerMask:
+    serializedVersion: 2
+    m_Bits: 16384
 --- !u!58 &4800564632852927423
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -500,7 +504,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8734318297058502628}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Middle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3365077013541974208}
   - component: {fileID: 3365077013541974211}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: MultiColliderStencil
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,7 +61,7 @@ GameObject:
   - component: {fileID: 3365077013793267805}
   - component: {fileID: 3365077013793267778}
   - component: {fileID: 3365077013793267779}
-  m_Layer: 9
+  m_Layer: 14
   m_Name: StencilColliderComposite (1)
   m_TagString: stencil
   m_Icon: {fileID: 0}
@@ -205,57 +205,57 @@ CompositeCollider2D:
         Y: 120000
   - m_Collider: {fileID: 3365077014895839271}
     m_ColliderPaths:
-    - - X: 1866000
+    - - X: 1865999
         Y: 1041999
-      - X: 2226000
+      - X: 2225999
         Y: 1001999
-      - X: 2346000
+      - X: 2345999
         Y: 1061999
       - X: 2566000
         Y: 1241999
-      - X: 2686000
+      - X: 2685999
         Y: 1481999
-      - X: 2706000
+      - X: 2705999
         Y: 1641999
-      - X: 2706000
+      - X: 2705999
         Y: 1801998
-      - X: 2606000
+      - X: 2605999
         Y: 1841999
-      - X: 2446000
+      - X: 2445999
         Y: 1841999
-      - X: 2126000
+      - X: 2125999
         Y: 1941998
-      - X: 2146000
+      - X: 2145999
         Y: 2001999
       - X: 2106000
         Y: 2181999
-      - X: 2026000
+      - X: 2025999
         Y: 2261999
-      - X: 1926000
+      - X: 1925999
         Y: 2341999
-      - X: 1826000
+      - X: 1825999
         Y: 2381999
-      - X: 1626000
+      - X: 1625999
         Y: 2381999
-      - X: 1446000
+      - X: 1445999
         Y: 2181999
-      - X: 1266000
+      - X: 1265999
         Y: 1881999
-      - X: 1266000
+      - X: 1265999
         Y: 1841999
-      - X: 526000
+      - X: 525999
         Y: 721998
-      - X: 526000
+      - X: 525999
         Y: 541999
-      - X: 646000
+      - X: 645999
         Y: 461998
-      - X: 726000
+      - X: 725999
         Y: 461998
-      - X: 946000
+      - X: 945999
         Y: 721998
-      - X: 1586000
+      - X: 1585999
         Y: 1521999
-      - X: 1766000
+      - X: 1765999
         Y: 1481999
   m_CompositePaths:
     m_Paths:
@@ -264,29 +264,29 @@ CompositeCollider2D:
       - {x: -0.0079951, y: -0.0279958}
       - {x: 0.041999, y: 0.0119992}
       - {x: 0.0820024, y: 0.040009502}
-      - {x: 0.0878489, y: 0.0642217}
-      - {x: 0.1586165, y: 0.1521963}
-      - {x: 0.1766037, y: 0.1481833}
-      - {x: 0.1866195, y: 0.1041978}
-      - {x: 0.2226069, y: 0.1002032}
-      - {x: 0.23460211, y: 0.106201604}
+      - {x: 0.087849, y: 0.0642218}
+      - {x: 0.15861641, y: 0.1521963}
+      - {x: 0.1766036, y: 0.1481833}
+      - {x: 0.1866194, y: 0.1041978}
+      - {x: 0.22260681, y: 0.1002032}
+      - {x: 0.234602, y: 0.106201604}
       - {x: 0.25660262, y: 0.124204904}
-      - {x: 0.2686006, y: 0.1482042}
-      - {x: 0.2706, y: 0.1642012}
-      - {x: 0.2705828, y: 0.1802067}
-      - {x: 0.2605953, y: 0.1841999}
-      - {x: 0.2445962, y: 0.184201}
-      - {x: 0.2126094, y: 0.1942282}
-      - {x: 0.2145985, y: 0.2002068}
+      - {x: 0.2686005, y: 0.1482042}
+      - {x: 0.2705999, y: 0.1642012}
+      - {x: 0.2705827, y: 0.1802067}
+      - {x: 0.2605952, y: 0.1841999}
+      - {x: 0.24459611, y: 0.184201}
+      - {x: 0.2126093, y: 0.1942282}
+      - {x: 0.2145984, y: 0.2002068}
       - {x: 0.2105948, y: 0.21820511}
-      - {x: 0.20259911, y: 0.2262006}
-      - {x: 0.1925962, y: 0.23420161}
-      - {x: 0.1825953, y: 0.2381999}
-      - {x: 0.1625921, y: 0.2381913}
-      - {x: 0.1445988, y: 0.218198}
-      - {x: 0.1266, y: 0.18819301}
-      - {x: 0.1265957, y: 0.1841934}
-      - {x: 0.0737043, y: 0.1041487}
+      - {x: 0.202599, y: 0.2262006}
+      - {x: 0.19259611, y: 0.23420161}
+      - {x: 0.18259521, y: 0.2381999}
+      - {x: 0.16259201, y: 0.2381913}
+      - {x: 0.14459871, y: 0.218198}
+      - {x: 0.12659991, y: 0.18819301}
+      - {x: 0.1265956, y: 0.1841934}
+      - {x: 0.0737042, y: 0.104148604}
       - {x: 0.025996, y: 0.0819912}
       - {x: 0.0079991, y: 0.0419986}
       - {x: -0.0220013, y: -0.0040015}
@@ -322,7 +322,7 @@ GameObject:
   - component: {fileID: 3365077014021264015}
   - component: {fileID: 3365077014021264008}
   - component: {fileID: 3365077014021264014}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: axe_silver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -455,7 +455,7 @@ GameObject:
   - component: {fileID: 3365077014126743002}
   - component: {fileID: 3365077014126742996}
   - component: {fileID: 3365077014126742997}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -578,7 +578,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3365077014379318055}
   - component: {fileID: 3365077014379318054}
-  m_Layer: 9
+  m_Layer: 14
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -626,7 +626,7 @@ GameObject:
   - component: {fileID: 3365077014733173233}
   - component: {fileID: 3365077014733173238}
   - component: {fileID: 3365077014733173234}
-  m_Layer: 9
+  m_Layer: 14
   m_Name: axe_silver
   m_TagString: stencil
   m_Icon: {fileID: 0}
@@ -794,7 +794,7 @@ GameObject:
   - component: {fileID: 3365077014892714407}
   - component: {fileID: 3365077014892714401}
   - component: {fileID: 3365077014892714406}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -918,7 +918,7 @@ GameObject:
   - component: {fileID: 3365077014895839268}
   - component: {fileID: 3365077014895839270}
   - component: {fileID: 3365077014895839271}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: axe_silver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1050,7 +1050,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3365077015459740378}
   - component: {fileID: 3365077015459740373}
-  m_Layer: 9
+  m_Layer: 14
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1099,7 +1099,7 @@ GameObject:
   - component: {fileID: 6010066939957944894}
   - component: {fileID: 6010066939957944883}
   - component: {fileID: 6010066939957944884}
-  m_Layer: 9
+  m_Layer: 14
   m_Name: StencilColliderComposite
   m_TagString: stencil
   m_Icon: {fileID: 0}

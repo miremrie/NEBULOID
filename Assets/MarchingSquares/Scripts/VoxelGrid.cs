@@ -23,7 +23,7 @@ namespace MarchingSquares
 
         private float sharpFeatureLimit;
 
-        private VoxelGridSurface surface;
+        internal VoxelGridSurface surface;
 
         private Voxel dummyX, dummyY, dummyT;
 
@@ -32,10 +32,11 @@ namespace MarchingSquares
         private Vector2Int chunkPos;
 
         int chunkResolution;
-        List<VoxelStencilCollider> stencilsInRange = new List<VoxelStencilCollider>();
-        private BoxCollider2D boundsTrigger;
+
+        internal BoxCollider2D boundsTrigger;
         private bool dirty = true;
         public List<Collider2D> enteredColliders = new List<Collider2D>();
+        internal bool waitingForCollisionUpdate;
 
         private void Awake()
         {
@@ -44,22 +45,12 @@ namespace MarchingSquares
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            var c = collision.GetComponent<VoxelStencilCollider>();
-            if (c != null) { stencilsInRange.Add(c); return; }
-
             enteredColliders.Add(collision);
             surface.EnableCollision(true);
         }
 
         private void OnTriggerExit2D(Collider2D collision)
         {
-            var c = collision.GetComponent<VoxelStencilCollider>();
-            if (c != null)
-            {
-                if (stencilsInRange.Contains(c)) { stencilsInRange.Remove(c); };
-                return;
-            }
-
             enteredColliders.Remove(collision);
         }
 
@@ -92,7 +83,7 @@ namespace MarchingSquares
                 }
             }
 
-            boundsTrigger.size = Vector2.one * voxelSize * resolution + Vector2.one * voxelSize;
+            boundsTrigger.size = Vector2.one * voxelSize * resolution + Vector2.one * voxelSize * 2;
             boundsTrigger.offset = Vector2.one * voxelSize * resolution * 0.5f;
 
             surface = Instantiate(surfacePrefab) as VoxelGridSurface;
@@ -147,7 +138,11 @@ namespace MarchingSquares
             if (!dirty) return;
             //SetVoxelColors();
             Triangulate();
-            map.AddSurfaceToUpdate(surface);
+
+            if (!waitingForCollisionUpdate) {
+                map.AddSurfaceToUpdate(this);
+                waitingForCollisionUpdate = true;
+            }
             dirty = false;
         }
 
@@ -864,9 +859,9 @@ namespace MarchingSquares
             surface.AddQuadADToC(i);
         }
 
-        public void Apply(IStencil stencil, bool ignoreFilter = false)
+        public void Apply(IStencil stencil)
         {
-            if (!stencilsInRange.Contains(stencil) && !ignoreFilter) return;
+            stencil.SetGridTransform(transform);
             dirty = true;
 
             int xStart, xEnd, yStart, yEnd;
@@ -878,10 +873,15 @@ namespace MarchingSquares
                 int i = y * resolution + xStart;
                 for (int x = xStart; x <= xEnd; x++, i++)
                 {
+                    //var pos = voxels[i].WorldPos;
+                    //var color = stencil.IsOverlapping(voxels[i]) ? Color.green : Color.red;
+                    //Debug.DrawLine(pos, pos + Vector3.one * 0.01f, color); 
+
                     if (stencil.IsOverlapping(voxels[i]))
                         voxels[i].state = stencil.IsFilling();
                 }
             }
+
             SetCrossings(stencil, xStart, xEnd, yStart, yEnd);
         }
 

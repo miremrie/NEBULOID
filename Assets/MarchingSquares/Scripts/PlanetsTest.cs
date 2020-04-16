@@ -11,12 +11,19 @@ namespace MarchingSquares
         public VoxelMap planet;
         public GameObject planetPrefab;
 
+        public Collider2D movingCol, stationaryCol;
+        public Transform colTestPos;
+        public int colTestsNum;
+
         // Start is called before the first frame update
         void Start()
         {
-
             stencils = FindObjectsOfType<VoxelStencilCollider>();
+            stationaryCol.transform.position = colTestPos.position;
+            movingCol.transform.position = Vector3.zero;
+
         }
+
 
         void Update()
         {
@@ -53,7 +60,27 @@ namespace MarchingSquares
                 var pGo = Instantiate(planetPrefab, p + Vector3.forward, Quaternion.identity);
                 Destroy(pGo, 15);
             }
+
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                movingCol.transform.position = Vector3.zero;
+                var pos = colTestPos.position;
+                movingCol.transform.position = pos;
+                var f = new ContactFilter2D();
+                f.useTriggers = true;
+
+                for (int i = 0; i < colTestsNum; i++)
+                {
+                stationaryCol.OverlapCollider(f, results);
+
+                }
+                movingCol.transform.position = Vector3.zero;
+                Debug.Log(results[0].name);
+                results[0] = null;
+            }
         }
+
+        public Collider2D[] results = new Collider2D[10];
 
         private void OnGUI()
         {

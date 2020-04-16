@@ -128,7 +128,7 @@ namespace MarchingSquares
             var hit = Physics2D.LinecastNonAlloc(a, b, results, mask);
             var r = results[0];
 
-            return new Validated<RaycastHit2D>(r, hit == 1);
+            return new Validated<RaycastHit2D>(r, hit >= 1);
         }
 
         private bool PickDirection(Voxel min, Voxel max, out Vector2 from, out Vector2 to)

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2300000}
   - component: {fileID: 11400000}
   - component: {fileID: 736754622190795213}
-  m_Layer: 4
+  m_Layer: 15
   m_Name: VoxelGrid Surface
   m_TagString: Untagged
   m_Icon: {fileID: 0}

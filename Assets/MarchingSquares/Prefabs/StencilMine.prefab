@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 498300399003415463}
   - component: {fileID: 8930138454766570157}
   m_Layer: 0
-  m_Name: bullet
+  m_Name: StencilMine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 3906728192255860023}
   - component: {fileID: 6522968621268865188}
   - component: {fileID: 7095354561275089313}
-  m_Layer: 9
+  m_Layer: 14
   m_Name: carver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
