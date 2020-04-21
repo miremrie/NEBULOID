@@ -29,8 +29,12 @@ namespace NBLD.Input
             if (inputInitialized)
             {
                 Unsubscribe();
-                input.Dispose();
             }
+        }
+
+        private void OnDestroy()
+        {
+            input.Dispose();
         }
 
         public void RegisterController(CharController charController)

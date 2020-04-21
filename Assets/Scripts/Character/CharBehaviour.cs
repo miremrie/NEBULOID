@@ -13,6 +13,9 @@ namespace NBLD.Character
         protected SpriteRenderer spriteRenderer;
         protected Rigidbody2D rb2D;
         protected CharAudioController charAudio;
+        public string spriteSortingLayer;
+        public Material spriteMaterial;
+        protected bool initialized = false;
 
         public void Initialize(CharController charController, Rigidbody2D rigidbody, SpriteRenderer spriteRenderer, Animator animator, CharAudioController charAudio)
         {
@@ -21,8 +24,22 @@ namespace NBLD.Character
             this.spriteRenderer = spriteRenderer;
             this.rb2D = rigidbody;
             this.charAudio = charAudio;
+            initialized = true;
         }
 
+        protected virtual void OnEnable()
+        {
+            if (initialized)
+            {
+                //spriteRenderer.sortingLayerID = SortingLayer.NameToID(spriteSortingLayer);
+                //spriteRenderer.material = spriteMaterial;
+            }
+        }
+
+        protected virtual void OnDisable()
+        {
+            
+        }
         protected virtual void Start()
         {
 

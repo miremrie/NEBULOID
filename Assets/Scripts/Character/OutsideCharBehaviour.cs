@@ -9,14 +9,18 @@ namespace NBLD.Character
     public class OutsideCharBehaviour : CharBehaviour
     {
         public Transform hoseAttachSpot;
-        [Header("Movement")]
+        [Header("Rotation")]
+        public Transform rotationCenter;
         public float rotationSpeed = 2f;
+        private bool isRotating = false;
+        private Quaternion targetRotation;
+        [Header("Movement")]
         public float moveSpeedMultiplier = 1f;
         public AnimationCurve moveSpeed;
         public MaskedSlider moveIntensityUI;
-        private bool isRotating = false;
-        private Quaternion targetRotation;
         private Timer moveTimer;
+
+
 
         protected override void Start()
         {
@@ -26,12 +30,14 @@ namespace NBLD.Character
             moveIntensityUI.Initalize(0, moveSpeedMultiplier);
         }
 
-        private void OnEnable()
+        protected override void OnEnable()
         {
+            base.OnEnable();
             moveIntensityUI.gameObject.SetActive(true);
         }
-        private void OnDisable()
+        protected override void OnDisable()
         {
+            base.OnDisable();
             moveIntensityUI.gameObject.SetActive(false);
         }
         private void Update()
@@ -64,7 +70,11 @@ namespace NBLD.Character
         {
             if (isRotating)
             {
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+                //float angle = Mathf.LerpAngle(transform.rotation.eulerAngles.z, targetRotation.eulerAngles.z, rotationSpeed * Time.deltaTime);
+                float totalAngle = Mathf.DeltaAngle(transform.rotation.eulerAngles.z, targetRotation.eulerAngles.z);
+                float dAngle = Mathf.LerpAngle(0, totalAngle, rotationSpeed * Time.deltaTime);
+                transform.RotateAround(rotationCenter.position, Vector3.forward, dAngle);
+                //transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
             }
         }
         //Actions

@@ -32,6 +32,12 @@ namespace NBLD.Character
             base.Start();
             transportTimer = new Timer(transportAudioFrequency);
         }
+        protected override void OnDisable()
+        {
+            base.OnDisable();
+            ResetMovement();
+            ResetAnimations();
+        }
 
         private void Update()
         {
@@ -41,6 +47,17 @@ namespace NBLD.Character
             }
             UpdateTransport();
 
+        }
+        //Reset
+        private void ResetMovement()
+        {
+            currentMovement = Vector3.zero;
+
+        }
+        private void ResetAnimations()
+        {
+            animator.SetBool(moveAnimName, false);
+            animator.SetBool(moveVerAnimName, false);
         }
         //Animations
         private void AnimateMovement()

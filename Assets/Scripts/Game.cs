@@ -42,10 +42,13 @@ public class Game : MonoBehaviour
     private void Subscribe()
     {
         NBLD.Input.UIInputManager.onSubmit += OnSubmit;
+        NBLD.Input.UIInputManager.onEscape += OnEscape;
     }
     private void Unsubscribe()
     {
         NBLD.Input.UIInputManager.onSubmit -= OnSubmit;
+        NBLD.Input.UIInputManager.onEscape -= OnEscape;
+
     }
     void Update()
     {
@@ -132,6 +135,11 @@ public class Game : MonoBehaviour
             RestartGame();
         }
 
+    }
+
+    public void OnEscape()
+    {
+        GoBackToMenu();
     }
 
     public void GoBackToMenu()

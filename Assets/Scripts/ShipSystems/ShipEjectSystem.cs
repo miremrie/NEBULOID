@@ -75,8 +75,11 @@ namespace NBLD.ShipSystems
 
         private void StartPullTowards(CharBehaviour puller)
         {
-            pullTowardsStarted = true;
-            pullTowardTimer.Start();
+            if (outsideChar.state == CharacterState.Outside)
+            {
+                pullTowardsStarted = true;
+                pullTowardTimer.Start();
+            }
         }
 
         public override void OnExitAction(CharBehaviour charBehaviour)
@@ -94,7 +97,7 @@ namespace NBLD.ShipSystems
         {
             if (pullTowardsStarted)
             {
-                if ( maxPullTowardsDistance > Vector2.Distance(outsidePipeEnd.position, outsideChar.transform.position))
+                if ( maxPullTowardsDistance > Vector2.Distance(outsidePipeEnd.position, outsideChar.transform.position) || outsideChar.state != CharacterState.Outside)
                 {
                     StopPullTowards();
                 } else

@@ -12,7 +12,7 @@ namespace NBLD.Character
     }
     public enum CharacterState
     {
-        Inside, Outside, Dead
+        Inside, Outside, Dead, Transition
     }
     public class CharController : MonoBehaviour
     {
@@ -44,6 +44,7 @@ namespace NBLD.Character
         public float transitionMinAngleOffset = 5;
         public float rotationSpeed = 45;
         public float targetAngle = 0;
+        public Transform characterCenter;
         private Transform transitionStart, transitionDst;
         private bool inTransition = false, transitionStartReached = false;
         private bool transitionPrepAnimStarted = false, transitionPrepAnimationOver = false, transitionPrepRotationOver = false;
@@ -51,6 +52,7 @@ namespace NBLD.Character
         private const string transitionEndOutAnimKey = "EndOutTransition";
         private const string transitionPrepInAnimKey = "PrepInTransition";
         private const string transitionEndInAnimKey = "EndInTransition";
+        private CharacterState transitionNewState;
 
 
 
@@ -73,7 +75,7 @@ namespace NBLD.Character
         }
 
         //States
-        public void ChangeState(CharacterState state)
+        private void ChangeState(CharacterState state)
         {
             if (state == CharacterState.Outside)
             {
@@ -86,8 +88,20 @@ namespace NBLD.Character
             } else if (state == CharacterState.Dead)
             {
                 //isDead = true;
+            } else if (state == CharacterState.Transition)
+            {
+                if (this.state == CharacterState.Outside)
+                {
+                    ship.AddDependentTransform(transform);
+                }
+                DeactivateBehaviour();
+                //ship.RemoveDependentTransform(transform);
             }
             this.state = state;
+        }
+        private void DeactivateBehaviour()
+        {
+            activeBehaviour.enabled = false;
         }
         private void ActivateBehaviour(CharBehaviour newActive)
         {
@@ -148,7 +162,8 @@ namespace NBLD.Character
             transitionStart = start;
             transitionDst = dst;
             SetCollidersActive(false);
-            ChangeState(newState);
+            ChangeState(CharacterState.Transition);
+            transitionNewState = newState;
             if (clearActions)
             {
                 availableActions.Clear();
@@ -166,7 +181,12 @@ namespace NBLD.Character
             transitionPrepAnimationOver = false;
             transitionPrepRotationOver = false;
             transitionPrepAnimStarted = false;
+            animator.ResetTrigger(transitionEndInAnimKey);
+            animator.ResetTrigger(transitionEndOutAnimKey);
+            animator.ResetTrigger(transitionPrepInAnimKey);
+            animator.ResetTrigger(transitionPrepOutAnimKey);
             SetCollidersActive(true);
+            ChangeState(transitionNewState);
         }
         private void UpdateTransitionStartPos()
         {
@@ -179,19 +199,22 @@ namespace NBLD.Character
             {
                 Vector3 direction = (transitionStart.position - transform.position).normalized;
                 transform.Translate(direction * transitionSpeed * Time.deltaTime);
+
             }
         }
         private void UpdateTransitionStartRot()
         {
             Quaternion targetRot = Quaternion.Euler(0, 0, targetAngle);
-
             if (transitionMinAngleOffset >= Mathf.Abs(Mathf.DeltaAngle(transform.rotation.eulerAngles.z, targetAngle)))
             {
                 transform.rotation = targetRot;
                 transitionPrepRotationOver = true;
-            } else
+            }
+            else
             {
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRot, rotationSpeed * Time.deltaTime);
+                float angle = Mathf.LerpAngle(transform.rotation.eulerAngles.z, targetAngle, rotationSpeed * Time.deltaTime);               
+                transform.RotateAround(characterCenter.position, Vector3.forward, Mathf.DeltaAngle(transform.rotation.eulerAngles.z, angle));
+                //transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRot, rotationSpeed * Time.deltaTime);
             }
         }
         private void TransitionPrepAnimationOver()
@@ -213,7 +236,7 @@ namespace NBLD.Character
                 if (transitionStartReached && transitionPrepRotationOver && !transitionPrepAnimStarted)
                 {
                     transitionPrepAnimStarted = true;
-                    if (state == CharacterState.Outside)
+                    if (transitionNewState == CharacterState.Outside)
                     {
                         animator.SetTrigger(transitionPrepOutAnimKey);
                     }
@@ -226,7 +249,7 @@ namespace NBLD.Character
                     if (transitionMinOffset >= Vector3.Distance(transform.position, transitionDst.position))
                     {
                         transform.position = transitionDst.position;
-                        if (state == CharacterState.Outside)
+                        if (transitionNewState == CharacterState.Outside)
                         {
                             animator.SetTrigger(transitionEndOutAnimKey);
                         }
@@ -234,9 +257,12 @@ namespace NBLD.Character
                         {
                             animator.SetTrigger(transitionEndInAnimKey);
                         }
+                    } else
+                    {
+                        Vector3 direction = (transitionDst.position - transform.position).normalized;
+                        transform.Translate(direction * transitionSpeed * Time.deltaTime);
                     }
-                    Vector3 direction = (transitionDst.position - transform.position).normalized;
-                    transform.Translate(direction * transitionSpeed * Time.deltaTime);
+
                 }
             }
         }
