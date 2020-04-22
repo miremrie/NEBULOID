@@ -16,12 +16,20 @@ namespace NBLD.Character
         private bool isRotating = false;
         private Quaternion targetRotation;
         [Header("Movement")]
+        public float standardMoveSpeed = 1f;
+        public float boostMoveSpeed;
+        public float boostDuration;
         public float moveSpeedMultiplier = 1f;
         public AnimationCurve moveSpeed;
         [Range(0, 1)]
         public float velocityDropPercentAfterLaunch;
+        public float maxVelocityMag = 15f;
         public MaskedSlider moveIntensityUI;
+        public GameObject boostVFX;
         private Timer moveTimer;
+        private Vector2 moveDirection;
+        private bool isBoostedMovement = false;
+
 
 
 
@@ -29,7 +37,7 @@ namespace NBLD.Character
         {
             base.Start();
             moveTimer = new Timer(moveSpeed.keys[moveSpeed.length - 1].time);
-            moveTimer.Start();
+            //moveTimer.Start();
             moveIntensityUI.Initalize(0, moveSpeedMultiplier);
         }
 
@@ -48,21 +56,61 @@ namespace NBLD.Character
             UpdateRotation();
             UpdateMoveTimer();
         }
+        private void FixedUpdate()
+        {
+            UpdateMovement();
+        }
         //Movement
         private void UpdateMoveTimer()
         {
-            if (!moveTimer.IsRunning())
+            /*if (!moveTimer.IsRunning())
             {
                 moveTimer.Start();
             }
             moveIntensityUI.UpdateValue(GetCurrentSpeed());
-            moveTimer.Update(Time.deltaTime);
+            moveTimer.Update(Time.deltaTime);*/
+        }
+        private void UpdateMovement()
+        {
+            if (moveDirection.x != 0 || moveDirection.y != 0)
+            {
+                float speed = 0f;
+                float maxMag = 0f;
+                if (moveTimer.IsRunning())
+                {
+                    Debug.Log("Running");
+                    speed = moveSpeed.Evaluate(moveTimer.GetCurrentTime()) * boostMoveSpeed;
+                    maxMag = maxVelocityMag * (boostMoveSpeed / standardMoveSpeed);
+                    moveTimer.Update(Time.deltaTime);
+                    boostVFX.SetActive(true);
+                } else
+                {
+                    boostVFX.SetActive(false);
+                    speed = standardMoveSpeed;
+                    maxMag = maxVelocityMag;
+                }
+                //float moveSpeed = isBoostedMovement ? moveSpeedMultiplier : standardMoveSpeed;
+                Vector2 force = moveDirection * speed;
+                rb2D.AddForce(force);
+                rb2D.velocity = Vector2.ClampMagnitude(rb2D.velocity, maxMag);
+            }
+            else
+            {
+                rb2D.velocity = Vector2.Lerp(Vector2.zero, rb2D.velocity, velocityDropPercentAfterLaunch);
+            }
+            Debug.Log(rb2D.velocity);
+
         }
         private void LaunchMovement()
         {
+            LaunchMovement(Vector2.left);
+        }
+        private void LaunchMovement(Vector2 direction)
+        {
             rb2D.velocity = Vector2.Lerp(Vector2.zero, rb2D.velocity, velocityDropPercentAfterLaunch);
-            Vector2 force = Vector2.left * GetCurrentSpeed();
+            Vector2 force = direction * GetCurrentSpeed();
             rb2D.AddRelativeForce(force);
+            rb2D.velocity = Vector2.ClampMagnitude(rb2D.velocity, maxVelocityMag);
             moveTimer.Start();
         }
         private float GetCurrentSpeed()
@@ -114,9 +162,11 @@ namespace NBLD.Character
         public override void OnMovement(Vector2 movement)
         {
             base.OnMovement(movement);
+            moveDirection = movement;
             if (movement.x != 0 || movement.y != 0)
             {
                 targetRotation = Quaternion.Euler(0, 0, (Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg) - 180);
+                //LaunchMovement(movement);
                 isRotating = true;
             } else
             {
@@ -132,7 +182,11 @@ namespace NBLD.Character
         public override void OnMoveAssistPerformed()
         {
             base.OnMoveAssistPerformed();
-            LaunchMovement();
+            if (!moveTimer.IsRunning())
+            {
+                moveTimer.Start();
+            }
+            //LaunchMovement();
         }
         public override void OnMoveAssistStarted()
         {
