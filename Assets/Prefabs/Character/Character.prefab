@@ -648,7 +648,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 0.3
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -731,8 +731,9 @@ MonoBehaviour:
   spriteMaterial: {fileID: 2100000, guid: 6c8d3f722c2b28148af60d5a05a4f642, type: 2}
   hoseAttachSpot: {fileID: 7698084909700912097}
   rotationCenter: {fileID: 1369831469631679421}
+  minRotAngle: 2
   rotationSpeed: 1
-  moveSpeedMultiplier: 8
+  moveSpeedMultiplier: 45
   moveSpeed:
     serializedVersion: 2
     m_Curve:
@@ -766,6 +767,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  velocityDropPercentAfterLaunch: 0.5
   moveIntensityUI: {fileID: 4638937411788288821}
 --- !u!95 &4265162992504635029
 Animator:

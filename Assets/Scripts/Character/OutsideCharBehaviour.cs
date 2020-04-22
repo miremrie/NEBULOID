@@ -11,12 +11,15 @@ namespace NBLD.Character
         public Transform hoseAttachSpot;
         [Header("Rotation")]
         public Transform rotationCenter;
+        public float minRotAngle = 2f;
         public float rotationSpeed = 2f;
         private bool isRotating = false;
         private Quaternion targetRotation;
         [Header("Movement")]
         public float moveSpeedMultiplier = 1f;
         public AnimationCurve moveSpeed;
+        [Range(0, 1)]
+        public float velocityDropPercentAfterLaunch;
         public MaskedSlider moveIntensityUI;
         private Timer moveTimer;
 
@@ -57,7 +60,7 @@ namespace NBLD.Character
         }
         private void LaunchMovement()
         {
-
+            rb2D.velocity = Vector2.Lerp(Vector2.zero, rb2D.velocity, velocityDropPercentAfterLaunch);
             Vector2 force = Vector2.left * GetCurrentSpeed();
             rb2D.AddRelativeForce(force);
             moveTimer.Start();
@@ -73,7 +76,26 @@ namespace NBLD.Character
                 //float angle = Mathf.LerpAngle(transform.rotation.eulerAngles.z, targetRotation.eulerAngles.z, rotationSpeed * Time.deltaTime);
                 float totalAngle = Mathf.DeltaAngle(transform.rotation.eulerAngles.z, targetRotation.eulerAngles.z);
                 float dAngle = Mathf.LerpAngle(0, totalAngle, rotationSpeed * Time.deltaTime);
-                transform.RotateAround(rotationCenter.position, Vector3.forward, dAngle);
+                if (totalAngle == 0)
+                {
+                    return;
+                }
+                if (Mathf.Abs(totalAngle) > Mathf.Abs(minRotAngle))
+                {
+                    if (dAngle > 0)
+                    {
+                        dAngle = Mathf.Clamp(dAngle, minRotAngle, totalAngle);
+
+                    } else
+                    {
+                        dAngle = Mathf.Clamp(dAngle, totalAngle, -minRotAngle);
+                    }
+                    transform.RotateAround(rotationCenter.position, Vector3.forward, dAngle);
+                }
+                else
+                {
+                    //transform.RotateAround(rotationCenter.position, Vector3.forward, totalAngle);
+                }
                 //transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
             }
         }
