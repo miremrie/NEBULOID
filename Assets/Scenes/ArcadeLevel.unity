@@ -2442,7 +2442,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 6618639465253345514}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9339331591dd8e4d988f2d32c3bfc80, type: 3}
   m_Name: 
@@ -2552,6 +2552,12 @@ PolygonCollider2D:
   m_CorrespondingSourceObject: {fileID: 3365077014021264014, guid: 58bd4afc7dbe93f44abe93eb853e1663,
     type: 3}
   m_PrefabInstance: {fileID: 894497166}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1729127434 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5437730566674427749, guid: 4cea72866e3357144bb6bea8a74721cc,
+    type: 3}
+  m_PrefabInstance: {fileID: 4220939311685018573}
   m_PrefabAsset: {fileID: 0}
 --- !u!60 &1779421478 stripped
 PolygonCollider2D:
@@ -2872,15 +2878,95 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6618639463991037840, guid: 8933b87cebe90554983fef8ec1fddb73,
+        type: 3}
+      propertyPath: orthographic size
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6618639463991037846, guid: 8933b87cebe90554983fef8ec1fddb73,
         type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 1185245426}
+    - target: {fileID: 6618639463991037846, guid: 8933b87cebe90554983fef8ec1fddb73,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6618639464236555385, guid: 8933b87cebe90554983fef8ec1fddb73,
         type: 3}
       propertyPath: m_Name
       value: CameraWrapper
+      objectReference: {fileID: 0}
+    - target: {fileID: 6618639464236555388, guid: 8933b87cebe90554983fef8ec1fddb73,
+        type: 3}
+      propertyPath: zones.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6618639464236555388, guid: 8933b87cebe90554983fef8ec1fddb73,
+        type: 3}
+      propertyPath: zones.Array.data[0].trans
+      value: 
+      objectReference: {fileID: 1729127434}
+    - target: {fileID: 6618639464236555388, guid: 8933b87cebe90554983fef8ec1fddb73,
+        type: 3}
+      propertyPath: zones.Array.data[1].trans
+      value: 
+      objectReference: {fileID: 384905162}
+    - target: {fileID: 6618639464236555388, guid: 8933b87cebe90554983fef8ec1fddb73,
+        type: 3}
+      propertyPath: zones.Array.data[2].trans
+      value: 
+      objectReference: {fileID: 1185245426}
+    - target: {fileID: 6618639464236555388, guid: 8933b87cebe90554983fef8ec1fddb73,
+        type: 3}
+      propertyPath: limitZone.trans
+      value: 
+      objectReference: {fileID: 1185245426}
+    - target: {fileID: 6618639464236555388, guid: 8933b87cebe90554983fef8ec1fddb73,
+        type: 3}
+      propertyPath: limitZone.radius
+      value: 54
+      objectReference: {fileID: 0}
+    - target: {fileID: 6618639464236555388, guid: 8933b87cebe90554983fef8ec1fddb73,
+        type: 3}
+      propertyPath: zones.Array.data[1].radius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6618639464236555388, guid: 8933b87cebe90554983fef8ec1fddb73,
+        type: 3}
+      propertyPath: zones.Array.data[2].radius
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6618639464236555388, guid: 8933b87cebe90554983fef8ec1fddb73,
+        type: 3}
+      propertyPath: zones.Array.data[0].radius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6618639464236555388, guid: 8933b87cebe90554983fef8ec1fddb73,
+        type: 3}
+      propertyPath: zones.Array.data[0].weight
+      value: 0.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 6618639464236555388, guid: 8933b87cebe90554983fef8ec1fddb73,
+        type: 3}
+      propertyPath: zones.Array.data[1].weight
+      value: 0.482
+      objectReference: {fileID: 0}
+    - target: {fileID: 6618639464236555388, guid: 8933b87cebe90554983fef8ec1fddb73,
+        type: 3}
+      propertyPath: zones.Array.data[2].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6618639464236555388, guid: 8933b87cebe90554983fef8ec1fddb73,
+        type: 3}
+      propertyPath: limitZone.weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6618639464236555390, guid: 8933b87cebe90554983fef8ec1fddb73,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6618639464236555391, guid: 8933b87cebe90554983fef8ec1fddb73,
         type: 3}
