@@ -2936,7 +2936,7 @@ PrefabInstance:
     - target: {fileID: 6618639464236555388, guid: 8933b87cebe90554983fef8ec1fddb73,
         type: 3}
       propertyPath: zones.Array.data[2].radius
-      value: 4
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6618639464236555388, guid: 8933b87cebe90554983fef8ec1fddb73,
         type: 3}

@@ -138,14 +138,6 @@ namespace NBLD.Character
                 ExecuteAction(availableActions[useButton]);
             }
         }*/
-
-        public void SetCollidersActive(bool active)
-        {
-            foreach(Collider2D col in colliders)
-            {
-                col.enabled = active;
-            }
-        }
         //Movement
         public void ApplyForceMovement(Vector2 velocity, bool clearPrevious = true)
         {
@@ -161,7 +153,7 @@ namespace NBLD.Character
             inTransition = true;
             transitionStart = start;
             transitionDst = dst;
-            SetCollidersActive(false);
+            activeBehaviour.DisableCollisions();
             ChangeState(CharacterState.Transition);
             transitionNewState = newState;
             if (clearActions)
@@ -185,8 +177,8 @@ namespace NBLD.Character
             animator.ResetTrigger(transitionEndOutAnimKey);
             animator.ResetTrigger(transitionPrepInAnimKey);
             animator.ResetTrigger(transitionPrepOutAnimKey);
-            SetCollidersActive(true);
             ChangeState(transitionNewState);
+            activeBehaviour.EnableCollisions();
         }
         private void UpdateTransitionStartPos()
         {

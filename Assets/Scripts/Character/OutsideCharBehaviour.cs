@@ -18,8 +18,6 @@ namespace NBLD.Character
         [Header("Movement")]
         public float standardMoveSpeed = 1f;
         public float boostMoveSpeed;
-        public float boostDuration;
-        public float moveSpeedMultiplier = 1f;
         public AnimationCurve moveSpeed;
         [Range(0, 1)]
         public float velocityDropPercentAfterLaunch;
@@ -28,7 +26,7 @@ namespace NBLD.Character
         public GameObject boostVFX;
         private Timer moveTimer;
         private Vector2 moveDirection;
-        private bool isBoostedMovement = false;
+        private Vector2 boostDirection;
 
 
 
@@ -38,18 +36,18 @@ namespace NBLD.Character
             base.Start();
             moveTimer = new Timer(moveSpeed.keys[moveSpeed.length - 1].time);
             //moveTimer.Start();
-            moveIntensityUI.Initalize(0, moveSpeedMultiplier);
+            moveIntensityUI.Initalize(0, standardMoveSpeed);
         }
 
         protected override void OnEnable()
         {
             base.OnEnable();
-            moveIntensityUI.gameObject.SetActive(true);
+            //moveIntensityUI.gameObject.SetActive(true);
         }
         protected override void OnDisable()
         {
             base.OnDisable();
-            moveIntensityUI.gameObject.SetActive(false);
+            //moveIntensityUI.gameObject.SetActive(false);
         }
         private void Update()
         {
@@ -70,52 +68,41 @@ namespace NBLD.Character
             moveIntensityUI.UpdateValue(GetCurrentSpeed());
             moveTimer.Update(Time.deltaTime);*/
         }
+        private Vector2 GetBoostMovement()
+        {
+            float speed = standardMoveSpeed + moveSpeed.Evaluate(moveTimer.GetCurrentTime()) * boostMoveSpeed;
+            moveTimer.Update(Time.deltaTime);
+            Vector2 force = boostDirection * speed;
+            return force;
+        }
+        private Vector2 GetNormalMovement()
+        {
+            float speed = standardMoveSpeed;
+            Vector2 force = moveDirection * speed;
+            return force;
+        }
         private void UpdateMovement()
         {
-            if (moveDirection.x != 0 || moveDirection.y != 0)
+            bool moving = (moveDirection.x != 0 || moveDirection.y != 0 || (moveTimer.IsRunning()));
+            if (!moving)
             {
-                float speed = 0f;
-                float maxMag = 0f;
+                //rb2D.velocity = Vector2.Lerp(Vector2.zero, rb2D.velocity, velocityDropPercentAfterLaunch);
+            } else
+            {
+                Vector2 force = Vector2.zero;
+                float maxMag = maxVelocityMag;
                 if (moveTimer.IsRunning())
                 {
-                    Debug.Log("Running");
-                    speed = moveSpeed.Evaluate(moveTimer.GetCurrentTime()) * boostMoveSpeed;
-                    maxMag = maxVelocityMag * (boostMoveSpeed / standardMoveSpeed);
-                    moveTimer.Update(Time.deltaTime);
-                    boostVFX.SetActive(true);
+                    force = GetBoostMovement();
+                    maxMag = (force.magnitude / standardMoveSpeed) * maxVelocityMag;
                 } else
                 {
-                    boostVFX.SetActive(false);
-                    speed = standardMoveSpeed;
-                    maxMag = maxVelocityMag;
+                    force = GetNormalMovement();
                 }
-                //float moveSpeed = isBoostedMovement ? moveSpeedMultiplier : standardMoveSpeed;
-                Vector2 force = moveDirection * speed;
                 rb2D.AddForce(force);
                 rb2D.velocity = Vector2.ClampMagnitude(rb2D.velocity, maxMag);
             }
-            else
-            {
-                rb2D.velocity = Vector2.Lerp(Vector2.zero, rb2D.velocity, velocityDropPercentAfterLaunch);
-            }
-            Debug.Log(rb2D.velocity);
-
-        }
-        private void LaunchMovement()
-        {
-            LaunchMovement(Vector2.left);
-        }
-        private void LaunchMovement(Vector2 direction)
-        {
-            rb2D.velocity = Vector2.Lerp(Vector2.zero, rb2D.velocity, velocityDropPercentAfterLaunch);
-            Vector2 force = direction * GetCurrentSpeed();
-            rb2D.AddRelativeForce(force);
-            rb2D.velocity = Vector2.ClampMagnitude(rb2D.velocity, maxVelocityMag);
-            moveTimer.Start();
-        }
-        private float GetCurrentSpeed()
-        {
-            return moveSpeed.Evaluate(moveTimer.GetCurrentTime()) * moveSpeedMultiplier;
+            boostVFX.SetActive(moveTimer.IsRunning());
         }
         private void UpdateRotation()
         {
@@ -165,6 +152,7 @@ namespace NBLD.Character
             moveDirection = movement;
             if (movement.x != 0 || movement.y != 0)
             {
+                boostDirection = moveDirection;
                 targetRotation = Quaternion.Euler(0, 0, (Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg) - 180);
                 //LaunchMovement(movement);
                 isRotating = true;

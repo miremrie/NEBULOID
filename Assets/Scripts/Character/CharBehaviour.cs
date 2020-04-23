@@ -9,6 +9,7 @@ namespace NBLD.Character
     public class CharBehaviour : MonoBehaviour
     {
         protected Animator animator;
+        public Collider2D stateSpecificCollider;
         public CharController charController { get; protected set; }
         protected SpriteRenderer spriteRenderer;
         protected Rigidbody2D rb2D;
@@ -27,6 +28,15 @@ namespace NBLD.Character
             initialized = true;
         }
 
+        public void EnableCollisions()
+        {
+            stateSpecificCollider.enabled = true;
+        }
+        public void DisableCollisions()
+        {
+            stateSpecificCollider.enabled = false;
+        }
+
         protected virtual void OnEnable()
         {
             if (initialized)
@@ -38,7 +48,6 @@ namespace NBLD.Character
 
         protected virtual void OnDisable()
         {
-            
         }
         protected virtual void Start()
         {
