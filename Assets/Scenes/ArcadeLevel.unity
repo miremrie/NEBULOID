@@ -2694,6 +2694,11 @@ PrefabInstance:
       propertyPath: camZoomTime
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8997780953612092979, guid: 835fe173342e2294ea00455a759b69ed,
+        type: 3}
+      propertyPath: camController
+      value: 
+      objectReference: {fileID: 79491345}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 835fe173342e2294ea00455a759b69ed, type: 3}
 --- !u!114 &2050759952 stripped

@@ -147,8 +147,9 @@ MonoBehaviour:
   pathDrawer: {fileID: 3689673653716880969}
   originalPoints: []
   speed: 1
-  rangeMin: -0.9
-  rangeMax: 0.9
+  perlinAnimScale: 0.4
+  minDistancePerlinAnim: 3
+  scalePerlinWithDistance: 0
   period: 1
   startFollow: {fileID: 1435529849701535731}
   endFollow: {fileID: 1747515877327981014}
@@ -505,6 +506,7 @@ MonoBehaviour:
   fireMaxSpeed: 6
   retractSpeed: 4
   accelerationTime: 2
+  audioController: {fileID: 0}
   acceleration:
     serializedVersion: 2
     m_Curve:
@@ -546,9 +548,13 @@ MonoBehaviour:
   leftHookPivot: {fileID: 4111853794538756999}
   ship: {fileID: 0}
   triggerCollider: {fileID: 842461276549946521}
-  hookOpenAnimationTime: 1
   previousHookRotation: 0
-  originalZRotation: 90
+  hookLight: {fileID: 4046810130066131348}
+  camController: {fileID: 0}
+  camZone:
+    trans: {fileID: 1747515877327981014}
+    radius: 5
+    weight: 0.4
 --- !u!95 &8713795994505403000
 Animator:
   serializedVersion: 3
@@ -749,7 +755,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4046810130066131348}
   m_LocalRotation: {x: -0, y: -0, z: 0.7190273, w: 0.69498193}
-  m_LocalPosition: {x: -1, y: 0, z: 0}
+  m_LocalPosition: {x: -0.75, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1747515877327981014}
@@ -780,8 +786,8 @@ MonoBehaviour:
   m_AlphaBlendOnOverlap: 0
   m_ShadowIntensity: 0
   m_ShadowVolumeIntensity: 0
-  m_PointLightInnerAngle: 91.350006
-  m_PointLightOuterAngle: 140.96
+  m_PointLightInnerAngle: 108.990005
+  m_PointLightOuterAngle: 158.6
   m_PointLightInnerRadius: 0.7878271
   m_PointLightOuterRadius: 4.4921117
   m_PointLightDistance: 3
