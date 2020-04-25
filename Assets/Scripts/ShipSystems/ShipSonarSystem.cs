@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using DynamicCamera;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,18 +11,31 @@ namespace NBLD.ShipSystems
         private Timer sonarMoveTimer;
         public float sonarMoveTime;
         private bool sonarStarted;
-        public CameraController camController;
-        public float newCamSize;
-        public float camZoomTime;
         public ShipAudioController audioController;
         public GameObject audioEmitter;
+        [Header("Camera")]
+        public CameraController camController;
+        public CamZone sonarCamZone;
+        public float camZoomTime;
+        public float revertTime;
+        public float zoomRadius;
+        public AnimationCurve radiusOverTimeCurve;
+        public AnimationCurve revertRadiusCurve;
+        private const string cameraSetName = "gameplay";
+        private float sonarCamStartRadius;
+        private Timer revertTimer;
+        private bool revertStarted = false;
+        private CamSet camSet;
 
         public override void Initialize()
         {
             if (!initialized)
             {
                 base.Initialize();
+                sonarCamStartRadius = sonarCamZone.radius;
+                camSet = camController.FindSet(cameraSetName);
                 sonarMoveTimer = new Timer(sonarMoveTime);
+                revertTimer = new Timer(revertTime);
             }
         }
 
@@ -40,12 +54,45 @@ namespace NBLD.ShipSystems
                 {
                     sonarStarted = false;
                     SonarMovingLightPivot.gameObject.SetActive(false);
-                    camController.RevertToStandardSize(camZoomTime, () => SonarMovingLightPivot.gameObject.SetActive(false));
+                    revertTimer.Start();
+                    revertStarted = true;
                     audioController.StopSonar(audioEmitter);
                 }
 
                 sonarMoveTimer.Update(Time.deltaTime);
                 SonarMovingLightPivot.transform.Rotate(0, 0, 2 * 360 * Time.deltaTime / sonarMoveTime);
+                AnimateCamZoneRadius();
+            }
+            if (revertStarted)
+            {
+                revertTimer.Update(Time.deltaTime);
+                AnimateCamZoneRadius();
+                if (!revertTimer.IsRunning())
+                {
+                    ResetCamZone();
+                    revertStarted = false;
+
+                }
+            }
+        }
+        private void ResetCamZone()
+        {
+            camSet.camZones.Remove(sonarCamZone);
+            sonarCamZone.radius = sonarCamStartRadius;
+        }
+        private void AnimateCamZoneRadius()
+        {
+            if (revertTimer.IsRunning())
+            {
+                float timePercent = revertTimer.GetCurrentTimePercentClamped();
+                sonarCamZone.radius = Mathf.Lerp(sonarCamStartRadius, zoomRadius, revertRadiusCurve.Evaluate(timePercent));
+            } else 
+            {
+                float time = sonarMoveTimer.GetCurrentTime();
+                if (time <= camZoomTime)
+                {
+                    sonarCamZone.radius = Mathf.Lerp(sonarCamStartRadius, zoomRadius, radiusOverTimeCurve.Evaluate(time / camZoomTime));
+                }
             }
         }
         public override void DoAction()
@@ -54,7 +101,8 @@ namespace NBLD.ShipSystems
             SonarMovingLightPivot.gameObject.SetActive(true);
             sonarStarted = true;
             sonarMoveTimer.Start();
-            camController.ChangeSizeOverTime(newCamSize, camZoomTime);
+            camSet.camZones.Add(sonarCamZone);
+            //camController.ChangeSizeOverTime(newCamSize, camZoomTime);
             audioController.ActivateSonar(camZoomTime, audioEmitter);
         }
 

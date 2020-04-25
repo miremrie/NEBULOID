@@ -128,11 +128,64 @@ MonoBehaviour:
   cooldownTime: 12
   SonarMovingLightPivot: {fileID: 3913169694027139899}
   sonarMoveTime: 7
-  camController: {fileID: 0}
-  newCamSize: 15
-  camZoomTime: 2
   audioController: {fileID: 0}
   audioEmitter: {fileID: 2923942407162638098}
+  camController: {fileID: 0}
+  sonarCamZone:
+    trans: {fileID: 3937686926513786798}
+    radius: 6
+    weight: 0
+  camZoomTime: 2
+  revertTime: 1
+  zoomRadius: 20
+  radiusOverTimeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  revertRadiusCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -2.1647396
+      outSlope: -2.1647396
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.0773589
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2923942407162638098
 GameObject:
   m_ObjectHideFlags: 0
