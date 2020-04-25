@@ -8,6 +8,7 @@ public class ParalaxTexture : MonoBehaviour
     //float scrollSpeed = 0.5f;
     Renderer rend;
     public float factor;
+    public float scale;
 
     public Transform target;
 
@@ -16,7 +17,13 @@ public class ParalaxTexture : MonoBehaviour
         rend = GetComponent<Renderer>();
     }
 
-    void Update()
+    void LateUpdate()
+    {
+        Parallax();
+        transform.localScale = Vector3.one * Camera.main.orthographicSize * scale;
+    }
+
+    private void Parallax()
     {
         var p = target.position;
         var pos = new Vector3(p.x, p.y, transform.position.z);
@@ -26,5 +33,4 @@ public class ParalaxTexture : MonoBehaviour
         float offsetY = pos.y;
         rend.material.SetTextureOffset("_MainTex", new Vector2(factor * offsetX, factor * offsetY));
     }
-
 }
