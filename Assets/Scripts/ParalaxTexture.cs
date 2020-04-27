@@ -6,6 +6,7 @@ public class ParalaxTexture : MonoBehaviour
 {
     // Start is called before the first frame update
     //float scrollSpeed = 0.5f;
+    public CameraController camController;
     Renderer rend;
     public float factor;
     public float scale;
@@ -17,7 +18,16 @@ public class ParalaxTexture : MonoBehaviour
         rend = GetComponent<Renderer>();
     }
 
-    void LateUpdate()
+    private void OnEnable()
+    {
+        camController.onCameraMoved += OnCameraMoved;
+    }
+    private void OnDisable()
+    {
+        camController.onCameraMoved -= OnCameraMoved;
+    }
+
+    void OnCameraMoved()
     {
         Parallax();
         transform.localScale = Vector3.one * Camera.main.orthographicSize * scale;

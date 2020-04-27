@@ -86,7 +86,7 @@ namespace NBLD.Input
         private List<UserDevice> users;
         private List<Gamepad> takenGamepads = new List<Gamepad>();
 
-        void Start()
+        void Awake()
         {
             InputUser.listenForUnpairedDeviceActivity = numberOfUsers;
             users = new List<UserDevice>();
@@ -97,21 +97,24 @@ namespace NBLD.Input
                 characterManagers[i].InitializeInput(users[i]);
             }
             
+            //Subscribe();
+        }
+        private void OnEnable()
+        {
             Subscribe();
         }
-
         private void OnDisable()
         {
             Unsubscribe();
-            for(int i = 0; i < users.Count; i++)
-            {
-                users[i].Dispose();
-            }
         }
 
         private void OnDestroy()
         {
             Unsubscribe();
+            for (int i = 0; i < users.Count; i++)
+            {
+                users[i].Dispose();
+            }
         }
 
         private void Subscribe()

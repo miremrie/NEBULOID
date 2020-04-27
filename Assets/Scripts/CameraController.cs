@@ -12,7 +12,6 @@ public class CameraController : MonoBehaviour
     public AnimationCurve revertingSizeCurve;
     private float dstStandardSizeMultiplier;
     private float dstSize;
-    private bool changingSize = false;
     public bool revertingSize = false;
     private Timer animTimer;
     private Action callback;
@@ -20,6 +19,10 @@ public class CameraController : MonoBehaviour
     private CamSet activeSet;
     public string initalSetName;
     public float smooth = 5;
+    //Events
+    public delegate void CameraEvent();
+    public event CameraEvent onCameraMoved;
+
 
     private void Awake()
     {
@@ -34,6 +37,8 @@ public class CameraController : MonoBehaviour
         var s = smooth * Time.deltaTime;
         cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, newTarget.size, s);
         cam.transform.position = Vector3.Lerp(cam.transform.position, newTarget.pos, s);
+
+        onCameraMoved?.Invoke();
     }
 
     public void ActivateCamSet(CamSet set) => activeSet = set;
@@ -44,56 +49,6 @@ public class CameraController : MonoBehaviour
         return sets.FirstOrDefault(s => s.name == name)
             ?? throw new Exception("There is no set with that name");
     }
-
-    private void Update()
-    {
-        UpdateSonarLegacy();
-    }
-
-    [Obsolete("Use new camera system")]
-    private void UpdateSonarLegacy()
-    {
-        if (changingSize)
-        {
-            animTimer.Update(Time.deltaTime);
-            cam.orthographicSize = standardSize + sizeOverTimeCurve.Evaluate(animTimer.GetCurrentTimePercent()) * dstStandardSizeMultiplier;
-            if (animTimer.GetCurrentTimePercent() >= 1f)
-            {
-                changingSize = false;
-            }
-        }
-        if (revertingSize)
-        {
-            animTimer.Update(Time.deltaTime);
-            if (animTimer.GetCurrentTimePercent() >= 1f)
-            {
-                cam.orthographicSize = standardSize;
-                revertingSize = false;
-                callback();
-            }
-            cam.orthographicSize = standardSize + sizeOverTimeCurve.Evaluate(1 - animTimer.GetCurrentTimePercent()) * dstStandardSizeMultiplier;
-        }
-    }
-
-    [Obsolete("Use the new camera system")]
-    public void ChangeSizeOverTime(float newSize, float time)
-    {
-        dstSize = newSize;
-        changingSize = true;
-        this.dstStandardSizeMultiplier = newSize - standardSize;
-        animTimer = new Timer(time);
-        animTimer.Start();
-    }
-
-    [Obsolete("Use the new camera system")]
-    public void RevertToStandardSize(float time, Action callback)
-    {
-        this.callback = callback;
-        revertingSize = true;
-        animTimer = new Timer(time);
-        animTimer.Start();
-    }
-
 }
 
 namespace DynamicCamera
