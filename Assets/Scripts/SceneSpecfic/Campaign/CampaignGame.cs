@@ -14,9 +14,13 @@ public class CampaignGame : MonoBehaviour
     public ShipCreator shipCreator;
     public List<GameObject> gameplayOnlyObjects = new List<GameObject>();
     public List<GameObject> garageOnlyObjects = new List<GameObject>();
-
+    private NBLD.Input.UIInputManager uiInput;
 
     // Start is called before the first frame update
+    private void Awake()
+    {
+        uiInput = new NBLD.Input.UIInputManager();
+    }
     void Start()
     {
         ChangeState(GameState.Gameplay);
@@ -31,11 +35,20 @@ public class CampaignGame : MonoBehaviour
     }
     private void Subscribe()
     {
-        NBLD.Input.UIInputManager.onChangeSelect += UpdateGameState;
+        uiInput.Enable();
+        uiInput.onChangeSelect += UpdateGameState;
+        //Garage
+        shipCreator.onCreationStageChanged += OnGarageCreationStageChanged;
     }
     private void Unsubscribe()
     {
-        NBLD.Input.UIInputManager.onChangeSelect -= UpdateGameState;
+        uiInput.Disable();
+        uiInput.onChangeSelect -= UpdateGameState;
+    }
+
+    private void Update()
+    {
+        uiInput.Update(Time.deltaTime);
     }
 
     public void UpdateGameState()
@@ -44,12 +57,18 @@ public class CampaignGame : MonoBehaviour
         {
             ChangeState(GameState.Garage);
         }
-        else
+        /*else
+        {
+            ChangeState(GameState.Gameplay);
+        }*/
+    }
+    private void OnGarageCreationStageChanged(CreationStage creationStage, CreationStage prevStage)
+    {
+        if (creationStage == CreationStage.Canceled || creationStage == CreationStage.Confirmed)
         {
             ChangeState(GameState.Gameplay);
         }
     }
-
     public void ChangeState(GameState newState)
     {
         GameState oldState = currentState;

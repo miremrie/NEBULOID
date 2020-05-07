@@ -10,7 +10,12 @@ namespace NBLD.MainMenu
         public int primaryInput, altInput;
         public GameObject shipSelectionScreen, shipSelectionPrompt;
         public bool inShipSelectionMode = false;
+        private Input.UIInputManager uiInput;
 
+        private void Awake()
+        {
+            uiInput = new Input.UIInputManager();
+        }
         void Start()
         {
             ChangeShipSelectionMode(false);
@@ -25,15 +30,22 @@ namespace NBLD.MainMenu
         }
         private void Subscribe()
         {
-            NBLD.Input.UIInputManager.onSubmit += OnSubmit;
-            NBLD.Input.UIInputManager.onChangeSelect += OnChangeSelect;
-            NBLD.Input.UIInputManager.onEscape += OnEscape;
+            uiInput.Enable();
+            uiInput.onSubmit += OnSubmit;
+            uiInput.onChangeSelect += OnChangeSelect;
+            uiInput.onEscape += OnEscape;
         }
         private void Unsubscribe()
         {
-            NBLD.Input.UIInputManager.onSubmit -= OnSubmit;
-            NBLD.Input.UIInputManager.onChangeSelect -= OnChangeSelect;
-            NBLD.Input.UIInputManager.onEscape -= OnEscape;
+            uiInput.Disable();
+            uiInput.onSubmit -= OnSubmit;
+            uiInput.onChangeSelect -= OnChangeSelect;
+            uiInput.onEscape -= OnEscape;
+        }
+
+        private void Update()
+        {
+            uiInput.Update(Time.deltaTime);
         }
 
         public void ChangeShipSelectionMode(bool inShipSelectionMode)

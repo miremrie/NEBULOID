@@ -59,7 +59,7 @@ namespace NBLD.Character
         //Actions
         protected Dictionary<UseActionButton, UseAction> availableActions = new Dictionary<UseActionButton, UseAction>();
 
-        public void Start()
+        public void Awake()
         {
             charInputManager.RegisterController(this);
             insideBehaviour.Initialize(this, rb2D, charSpriteRenderer, animator, charAudio);

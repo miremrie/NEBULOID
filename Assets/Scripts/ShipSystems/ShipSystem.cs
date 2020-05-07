@@ -12,10 +12,10 @@ namespace NBLD.ShipSystems
         private Timer cooldownTimer;
         protected bool initialized = false;
 
-        protected virtual void Start()
+        /*protected virtual void Start()
         {
             Initialize();
-        }
+        }*/
         public void Reinitialize()
         {
             initialized = false;

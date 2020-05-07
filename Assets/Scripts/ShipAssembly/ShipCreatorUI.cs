@@ -48,11 +48,14 @@ namespace NBLD.ShipCreation
         private Dictionary<RoomName, GameObject> roomToAttachedSystem = new Dictionary<RoomName, GameObject>();
         public bool placeSystemTowardsDirection;
 
+        private Input.UIInputManager uiInput;
+
         private void Awake()
         {
             shipCreator.onCreationStageChanged += ChangeStage;
             heldVerticalTimer = new Timer(heldVerticalChangeSelectionTime);
             shipNameInputField.Select();
+            uiInput = new NBLD.Input.UIInputManager();
         }
         private void OnEnable()
         {
@@ -62,18 +65,25 @@ namespace NBLD.ShipCreation
         {
             Unsubscribe();
         }
+
+        private void Update()
+        {
+            uiInput.Update(Time.deltaTime);
+        }
+
         private void Subscribe()
         {
             //UI Items
             shipNameInputField.onEndEdit.AddListener(OnShipNameEntered);
             //Input
-            NBLD.Input.UIInputManager.onSubmit += OnSubmit;
-            NBLD.Input.UIInputManager.onCancel += OnCancel;
-            NBLD.Input.UIInputManager.onEscape += OnCancel;
-            NBLD.Input.UIInputManager.onChangeSelect += OnChangeSelect;
-            NBLD.Input.UIInputManager.onNavigationChangedInt += OnNavigationChangedInt;
-            NBLD.Input.UIInputManager.verticalHoldProcessor.onAxisBeingHeldInt += OnNavigationHeldInt;
-            NBLD.Input.UIInputManager.onNavigation += OnNavigation;
+            uiInput.Enable();
+            uiInput.onSubmit += OnSubmit;
+            uiInput.onCancel += OnCancel;
+            uiInput.onEscape += OnCancel;
+            uiInput.onChangeSelect += OnChangeSelect;
+            uiInput.onNavigationChangedInt += OnNavigationChangedInt;
+            uiInput.verticalHold.onAxisBeingHeldInt += OnNavigationHeldInt;
+            uiInput.onNavigation += OnNavigation;
         }
 
         private void Unsubscribe()
@@ -81,13 +91,14 @@ namespace NBLD.ShipCreation
             //UI Items
             shipNameInputField.onEndEdit.RemoveListener(OnShipNameEntered);
             //Input
-            NBLD.Input.UIInputManager.onSubmit -= OnSubmit;
-            NBLD.Input.UIInputManager.onCancel -= OnCancel;
-            NBLD.Input.UIInputManager.onEscape -= OnCancel;
-            NBLD.Input.UIInputManager.onChangeSelect -= OnChangeSelect;
-            NBLD.Input.UIInputManager.onNavigationChangedInt -= OnNavigationChangedInt;
-            NBLD.Input.UIInputManager.verticalHoldProcessor.onAxisBeingHeldInt -= OnNavigationHeldInt;
-            NBLD.Input.UIInputManager.onNavigation -= OnNavigation;
+            uiInput.Disable();
+            uiInput.onSubmit -= OnSubmit;
+            uiInput.onCancel -= OnCancel;
+            uiInput.onEscape -= OnCancel;
+            uiInput.onChangeSelect -= OnChangeSelect;
+            uiInput.onNavigationChangedInt -= OnNavigationChangedInt;
+            uiInput.verticalHold.onAxisBeingHeldInt -= OnNavigationHeldInt;
+            uiInput.onNavigation -= OnNavigation;
 
         }
 
@@ -211,10 +222,12 @@ namespace NBLD.ShipCreation
         //FinishEditing Event
         private void ConfirmShip()
         {
+            ResetRoomSelection();
             shipCreator.ConfirmShip();
         }
         private void CancelShip()
         {
+            ResetRoomSelection();
             shipCreator.CancelShip();
         }
         private void IntNavigationChange(int direction)
@@ -231,27 +244,20 @@ namespace NBLD.ShipCreation
         //Place System
         private void OnPlaceSystemSubmit()
         {
-            shipCreator.PlaceSystem(currentPlacementSystem.transform.rotation.eulerAngles);
+            shipCreator.PlaceSystem(currentPlacementSystem.transform.localRotation.eulerAngles);
         }
         private void OnPlaceSystemChange(Vector2 changeDirection)
         {
-            Vector3 eulerAngles = currentPlacementSystem.transform.rotation.eulerAngles;
+            Vector3 eulerAngles = currentPlacementSystem.transform.localRotation.eulerAngles;
             if (placeSystemTowardsDirection)
             {
                 if (Mathf.Abs(changeDirection.x) > 0 || Mathf.Abs(changeDirection.y) > 0)
                 {
-                    float curAngle = currentPlacementSystem.transform.rotation.eulerAngles.z;
+                    float curAngle = currentPlacementSystem.transform.localRotation.eulerAngles.z;
                     float changeAngle = Mathf.Atan2(changeDirection.y, changeDirection.x) * Mathf.Rad2Deg - 180;
                     float deltaAngle = Mathf.DeltaAngle(curAngle, changeAngle);
                     deltaAngle *= placementTowardsRotSpeed * Time.deltaTime;
                     eulerAngles += Vector3.forward * deltaAngle;
-                    //Debug.Log($"a {curAngle} cA = {changeAngle}, dA {deltaAngle}");
-                    //Vector3 curDir = new Vector3(Mathf.Cos(curAngle), Mathf.Sin(curAngle));
-                    //Vector3 newDir = Vector3.Slerp(curDir.normalized, changeDirection.normalized, placementTowardsRotSpeed * Time.deltaTime);
-                    //Vector3 newDir = Vector3.RotateTowards(curDir.normalized, changeDirection.normalized, placementTowardsRotSpeed * Time.deltaTime, 0);
-                    
-                    //eulerAngles = currentPlacementSystem.transform.rotation.eulerAngles + Vector3.forward * Vector3.SignedAngle(curDir.normalized, newDir.normalized, Vector3.forward);
-                    //Debug.Log($"D {curDir.normalized}, cD {changeDirection.normalized}, nD {newDir}, eA {eulerAngles}");
 
                 }
             } else
@@ -265,7 +271,7 @@ namespace NBLD.ShipCreation
         //Select System Events
         private void OnSelectSystemSubmit()
         {
-            shipCreator.SelectSystem(shipCreator.GetSystemNameForID(currentlySelectedSystem));
+            shipCreator.SelectSystem(shipCreator.GetAttachableSystemNameForID(currentlySelectedSystem));
         }
         private void OnSelectSystemChange(int changeDirection)
         {
@@ -329,7 +335,7 @@ namespace NBLD.ShipCreation
 
         private void SetNewSelectedSystem(int previousSystem, int dir = 1)
         {
-            int systemCount = shipCreator.GetAllSystemsCount();
+            int systemCount = shipCreator.GetAttachableSystemsCount();
             for (int i = dir; Mathf.Abs(i) < systemCount; i += dir)
             {
                 currentlySelectedSystem = (previousSystem + i);
@@ -338,7 +344,7 @@ namespace NBLD.ShipCreation
                 if (currentlySelectedSystem >= systemCount)
                     currentlySelectedSystem = currentlySelectedSystem % systemCount;
 
-                if (shipCreator.IsSystemAvailable(shipCreator.GetSystemNameForID(currentlySelectedSystem)))
+                if (shipCreator.IsSystemAvailable(shipCreator.GetAttachableSystemNameForID(currentlySelectedSystem)))
                 {
                     break;
                 }
@@ -358,12 +364,12 @@ namespace NBLD.ShipCreation
 
         private void RotatePlaceSystem(Vector3 eulerRotation)
         {
-            currentPlacementSystem.transform.rotation = Quaternion.Euler(eulerRotation);
+            currentPlacementSystem.transform.localRotation = Quaternion.Euler(eulerRotation);
         }
 
         private void ShowSystemSelection()
         {
-            SystemName name = shipCreator.GetSystemNameForID(currentlySelectedSystem);
+            SystemName name = shipCreator.GetAttachableSystemNameForID(currentlySelectedSystem);
             shipCreator.ShowSystem(name);
             ChangeSystemText(curEditIndexDisplayTable, name, true);
         }

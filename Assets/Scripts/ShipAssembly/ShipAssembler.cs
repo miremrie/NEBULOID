@@ -14,17 +14,28 @@ public struct ShipSystemWithID
 {
     public SystemName name;
     public GameObject root;
+    public ShipSystem system;
     public int maxSystemsOnShip;
 }
-
+[System.Serializable]
+public struct BuiltInSystemWithID
+{
+    public SystemName systemName;
+    public GameObject systemRoot;
+    public ShipSystem system;
+    public RoomName roomName;
+    public RoomControl roomControl;
+}
 public class ShipAssembler : MonoBehaviour
 {
-    public RoomControlWithID[] rooms;
-    public ShipSystemWithID[] systems;
+    public RoomControlWithID[] assignableRooms;
+    public ShipSystemWithID[] attachableSystems;
     public Transform systemsRoot;
     private AllSaveData saveData;
     private ShipData curShipData;
     private List<GameObject> currentSystems = new List<GameObject>();
+    public BuiltInSystemWithID[] builtInSystemRooms;
+
     public bool inEditMode = false;
 
     private void Awake()
@@ -36,20 +47,30 @@ public class ShipAssembler : MonoBehaviour
             AssembleShip(curShipData);
         }
     }
+    public void ReassembleShipFromCurrent()
+    {
+        ReassembleShip(curShipData);
+    }
     public void ReassembleShip(ShipData shipData)
     {
         foreach(SystemData systemData in curShipData.systemDatas)
         {
             RoomControl roomControl = GetRoomControl(systemData.room);
             roomControl.shipSystem = null;
-            roomControl.hasAssignedSystem = true;
+            roomControl.hasAssignedSystem = false;
         }
+        DestroyCurrentAssignableSystems();
+        AssembleShip(shipData);
+        SetGameplayMechanicsEnabled(true);
+        curShipData = shipData;
+    }
+    public void DestroyCurrentAssignableSystems()
+    {
         for (int i = 0; i < currentSystems.Count; i++)
         {
             Destroy(currentSystems[i]);
         }
         currentSystems.Clear();
-        AssembleShip(shipData);
     }
     public void AssembleShip(ShipData shipData)
     {
@@ -62,21 +83,32 @@ public class ShipAssembler : MonoBehaviour
                 Debug.LogError("Tried to create non existant system: " + systemData.system);
             } else
             {
-                shipSystem.Reinitialize();
-                roomControl.shipSystem = shipSystem;
-                roomControl.hasAssignedSystem = true;
+                AssignSystemToRoomAndInit(shipSystem, roomControl);
             }
 
         }
+        foreach (BuiltInSystemWithID systemRoom in builtInSystemRooms)
+        {
+            AssignSystemToRoomAndInit(systemRoom.system, systemRoom.roomControl);
+        }
+    }
+
+    private void AssignSystemToRoomAndInit(ShipSystem system, RoomControl room)
+    {
+        system.Initialize();
+        room.shipSystem = system;
+        room.hasAssignedSystem = true;
+        system.enabled = true;
+        room.enabled = true;
     }
 
     private RoomControl GetRoomControl(RoomName roomName)
     {
-        for (int i = 0; i < rooms.Length; i++)
+        for (int i = 0; i < assignableRooms.Length; i++)
         {
-            if (rooms[i].name == roomName)
+            if (assignableRooms[i].name == roomName)
             {
-                return rooms[i].control;
+                return assignableRooms[i].control;
             }
         }
         return null;
@@ -84,13 +116,13 @@ public class ShipAssembler : MonoBehaviour
 
     private ShipSystem CreateSystemObject(SystemName systemName, Vector3 position, Quaternion rotation)
     {
-        for (int i = 0; i < systems.Length; i++)
+        for (int i = 0; i < attachableSystems.Length; i++)
         {
-            if (systems[i].name == systemName)
+            if (attachableSystems[i].name == systemName)
             {
-                GameObject go = Instantiate(systems[i].root, systemsRoot);
-                go.transform.rotation = rotation;
-                go.transform.position = position;
+                GameObject go = Instantiate(attachableSystems[i].root, systemsRoot);
+                go.transform.localRotation = rotation;
+                //go.transform.position = position;
                 go.SetActive(true);
                 currentSystems.Add(go);
 
@@ -107,14 +139,27 @@ public class ShipAssembler : MonoBehaviour
 
     public int GetMaxSystemsOnShip(SystemName name)
     {
-        for (int i = 0; i < systems.Length; i++)
+        for (int i = 0; i < attachableSystems.Length; i++)
         {
-            if (systems[i].name == name)
+            if (attachableSystems[i].name == name)
             {
-                return systems[i].maxSystemsOnShip;
+                return attachableSystems[i].maxSystemsOnShip;
             }
         }
         Debug.LogWarning($"System entry for system: {name} doesn't exist");
         return 0;
+    }
+
+    public void SetGameplayMechanicsEnabled(bool enabled)
+    {
+        foreach (ShipSystemWithID sys in attachableSystems)
+        {
+            sys.system.enabled = enabled;
+        }
+        foreach (BuiltInSystemWithID builtIn in builtInSystemRooms)
+        {
+            builtIn.system.enabled = enabled;
+            builtIn.roomControl.enabled = enabled;
+        }
     }
 }

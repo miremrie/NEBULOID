@@ -22,6 +22,12 @@ namespace NBLD.MainMenu
         public Scrollbar scrollBar;
         public float heldVerticalChangeSelectionTime = 0.1f;
         private Timer heldVerticalTimer;
+        private Input.UIInputManager uiInput;
+
+        private void Awake()
+        {
+            uiInput = new Input.UIInputManager();
+        }
 
         private void Start()
         {
@@ -43,17 +49,24 @@ namespace NBLD.MainMenu
         }
         private void Subscribe()
         {
-            NBLD.Input.UIInputManager.onNavigationChangedInt += OnNavigationChanged;
-            NBLD.Input.UIInputManager.onCancel += OnCancel;
-            NBLD.Input.UIInputManager.onChangeSelect += OnChangeSelect;
-            NBLD.Input.UIInputManager.verticalHoldProcessor.onAxisBeingHeldInt += OnNavigationHeld;
+            uiInput.Enable();
+            uiInput.onNavigationChangedInt += OnNavigationChanged;
+            uiInput.onCancel += OnCancel;
+            uiInput.onChangeSelect += OnChangeSelect;
+            uiInput.verticalHold.onAxisBeingHeldInt += OnNavigationHeld;
         }
         private void Unsubscribe()
         {
-            NBLD.Input.UIInputManager.onNavigationChangedInt -= OnNavigationChanged;
-            NBLD.Input.UIInputManager.onCancel -= OnCancel;
-            NBLD.Input.UIInputManager.onChangeSelect -= OnChangeSelect;
-            NBLD.Input.UIInputManager.verticalHoldProcessor.onAxisBeingHeldInt -= OnNavigationHeld;
+            uiInput.Disable();
+            uiInput.onNavigationChangedInt -= OnNavigationChanged;
+            uiInput.onCancel -= OnCancel;
+            uiInput.onChangeSelect -= OnChangeSelect;
+            uiInput.verticalHold.onAxisBeingHeldInt -= OnNavigationHeld;
+        }
+
+        private void Update()
+        {
+            uiInput.Update(Time.deltaTime);
         }
 
         private void FillShipEntries()

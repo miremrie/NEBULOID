@@ -18,13 +18,20 @@ namespace NBLD.ShipCreation
         public ShipData shipData = new ShipData();
         public CreationStage currentStage = CreationStage.CreateName;
         private SystemData curSysData;
-        public delegate void ShipDataPrepared(ShipData shipData, bool newShip);
-        public delegate void CreationStageChanged(CreationStage stage, CreationStage previousStage);
-        public event CreationStageChanged onCreationStageChanged;
-        public event ShipDataPrepared onShipDataPrepared;
+        //public delegate void ShipDataPrepared(ShipData shipData, bool newShip);
+        //public delegate void CreationStageChanged(CreationStage stage, CreationStage previousStage);
+        public event System.Action<CreationStage, CreationStage> onCreationStageChanged;
+        public event System.Action<ShipData, bool> onShipDataPrepared;
         public bool hardSaveShip = true;
         public bool areRoomsReassignable = true;
-        public bool updateAssemblerOnConfirm;
+        public bool updateAssembler;
+        private List<GameObject> sampleSystems = new List<GameObject>();
+
+        private void OnEnable()
+        {
+            shipAssembler.SetGameplayMechanicsEnabled(false);
+            shipAssembler.DestroyCurrentAssignableSystems();
+        }
 
         public void LoadData()
         {
@@ -133,7 +140,7 @@ namespace NBLD.ShipCreation
                     shipData.systemDatas.RemoveAll(sysData => sysData.room == curSysData.room);
                 }
                 shipData.AddSysData(curSysData);
-                if (!areRoomsReassignable && shipData.systemDatas.Count >= shipAssembler.rooms.Length)
+                if (!areRoomsReassignable && shipData.systemDatas.Count >= shipAssembler.assignableRooms.Length)
                 {
                     ChangeStage(CreationStage.Finished);
                 }
@@ -190,24 +197,24 @@ namespace NBLD.ShipCreation
             int systemCount = shipData.systemDatas.Count(sysData => sysData.system == name);
             return shipAssembler.GetMaxSystemsOnShip(name) > systemCount;
         }
-        public int GetAllSystemsCount()
+        public int GetAttachableSystemsCount()
         {
-            return shipAssembler.systems.Length;
+            return shipAssembler.attachableSystems.Length;
         }
-        public SystemName GetSystemNameForID(int systemID)
+        public SystemName GetAttachableSystemNameForID(int systemID)
         {
-            return shipAssembler.systems[systemID].name;
+            return shipAssembler.attachableSystems[systemID].name;
         }
         public void HideAllSystems()
         {
-            foreach (ShipSystemWithID systemID in shipAssembler.systems)
+            foreach (ShipSystemWithID systemID in shipAssembler.attachableSystems)
             {
                 systemID.root.SetActive(false);
             }
         }
         public void ShowSystem(SystemName systemName)
         {
-            foreach (ShipSystemWithID systemID in shipAssembler.systems)
+            foreach (ShipSystemWithID systemID in shipAssembler.attachableSystems)
             {
                 if (systemID.name == systemName)
                 {
@@ -222,11 +229,12 @@ namespace NBLD.ShipCreation
 
         public GameObject CreateSampleSystem(SystemName sysName)
         {
-            foreach (ShipSystemWithID systemID in shipAssembler.systems)
+            foreach (ShipSystemWithID systemID in shipAssembler.attachableSystems)
             {
                 if (systemID.name == sysName)
                 {
                     GameObject go = Instantiate(systemID.root, shipAssembler.systemsRoot);
+                    sampleSystems.Add(go);
                     go.SetActive(true);
                     return go;
                 }
@@ -236,11 +244,12 @@ namespace NBLD.ShipCreation
         public void ConfirmShip()
         {
             shipData.FillEmptyData();
+            DestroySamples();
             if (hardSaveShip)
             {
                 SaveSystem.SaveSingleShip(shipData, true);
             }
-            if (updateAssemblerOnConfirm)
+            if (updateAssembler)
             {
                 shipAssembler.ReassembleShip(shipData);
             }
@@ -249,7 +258,20 @@ namespace NBLD.ShipCreation
 
         public void CancelShip()
         {
+            DestroySamples();
+            if (updateAssembler)
+            {
+                shipAssembler.ReassembleShipFromCurrent();
+            }
             ChangeStage(CreationStage.Canceled);
+        }
+        private void DestroySamples()
+        {
+            foreach (GameObject sample in sampleSystems)
+            {
+                Destroy(sample);
+            }
+            sampleSystems.Clear();
         }
     }
 

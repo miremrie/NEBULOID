@@ -7,48 +7,46 @@ using UnityEngine.InputSystem;
 
 namespace NBLD.Input
 {
-    public class UIInputManager : MonoBehaviour
+    public class UIInputManager
     {
         public float holdDuration = 1f;
         public float navigationDeadzoneValue = 0.4f;
 
-        public delegate void UINavigation(Vector2 navigation);
-        public delegate void UINavigationInt(Vector2Int navigation);
-        public delegate void UIAction();
-        public static event UINavigation onNavigation, onNavigationChanged;
-        public static event UINavigationInt onNavigationChangedInt;
-        public static event UIAction onSubmit, onCancel, onChangeSelect, onEscape;
+
+
+        public event Action<Vector2> onNavigation, onNavigationChanged;
+        public event Action<Vector2Int> onNavigationChangedInt;
+        public event Action onSubmit, onCancel, onChangeSelect, onEscape;
         private UIInput uiInput;
-        private bool inputInitialized = false;
         //Input values
         private Vector2 navigation = Vector2.zero;
         //Hold Values
-        public static AxisHeldInputProc horizontalHoldProcessor, verticalHoldProcessor;
+        public AxisHeldInputProc horizontalHold, verticalHold;
 
-        private void OnEnable()
+        public UIInputManager(float holdDuration = 0.6f, float deadZone = 0.4f)
         {
-            if (!inputInitialized)
-            {
-                Initialize();
-            }
-            SubscribeToInput();
-        }
-        private void OnDisable()
-        {
-            if (inputInitialized)
-            {
-                UnsubscribeToInput();
-            }
+            this.holdDuration = holdDuration;
+            this.navigationDeadzoneValue = deadZone;
+            Initialize();
         }
         private void Initialize()
         {
             uiInput = new UIInput();
-            horizontalHoldProcessor = new AxisHeldInputProc(holdDuration, 0, navigationDeadzoneValue);
-            verticalHoldProcessor = new AxisHeldInputProc(holdDuration, 0, navigationDeadzoneValue);
-            uiInput.Enable();
-            inputInitialized = true;
+            horizontalHold = new AxisHeldInputProc(holdDuration, 0, navigationDeadzoneValue);
+            verticalHold = new AxisHeldInputProc(holdDuration, 0, navigationDeadzoneValue);
+            /*uiInput.Enable();
+            SubscribeToInput();*/
         }
-
+        public void Enable()
+        {
+            uiInput.Enable();
+            SubscribeToInput();
+        }
+        public void Disable()
+        {
+            uiInput.Disable();
+            UnsubscribeFromInput();
+        }
         private void SubscribeToInput()
         {
             uiInput.UI.Navigate.performed += InputNavigationChanged;
@@ -57,7 +55,7 @@ namespace NBLD.Input
             uiInput.UI.ChangeSelect.performed += OnInputChangeSelect;
             uiInput.UI.Escape.performed += OnEscape;
         }
-        private void UnsubscribeToInput()
+        private void UnsubscribeFromInput()
         {
             uiInput.UI.Navigate.performed -= InputNavigationChanged;
             uiInput.UI.Submit.performed -= OnInputSubmit;
@@ -66,10 +64,10 @@ namespace NBLD.Input
             uiInput.UI.Escape.performed -= OnEscape;
         }
 
-        private void Update()
+        public void Update(float deltaTime)
         {
             UpdateNavigation();
-            UpdateHoldEventsTime();
+            UpdateHoldEventsTime(deltaTime);
         }
 
         //Events
@@ -81,15 +79,15 @@ namespace NBLD.Input
             }
         }
 
-        private void UpdateHoldEventsTime()
+        private void UpdateHoldEventsTime(float deltaTime)
         {
-            horizontalHoldProcessor.UpdateTime(Time.deltaTime);
-            verticalHoldProcessor.UpdateTime(Time.deltaTime);
+            horizontalHold.UpdateTime(deltaTime);
+            verticalHold.UpdateTime(deltaTime);
         }
         private void UpdateAxisHoldValues(Vector2 navigation)
         {
-            horizontalHoldProcessor.SetValue(navigation.x);
-            verticalHoldProcessor.SetValue(navigation.y);
+            horizontalHold.SetValue(navigation.x);
+            verticalHold.SetValue(navigation.y);
         }
 
         private void TryNavigationChangeInt(Vector2 oldNav, Vector2 newNav)
@@ -98,10 +96,7 @@ namespace NBLD.Input
             Vector2Int newNavInt = GetIntNavigation(newNav);
             if (oldNav.x != newNav.x || oldNav.y != newNav.y)
             {
-                if (onNavigationChangedInt != null)
-                {
-                    onNavigationChangedInt(newNavInt);
-                }
+                onNavigationChangedInt?.Invoke(newNavInt);
             }
         }
 
@@ -111,43 +106,28 @@ namespace NBLD.Input
             navigation = context.ReadValue<Vector2>();
             TryNavigationChangeInt(oldNav, navigation);
             UpdateAxisHoldValues(navigation);
-            if (onNavigationChanged != null)
-            {
-                onNavigationChanged(navigation);
-            }
+            onNavigationChanged?.Invoke(navigation);
         }
         private void OnInputSubmit(InputAction.CallbackContext context)
         {
             //Debug.Log("Submit");
-            if (onSubmit != null)
-            {
-                onSubmit();
-            }
+            onSubmit?.Invoke();
         }
         private void OnInputCancel(InputAction.CallbackContext context)
         {
             //Debug.Log("Cancel");
-            if (onCancel != null)
-            {
-                onCancel();
-            }
+            onCancel?.Invoke();
         }
         private void OnInputChangeSelect(InputAction.CallbackContext context)
         {
             //Debug.Log("ChangeSelect");
-            if (onChangeSelect != null)
-            {
-                onChangeSelect();
-            } 
+            onChangeSelect?.Invoke();
         }
 
         private void OnEscape(InputAction.CallbackContext context)
         {
             //Debug.Log("Escape");
-            if (onEscape != null)
-            {
-                onEscape();
-            }
+            onEscape?.Invoke();
         }
 
         //Helper

@@ -4,11 +4,11 @@ using UnityEngine;
 
 public enum SystemName
 {
-    Sonar, LeftArm, RightArm, Gun, Hook
+    Sonar, LeftArm, RightArm, Gun, Hook, Ejector
 }
 public enum RoomName
 {
-    F0, F1R, F2L, F2R, F3
+    F0, F1R, F2L, F2R, F3, F1L
 }
 [System.Serializable]
 public class ShipData

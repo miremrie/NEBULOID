@@ -19,17 +19,20 @@ public class Game : MonoBehaviour
     public ScreenShake shake;
     private Repairable[] repairables;
     public GameObject smokePrefab;
+    private NBLD.Input.UIInputManager uiInput;
   
     public GameObject explosionParticle;
 
     public ShipAudioController audioController;
-
+    private void Awake()
+    {
+        uiInput = new NBLD.Input.UIInputManager();
+    }
     void Start()
     {
         gameOverScreen.SetActive(false);
         currentFuel = maxFuel;
         repairables = FindObjectsOfType<Repairable>();
-
     }
     private void OnEnable()
     {
@@ -41,13 +44,15 @@ public class Game : MonoBehaviour
     }
     private void Subscribe()
     {
-        NBLD.Input.UIInputManager.onSubmit += OnSubmit;
-        NBLD.Input.UIInputManager.onEscape += OnEscape;
+        uiInput.Enable();
+        uiInput.onSubmit += OnSubmit;
+        uiInput.onEscape += OnEscape;
     }
     private void Unsubscribe()
     {
-        NBLD.Input.UIInputManager.onSubmit -= OnSubmit;
-        NBLD.Input.UIInputManager.onEscape -= OnEscape;
+        uiInput.Disable();
+        uiInput.onSubmit -= OnSubmit;
+        uiInput.onEscape -= OnEscape;
 
     }
     void Update()
@@ -57,6 +62,8 @@ public class Game : MonoBehaviour
         UpdateDeath();
 
         UpdateUI();
+
+        uiInput.Update(Time.deltaTime);
     }
 
     internal void BulletHit(Obstacle obstacle)

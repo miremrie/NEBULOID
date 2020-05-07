@@ -47,7 +47,7 @@ namespace NBLD.UseActions
 
         public override void OnExitAction(InsideCharBehaviour behaviour)
         {
-            if (workingChar == behaviour)
+            if (hasAssignedSystem && workingChar == behaviour)
             {
                 workingChar = null;
                 repairable.StopRepairing();
