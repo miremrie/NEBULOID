@@ -1,16 +1,28 @@
-﻿using UnityEditor;
+﻿using System;
+using UnityEditor;
 using UnityEditor.EditorTools;
 using UnityEngine;
+using System.Linq;
 
 [EditorTool("Platform Tool")]
 public class PatrolTool : EditorWindow
 {
-    static bool showAll = true;
-    static bool autoUpdate = true;
-    static bool showLabels = true;
-    static bool showNames = true;
-    static Vector2 labelOffset = new Vector2(20, -10);
-    
+    private const string WAYPOINT_PATH_KEY = "patrols_editor_wayPath";
+    private const string TEMPLATE_PATH_KEY = "patrols_editor_template_path";
+    private const string SHOWALL_KEY = "patrols_editor_showall";
+    private const string AUTOUPDATE_KEY = "patrols_editor_autoupdate";
+    private const string SHOWNAMES_KEY = "patrols_editor_shownames";
+    private const string SHOW_LABELS_KEY = "patrols_editor_show_labels";
+    private const string LABEL_OFFSET_X = "patrols_editor_labeloffsetX";
+    private const string LABEL_OFFSET_Y = "patrols_editor_labeloffsetY";
+
+    GameObject waypointPrefab;
+    PatrolTemplate templateToSpawn;
+    bool showAll = true;
+    bool autoUpdate = true;
+    bool showLabels = true;
+    bool showNames = true;
+    Vector2 labelOffset = new Vector2(20, -10);
     PatrolPath[] activePatrols;
 
     [MenuItem("Window/Patrols #%&p")]
@@ -24,9 +36,12 @@ public class PatrolTool : EditorWindow
     void OnEnable()
     {
         UpdateActivePatrolsAndWaypoints();
+
         SceneView.duringSceneGui += DrawPatrols;
         Selection.selectionChanged += VisibilityUpdate;
         EditorApplication.hierarchyChanged += UpdateActivePatrolsAndWaypoints;
+
+        LoadPreferences();
     }
 
     void OnDisable()
@@ -34,7 +49,38 @@ public class PatrolTool : EditorWindow
         SceneView.duringSceneGui -= DrawPatrols;
         Selection.selectionChanged -= VisibilityUpdate;
         EditorApplication.hierarchyChanged -= UpdateActivePatrolsAndWaypoints;
+
+        SavePreferences();
+
+        // hide all
+        foreach (var p in activePatrols) { ShowPath(p, false); }
     }
+    
+    private void LoadPreferences()
+    {
+        waypointPrefab = (GameObject)AssetDatabase.LoadAssetAtPath(PlayerPrefs.GetString(WAYPOINT_PATH_KEY, ""), typeof(GameObject));
+        templateToSpawn = (PatrolTemplate)AssetDatabase.LoadAssetAtPath(PlayerPrefs.GetString(TEMPLATE_PATH_KEY, ""), typeof(PatrolTemplate));
+        showAll = IntToBool(PlayerPrefs.GetInt(SHOWALL_KEY, 1));
+        autoUpdate = IntToBool(PlayerPrefs.GetInt(AUTOUPDATE_KEY, 1));
+        showLabels = IntToBool(PlayerPrefs.GetInt(SHOW_LABELS_KEY, 1));
+        showNames = IntToBool(PlayerPrefs.GetInt(SHOWNAMES_KEY, 1));
+        labelOffset = new Vector2(PlayerPrefs.GetFloat(LABEL_OFFSET_X, 20), PlayerPrefs.GetFloat(LABEL_OFFSET_Y, -10));
+    }
+
+    private void SavePreferences()
+    {
+        PlayerPrefs.SetString(WAYPOINT_PATH_KEY, AssetDatabase.GetAssetPath(waypointPrefab));
+        PlayerPrefs.SetString(TEMPLATE_PATH_KEY, AssetDatabase.GetAssetPath(templateToSpawn));
+        PlayerPrefs.SetInt(SHOWALL_KEY, BoolToInt(showAll));
+        PlayerPrefs.SetInt(AUTOUPDATE_KEY, BoolToInt(autoUpdate));
+        PlayerPrefs.SetInt(SHOW_LABELS_KEY, BoolToInt(showLabels));
+        PlayerPrefs.SetInt(SHOWNAMES_KEY, BoolToInt(showNames));
+        PlayerPrefs.SetFloat(LABEL_OFFSET_X, labelOffset.x);
+        PlayerPrefs.SetFloat(LABEL_OFFSET_Y, labelOffset.y);
+    }
+
+    int BoolToInt(bool v) => v ? 1 : 0 ;
+    bool IntToBool(int v) => v == 0 ? false : true;
 
     private void UpdateActivePatrolsAndWaypoints()
     {
@@ -51,6 +97,8 @@ public class PatrolTool : EditorWindow
 
     void OnGUI()
     {
+
+        EditorGUILayout.BeginVertical(GUILayout.MaxWidth(500));
         GUILayout.Label("Patrols", EditorStyles.boldLabel);
 
         var oldShowAll = showAll;
@@ -58,8 +106,76 @@ public class PatrolTool : EditorWindow
         autoUpdate = EditorGUILayout.Toggle("Auto update waypoints", autoUpdate);
         showLabels = EditorGUILayout.Toggle("Show labels", showLabels);
         showNames = EditorGUILayout.Toggle("Show names", showNames);
-        labelOffset = EditorGUILayout.Vector2Field("Label offset", labelOffset); 
+        labelOffset = EditorGUILayout.Vector2Field("Label offset", labelOffset);
+
+        EditorGUILayout.LabelField("Template Creation", EditorStyles.boldLabel);
+        if (GUILayout.Button("Create template (from selected or empty")) CreatePatrolTemplate();
+
+        EditorGUILayout.BeginFadeGroup(1);
+        EditorGUILayout.LabelField("Patrol spawning", EditorStyles.boldLabel);
+        EditorGUILayout.BeginHorizontal();
+            GUILayout.Label("Patrol template to spawn");
+            templateToSpawn = (PatrolTemplate) EditorGUILayout.ObjectField(templateToSpawn, typeof(PatrolTemplate), true);
+        EditorGUILayout.EndHorizontal();
+        EditorGUILayout.EndFadeGroup();
+        
+        EditorGUILayout.BeginHorizontal();
+            GUILayout.Label("Waypoint prefab");
+            waypointPrefab = (GameObject) EditorGUILayout.ObjectField(waypointPrefab, typeof(GameObject), false);
+        EditorGUILayout.EndHorizontal();
+
+        if (GUILayout.Button("Spawn patrol from template")) CreatePatrolFromTemplate();
+
+        EditorGUILayout.EndVertical();
+
         if (showAll != oldShowAll) UpdateActivePatrolsAndVisibility();
+    }
+
+    private void CreatePatrolFromTemplate()
+    {
+        if (waypointPrefab == null) {
+            EditorUtility.DisplayDialog("Could not create patrol", "No waypoint prefab selected", "ok");
+            return;
+        }
+
+        var newPatrolGo = new GameObject("PatrolPath");
+        newPatrolGo.transform.position = Selection.activeTransform?.position ?? Vector3.zero;
+        var patrol = newPatrolGo.AddComponent<PatrolPath>();
+
+        patrol.color = Color.white;
+
+        if (templateToSpawn != null)
+        {
+            patrol.color = templateToSpawn.color;
+            patrol.waypoints = new Transform[templateToSpawn.waypoints.Length];
+
+            for (int i = 0; i < patrol.waypoints.Length; i++)
+            {
+                var way = Instantiate(waypointPrefab, newPatrolGo.transform);
+                way.name = $"{waypointPrefab.name} ({i})";
+                way.transform.localPosition = templateToSpawn.waypoints[i];
+            }
+        }
+
+        Undo.RegisterCreatedObjectUndo(newPatrolGo, "Created go");
+    }
+
+    private void CreatePatrolTemplate()
+    {
+        var existing = Selection.activeGameObject?.GetComponentInParent<PatrolPath>();
+
+        var asset = ScriptableObject.CreateInstance<PatrolTemplate>();
+
+        if (existing) {
+
+            asset.color = existing.color;
+
+            asset.waypoints = existing.waypoints
+                .Select(x => new Vector2(x.localPosition.x, x.localPosition.y))
+                .ToArray();
+        }
+
+        ProjectWindowUtil.CreateAsset(asset, "New " + typeof(PatrolTemplate).Name + ".asset");
     }
 
     private void UpdateActivePatrolsAndVisibility()
@@ -158,5 +274,6 @@ public class PatrolTool : EditorWindow
         duped.transform.SetSiblingIndex(s.transform.GetSiblingIndex() + 1);
         Selection.activeGameObject = duped;
         Undo.RegisterCreatedObjectUndo(duped, "Created go");
+        
     }
 }
