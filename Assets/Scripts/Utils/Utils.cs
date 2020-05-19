@@ -1,7 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
+
+public class Colors
+{
+    public static Color RandomColor(float s, float v)
+    {
+        var hue = Random.Range(0f, 1f);
+        return Color.HSVToRGB(hue, s, v);
+    }
+}
 
 class Timer
 {

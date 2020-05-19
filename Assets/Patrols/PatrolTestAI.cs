@@ -17,6 +17,7 @@ public class PatrolTestAI : MonoBehaviour
     public Motor motor;
     public float slowingDistance = 1f;
     public float radius = 0.5f;
+    private Vector3 obsAvoidance;
 
     // Start is called before the first frame update
     void Start()
@@ -29,13 +30,18 @@ public class PatrolTestAI : MonoBehaviour
     void Update()
     {
 
-        // arrival
-        var targetOffset = walk.Target() - transform.position;
-        var distance = targetOffset.magnitude;
-        var rampedSpeed = motor.maxSpeed * (distance / slowingDistance);
-        var clippedSpeed = Math.Min(rampedSpeed, motor.maxSpeed);
+        Vector3 desiredVelocity;
+        {
+            // arrival
+            var targetOffset = walk.Target() - transform.position;
+            var distance = targetOffset.magnitude;
+            var rampedSpeed = motor.maxSpeed * (distance / slowingDistance);
+            var clippedSpeed = Math.Min(rampedSpeed, motor.maxSpeed);
+            desiredVelocity = (clippedSpeed / distance) * targetOffset;
+            desiredVelocity += obsAvoidance;
+            obsAvoidance = Vector3.zero;
+        }
 
-        var desiredVelocity = (clippedSpeed / distance) * targetOffset;
         var steering = desiredVelocity - motor.velocity;
 
         var steering_force = Vector3.ClampMagnitude(steering, motor.maxForce);
@@ -44,6 +50,11 @@ public class PatrolTestAI : MonoBehaviour
         motor.velocity = Vector3.ClampMagnitude(motor.velocity + acceleration, motor.maxSpeed);
         transform.position += motor.velocity * Time.deltaTime;
         transform.rotation = Quaternion.LookRotation(motor.velocity, Vector3.back);
+    }
+
+    public void SetObstacleAvoidance(Vector3 v)
+    {
+        obsAvoidance = v;
     }
 
     [ContextMenu("Update Path")]

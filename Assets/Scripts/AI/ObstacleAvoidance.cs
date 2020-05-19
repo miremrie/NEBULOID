@@ -1,26 +1,75 @@
 ﻿using System;
-using UnityEditor;
 using UnityEngine;
 
 public class ObstacleAvoidance : MonoBehaviour
 {
+    struct CollisionDebug
+    {
+        public bool draw;
+        public Vector3 agentPredictPos;
+        public Vector3 obsPredictPos;
+        public Vector2 agentPos;
+        public Vector3 obsPos;
+        public float agentRadius;
+        public float obsRadius;
+        public Color col;
+    }
 
-    public PatrolTestAI agent;
-    public NavObstacle obstacle;
-
-    Vector3 agentPredict;
-    Vector3 obsPredict;
     public float amount;
+    private NavObstacle[] obstacles;
+    private CollisionDebug[] debugs = new CollisionDebug[0];
+    private PatrolTestAI[] agents = new PatrolTestAI[0];
+    public float time;
+
+    private void Start()
+    {
+        obstacles = FindObjectsOfType<NavObstacle>();
+        agents = FindObjectsOfType<PatrolTestAI>();
+
+        debugs = new CollisionDebug[agents.Length * obstacles.Length];
+
+        for (int i = 0; i < debugs.Length; i++)
+        {
+            debugs[i].col = Colors.RandomColor(1, 1);
+        }
+    }
 
     void Update()
     {
-        var t = (float)PredictCollision(agent.transform.position, obstacle.transform.position, agent.motor.velocity, obstacle.velocity, agent.radius, obstacle.radius);
-        if (t != -1) {
-            agent.motor.velocity += (agentPredict - obsPredict).normalized * (1/t) * amount;
-            agentPredict = agent.transform.position + (t * agent.motor.velocity);
-            obsPredict = obstacle.transform.position + (Vector3)(t * obstacle.velocity);
-            Debug.DrawLine(agent.transform.position, agentPredict, Color.green);
-            Debug.DrawLine(obstacle.transform.position, obsPredict, Color.red);
+        for (int aIndex = 0, gIndex = 0; aIndex < agents.Length; aIndex++)
+        {
+            var agent = agents[aIndex];
+            for (int oIndex = 0; oIndex < obstacles.Length; oIndex++, gIndex++)
+            {
+                var obs = obstacles[oIndex];
+                var t = (float) PredictCollision(agent.transform.position, obs.transform.position, agent.motor.velocity, obs.velocity, agent.radius, obs.radius);
+
+                if (t != -1 && t < time)
+                {
+                    var agentPredict = agent.transform.position + (t * agent.motor.velocity);
+                    var obsPredict = obs.transform.position + (Vector3)(t * obs.velocity);
+
+                    agent.SetObstacleAvoidance((agentPredict - obsPredict).normalized * (1 / (t * t)));
+                    //agent.motor.velocity += (agentPredict - obsPredict).normalized * (1 / (t * t)) * amount;
+
+                    var d = new CollisionDebug
+                    {
+                        draw = true,
+                        agentPredictPos = agentPredict,
+                        obsPredictPos = obsPredict,
+                        agentPos = agent.transform.position,
+                        obsPos = obs.transform.position,
+                        agentRadius = agent.radius,
+                        obsRadius = obs.radius,
+                        col = debugs[oIndex].col
+                    };
+                    debugs[gIndex] = d;
+                }
+                else
+                {
+                    debugs[gIndex].draw = false;
+                }
+            }
         }
 
     }
@@ -48,8 +97,19 @@ public class ObstacleAvoidance : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        DrawCircle(agentPredict, agent.radius, Color.green);
-        DrawCircle(obsPredict, obstacle.radius, Color.red);
+        for (int i = 0; i < debugs.Length; i++)
+        {
+            var d = debugs[i];
+            if (d.draw)
+            {
+                var c = d.col;
+                Debug.DrawLine(d.agentPos, d.agentPredictPos, c);
+                Debug.DrawLine(d.obsPos, d.obsPredictPos, c);
+                DrawCircle(d.agentPredictPos, d.agentRadius, c);
+                DrawCircle(d.obsPredictPos, d.obsRadius, c);
+            }
+        }
+
     }
 
     private void DrawCircle(Vector3 position, float radius, Color color)
