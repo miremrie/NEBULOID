@@ -11,6 +11,8 @@ namespace NBLD.MainMenu
         public GameObject shipSelectionScreen, shipSelectionPrompt;
         public bool inShipSelectionMode = false;
         private Input.UIInputManager uiInput;
+        public int gameSceneIndex = 1;
+        public int garageSceneIndex = 2;
 
         private void Awake()
         {
@@ -58,12 +60,12 @@ namespace NBLD.MainMenu
         private void LoadArcadeLevel()
         {
             AkSoundEngine.StopAll();
-            SceneManager.LoadScene(1, LoadSceneMode.Single);
+            SceneManager.LoadScene(gameSceneIndex, LoadSceneMode.Single);
         }
         public void LoadGarage()
         {
             AkSoundEngine.StopAll();
-            SceneManager.LoadScene(2, LoadSceneMode.Single);
+            SceneManager.LoadScene(garageSceneIndex, LoadSceneMode.Single);
         }
         private void QuitGame()
         {
