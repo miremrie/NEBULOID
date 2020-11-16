@@ -25,15 +25,18 @@ namespace NBLD.Character
         [Header("Animation")]
         public Animator animator;
         public SpriteRenderer charSpriteRenderer;
+        public Transform characterPivot;
 
         [Header("Physics")]
         public List<Collider2D> colliders = new List<Collider2D>();
         public Rigidbody2D rb2D;
 
+
         [Header("Behaviours")]
         public InsideCharBehaviour insideBehaviour;
         public OutsideCharBehaviour outsideBehaviour;
         private CharBehaviour activeBehaviour;
+        private CharBehaviour behaviourAfterTransition;
 
         [Header("States")]
         public CharacterState state;
@@ -44,6 +47,7 @@ namespace NBLD.Character
         public float transitionMinAngleOffset = 5;
         public float rotationSpeed = 45;
         public float targetAngle = 0;
+        public Vector3 pivotWhenExiting, pivotWhenEntering;
         public Transform characterCenter;
         private Transform transitionStart, transitionDst;
         private bool inTransition = false, transitionStartReached = false;
@@ -52,6 +56,8 @@ namespace NBLD.Character
         private const string transitionEndOutAnimKey = "EndOutTransition";
         private const string transitionPrepInAnimKey = "PrepInTransition";
         private const string transitionEndInAnimKey = "EndInTransition";
+        private const string exitAnimKey = "Exit";
+        private const string enterAnimKey = "Enter";
         private CharacterState transitionNewState;
 
 
@@ -156,15 +162,32 @@ namespace NBLD.Character
             activeBehaviour.DisableCollisions();
             ChangeState(CharacterState.Transition);
             transitionNewState = newState;
+            if (newState == CharacterState.Inside)
+            {
+                behaviourAfterTransition = insideBehaviour;
+            } else if (newState == CharacterState.Outside)
+            {
+                behaviourAfterTransition = outsideBehaviour;
+            }
             if (clearActions)
             {
                 availableActions.Clear();
             }
-
+            /*if (newState == CharacterState.Inside)
+            {
+                animator.SetTrigger(enterAnimKey);
+            } else
+            {
+                animator.SetTrigger(exitAnimKey);
+            }*/
             //If going inside, character should be facing right
             //If going outside, character should be facing left
             rb2D.velocity = Vector2.zero;
-            charSpriteRenderer.flipX = newState == CharacterState.Inside; 
+            //charSpriteRenderer.flipX = newState == CharacterState.Inside; 
+        }
+        public void ChangeSpriteLayerDuringTransition()
+        {
+            behaviourAfterTransition.SetSortingLayer();
         }
         public void FinishTransition()
         {
@@ -173,10 +196,13 @@ namespace NBLD.Character
             transitionPrepAnimationOver = false;
             transitionPrepRotationOver = false;
             transitionPrepAnimStarted = false;
-            animator.ResetTrigger(transitionEndInAnimKey);
+            /*animator.ResetTrigger(transitionEndInAnimKey);
             animator.ResetTrigger(transitionEndOutAnimKey);
             animator.ResetTrigger(transitionPrepInAnimKey);
-            animator.ResetTrigger(transitionPrepOutAnimKey);
+            animator.ResetTrigger(transitionPrepOutAnimKey);*/
+            transform.position = transitionDst.position;
+            //transform.position += characterPivot.position;
+            characterPivot.localPosition = Vector3.zero;
             ChangeState(transitionNewState);
             activeBehaviour.EnableCollisions();
         }
@@ -224,38 +250,48 @@ namespace NBLD.Character
                 if (transitionPrepRotationOver && !transitionStartReached)
                 {
                     UpdateTransitionStartPos();
+                    //transitionStartReached = true;
                 }
                 if (transitionStartReached && transitionPrepRotationOver && !transitionPrepAnimStarted)
                 {
                     transitionPrepAnimStarted = true;
                     if (transitionNewState == CharacterState.Outside)
                     {
-                        animator.SetTrigger(transitionPrepOutAnimKey);
+                        //animator.SetTrigger(transitionPrepOutAnimKey);
+                        characterPivot.localPosition = pivotWhenExiting;
+                        Debug.Log($"{pivotWhenExiting}/{characterPivot.localPosition}");
+                        animator.SetTrigger(exitAnimKey);
+
+                        Debug.Log($"{pivotWhenExiting}/{characterPivot.position}");
                     }
                     else
                     {
-                        animator.SetTrigger(transitionPrepInAnimKey);
+                        //animator.SetTrigger(transitionPrepInAnimKey);
+                        characterPivot.localPosition = pivotWhenEntering;
+                        animator.SetTrigger(enterAnimKey);
                     }
                 }
-                if (transitionPrepAnimationOver) {
-                    if (transitionMinOffset >= Vector3.Distance(transform.position, transitionDst.position))
+                /*if (transitionPrepAnimationOver) {
+                    FinishTransition();
+                    /*if (transitionMinOffset >= Vector3.Distance(transform.position, transitionDst.position))
                     {
+                        
                         transform.position = transitionDst.position;
-                        if (transitionNewState == CharacterState.Outside)
+                        /*if (transitionNewState == CharacterState.Outside)
                         {
                             animator.SetTrigger(transitionEndOutAnimKey);
                         }
                         else
                         {
                             animator.SetTrigger(transitionEndInAnimKey);
-                        }
-                    } else
+                        }*/
+
+                    /*} else
                     {
                         Vector3 direction = (transitionDst.position - transform.position).normalized;
                         transform.Translate(direction * transitionSpeed * Time.deltaTime);
-                    }
-
-                }
+                    }*/
+                //}
             }
         }
 

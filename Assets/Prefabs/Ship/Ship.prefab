@@ -1147,7 +1147,7 @@ MonoBehaviour:
       - 0
       globalNormalsAngle: 0
       flipNormals: 0
-    vertexPathUpToDate: 1
+    vertexPathUpToDate: 0
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0.01
     showTransformTool: 0
@@ -1211,7 +1211,7 @@ MonoBehaviour:
   meshHolder: {fileID: 8550047388039701395}
   meshRenderer: {fileID: 3233345775458672048}
   meshFilter: {fileID: 4456123472076289596}
-  pathWidth: 0.15
+  pathWidth: 0.02
   pathMaterial: {fileID: 2100000, guid: f5d909451c042284d8350981b9a8975b, type: 2}
   textureTilingPerMeter: 1
   maxAngleError: 0.5

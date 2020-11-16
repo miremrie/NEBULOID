@@ -14,8 +14,8 @@ namespace NBLD.Character
         protected SpriteRenderer spriteRenderer;
         protected Rigidbody2D rb2D;
         protected CharAudioController charAudio;
-        public string spriteSortingLayer;
         public Material spriteMaterial;
+        public string spriteLayer;
         protected bool initialized = false;
 
         public void Initialize(CharController charController, Rigidbody2D rigidbody, SpriteRenderer spriteRenderer, Animator animator, CharAudioController charAudio)
@@ -27,7 +27,12 @@ namespace NBLD.Character
             this.charAudio = charAudio;
             initialized = true;
         }
+        public void SetSortingLayer()
+        {
+            spriteRenderer.sortingLayerID = SortingLayer.NameToID(spriteLayer);
+            //spriteRenderer.sortingLayerID = spriteLayer.id;
 
+        }
         public void EnableCollisions()
         {
             stateSpecificCollider.enabled = true;

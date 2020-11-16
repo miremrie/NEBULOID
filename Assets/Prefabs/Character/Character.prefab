@@ -647,6 +647,21 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &619621694826615025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8279063703412352995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aa6fa48081a90f468b04eb460d3cdd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 2917806909764477764}
+  currentSpriteIndex: 0
+  sprites: []
 --- !u!1 &8847336380807913325
 GameObject:
   m_ObjectHideFlags: 0
@@ -741,6 +756,7 @@ MonoBehaviour:
   charInputManager: {fileID: 8312513569760865785}
   animator: {fileID: 4265162992504635029}
   charSpriteRenderer: {fileID: 2917806909764477764}
+  characterPivot: {fileID: 8847336381689410747}
   colliders:
   - {fileID: 0}
   rb2D: {fileID: 8847336380807913327}
@@ -752,6 +768,8 @@ MonoBehaviour:
   transitionMinAngleOffset: 5
   rotationSpeed: 10
   targetAngle: 0
+  pivotWhenExiting: {x: -1.12, y: 0.26, z: 0}
+  pivotWhenEntering: {x: 1.52, y: 0.01, z: 0}
   characterCenter: {fileID: 1369831469631679421}
 --- !u!114 &8710618289686752147
 MonoBehaviour:
@@ -766,8 +784,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateSpecificCollider: {fileID: 7739850062954294746}
-  spriteSortingLayer: Unlit
   spriteMaterial: {fileID: 2100000, guid: 0aab09b265b0f3e43b07c0e97dd73fb9, type: 2}
+  spriteLayer: Unlit
   moveSpeed: 2
   transportSpeed: 4
 --- !u!114 &2816976512444012041
@@ -783,8 +801,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateSpecificCollider: {fileID: 6290694858956421944}
-  spriteSortingLayer: Default
   spriteMaterial: {fileID: 2100000, guid: 6c8d3f722c2b28148af60d5a05a4f642, type: 2}
+  spriteLayer: Default
   hoseAttachSpot: {fileID: 7698084909700912097}
   rotationCenter: {fileID: 1369831469631679421}
   minRotAngle: 2
@@ -1049,12 +1067,12 @@ PrefabInstance:
     - target: {fileID: 5593572210827038077, guid: 1f90f4272febe01489fe3e0809c35a79,
         type: 3}
       propertyPath: m_Size.x
-      value: 0.05142857
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5593572210827038077, guid: 1f90f4272febe01489fe3e0809c35a79,
         type: 3}
       propertyPath: m_Size.y
-      value: 0.047714286
+      value: 0.92777777
       objectReference: {fileID: 0}
     - target: {fileID: 5593572210827038077, guid: 1f90f4272febe01489fe3e0809c35a79,
         type: 3}
@@ -1144,6 +1162,12 @@ SpriteRenderer:
 --- !u!4 &4219495756760480173 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6868223275539847060, guid: 1f90f4272febe01489fe3e0809c35a79,
+    type: 3}
+  m_PrefabInstance: {fileID: 7340442598611791417}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8279063703412352995 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1674029766822300122, guid: 1f90f4272febe01489fe3e0809c35a79,
     type: 3}
   m_PrefabInstance: {fileID: 7340442598611791417}
   m_PrefabAsset: {fileID: 0}

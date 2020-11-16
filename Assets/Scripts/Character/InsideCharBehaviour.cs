@@ -74,6 +74,7 @@ namespace NBLD.Character
         private void UpdateMovement(int direction)
         {
             transform.Translate(Vector3.right * direction * moveSpeed * Time.deltaTime);
+            //Debug.Log($"Move{Vector3.right * direction*moveSpeed*Time.deltaTime}");
             AnimateMovement();
         }
         private int GetCurrentMoveDirection()
