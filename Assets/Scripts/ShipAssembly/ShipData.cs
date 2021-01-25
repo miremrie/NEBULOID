@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum SystemName
 {
-    Sonar, LeftArm, RightArm, Gun, Hook, Ejector
+    Sonar, LeftArm, RightArm, Gun, Hook, Ejector, Shield
 }
 public enum RoomName
 {
@@ -18,7 +18,7 @@ public class ShipData
     public string shipName;
     public ShipData()
     {
-        
+
     }
 
     public void AddSysData(SystemData sysData)
