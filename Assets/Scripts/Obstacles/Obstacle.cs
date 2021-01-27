@@ -5,6 +5,8 @@ public class Obstacle : MonoBehaviour
 {
     public static ShipAudioController audioController;
     public float Damage { get; set; }
+    public Game game;
+
 
     void OnTriggerEnter2D(Collider2D col)
     {
@@ -14,20 +16,27 @@ public class Obstacle : MonoBehaviour
         //    Destroy(this.gameObject);
         //}
         //else
-        if (col.tag == Tags.SHIP_BODY)
+        if (col.tag == Tags.SHIP_SHIELD)
         {
-            FindObjectOfType<Game>().ObstacleHit(this);
+            game.BulletHit(this);
             Destroy(this.gameObject);
-        } else if (col.tag == Tags.BULLET)
+        }
+        else if (col.tag == Tags.SHIP_BODY)
+        {
+            game.ObstacleHit(this);
+            Destroy(this.gameObject);
+        }
+        else if (col.tag == Tags.BULLET)
         {
             Destroy(col.gameObject);
             Destroy(this.gameObject);
-            FindObjectOfType<Game>().BulletHit(this);
+            game.BulletHit(this);
         }
     }
 
-    internal void Initialize(float size)
+    public void Initialize(float size, Game game)
     {
         Damage = size;
+        this.game = game;
     }
 }

@@ -20,7 +20,7 @@ public class Game : MonoBehaviour
     private Repairable[] repairables;
     public GameObject smokePrefab;
     private NBLD.Input.UIInputManager uiInput;
-  
+
     public GameObject explosionParticle;
 
     public ShipAudioController audioController;
@@ -69,7 +69,7 @@ public class Game : MonoBehaviour
     internal void BulletHit(Obstacle obstacle)
     {
         Instantiate(explosionParticle, obstacle.transform.position, Quaternion.identity);
-         audioController.PlayHitClip();
+        audioController.PlayHitClip();
     }
 
     void UpdateDeath()
@@ -138,7 +138,8 @@ public class Game : MonoBehaviour
 
     public void OnSubmit()
     {
-        if (gameIsOver) {
+        if (gameIsOver)
+        {
             RestartGame();
         }
 

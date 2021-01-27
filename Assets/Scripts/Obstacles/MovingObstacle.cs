@@ -22,9 +22,9 @@ public class MovingObstacle : Obstacle
         transform.Translate(direction * speed * Time.deltaTime);
     }
 
-    internal void Initialize(Transform ship, float size)
+    public void Initialize(Transform ship, float size, Game game)
     {
-        Damage = size;
         Initialize(ship);
+        Initialize(size, game);
     }
 }

@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tags 
+public class Tags
 {
     public static string SHIP_BODY = "ShipBody";
     public static string SHIP_OUTER = "ShipOuter";
     public static string ACTION_OBJECT = "ActionObject";
     public static string BULLET = "Bullet";
     public static string OBSTACLE = "Obstacle";
+    public static string SHIP_SHIELD = "ShipShield";
 }

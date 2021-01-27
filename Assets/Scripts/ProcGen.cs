@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 public class ProcGen : MonoBehaviour
 {
+    public Game game;
     public Transform ship;
 
     public float minDist;
@@ -22,7 +23,7 @@ public class ProcGen : MonoBehaviour
 
     void Start()
     {
-        minDist = minDist== 0 ? 1 : minDist;
+        minDist = minDist == 0 ? 1 : minDist;
     }
 
     void Update()
@@ -37,7 +38,8 @@ public class ProcGen : MonoBehaviour
         var currChunk = new Vector2Int(x, y);
         //Debug.Log(currChunk);
 
-        for (int i = currChunk.x - 1; i <= currChunk.x + 1; i++) {
+        for (int i = currChunk.x - 1; i <= currChunk.x + 1; i++)
+        {
             for (int j = currChunk.y - 1; j <= currChunk.y + 1; j++)
             {
                 var tChunk = new Vector2Int(i, j);
@@ -67,16 +69,16 @@ public class ProcGen : MonoBehaviour
             {
                 var val = Random.value;
 
-                var f =  (float)fuzzRand.NextDouble() * fuzz;
+                var f = (float)fuzzRand.NextDouble() * fuzz;
                 var pos = new Vector3(i + f, j + f, 0);
-                
+
                 var size = (float)fuzzRand.NextDouble();
                 var sAdd = size * maxSizeAdd;
 
                 if (val < percentMovingObstacle)
                 {
                     MovingObstacle mo = Instantiate(movingPrefabs[Random.Range((int)0, (int)movingPrefabs.Length)], pos, Quaternion.identity);
-                    mo.Initialize(ship, size);
+                    mo.Initialize(ship, size, game);
 
                     var inScale = mo.transform.localScale.x;
                     var fSize = inScale + sAdd;
@@ -86,21 +88,22 @@ public class ProcGen : MonoBehaviour
                 {
                     var go = Instantiate(fuelPrefab, pos, Quaternion.identity);
                 }
-                else if(val < percentObstacle)
+                else if (val < percentObstacle)
                 {
                     Obstacle go = Instantiate(obstaclePrefabs[Random.Range((int)0, (int)obstaclePrefabs.Length)], pos, Quaternion.identity);
-                    go.Initialize(size);
+                    go.Initialize(size, game);
                     var inScale = go.transform.localScale.x;
                     var fSize = inScale + sAdd;
                     go.transform.localScale = new Vector3(fSize, fSize, fSize);
                 }
-                
+
             }
         }
     }
 
 
-    int GenerateHash(int x, int y, int seed) {
+    int GenerateHash(int x, int y, int seed)
+    {
         int hash = 23;
         hash = hash * 31 + x;
         hash = hash * 31 + y;

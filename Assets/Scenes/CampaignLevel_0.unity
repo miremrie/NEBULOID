@@ -1689,6 +1689,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61a96702cf810e74e8c5801cd58bca25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  game: {fileID: 538758062}
   ship: {fileID: 1185245426}
   minDist: 3.5
   chunkSize: 20
