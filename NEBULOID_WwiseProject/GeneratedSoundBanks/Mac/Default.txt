@@ -1,9 +1,12 @@
 Event	ID	Name			Wwise Object Path	Notes
 	117524643	Stop_Hook_Cable_Back			\Default Work Unit\Movement\Hook\Cable\Stop_Hook_Cable_Back	
+	282728768	Play_Shield_Close_ExtrudeFanIn			\Default Work Unit\Movement\Shield\Play_Shield_Close_ExtrudeFanIn	
 	311910498	Play_Click			\Default Work Unit\UI\Play_Click	
 	377487063	Stop_Alarm			\Default Work Unit\Notifications\Stop_Alarm	
 	603937113	Play_Alarm			\Default Work Unit\Notifications\Play_Alarm	
 	725000905	Play_Game_Over			\Default Work Unit\Notifications\Play_Game_Over	
+	1045178680	Play_Shield_Close_Intrude			\Default Work Unit\Movement\Shield\Play_Shield_Close_Intrude	
+	1213474850	Play_Shield_Open_Extrude			\Default Work Unit\Movement\Shield\Play_Shield_Open_Extrude	
 	1231987938	Play_Gameplay_Music			\Default Work Unit\Play_Gameplay_Music	
 	1303580447	Play_Hook_ClawOpen			\Default Work Unit\Movement\Hook\Claw\Play_Hook_ClawOpen	
 	1422781286	Play_Hook_Cable_Grab			\Default Work Unit\Movement\Hook\Cable\Play_Hook_Cable_Grab	
@@ -17,6 +20,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	2410889125	Stop_Sonar			\Default Work Unit\Notifications\Stop_Sonar	
 	2582351913	Play_Hook_ClawBite			\Default Work Unit\Movement\Hook\Claw\Play_Hook_ClawBite	
 	2934156779	Stop_Hook_Cable			\Default Work Unit\Movement\Hook\Cable\Stop_Hook_Cable	
+	3234356361	Play_Shield_Open_IntrudeFanOut			\Default Work Unit\Movement\Shield\Play_Shield_Open_IntrudeFanOut	
 	3354998756	Play_Footsteps_Dsc			\Default Work Unit\Movement\Footsteps\Play_Footsteps_Dsc	
 	3376092819	Play_Sonar			\Default Work Unit\Notifications\Play_Sonar	
 	3567966343	Stop_Fuel_Refill			\Default Work Unit\Notifications\Stop_Fuel_Refill	
@@ -43,73 +47,77 @@ Effect plug-ins	ID	Name	Type				Notes
 	3216246379	Space_Dreaming	Wwise RoomVerb			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	20945893	FootMain-2	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\FootstepsMain\FootMain-2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsMain\FootMain-2		52632
-	24182909	LadderDsc-7	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\FootstepsLadderDsc\LadderDsc-7_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderDsc\LadderDsc-7		59848
-	53106075	4 - ClawBite	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\4 - ClawBite_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawBite\4 - ClawBite		238204
-	74626025	inhale	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\inhale_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Gameplay\TempMus\inhale		11460120
-	78273926	FootMain-1	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\FootstepsMain\FootMain-1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsMain\FootMain-1		53136
-	80018712	HookBackStart	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\HookBackStart_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Cable\HookBack\HookBackStart		68860
-	86287898	AlarmLoop	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Notifications\AlarmLoop 1_FF5B2032.wem		\Actor-Mixer Hierarchy\Default Work Unit\Notifications\AlarmLoop		114106
-	101292689	LadderDsc-3	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\FootstepsLadderDsc\LadderDsc-3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderDsc\LadderDsc-3		48908
-	106730093	1 - ClawLock	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\1 - ClawLock_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawLock\1 - ClawLock		268192
-	124221590	ShipHitShort	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Hits\ObstacleHitShort_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Hits\ShipHit\ShipHitShort		177398
-	126468548	LadderAsc-8	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Footsteps LadderAsc\LadderAsc-8_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderAsc\LadderAsc-8		62728
-	133806398	FootMain-6	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\FootstepsMain\FootMain-6_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsMain\FootMain-6		50852
-	134160763	1 - ClawBite	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\1 - ClawBite_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawBite\1 - ClawBite		275248
-	165794786	ShipHitLong	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Hits\ObstacleHitLong_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Hits\ShipHit\ShipHitLong		268682
-	174540903	LadderAsc-1	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Footsteps LadderAsc\LadderAsc-1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderAsc\LadderAsc-1		60104
-	183631485	4 - ClawBitePrep	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\4 - ClawBitePrep_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawBitePrep\4 - ClawBitePrep		340520
-	197222373	LadderDsc-91	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\FootstepsLadderDsc\LadderDsc-91_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderDsc\LadderDsc-91		39356
-	231082383	FuelRefillLoop	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Notifications\FuelRefillLoop_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Notifications\FuelRefillLoop		357018
-	241956040	FootMain-9	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\FootstepsMain\FootMain-9_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsMain\FootMain-9		54800
-	279627525	ArmR	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Movement\ArmR_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\ArmR\ArmR		184612
-	294206905	FootMain-4	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\FootstepsMain\FootMain-4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsMain\FootMain-4		52892
-	305211617	LadderAsc-7	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Footsteps LadderAsc\LadderAsc-7_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderAsc\LadderAsc-7		60980
-	311343295	FootMain-8	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\FootstepsMain\FootMain-8_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsMain\FootMain-8		52508
-	324184722	LadderAsc-9	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Footsteps LadderAsc\LadderAsc-9_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderAsc\LadderAsc-9		58356
-	324782420	LadderDsc-2	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\FootstepsLadderDsc\LadderDsc-2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderDsc\LadderDsc-2		48908
-	329691644	Click	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\UI\Click_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Click		16500
-	405090761	3 - ClawBite	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\3 - ClawBite_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawBite\3 - ClawBite		234676
-	415235210	3 - ClawBitePrep	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\3 - ClawBitePrep_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawBitePrep\3 - ClawBitePrep		324644
-	427815737	4 - ClawLock	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\4 - ClawLock_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawLock\4 - ClawLock		341680
-	439336671	LadderAsc-6	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Footsteps LadderAsc\LadderAsc-6_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderAsc\LadderAsc-6		60396
-	480576774	GunShot2	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Explosions\Exp2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Hits\GunShot\GunShot2		345810
-	494277209	LadderDsc-9	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\FootstepsLadderDsc\LadderDsc-9_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderDsc\LadderDsc-9		48204
-	505787587	LadderAsc-3	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Footsteps LadderAsc\LadderAsc-3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderAsc\LadderAsc-3		61268
-	508136954	GAMEOVER	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Notifications\GAMEOVER_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Notifications\GAMEOVER		520600
-	520268854	ArmL	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Movement\ArmL_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\ArmL\ArmL		176864
-	521458492	BulletHit1	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Hits\ExpHit1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Hits\BulletHit\BulletHit1		502532
-	530252190	FootMain-5	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\FootstepsMain\FootMain-5_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsMain\FootMain-5		55172
-	530347215	AlarmStop	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Notifications\AlarmLoop_B7B4B728.wem		\Actor-Mixer Hierarchy\Default Work Unit\Notifications\AlarmStop		61958
-	542189354	HookBackLoop	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\HookBackLoop_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Cable\HookBack\HookBackLoop		63568
-	549127255	2 - ClawOpen	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\2 - ClawOpen_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawOpen\2 - ClawOpen		425188
-	566796927	LadderAsc-91	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Footsteps LadderAsc\LadderAsc-91_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderAsc\LadderAsc-91		46196
-	590961326	LadderDsc-6	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\FootstepsLadderDsc\LadderDsc-6_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderDsc\LadderDsc-6		52032
-	614939510	1 - ClawBitePrep	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\1 - ClawBitePrep_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawBitePrep\1 - ClawBitePrep		374032
-	621301210	MENU_EVOID	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\MENU_EVOID_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Menu\MENU_EVOID\MENU_EVOID		4164332
-	655215047	LadderAsc-2	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Footsteps LadderAsc\LadderAsc-2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderAsc\LadderAsc-2		59232
-	661249972	FootMain-3	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\FootstepsMain\FootMain-3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsMain\FootMain-3		55488
-	669341810	HookLoop	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\HookLoop_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Cable\HookGrab\HookLoop		225856
-	680478364	LadderDsc-4	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\FootstepsLadderDsc\LadderDsc-4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderDsc\LadderDsc-4		48908
-	726397064	2 - ClawBitePrep	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\2 - ClawBitePrep_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawBitePrep\2 - ClawBitePrep		382852
-	732950509	GunShot3	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Explosions\Exp3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Hits\GunShot\GunShot3		297038
-	750554884	LadderDsc-1	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\FootstepsLadderDsc\LadderDsc-1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderDsc\LadderDsc-1		46172
-	765862514	LadderDsc-5	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\FootstepsLadderDsc\LadderDsc-5_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderDsc\LadderDsc-5		47736
-	767327232	HookStop	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\HookStop_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Cable\HookStop		315820
-	788548806	Sonar	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Sonar_6AD58737.wem		\Actor-Mixer Hierarchy\Default Work Unit\Notifications\Sonar		862272
-	790743522	BulletHit2	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Hits\ExpHit2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Hits\BulletHit\BulletHit2		392562
-	827833385	3 - ClawLock	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\3 - ClawLock_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawLock\3 - ClawLock		330284
-	829400276	FootMain-91	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\FootstepsMain\FootMain-91_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsMain\FootMain-91		47488
-	830784053	HookBackStop	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\HookBackStop_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Cable\HookBackStop		167644
-	835062091	LadderAsc-5	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Footsteps LadderAsc\LadderAsc-5_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderAsc\LadderAsc-5		61564
-	869259325	1 - ClawOpen	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\1 - ClawOpen_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawOpen\1 - ClawOpen		384616
-	874387393	BulletHit3	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Hits\ExpHit3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Hits\BulletHit\BulletHit3		353950
-	882834192	2 - ClawBite	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\2 - ClawBite_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawBite\2 - ClawBite		245260
-	884707605	HookStart	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\HookStart_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Cable\HookGrab\HookStart		199396
-	898425719	GunShot1	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Explosions\Exp1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Hits\GunShot\GunShot1		353952
-	928490104	FootMain-7	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\FootstepsMain\FootMain-7_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsMain\FootMain-7		54908
-	940568997	LadderDsc-8	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\FootstepsLadderDsc\LadderDsc-8_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderDsc\LadderDsc-8		41096
-	966974960	2 - ClawLock	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\2 - ClawLock_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawLock\2 - ClawLock		277012
-	1002772589	4 - ClawOpen	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\4 - ClawOpen_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawOpen\4 - ClawOpen		375796
-	1013121627	LadderAsc-4	D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Footsteps LadderAsc\LadderAsc-4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderAsc\LadderAsc-4		59812
+	20945893	FootMain-2	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\FootstepsMain\FootMain-2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsMain\FootMain-2		52632
+	24182909	LadderDsc-7	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\FootstepsLadderDsc\LadderDsc-7_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderDsc\LadderDsc-7		59848
+	53106075	4 - ClawBite	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\4 - ClawBite_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawBite\4 - ClawBite		238204
+	74626025	inhale	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\inhale_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Gameplay\TempMus\inhale		11460120
+	78273926	FootMain-1	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\FootstepsMain\FootMain-1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsMain\FootMain-1		53136
+	80018712	HookBackStart	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\HookBackStart_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Cable\HookBack\HookBackStart		68860
+	86287898	AlarmLoop	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Notifications\AlarmLoop 1_FF5B2032.wem		\Actor-Mixer Hierarchy\Default Work Unit\Notifications\AlarmLoop		114106
+	101292689	LadderDsc-3	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\FootstepsLadderDsc\LadderDsc-3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderDsc\LadderDsc-3		48908
+	106730093	1 - ClawLock	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\1 - ClawLock_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawLock\1 - ClawLock		268192
+	124221590	ShipHitShort	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Hits\ObstacleHitShort_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Hits\ShipHit\ShipHitShort		177398
+	126468548	LadderAsc-8	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Footsteps LadderAsc\LadderAsc-8_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderAsc\LadderAsc-8		62728
+	133806398	FootMain-6	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\FootstepsMain\FootMain-6_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsMain\FootMain-6		50852
+	134160763	1 - ClawBite	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\1 - ClawBite_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawBite\1 - ClawBite		275248
+	165794786	ShipHitLong	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Hits\ObstacleHitLong_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Hits\ShipHit\ShipHitLong		268682
+	174540903	LadderAsc-1	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Footsteps LadderAsc\LadderAsc-1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderAsc\LadderAsc-1		60104
+	180782484	Shield_Close_Intrude	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Shield_Close_Intrude_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Shield\Shield_Close_Intrude		62036
+	183631485	4 - ClawBitePrep	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\4 - ClawBitePrep_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawBitePrep\4 - ClawBitePrep		340520
+	197222373	LadderDsc-91	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\FootstepsLadderDsc\LadderDsc-91_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderDsc\LadderDsc-91		39356
+	231082383	FuelRefillLoop	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Notifications\FuelRefillLoop_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Notifications\FuelRefillLoop		357018
+	241956040	FootMain-9	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\FootstepsMain\FootMain-9_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsMain\FootMain-9		54800
+	279627525	ArmR	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Movement\ArmR_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\ArmR\ArmR		184612
+	294206905	FootMain-4	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\FootstepsMain\FootMain-4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsMain\FootMain-4		52892
+	305211617	LadderAsc-7	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Footsteps LadderAsc\LadderAsc-7_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderAsc\LadderAsc-7		60980
+	311343295	FootMain-8	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\FootstepsMain\FootMain-8_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsMain\FootMain-8		52508
+	324184722	LadderAsc-9	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Footsteps LadderAsc\LadderAsc-9_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderAsc\LadderAsc-9		58356
+	324782420	LadderDsc-2	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\FootstepsLadderDsc\LadderDsc-2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderDsc\LadderDsc-2		48908
+	329691644	Click	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\UI\Click_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Click		16500
+	405090761	3 - ClawBite	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\3 - ClawBite_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawBite\3 - ClawBite		234676
+	415235210	3 - ClawBitePrep	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\3 - ClawBitePrep_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawBitePrep\3 - ClawBitePrep		324644
+	427815737	4 - ClawLock	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\4 - ClawLock_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawLock\4 - ClawLock		341680
+	439336671	LadderAsc-6	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Footsteps LadderAsc\LadderAsc-6_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderAsc\LadderAsc-6		60396
+	456136316	Shield_Close_ExtrudeFanIn	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Shield_Close_ExtrudeFanIn_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Shield\Shield_Close_ExtrudeFanIn		153972
+	480576774	GunShot2	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Explosions\Exp2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Hits\GunShot\GunShot2		345810
+	494277209	LadderDsc-9	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\FootstepsLadderDsc\LadderDsc-9_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderDsc\LadderDsc-9		48204
+	505787587	LadderAsc-3	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Footsteps LadderAsc\LadderAsc-3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderAsc\LadderAsc-3		61268
+	508136954	GAMEOVER	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Notifications\GAMEOVER_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Notifications\GAMEOVER		520600
+	520268854	ArmL	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Movement\ArmL_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\ArmL\ArmL		176864
+	521458492	BulletHit1	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Hits\ExpHit1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Hits\BulletHit\BulletHit1		502532
+	530252190	FootMain-5	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\FootstepsMain\FootMain-5_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsMain\FootMain-5		55172
+	530347215	AlarmStop	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Notifications\AlarmLoop_B7B4B728.wem		\Actor-Mixer Hierarchy\Default Work Unit\Notifications\AlarmStop		61958
+	542189354	HookBackLoop	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\HookBackLoop_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Cable\HookBack\HookBackLoop		63568
+	549127255	2 - ClawOpen	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\2 - ClawOpen_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawOpen\2 - ClawOpen		425188
+	566796927	LadderAsc-91	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Footsteps LadderAsc\LadderAsc-91_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderAsc\LadderAsc-91		46196
+	590961326	LadderDsc-6	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\FootstepsLadderDsc\LadderDsc-6_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderDsc\LadderDsc-6		52032
+	614939510	1 - ClawBitePrep	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\1 - ClawBitePrep_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawBitePrep\1 - ClawBitePrep		374032
+	621301210	MENU_EVOID	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\MENU_EVOID_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Menu\MENU_EVOID\MENU_EVOID		4164332
+	655215047	LadderAsc-2	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Footsteps LadderAsc\LadderAsc-2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderAsc\LadderAsc-2		59232
+	661249972	FootMain-3	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\FootstepsMain\FootMain-3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsMain\FootMain-3		55488
+	669341810	HookLoop	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\HookLoop_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Cable\HookGrab\HookLoop		225856
+	680478364	LadderDsc-4	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\FootstepsLadderDsc\LadderDsc-4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderDsc\LadderDsc-4		48908
+	726397064	2 - ClawBitePrep	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\2 - ClawBitePrep_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawBitePrep\2 - ClawBitePrep		382852
+	732950509	GunShot3	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Explosions\Exp3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Hits\GunShot\GunShot3		297038
+	750554884	LadderDsc-1	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\FootstepsLadderDsc\LadderDsc-1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderDsc\LadderDsc-1		46172
+	765862514	LadderDsc-5	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\FootstepsLadderDsc\LadderDsc-5_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderDsc\LadderDsc-5		47736
+	767327232	HookStop	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\HookStop_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Cable\HookStop		315820
+	788548806	Sonar	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Sonar_6AD58737.wem		\Actor-Mixer Hierarchy\Default Work Unit\Notifications\Sonar		862272
+	790743522	BulletHit2	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Hits\ExpHit2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Hits\BulletHit\BulletHit2		392562
+	811885317	Shield_Open_Extrude	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Shield_Open_Extrude_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Shield\Shield_Open_Extrude		41380
+	827833385	3 - ClawLock	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\3 - ClawLock_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawLock\3 - ClawLock		330284
+	829400276	FootMain-91	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\FootstepsMain\FootMain-91_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsMain\FootMain-91		47488
+	830784053	HookBackStop	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\HookBackStop_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Cable\HookBackStop		167644
+	835062091	LadderAsc-5	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Footsteps LadderAsc\LadderAsc-5_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderAsc\LadderAsc-5		61564
+	869259325	1 - ClawOpen	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\1 - ClawOpen_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawOpen\1 - ClawOpen		384616
+	874387393	BulletHit3	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Hits\ExpHit3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Hits\BulletHit\BulletHit3		353950
+	882834192	2 - ClawBite	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\2 - ClawBite_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawBite\2 - ClawBite		245260
+	884707605	HookStart	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\HookStart_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Cable\HookGrab\HookStart		199396
+	898425719	GunShot1	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Explosions\Exp1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Hits\GunShot\GunShot1		353952
+	928490104	FootMain-7	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\FootstepsMain\FootMain-7_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsMain\FootMain-7		54908
+	940568997	LadderDsc-8	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\FootstepsLadderDsc\LadderDsc-8_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderDsc\LadderDsc-8		41096
+	949232450	Shield_Open_IntrudeFanOut	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Shield_Open_IntrudeFanOut_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Shield\Shield_Open_IntrudeFanOut		266928
+	966974960	2 - ClawLock	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\2 - ClawLock_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawLock\2 - ClawLock		277012
+	1002772589	4 - ClawOpen	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\4 - ClawOpen_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawOpen\4 - ClawOpen		375796
+	1013121627	LadderAsc-4	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Footsteps LadderAsc\LadderAsc-4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderAsc\LadderAsc-4		59812
 

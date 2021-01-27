@@ -243,7 +243,7 @@
 										<Action Name="" ID="{CE069D58-1B36-42A2-9D28-CB0DF2AA3FBF}" ShortID="756746663">
 											<ReferenceList>
 												<Reference Name="Target">
-													<ObjectRef Name="HookBackStart" ID="{E9D40AD4-C89A-42C8-B0D4-A5E5FE7622FA}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
+													<ObjectRef Name="Shield_Open_Extrude" ID="{7446CF84-5EA7-457B-88CF-2DD3A30F7296}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
 												</Reference>
 											</ReferenceList>
 										</Action>
@@ -252,9 +252,12 @@
 								<Event Name="Play_Shield_Open_IntrudeFanOut" ID="{0E9370B2-DE83-4B0F-80BB-A4A180C10CEC}">
 									<ChildrenList>
 										<Action Name="" ID="{9B778F43-99B6-46E8-B839-A184AAC8665C}" ShortID="8948888">
+											<PropertyList>
+												<Property Name="Delay" Type="Real64" Value="0.2"/>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Target">
-													<ObjectRef Name="ArmR" ID="{30C626EC-8860-48CA-A4D0-0958C711CDF7}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
+													<ObjectRef Name="Shield_Open_IntrudeFanOut" ID="{BADDC432-31CF-4A98-94F8-BF5ADA38BE4E}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
 												</Reference>
 											</ReferenceList>
 										</Action>
@@ -263,9 +266,12 @@
 								<Event Name="Play_Shield_Close_ExtrudeFanIn" ID="{374326CC-698F-4FCE-A917-0E2E96002716}">
 									<ChildrenList>
 										<Action Name="" ID="{FD09EB8E-6865-4EE7-9A1B-BEBB53E0F9E3}" ShortID="258683512">
+											<PropertyList>
+												<Property Name="Delay" Type="Real64" Value="0.2"/>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Target">
-													<ObjectRef Name="HookBackStart" ID="{E9D40AD4-C89A-42C8-B0D4-A5E5FE7622FA}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
+													<ObjectRef Name="Shield_Close_ExtrudeFanIn" ID="{962C5E33-48A3-496F-BBBB-C109C965B756}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
 												</Reference>
 											</ReferenceList>
 										</Action>
@@ -276,7 +282,7 @@
 										<Action Name="" ID="{D39A718A-7B52-4581-AB7C-E2DD08D9CF46}" ShortID="30760572">
 											<ReferenceList>
 												<Reference Name="Target">
-													<ObjectRef Name="ArmL" ID="{9958780E-B16C-4B31-8055-2F465CBAF9EC}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
+													<ObjectRef Name="Shield_Close_Intrude" ID="{C6E72A7C-BD8E-4631-BCD4-17CAF18BFCF8}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
 												</Reference>
 											</ReferenceList>
 										</Action>

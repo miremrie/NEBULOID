@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="12" SoundbankVersion="135">
 	<RootPaths>
-		<ProjectRoot>D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\</SourceFilesRoot>
-		<SoundBanksRoot>D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\GeneratedSoundBanks\Mac\</SoundBanksRoot>
+		<ProjectRoot>D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\</SourceFilesRoot>
+		<SoundBanksRoot>D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\GeneratedSoundBanks\Mac\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\GeneratedSoundBanks\Mac</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\GeneratedSoundBanks\Mac</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -341,6 +341,38 @@
 						<File Id="621301210" Language="SFX">
 							<ShortName>MENU_EVOID.wav</ShortName>
 							<Path>SFX\MENU_EVOID_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="282728768" Name="Play_Shield_Close_ExtrudeFanIn" ObjectPath="\Events\Default Work Unit\Movement\Shield\Play_Shield_Close_ExtrudeFanIn" DurationType="OneShot" DurationMin="1.072494" DurationMax="1.072494">
+					<IncludedMemoryFiles>
+						<File Id="456136316" Language="SFX">
+							<ShortName>Shield_Close_ExtrudeFanIn.wav</ShortName>
+							<Path>SFX\Shield_Close_ExtrudeFanIn_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1045178680" Name="Play_Shield_Close_Intrude" ObjectPath="\Events\Default Work Unit\Movement\Shield\Play_Shield_Close_Intrude" DurationType="OneShot" DurationMin="0.351315" DurationMax="0.351315">
+					<IncludedMemoryFiles>
+						<File Id="180782484" Language="SFX">
+							<ShortName>Shield_Close_Intrude.wav</ShortName>
+							<Path>SFX\Shield_Close_Intrude_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1213474850" Name="Play_Shield_Open_Extrude" ObjectPath="\Events\Default Work Unit\Movement\Shield\Play_Shield_Open_Extrude" DurationType="OneShot" DurationMin="0.234218" DurationMax="0.234218">
+					<IncludedMemoryFiles>
+						<File Id="811885317" Language="SFX">
+							<ShortName>Shield_Open_Extrude.wav</ShortName>
+							<Path>SFX\Shield_Open_Extrude_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3234356361" Name="Play_Shield_Open_IntrudeFanOut" ObjectPath="\Events\Default Work Unit\Movement\Shield\Play_Shield_Open_IntrudeFanOut" DurationType="OneShot" DurationMin="1.712834" DurationMax="1.712834">
+					<IncludedMemoryFiles>
+						<File Id="949232450" Language="SFX">
+							<ShortName>Shield_Open_IntrudeFanOut.wav</ShortName>
+							<Path>SFX\Shield_Open_IntrudeFanOut_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
