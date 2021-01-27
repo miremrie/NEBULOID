@@ -344,7 +344,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="282728768" Name="Play_Shield_Close_ExtrudeFanIn" ObjectPath="\Events\Default Work Unit\Movement\Shield\Play_Shield_Close_ExtrudeFanIn" DurationType="OneShot" DurationMin="1.072494" DurationMax="1.072494">
+				<Event Id="282728768" Name="Play_Shield_Close_ExtrudeFanIn" ObjectPath="\Events\Default Work Unit\Movement\Shield\Play_Shield_Close_ExtrudeFanIn" DurationType="OneShot" DurationMin="0.872494" DurationMax="0.872494">
 					<IncludedMemoryFiles>
 						<File Id="456136316" Language="SFX">
 							<ShortName>Shield_Close_ExtrudeFanIn.wav</ShortName>
@@ -352,23 +352,23 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1045178680" Name="Play_Shield_Close_Intrude" ObjectPath="\Events\Default Work Unit\Movement\Shield\Play_Shield_Close_Intrude" DurationType="OneShot" DurationMin="0.351315" DurationMax="0.351315">
+				<Event Id="1045178680" Name="Play_Shield_Close_Intrude" ObjectPath="\Events\Default Work Unit\Movement\Shield\Play_Shield_Close_Intrude" DurationType="OneShot" DurationMin="0.318430" DurationMax="0.318430">
 					<IncludedMemoryFiles>
 						<File Id="180782484" Language="SFX">
 							<ShortName>Shield_Close_Intrude.wav</ShortName>
-							<Path>SFX\Shield_Close_Intrude_10C4C929.wem</Path>
+							<Path>SFX\Shield_Close_Intrude_A2B9C495.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1213474850" Name="Play_Shield_Open_Extrude" ObjectPath="\Events\Default Work Unit\Movement\Shield\Play_Shield_Open_Extrude" DurationType="OneShot" DurationMin="0.234218" DurationMax="0.234218">
+				<Event Id="1213474850" Name="Play_Shield_Open_Extrude" ObjectPath="\Events\Default Work Unit\Movement\Shield\Play_Shield_Open_Extrude" DurationType="OneShot" DurationMin="0.203030" DurationMax="0.203030">
 					<IncludedMemoryFiles>
 						<File Id="811885317" Language="SFX">
 							<ShortName>Shield_Open_Extrude.wav</ShortName>
-							<Path>SFX\Shield_Open_Extrude_10C4C929.wem</Path>
+							<Path>SFX\Shield_Open_Extrude_02103876.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3234356361" Name="Play_Shield_Open_IntrudeFanOut" ObjectPath="\Events\Default Work Unit\Movement\Shield\Play_Shield_Open_IntrudeFanOut" DurationType="OneShot" DurationMin="1.712834" DurationMax="1.712834">
+				<Event Id="3234356361" Name="Play_Shield_Open_IntrudeFanOut" ObjectPath="\Events\Default Work Unit\Movement\Shield\Play_Shield_Open_IntrudeFanOut" DurationType="OneShot" DurationMin="1.512834" DurationMax="1.512834">
 					<IncludedMemoryFiles>
 						<File Id="949232450" Language="SFX">
 							<ShortName>Shield_Open_IntrudeFanOut.wav</ShortName>

@@ -252,9 +252,6 @@
 								<Event Name="Play_Shield_Open_IntrudeFanOut" ID="{0E9370B2-DE83-4B0F-80BB-A4A180C10CEC}">
 									<ChildrenList>
 										<Action Name="" ID="{9B778F43-99B6-46E8-B839-A184AAC8665C}" ShortID="8948888">
-											<PropertyList>
-												<Property Name="Delay" Type="Real64" Value="0.2"/>
-											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Target">
 													<ObjectRef Name="Shield_Open_IntrudeFanOut" ID="{BADDC432-31CF-4A98-94F8-BF5ADA38BE4E}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
@@ -266,9 +263,6 @@
 								<Event Name="Play_Shield_Close_ExtrudeFanIn" ID="{374326CC-698F-4FCE-A917-0E2E96002716}">
 									<ChildrenList>
 										<Action Name="" ID="{FD09EB8E-6865-4EE7-9A1B-BEBB53E0F9E3}" ShortID="258683512">
-											<PropertyList>
-												<Property Name="Delay" Type="Real64" Value="0.2"/>
-											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Target">
 													<ObjectRef Name="Shield_Close_ExtrudeFanIn" ID="{962C5E33-48A3-496F-BBBB-C109C965B756}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>

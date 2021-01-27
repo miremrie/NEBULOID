@@ -8,6 +8,12 @@
 						<Reference Name="AudioDevice">
 							<ObjectRef Name="System" ID="{BAC968B1-16A5-4B3B-AED6-486F5DCDF7F8}" WorkUnitID="{2FE02B63-2D50-4E82-B518-4B5A48B2E827}"/>
 						</Reference>
+						<Reference Name="Effect0" PluginName="Wwise Compressor" CompanyID="0" PluginID="108" PluginType="3">
+							<ObjectRef Name="Gentle_Program_Compressor_Minus_14dB_RMS" ID="{1595E6B0-DD58-4363-A3F0-DF0C96EC7C17}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+						</Reference>
+						<Reference Name="Effect1" CompanyID="4095" PluginID="65535" PluginType="15">
+							<ObjectRef Name="Brick_Wall_Minus_1dB_Peak_Slow_Release" ID="{9FB8DC2B-7F1C-4E4E-8FA5-50872652D2DD}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+						</Reference>
 					</ReferenceList>
 					<ChildrenList>
 						<Bus Name="Clean BUS" ID="{2D3BA3A6-7767-4CA5-A2CD-71456F48764B}">

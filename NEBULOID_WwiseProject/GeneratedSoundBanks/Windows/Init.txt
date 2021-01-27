@@ -14,8 +14,10 @@ Auxiliary Bus	ID	Name			Wwise Object Path	Notes
 
 Effect plug-ins	ID	Name	Type				Notes
 	325812821	Aluminium_Tank_(Custom)	Wwise RoomVerb			
+	418265525	Gentle_Program_Compressor_Minus_14dB_RMS	Wwise Compressor			
 	619485492	CleanBusEq	Wwise Parametric EQ			
 	862966650	Aluminium_Tank_(Custom)	Wwise RoomVerb			
+	2258521792	Brick_Wall_Minus_1dB_Peak_Slow_Release	Wwise Peak Limiter			
 	3290519051	Aluminium_Tank	Wwise RoomVerb			
 
 Audio Devices	ID	Name	Type				Notes

@@ -45,6 +45,7 @@ Game Parameter	ID	Name			Wwise Object Path	Notes
 
 Effect plug-ins	ID	Name	Type				Notes
 	3216246379	Space_Dreaming	Wwise RoomVerb			
+	3604890626	High_Pass_60Hz	Wwise Parametric EQ			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	20945893	FootMain-2	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\FootstepsMain\FootMain-2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsMain\FootMain-2		52632
@@ -62,7 +63,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	134160763	1 - ClawBite	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\1 - ClawBite_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawBite\1 - ClawBite		275248
 	165794786	ShipHitLong	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Hits\ObstacleHitLong_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Hits\ShipHit\ShipHitLong		268682
 	174540903	LadderAsc-1	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Footsteps LadderAsc\LadderAsc-1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderAsc\LadderAsc-1		60104
-	180782484	Shield_Close_Intrude	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Shield_Close_Intrude_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Shield\Shield_Close_Intrude		62036
+	180782484	Shield_Close_Intrude	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Shield_Close_Intrude_A2B9C495.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Shield\Shield_Close_Intrude		56236
 	183631485	4 - ClawBitePrep	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\4 - ClawBitePrep_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawBitePrep\4 - ClawBitePrep		340520
 	197222373	LadderDsc-91	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\FootstepsLadderDsc\LadderDsc-91_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderDsc\LadderDsc-91		39356
 	231082383	FuelRefillLoop	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Notifications\FuelRefillLoop_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Notifications\FuelRefillLoop		357018
@@ -104,7 +105,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	767327232	HookStop	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\HookStop_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Cable\HookStop		315820
 	788548806	Sonar	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Sonar_6AD58737.wem		\Actor-Mixer Hierarchy\Default Work Unit\Notifications\Sonar		862272
 	790743522	BulletHit2	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Hits\ExpHit2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Hits\BulletHit\BulletHit2		392562
-	811885317	Shield_Open_Extrude	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Shield_Open_Extrude_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Shield\Shield_Open_Extrude		41380
+	811885317	Shield_Open_Extrude	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Shield_Open_Extrude_02103876.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Shield\Shield_Open_Extrude		35880
 	827833385	3 - ClawLock	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\3 - ClawLock_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawLock\3 - ClawLock		330284
 	829400276	FootMain-91	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\FootstepsMain\FootMain-91_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsMain\FootMain-91		47488
 	830784053	HookBackStop	D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\HookBackStop_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Cable\HookBackStop		167644
