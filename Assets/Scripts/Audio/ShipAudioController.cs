@@ -28,7 +28,16 @@ public class ShipAudioController : MonoBehaviour
     private const string hookClawOpenEv = "Play_Hook_ClawOpen", hookClawOpenAndLockEv = "Play_Hook_ClawLock";
     public GameObject hookClawBitePlayer;
     private const string hookClawBitePrepEv = "Play_Hook_ClawBitePrep", hookClawBiteEv = "Play_Hook_ClawBite";
-    
+    //Shield
+    public GameObject shieldOpenExtrudePlayer;
+    private const string shieldOpenExtrudeEv = "Play_Shield_Open_Extrude";
+    public GameObject shieldOpenIntrudeFanOutPlayer;
+    private const string shieldOpenIntrudeFanOutEv = "Play_Shield_Open_IntrudeFanOut";
+    public GameObject shieldCloseExtrudeFanInPlayer;
+    private const string shieldCloseExtrudeFanInEv = "Play_Shield_Close_ExtrudeFanIn";
+    public GameObject shieldCloseIntrudePlayer;
+    private const string shieldCloseIntrudeEv = "Play_Shield_Close_Intrude";
+
     //Fuel
     private const string fuelRefillEv = "Play_Fuel_Refill", fuelRefillStopEv = "Stop_Fuel_Refill";
     private const string fuelAmountRTPC = "Fuel_Amount";
@@ -127,7 +136,8 @@ public class ShipAudioController : MonoBehaviour
         }
     }
 
-    public void StopAlarm() {
+    public void StopAlarm()
+    {
         alarmPlaying = false;
         AkSoundEngine.PostEvent(alarmStopEv, alarmPlayer);
     }
@@ -185,5 +195,24 @@ public class ShipAudioController : MonoBehaviour
     public void PlayHookBite()
     {
         AkSoundEngine.PostEvent(hookClawBiteEv, hookClawBitePlayer);
+    }
+
+    //Shield
+    public void PlayShieldOpenExtrude()
+    {
+        AkSoundEngine.PostEvent(shieldOpenExtrudeEv, shieldOpenExtrudePlayer);
+
+    }
+    public void PlayShieldOpenIntrudeFanOut()
+    {
+        AkSoundEngine.PostEvent(shieldOpenIntrudeFanOutEv, shieldOpenIntrudeFanOutPlayer);
+    }
+    public void PlayShieldCloseExtrudeFanIn()
+    {
+        AkSoundEngine.PostEvent(shieldCloseExtrudeFanInEv, shieldCloseExtrudeFanInPlayer);
+    }
+    public void PlayShieldCloseIntrude()
+    {
+        AkSoundEngine.PostEvent(shieldCloseIntrudeEv, shieldCloseIntrudePlayer);
     }
 }

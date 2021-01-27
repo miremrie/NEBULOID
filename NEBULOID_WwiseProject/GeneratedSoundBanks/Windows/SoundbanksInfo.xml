@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="782826392" Language="SFX">
+		<SoundBank Id="782826392" Language="SFX" Hash="1545359929">
 			<ObjectPath>\SoundBanks\Default Work Unit\Default</ObjectPath>
 			<ShortName>Default</ShortName>
 			<Path>Default.bnk</Path>
@@ -107,6 +107,10 @@
 							<Path>SFX\FootstepsLadderDsc\LadderDsc-8_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<AuxBusSends>
+						<AuxBus Id="1485871687" Name="MainRoom" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Enviroment\FX BUS\MainRoom"/>
+						<AuxBus Id="2902541986" Name="UpperRoom" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Enviroment\FX BUS\UpperRoom"/>
+					</AuxBusSends>
 				</Event>
 				<Event Id="2002520244" Name="Play_Footsteps_Ladder_Asc" ObjectPath="\Events\Default Work Unit\Movement\Footsteps\Play_Footsteps_Ladder_Asc" DurationType="OneShot" DurationMin="0.261519" DurationMax="0.393479">
 					<IncludedMemoryFiles>
@@ -151,6 +155,10 @@
 							<Path>SFX\Footsteps LadderAsc\LadderAsc-4_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<AuxBusSends>
+						<AuxBus Id="1485871687" Name="MainRoom" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Enviroment\FX BUS\MainRoom"/>
+						<AuxBus Id="2902541986" Name="UpperRoom" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Enviroment\FX BUS\UpperRoom"/>
+					</AuxBusSends>
 				</Event>
 				<Event Id="3571136941" Name="Play_Footsteps_Main" ObjectPath="\Events\Default Work Unit\Movement\Footsteps\Play_Footsteps_Main" DurationType="OneShot" DurationMin="0.268844" DurationMax="0.348018">
 					<IncludedMemoryFiles>
@@ -195,6 +203,10 @@
 							<Path>SFX\FootstepsMain\FootMain-7_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<AuxBusSends>
+						<AuxBus Id="1485871687" Name="MainRoom" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Enviroment\FX BUS\MainRoom"/>
+						<AuxBus Id="2902541986" Name="UpperRoom" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Enviroment\FX BUS\UpperRoom"/>
+					</AuxBusSends>
 				</Event>
 				<Event Id="2045110701" Name="Play_Fuel_Refill" ObjectPath="\Events\Default Work Unit\Notifications\Play_Fuel_Refill" DurationType="Infinite">
 					<IncludedMemoryFiles>
@@ -344,6 +356,38 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="282728768" Name="Play_Shield_Close_ExtrudeFanIn" ObjectPath="\Events\Default Work Unit\Movement\Shield\Play_Shield_Close_ExtrudeFanIn" DurationType="OneShot" DurationMin="0.390000" DurationMax="0.390000">
+					<IncludedMemoryFiles>
+						<File Id="80018712" Language="SFX">
+							<ShortName>HookBackStart.wav</ShortName>
+							<Path>SFX\HookBackStart_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1045178680" Name="Play_Shield_Close_Intrude" ObjectPath="\Events\Default Work Unit\Movement\Shield\Play_Shield_Close_Intrude" DurationType="OneShot" DurationMin="2.004535" DurationMax="2.004535">
+					<IncludedMemoryFiles>
+						<File Id="520268854" Language="SFX">
+							<ShortName>Movement\ArmL.wav</ShortName>
+							<Path>SFX\Movement\ArmL_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1213474850" Name="Play_Shield_Open_Extrude" ObjectPath="\Events\Default Work Unit\Movement\Shield\Play_Shield_Open_Extrude" DurationType="OneShot" DurationMin="0.390000" DurationMax="0.390000">
+					<IncludedMemoryFiles>
+						<File Id="80018712" Language="SFX">
+							<ShortName>HookBackStart.wav</ShortName>
+							<Path>SFX\HookBackStart_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3234356361" Name="Play_Shield_Open_IntrudeFanOut" ObjectPath="\Events\Default Work Unit\Movement\Shield\Play_Shield_Open_IntrudeFanOut" DurationType="OneShot" DurationMin="2.092381" DurationMax="2.092381">
+					<IncludedMemoryFiles>
+						<File Id="279627525" Language="SFX">
+							<ShortName>Movement\ArmR.wav</ShortName>
+							<Path>SFX\Movement\ArmR_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="3935467706" Name="Play_Ship_Hit" ObjectPath="\Events\Default Work Unit\Hits\Play_Ship_Hit" DurationType="OneShot" DurationMin="2.010590" DurationMax="3.045556">
 					<IncludedMemoryFiles>
 						<File Id="124221590" Language="SFX">
@@ -396,8 +440,17 @@
 				<GameParameter Id="3214858684" Name="Sonar_Position" ObjectPath="\Game Parameters\Default Work Unit\Sonar_Position"/>
 				<GameParameter Id="3548314952" Name="Fuel_Amount" ObjectPath="\Game Parameters\Default Work Unit\Fuel_Amount"/>
 			</GameParameters>
+			<SwitchGroups>
+				<SwitchGroup Id="4168292868" Name="Floor_Type" ObjectPath="\Switches\Default Work Unit\Floor_Type">
+					<Switches>
+						<Switch Id="1088209313" Name="Floor" ObjectPath="\Switches\Default Work Unit\Floor_Type\Floor"/>
+						<Switch Id="35681451" Name="Ladder_Asc" ObjectPath="\Switches\Default Work Unit\Floor_Type\Ladder_Asc"/>
+						<Switch Id="4196972182" Name="Ladder_Dsc" ObjectPath="\Switches\Default Work Unit\Floor_Type\Ladder_Dsc"/>
+					</Switches>
+				</SwitchGroup>
+			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="1355168291" Language="SFX">
+		<SoundBank Id="1355168291" Language="SFX" Hash="3606295998">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>

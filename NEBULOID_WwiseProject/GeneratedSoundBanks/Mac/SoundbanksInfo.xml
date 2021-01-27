@@ -64,7 +64,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3354998756" Name="Play_Footsteps_Dsc" ObjectPath="\Events\Default Work Unit\Movement\Hook\Footsteps\Play_Footsteps_Dsc" DurationType="OneShot" DurationMin="0.222744" DurationMax="0.375395">
+				<Event Id="3354998756" Name="Play_Footsteps_Dsc" ObjectPath="\Events\Default Work Unit\Movement\Footsteps\Play_Footsteps_Dsc" DurationType="OneShot" DurationMin="0.222744" DurationMax="0.375395">
 					<IncludedMemoryFiles>
 						<File Id="24182909" Language="SFX">
 							<ShortName>FootstepsLadderDsc\LadderDsc-7.wav</ShortName>
@@ -108,7 +108,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2002520244" Name="Play_Footsteps_Ladder_Asc" ObjectPath="\Events\Default Work Unit\Movement\Hook\Footsteps\Play_Footsteps_Ladder_Asc" DurationType="OneShot" DurationMin="0.261519" DurationMax="0.393479">
+				<Event Id="2002520244" Name="Play_Footsteps_Ladder_Asc" ObjectPath="\Events\Default Work Unit\Movement\Footsteps\Play_Footsteps_Ladder_Asc" DurationType="OneShot" DurationMin="0.261519" DurationMax="0.393479">
 					<IncludedMemoryFiles>
 						<File Id="126468548" Language="SFX">
 							<ShortName>Footsteps LadderAsc\LadderAsc-8.wav</ShortName>
@@ -152,7 +152,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3571136941" Name="Play_Footsteps_Main" ObjectPath="\Events\Default Work Unit\Movement\Hook\Footsteps\Play_Footsteps_Main" DurationType="OneShot" DurationMin="0.268844" DurationMax="0.348018">
+				<Event Id="3571136941" Name="Play_Footsteps_Main" ObjectPath="\Events\Default Work Unit\Movement\Footsteps\Play_Footsteps_Main" DurationType="OneShot" DurationMin="0.268844" DurationMax="0.348018">
 					<IncludedMemoryFiles>
 						<File Id="20945893" Language="SFX">
 							<ShortName>FootstepsMain\FootMain-2.wav</ShortName>

@@ -9,6 +9,7 @@
 						<ObjectRef Name="Play_Gameplay_Music" ID="{124DBCEA-E68E-409B-84DF-942692D724BB}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Fuel_Refill" ID="{E110AB06-A9E1-4145-AC12-A71DFE05CBBD}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Stop_Alarm" ID="{774AA9D9-B178-4229-B45A-9E437D3978BB}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Shield_Open_Extrude" ID="{E0B25A39-B7A9-4301-BF6F-AA2D27AA8AD4}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Bullet_Hit" ID="{A4978065-EC81-4313-A7BE-67EC98D6D20D}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Arm_L" ID="{763160EC-244D-43D3-ACA7-B79F7A15B8C1}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Footsteps_Ladder_Asc" ID="{FE89BA9B-B7BD-4491-91C0-E9769DD29B3D}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
@@ -22,6 +23,7 @@
 						<ObjectRef Name="Stop_Hook_Cable_Back" ID="{C8BFFDD3-1D01-4946-A4EB-DBECC2841140}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Hook_ClawBite" ID="{B8B2F65F-9A3A-49D5-B190-78ECEDFB2FA5}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Gun_Shot" ID="{A0FB45BB-DEED-49EB-8EF5-34D8791BD7AB}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Shield_Open_IntrudeFanOut" ID="{0E9370B2-DE83-4B0F-80BB-A4A180C10CEC}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Hook_ClawLock" ID="{BF397A9F-E163-4B81-BE30-EB024380BD8C}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Hook_ClawOpen" ID="{3D81A5B7-A5C2-4BB0-963D-8E6171E89E15}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Sonar" ID="{79CDEAC3-56F2-4BDA-B28D-45EB5015923C}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
@@ -30,7 +32,9 @@
 						<ObjectRef Name="Stop_Sonar" ID="{15AFA576-5F73-4D41-826E-9A0AAB18D67F}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Stop_Fuel_Refill" ID="{5848353B-700F-4D68-A94A-27FEC339B046}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Menu_Music" ID="{53A01F8B-F177-4E30-8D09-D44FD595CBA8}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Shield_Close_Intrude" ID="{B94C1A97-239C-4F21-A6DE-D9638673F60C}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Game_Over" ID="{CEE70ED2-6EDB-4F3A-BF30-96186EABC0E5}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Shield_Close_ExtrudeFanIn" ID="{374326CC-698F-4FCE-A917-0E2E96002716}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>

@@ -24,7 +24,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: e7d3747a64799c47a2d6f5b9ddeab36a
     GuidInternal: 
-    m_lastTime: -8586147404064257742
+    m_lastTime: -8585900311844855734
     List:
     - name: Clean BUS
       guid: a6a33b2d6777a54ca2cd71456f48764b
@@ -71,9 +71,11 @@ MonoBehaviour:
         ObjectType: 2
       - ElementName: Enviroment
         ObjectType: 2
+      - ElementName: FX BUS
+        ObjectType: 2
       - ElementName: LowerRoom
         ObjectType: 1
-      Path: Default Work Unit\Master Audio Bus\Enviroment\LowerRoom
+      Path: Default Work Unit\Master Audio Bus\Enviroment\FX BUS\LowerRoom
     - name: MainRoom
       guid: e1e42a46f98cc443bcf70d260a4d9a35
       id: 1485871687
@@ -84,9 +86,11 @@ MonoBehaviour:
         ObjectType: 2
       - ElementName: Enviroment
         ObjectType: 2
+      - ElementName: FX BUS
+        ObjectType: 2
       - ElementName: MainRoom
         ObjectType: 1
-      Path: Default Work Unit\Master Audio Bus\Enviroment\MainRoom
+      Path: Default Work Unit\Master Audio Bus\Enviroment\FX BUS\MainRoom
     - name: Master Audio Bus
       guid: d8a41415a61d2a41a17e75ca0c2149f3
       id: 3803692087
@@ -106,15 +110,17 @@ MonoBehaviour:
         ObjectType: 2
       - ElementName: Enviroment
         ObjectType: 2
+      - ElementName: FX BUS
+        ObjectType: 2
       - ElementName: UpperRoom
         ObjectType: 1
-      Path: Default Work Unit\Master Audio Bus\Enviroment\UpperRoom
+      Path: Default Work Unit\Master Audio Bus\Enviroment\FX BUS\UpperRoom
   BankWwu:
   - PhysicalPath: SoundBanks\Default Work Unit.wwu
     ParentPath: Default Work Unit
     guid: bd999b8dad637f45917793b0e20362cb
     GuidInternal: 
-    m_lastTime: -8586147404062095531
+    m_lastTime: -8585898510327103665
     List:
     - name: Default
       guid: a5e3873e1289a74a9f54a7ab1a7ee310
@@ -130,7 +136,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 8e8fc2d5bfaacf4f92fdf483cd07cba9
     GuidInternal: 
-    m_lastTime: -8586147404081566305
+    m_lastTime: -8585898509036035242
     List:
     - name: Cable
       guid: 33b062edfdd3904a880b493db2abde14
@@ -176,13 +182,11 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: Movement
         ObjectType: 4
-      - ElementName: Hook
-        ObjectType: 4
       - ElementName: Footsteps
         ObjectType: 4
       - ElementName: Footsteps
         ObjectType: 3
-      Path: Default Work Unit\Movement\Hook\Footsteps\Footsteps
+      Path: Default Work Unit\Movement\Footsteps\Footsteps
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -322,13 +326,11 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: Movement
         ObjectType: 4
-      - ElementName: Hook
-        ObjectType: 4
       - ElementName: Footsteps
         ObjectType: 4
       - ElementName: Play_Footsteps_Dsc
         ObjectType: 3
-      Path: Default Work Unit\Movement\Hook\Footsteps\Play_Footsteps_Dsc
+      Path: Default Work Unit\Movement\Footsteps\Play_Footsteps_Dsc
       maxAttenuation: 0
       maxDuration: 375395
       minDuration: 222744
@@ -340,13 +342,11 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: Movement
         ObjectType: 4
-      - ElementName: Hook
-        ObjectType: 4
       - ElementName: Footsteps
         ObjectType: 4
       - ElementName: Play_Footsteps_Ladder_Asc
         ObjectType: 3
-      Path: Default Work Unit\Movement\Hook\Footsteps\Play_Footsteps_Ladder_Asc
+      Path: Default Work Unit\Movement\Footsteps\Play_Footsteps_Ladder_Asc
       maxAttenuation: 0
       maxDuration: 393479
       minDuration: 261519
@@ -358,13 +358,11 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: Movement
         ObjectType: 4
-      - ElementName: Hook
-        ObjectType: 4
       - ElementName: Footsteps
         ObjectType: 4
       - ElementName: Play_Footsteps_Main
         ObjectType: 3
-      Path: Default Work Unit\Movement\Hook\Footsteps\Play_Footsteps_Main
+      Path: Default Work Unit\Movement\Footsteps\Play_Footsteps_Main
       maxAttenuation: 0
       maxDuration: 348018
       minDuration: 268844
@@ -542,6 +540,70 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Play_Shield_Close_ExtrudeFanIn
+      guid: cc2643378f69ce4fa9170e2e96002716
+      id: 282728768
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Movement
+        ObjectType: 4
+      - ElementName: Shield
+        ObjectType: 4
+      - ElementName: Play_Shield_Close_ExtrudeFanIn
+        ObjectType: 3
+      Path: Default Work Unit\Movement\Shield\Play_Shield_Close_ExtrudeFanIn
+      maxAttenuation: 0
+      maxDuration: 390000
+      minDuration: 390000
+    - name: Play_Shield_Close_Intrude
+      guid: 971a4cb99c23214fa6ded9638673f60c
+      id: 1045178680
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Movement
+        ObjectType: 4
+      - ElementName: Shield
+        ObjectType: 4
+      - ElementName: Play_Shield_Close_Intrude
+        ObjectType: 3
+      Path: Default Work Unit\Movement\Shield\Play_Shield_Close_Intrude
+      maxAttenuation: 0
+      maxDuration: 2004535
+      minDuration: 2004535
+    - name: Play_Shield_Open_Extrude
+      guid: 395ab2e0a9b70143bf6faa2d27aa8ad4
+      id: 1213474850
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Movement
+        ObjectType: 4
+      - ElementName: Shield
+        ObjectType: 4
+      - ElementName: Play_Shield_Open_Extrude
+        ObjectType: 3
+      Path: Default Work Unit\Movement\Shield\Play_Shield_Open_Extrude
+      maxAttenuation: 0
+      maxDuration: 390000
+      minDuration: 390000
+    - name: Play_Shield_Open_IntrudeFanOut
+      guid: b270930e83de0f4b80bba4a180c10cec
+      id: 3234356361
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Movement
+        ObjectType: 4
+      - ElementName: Shield
+        ObjectType: 4
+      - ElementName: Play_Shield_Open_IntrudeFanOut
+        ObjectType: 3
+      Path: Default Work Unit\Movement\Shield\Play_Shield_Open_IntrudeFanOut
+      maxAttenuation: 0
+      maxDuration: 2092381
+      minDuration: 2092381
     - name: Play_Ship_Hit
       guid: eebf9702a94f184ca8571822c1c866a7
       id: 3935467706
@@ -568,6 +630,22 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Notifications\Play_Sonar
       maxAttenuation: 15000000
+      maxDuration: -1
+      minDuration: -1
+    - name: Shield
+      guid: 946ffe535986e14d94178f9ba7a6b083
+      id: 1161967626
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Movement
+        ObjectType: 4
+      - ElementName: Shield
+        ObjectType: 4
+      - ElementName: Shield
+        ObjectType: 3
+      Path: Default Work Unit\Movement\Shield\Shield
+      maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
     - name: Stop_Alarm
@@ -667,7 +745,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 98ae5790858eda4ab4bc84449375c967
     GuidInternal: 
-    m_lastTime: -8586150840062640766
+    m_lastTime: -8586141292304366877
     List:
     - name: Fuel_Amount
       guid: 60c838c716dae346aec036d08c5b6455
@@ -708,7 +786,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 3fd3c2bfe0a79341a8fed3c6dcfda912
     GuidInternal: 
-    m_lastTime: -8586147404062055540
+    m_lastTime: -8585900311844009050
     List:
     - name: Floor_Type
       guid: 76c6298fefaadf40aac69ca40161b320
@@ -758,7 +836,6 @@ MonoBehaviour:
   - /NEBULOID_WwiseProject/Events/Default Work Unit
   - /NEBULOID_WwiseProject/Events/Default Work Unit/Movement
   - /NEBULOID_WwiseProject/Events/Default Work Unit/Movement/Hook
-  - /NEBULOID_WwiseProject/Events/Default Work Unit/Movement/Hook/Footsteps
   - /NEBULOID_WwiseProject/Events/Default Work Unit/Notifications
   - /NEBULOID_WwiseProject/Events/Default Work Unit/UI
   autoPopulateEnabled: 1

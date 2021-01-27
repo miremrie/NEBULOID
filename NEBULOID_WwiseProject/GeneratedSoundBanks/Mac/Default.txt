@@ -9,7 +9,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	1422781286	Play_Hook_Cable_Grab			\Default Work Unit\Movement\Hook\Cable\Play_Hook_Cable_Grab	
 	1434616913	Play_Hook_Cable_Back			\Default Work Unit\Movement\Hook\Cable\Play_Hook_Cable_Back	
 	1702949728	Play_Bullet_Hit			\Default Work Unit\Hits\Play_Bullet_Hit	
-	2002520244	Play_Footsteps_Ladder_Asc			\Default Work Unit\Movement\Hook\Footsteps\Play_Footsteps_Ladder_Asc	
+	2002520244	Play_Footsteps_Ladder_Asc			\Default Work Unit\Movement\Footsteps\Play_Footsteps_Ladder_Asc	
 	2045110701	Play_Fuel_Refill			\Default Work Unit\Notifications\Play_Fuel_Refill	
 	2228153899	Play_Menu_Music			\Default Work Unit\Play_Menu_Music	
 	2408728073	Play_Arm_L			\Default Work Unit\Movement\Play_Arm_L	
@@ -17,10 +17,10 @@ Event	ID	Name			Wwise Object Path	Notes
 	2410889125	Stop_Sonar			\Default Work Unit\Notifications\Stop_Sonar	
 	2582351913	Play_Hook_ClawBite			\Default Work Unit\Movement\Hook\Claw\Play_Hook_ClawBite	
 	2934156779	Stop_Hook_Cable			\Default Work Unit\Movement\Hook\Cable\Stop_Hook_Cable	
-	3354998756	Play_Footsteps_Dsc			\Default Work Unit\Movement\Hook\Footsteps\Play_Footsteps_Dsc	
+	3354998756	Play_Footsteps_Dsc			\Default Work Unit\Movement\Footsteps\Play_Footsteps_Dsc	
 	3376092819	Play_Sonar			\Default Work Unit\Notifications\Play_Sonar	
 	3567966343	Stop_Fuel_Refill			\Default Work Unit\Notifications\Stop_Fuel_Refill	
-	3571136941	Play_Footsteps_Main			\Default Work Unit\Movement\Hook\Footsteps\Play_Footsteps_Main	
+	3571136941	Play_Footsteps_Main			\Default Work Unit\Movement\Footsteps\Play_Footsteps_Main	
 	3637158234	Play_Hook_ClawLock			\Default Work Unit\Movement\Hook\Claw\Play_Hook_ClawLock	
 	3700767316	Play_Hook_ClawBitePrep			\Default Work Unit\Movement\Hook\Claw\Play_Hook_ClawBitePrep	
 	3935467706	Play_Ship_Hit			\Default Work Unit\Hits\Play_Ship_Hit	

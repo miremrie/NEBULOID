@@ -236,6 +236,54 @@
 								</Event>
 							</ChildrenList>
 						</Folder>
+						<Folder Name="Shield" ID="{53FE6F94-8659-4DE1-9417-8F9BA7A6B083}" ShortID="694402665">
+							<ChildrenList>
+								<Event Name="Play_Shield_Open_Extrude" ID="{E0B25A39-B7A9-4301-BF6F-AA2D27AA8AD4}">
+									<ChildrenList>
+										<Action Name="" ID="{CE069D58-1B36-42A2-9D28-CB0DF2AA3FBF}" ShortID="756746663">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="HookBackStart" ID="{E9D40AD4-C89A-42C8-B0D4-A5E5FE7622FA}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Shield_Open_IntrudeFanOut" ID="{0E9370B2-DE83-4B0F-80BB-A4A180C10CEC}">
+									<ChildrenList>
+										<Action Name="" ID="{9B778F43-99B6-46E8-B839-A184AAC8665C}" ShortID="8948888">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="ArmR" ID="{30C626EC-8860-48CA-A4D0-0958C711CDF7}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Shield_Close_ExtrudeFanIn" ID="{374326CC-698F-4FCE-A917-0E2E96002716}">
+									<ChildrenList>
+										<Action Name="" ID="{FD09EB8E-6865-4EE7-9A1B-BEBB53E0F9E3}" ShortID="258683512">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="HookBackStart" ID="{E9D40AD4-C89A-42C8-B0D4-A5E5FE7622FA}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Shield_Close_Intrude" ID="{B94C1A97-239C-4F21-A6DE-D9638673F60C}">
+									<ChildrenList>
+										<Action Name="" ID="{D39A718A-7B52-4581-AB7C-E2DD08D9CF46}" ShortID="30760572">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="ArmL" ID="{9958780E-B16C-4B31-8055-2F465CBAF9EC}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Notifications" ID="{E6C2D303-5838-41A2-9919-72FF65122284}" ShortID="265461644">

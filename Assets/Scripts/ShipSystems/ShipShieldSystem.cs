@@ -9,6 +9,7 @@ namespace NBLD.ShipSystems
         [Header("Components")]
         public Animator animator;
         public GameObject collidersRoot;
+        public ShipAudioController shipAudioController;
         [Header("Values")]
         public float duration;
         private const string shieldOpenAnim = "Open";
@@ -58,6 +59,25 @@ namespace NBLD.ShipSystems
 
             collidersRoot.SetActive(false);
         }
+
+        #region AnimationEvents
+        public void OnAnimOpenExtrude()
+        {
+            shipAudioController.PlayShieldOpenExtrude();
+        }
+        public void OnAnimOpenIntrudeFanOut()
+        {
+            shipAudioController.PlayShieldOpenIntrudeFanOut();
+        }
+        public void OnAnimCloseExtrudeFanIn()
+        {
+            shipAudioController.PlayShieldCloseExtrudeFanIn();
+        }
+        public void OnAnimCloseIntrude()
+        {
+            shipAudioController.PlayShieldCloseIntrude();
+        }
+        #endregion
     }
 }
 
