@@ -79,12 +79,12 @@ PrefabInstance:
     - target: {fileID: 3844000482113244331, guid: 019949c9899dcf544b7e03021ca9095f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.839
+      value: 0.929
       objectReference: {fileID: 0}
     - target: {fileID: 3844000482113244331, guid: 019949c9899dcf544b7e03021ca9095f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.75
+      value: -0.765
       objectReference: {fileID: 0}
     - target: {fileID: 3844000482113244331, guid: 019949c9899dcf544b7e03021ca9095f,
         type: 3}
@@ -131,6 +131,142 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5118896386007122740, guid: 019949c9899dcf544b7e03021ca9095f,
+        type: 3}
+      propertyPath: sprites.Array.size
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 5118896386007122740, guid: 019949c9899dcf544b7e03021ca9095f,
+        type: 3}
+      propertyPath: sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 98470cd12f678004aad0af26f66728ca,
+        type: 3}
+    - target: {fileID: 5118896386007122740, guid: 019949c9899dcf544b7e03021ca9095f,
+        type: 3}
+      propertyPath: sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 949a2931a9790f241b33b862a7b27eb4,
+        type: 3}
+    - target: {fileID: 5118896386007122740, guid: 019949c9899dcf544b7e03021ca9095f,
+        type: 3}
+      propertyPath: sprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: ef21edef728287744bb6ec0dfc64daf6,
+        type: 3}
+    - target: {fileID: 5118896386007122740, guid: 019949c9899dcf544b7e03021ca9095f,
+        type: 3}
+      propertyPath: sprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: a5a618df6729d1f49a254a8f237f89cf,
+        type: 3}
+    - target: {fileID: 5118896386007122740, guid: 019949c9899dcf544b7e03021ca9095f,
+        type: 3}
+      propertyPath: sprites.Array.data[4]
+      value: 
+      objectReference: {fileID: 21300000, guid: 0da77ff04b954ed478e4e47f2604bea9,
+        type: 3}
+    - target: {fileID: 5118896386007122740, guid: 019949c9899dcf544b7e03021ca9095f,
+        type: 3}
+      propertyPath: sprites.Array.data[5]
+      value: 
+      objectReference: {fileID: 21300000, guid: 949a2931a9790f241b33b862a7b27eb4,
+        type: 3}
+    - target: {fileID: 5118896386007122740, guid: 019949c9899dcf544b7e03021ca9095f,
+        type: 3}
+      propertyPath: sprites.Array.data[6]
+      value: 
+      objectReference: {fileID: 21300000, guid: ef21edef728287744bb6ec0dfc64daf6,
+        type: 3}
+    - target: {fileID: 5118896386007122740, guid: 019949c9899dcf544b7e03021ca9095f,
+        type: 3}
+      propertyPath: sprites.Array.data[7]
+      value: 
+      objectReference: {fileID: 21300000, guid: a5a618df6729d1f49a254a8f237f89cf,
+        type: 3}
+    - target: {fileID: 5118896386007122740, guid: 019949c9899dcf544b7e03021ca9095f,
+        type: 3}
+      propertyPath: sprites.Array.data[8]
+      value: 
+      objectReference: {fileID: 21300000, guid: ef21edef728287744bb6ec0dfc64daf6,
+        type: 3}
+    - target: {fileID: 5118896386007122740, guid: 019949c9899dcf544b7e03021ca9095f,
+        type: 3}
+      propertyPath: sprites.Array.data[9]
+      value: 
+      objectReference: {fileID: 21300000, guid: 949a2931a9790f241b33b862a7b27eb4,
+        type: 3}
+    - target: {fileID: 5118896386007122740, guid: 019949c9899dcf544b7e03021ca9095f,
+        type: 3}
+      propertyPath: sprites.Array.data[10]
+      value: 
+      objectReference: {fileID: 21300000, guid: ef21edef728287744bb6ec0dfc64daf6,
+        type: 3}
+    - target: {fileID: 5118896386007122740, guid: 019949c9899dcf544b7e03021ca9095f,
+        type: 3}
+      propertyPath: sprites.Array.data[11]
+      value: 
+      objectReference: {fileID: 21300000, guid: a5a618df6729d1f49a254a8f237f89cf,
+        type: 3}
+    - target: {fileID: 5118896386007122740, guid: 019949c9899dcf544b7e03021ca9095f,
+        type: 3}
+      propertyPath: sprites.Array.data[12]
+      value: 
+      objectReference: {fileID: 21300000, guid: ef21edef728287744bb6ec0dfc64daf6,
+        type: 3}
+    - target: {fileID: 5118896386007122740, guid: 019949c9899dcf544b7e03021ca9095f,
+        type: 3}
+      propertyPath: sprites.Array.data[13]
+      value: 
+      objectReference: {fileID: 21300000, guid: 949a2931a9790f241b33b862a7b27eb4,
+        type: 3}
+    - target: {fileID: 5118896386007122740, guid: 019949c9899dcf544b7e03021ca9095f,
+        type: 3}
+      propertyPath: sprites.Array.data[14]
+      value: 
+      objectReference: {fileID: 21300000, guid: ef21edef728287744bb6ec0dfc64daf6,
+        type: 3}
+    - target: {fileID: 5118896386007122740, guid: 019949c9899dcf544b7e03021ca9095f,
+        type: 3}
+      propertyPath: sprites.Array.data[15]
+      value: 
+      objectReference: {fileID: 21300000, guid: a5a618df6729d1f49a254a8f237f89cf,
+        type: 3}
+    - target: {fileID: 5118896386007122740, guid: 019949c9899dcf544b7e03021ca9095f,
+        type: 3}
+      propertyPath: sprites.Array.data[16]
+      value: 
+      objectReference: {fileID: 21300000, guid: 949a2931a9790f241b33b862a7b27eb4,
+        type: 3}
+    - target: {fileID: 5118896386007122740, guid: 019949c9899dcf544b7e03021ca9095f,
+        type: 3}
+      propertyPath: sprites.Array.data[17]
+      value: 
+      objectReference: {fileID: 21300000, guid: ef21edef728287744bb6ec0dfc64daf6,
+        type: 3}
+    - target: {fileID: 5118896386007122740, guid: 019949c9899dcf544b7e03021ca9095f,
+        type: 3}
+      propertyPath: sprites.Array.data[18]
+      value: 
+      objectReference: {fileID: 21300000, guid: 949a2931a9790f241b33b862a7b27eb4,
+        type: 3}
+    - target: {fileID: 5118896386007122740, guid: 019949c9899dcf544b7e03021ca9095f,
+        type: 3}
+      propertyPath: sprites.Array.data[19]
+      value: 
+      objectReference: {fileID: 21300000, guid: 29f14ecdcf7fa3d41a3d41aba10c0277,
+        type: 3}
+    - target: {fileID: 5118896386007122740, guid: 019949c9899dcf544b7e03021ca9095f,
+        type: 3}
+      propertyPath: sprites.Array.data[20]
+      value: 
+      objectReference: {fileID: 21300000, guid: 702230d9bfadf4d418a1bb20aa500b7d,
+        type: 3}
+    - target: {fileID: 8403796784821382480, guid: 019949c9899dcf544b7e03021ca9095f,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 97f21950620112f4a91e3c879f0535c7, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 019949c9899dcf544b7e03021ca9095f, type: 3}
 --- !u!4 &1138121951954124975 stripped
@@ -166,12 +302,12 @@ PrefabInstance:
     - target: {fileID: 3030852666065220818, guid: d4c35564ce8c21b4fabdeca5b48bb906,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.839
+      value: -0.929
       objectReference: {fileID: 0}
     - target: {fileID: 3030852666065220818, guid: d4c35564ce8c21b4fabdeca5b48bb906,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.75
+      value: -0.765
       objectReference: {fileID: 0}
     - target: {fileID: 3030852666065220818, guid: d4c35564ce8c21b4fabdeca5b48bb906,
         type: 3}
@@ -218,6 +354,131 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6367697652970879821, guid: d4c35564ce8c21b4fabdeca5b48bb906,
+        type: 3}
+      propertyPath: sprites.Array.size
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 6367697652970879821, guid: d4c35564ce8c21b4fabdeca5b48bb906,
+        type: 3}
+      propertyPath: sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 460c880bc0c24e747ad5fc20d659cd5e,
+        type: 3}
+    - target: {fileID: 6367697652970879821, guid: d4c35564ce8c21b4fabdeca5b48bb906,
+        type: 3}
+      propertyPath: sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: b4a60b2bf947af4448ec54070cad12af,
+        type: 3}
+    - target: {fileID: 6367697652970879821, guid: d4c35564ce8c21b4fabdeca5b48bb906,
+        type: 3}
+      propertyPath: sprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 19fe88d312848d243b5f7adb532ec8f2,
+        type: 3}
+    - target: {fileID: 6367697652970879821, guid: d4c35564ce8c21b4fabdeca5b48bb906,
+        type: 3}
+      propertyPath: sprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: d82de9163a2e8a740b750a3f9ac4a2ff,
+        type: 3}
+    - target: {fileID: 6367697652970879821, guid: d4c35564ce8c21b4fabdeca5b48bb906,
+        type: 3}
+      propertyPath: sprites.Array.data[4]
+      value: 
+      objectReference: {fileID: 21300000, guid: 5b34a6b64037aab41bbc11b8f599a11b,
+        type: 3}
+    - target: {fileID: 6367697652970879821, guid: d4c35564ce8c21b4fabdeca5b48bb906,
+        type: 3}
+      propertyPath: sprites.Array.data[5]
+      value: 
+      objectReference: {fileID: 21300000, guid: 85235586cdd27e5419a1f03a946ca45f,
+        type: 3}
+    - target: {fileID: 6367697652970879821, guid: d4c35564ce8c21b4fabdeca5b48bb906,
+        type: 3}
+      propertyPath: sprites.Array.data[6]
+      value: 
+      objectReference: {fileID: 21300000, guid: 69fd8e5569be9b94e9a2da40c66d46ff,
+        type: 3}
+    - target: {fileID: 6367697652970879821, guid: d4c35564ce8c21b4fabdeca5b48bb906,
+        type: 3}
+      propertyPath: sprites.Array.data[7]
+      value: 
+      objectReference: {fileID: 21300000, guid: 4f5dd29e8daa187429fe1db511b6d566,
+        type: 3}
+    - target: {fileID: 6367697652970879821, guid: d4c35564ce8c21b4fabdeca5b48bb906,
+        type: 3}
+      propertyPath: sprites.Array.data[8]
+      value: 
+      objectReference: {fileID: 21300000, guid: 1b4a28ad18191b94a88475c3456bcc69,
+        type: 3}
+    - target: {fileID: 6367697652970879821, guid: d4c35564ce8c21b4fabdeca5b48bb906,
+        type: 3}
+      propertyPath: sprites.Array.data[9]
+      value: 
+      objectReference: {fileID: 21300000, guid: 9cb46fb46742ad244bcd291a801e5536,
+        type: 3}
+    - target: {fileID: 6367697652970879821, guid: d4c35564ce8c21b4fabdeca5b48bb906,
+        type: 3}
+      propertyPath: sprites.Array.data[10]
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c7a693b43a0d7046ab8616a03c5a8ca,
+        type: 3}
+    - target: {fileID: 6367697652970879821, guid: d4c35564ce8c21b4fabdeca5b48bb906,
+        type: 3}
+      propertyPath: sprites.Array.data[11]
+      value: 
+      objectReference: {fileID: 21300000, guid: 18bd5552344d63048b1bb2b3a8935843,
+        type: 3}
+    - target: {fileID: 6367697652970879821, guid: d4c35564ce8c21b4fabdeca5b48bb906,
+        type: 3}
+      propertyPath: sprites.Array.data[12]
+      value: 
+      objectReference: {fileID: 21300000, guid: 950e05b5539ed1043bff8284a85ee04a,
+        type: 3}
+    - target: {fileID: 6367697652970879821, guid: d4c35564ce8c21b4fabdeca5b48bb906,
+        type: 3}
+      propertyPath: sprites.Array.data[13]
+      value: 
+      objectReference: {fileID: 21300000, guid: 26bba44c7972c2a4c82f18c095dd4a7c,
+        type: 3}
+    - target: {fileID: 6367697652970879821, guid: d4c35564ce8c21b4fabdeca5b48bb906,
+        type: 3}
+      propertyPath: sprites.Array.data[14]
+      value: 
+      objectReference: {fileID: 21300000, guid: 1bec2b605e9a1b543932c8bc3e62de30,
+        type: 3}
+    - target: {fileID: 6367697652970879821, guid: d4c35564ce8c21b4fabdeca5b48bb906,
+        type: 3}
+      propertyPath: sprites.Array.data[15]
+      value: 
+      objectReference: {fileID: 21300000, guid: e85d54b9d183aae439ebff4e6cfa9a32,
+        type: 3}
+    - target: {fileID: 6367697652970879821, guid: d4c35564ce8c21b4fabdeca5b48bb906,
+        type: 3}
+      propertyPath: sprites.Array.data[16]
+      value: 
+      objectReference: {fileID: 21300000, guid: a45985a52a808ba41abca6dbedc5dc6e,
+        type: 3}
+    - target: {fileID: 6367697652970879821, guid: d4c35564ce8c21b4fabdeca5b48bb906,
+        type: 3}
+      propertyPath: sprites.Array.data[17]
+      value: 
+      objectReference: {fileID: 21300000, guid: 1f1a1f231e0f2c7478b2fd3bc92906b2,
+        type: 3}
+    - target: {fileID: 6367697652970879821, guid: d4c35564ce8c21b4fabdeca5b48bb906,
+        type: 3}
+      propertyPath: sprites.Array.data[18]
+      value: 
+      objectReference: {fileID: 21300000, guid: e9ac0b00378619044aff986c7253751f,
+        type: 3}
+    - target: {fileID: 8699243700093438200, guid: d4c35564ce8c21b4fabdeca5b48bb906,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 460c880bc0c24e747ad5fc20d659cd5e,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4c35564ce8c21b4fabdeca5b48bb906, type: 3}
 --- !u!4 &5437730566674427749 stripped

@@ -28,7 +28,6 @@ namespace NBLD.ShipSystems
             }
             base.Initialize();
         }
-
         protected override void Update()
         {
             base.Update();
@@ -78,7 +77,7 @@ namespace NBLD.ShipSystems
 
         private void StartPullTowards(CharBehaviour puller)
         {
-            if (outsideChar.state == CharacterState.Outside)
+            if (outsideChar.state == CharacterState.Outside || outsideChar.state == CharacterState.Dead)
             {
                 pullTowardsStarted = true;
                 pullTowardTimer.Start();
@@ -112,7 +111,7 @@ namespace NBLD.ShipSystems
         {
             if (pullTowardsStarted)
             {
-                if (maxPullTowardsDistance > Vector2.Distance(outsidePipeEnd.position, outsideChar.transform.position) || outsideChar.state != CharacterState.Outside)
+                if (maxPullTowardsDistance > Vector2.Distance(outsidePipeEnd.position, outsideChar.transform.position) || (outsideChar.state != CharacterState.Outside && outsideChar.state != CharacterState.Dead))
                 {
                     StopPullTowards();
                 }

@@ -58,8 +58,9 @@ namespace NBLD.Character
         private const string transitionEndInAnimKey = "EndInTransition";
         private const string exitAnimKey = "Exit";
         private const string enterAnimKey = "Enter";
+        private const string dieAnimKey = "Die";
         private CharacterState transitionNewState;
-
+        private bool CanRecieveInput => !inTransition && state != CharacterState.Dead;
 
 
         //Actions
@@ -95,7 +96,8 @@ namespace NBLD.Character
             }
             else if (state == CharacterState.Dead)
             {
-                //isDead = true;
+                animator.SetTrigger(dieAnimKey);
+                DeactivateBehaviour();
             }
             else if (state == CharacterState.Transition)
             {
@@ -120,6 +122,10 @@ namespace NBLD.Character
             }
             activeBehaviour = newActive;
             activeBehaviour.enabled = true;
+        }
+        public void Die()
+        {
+            ChangeState(CharacterState.Dead);
         }
 
         //Actions
@@ -337,14 +343,14 @@ namespace NBLD.Character
         //Input Events
         public void OnMovement(Vector2 movement)
         {
-            if (!inTransition)
+            if (CanRecieveInput)
             {
                 activeBehaviour.OnMovement(movement);
             }
         }
         public void OnUp()
         {
-            if (!inTransition)
+            if (CanRecieveInput)
             {
                 activeBehaviour.OnUp();
             }
@@ -352,7 +358,7 @@ namespace NBLD.Character
 
         public void OnDown()
         {
-            if (!inTransition)
+            if (CanRecieveInput)
             {
                 activeBehaviour.OnDown();
             }
@@ -360,7 +366,7 @@ namespace NBLD.Character
 
         public void OnAction()
         {
-            if (!inTransition)
+            if (CanRecieveInput)
             {
                 activeBehaviour.OnAction();
             }
@@ -368,7 +374,7 @@ namespace NBLD.Character
 
         public void OnSubAction()
         {
-            if (!inTransition)
+            if (CanRecieveInput)
             {
                 activeBehaviour.OnSubAction();
             }
@@ -376,7 +382,7 @@ namespace NBLD.Character
 
         public void OnTalk()
         {
-            if (!inTransition)
+            if (CanRecieveInput)
             {
                 activeBehaviour.OnTalk();
             }
@@ -384,7 +390,7 @@ namespace NBLD.Character
 
         public void OnMoveAssistStarted()
         {
-            if (!inTransition)
+            if (CanRecieveInput)
             {
                 activeBehaviour.OnMoveAssistStarted();
             }
@@ -392,7 +398,7 @@ namespace NBLD.Character
 
         public void OnMoveAssistPerformed()
         {
-            if (!inTransition)
+            if (CanRecieveInput)
             {
                 activeBehaviour.OnMoveAssistPerformed();
             }

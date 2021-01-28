@@ -27,6 +27,11 @@ namespace NBLD.Character
         private Timer moveTimer;
         private Vector2 moveDirection;
         private Vector2 boostDirection;
+        [Header("Oxygen")]
+        public MaskedSlider oxygenSlider;
+        public float oxygenLosePerSecond = 1f;
+        public float maxOxygen;
+        private float currentOxygen;
 
 
 
@@ -37,22 +42,27 @@ namespace NBLD.Character
             moveTimer = new Timer(moveSpeed.keys[moveSpeed.length - 1].time);
             //moveTimer.Start();
             moveIntensityUI.Initalize(0, standardMoveSpeed);
+            oxygenSlider.Initalize(0, maxOxygen);
         }
 
         protected override void OnEnable()
         {
             base.OnEnable();
+            currentOxygen = maxOxygen;
+            oxygenSlider.gameObject.SetActive(true);
             //moveIntensityUI.gameObject.SetActive(true);
         }
         protected override void OnDisable()
         {
             base.OnDisable();
+            oxygenSlider.gameObject.SetActive(false);
             //moveIntensityUI.gameObject.SetActive(false);
         }
         private void Update()
         {
             UpdateRotation();
             UpdateMoveTimer();
+            UpdateOxygen();
         }
         private void FixedUpdate()
         {
@@ -87,7 +97,8 @@ namespace NBLD.Character
             if (!moving)
             {
                 //rb2D.velocity = Vector2.Lerp(Vector2.zero, rb2D.velocity, velocityDropPercentAfterLaunch);
-            } else
+            }
+            else
             {
                 Vector2 force = Vector2.zero;
                 float maxMag = maxVelocityMag;
@@ -95,7 +106,8 @@ namespace NBLD.Character
                 {
                     force = GetBoostMovement();
                     maxMag = (force.magnitude / standardMoveSpeed) * maxVelocityMag;
-                } else
+                }
+                else
                 {
                     force = GetNormalMovement();
                 }
@@ -121,7 +133,8 @@ namespace NBLD.Character
                     {
                         dAngle = Mathf.Clamp(dAngle, minRotAngle, totalAngle);
 
-                    } else
+                    }
+                    else
                     {
                         dAngle = Mathf.Clamp(dAngle, totalAngle, -minRotAngle);
                     }
@@ -156,7 +169,8 @@ namespace NBLD.Character
                 targetRotation = Quaternion.Euler(0, 0, (Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg) - 180);
                 //LaunchMovement(movement);
                 isRotating = true;
-            } else
+            }
+            else
             {
                 isRotating = false;
             }
@@ -180,6 +194,21 @@ namespace NBLD.Character
         {
             base.OnMoveAssistStarted();
         }
+        #region Oxygen
+        public void UpdateOxygen()
+        {
+            currentOxygen -= oxygenLosePerSecond * Time.deltaTime;
+            oxygenSlider.UpdateValue(currentOxygen);
+            if (currentOxygen < 0)
+            {
+                Die();
+            }
+        }
+        public void Die()
+        {
+            charController.Die();
+        }
+        #endregion
     }
 
 }
