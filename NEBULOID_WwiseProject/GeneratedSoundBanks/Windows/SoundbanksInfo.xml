@@ -214,9 +214,25 @@
 				</Event>
 				<Event Id="1231987938" Name="Play_Gameplay_Music" ObjectPath="\Events\Default Work Unit\Play_Gameplay_Music" DurationType="Infinite">
 					<IncludedMemoryFiles>
-						<File Id="74626025" Language="SFX">
-							<ShortName>inhale.wav</ShortName>
-							<Path>SFX\inhale_D79FB2B7.wem</Path>
+						<File Id="70480507" Language="SFX">
+							<ShortName>Strings.wav</ShortName>
+							<Path>SFX\Strings_D79FB2B7.wem</Path>
+						</File>
+						<File Id="172645744" Language="SFX">
+							<ShortName>NebuloidGameplay - 0001 - FM Player 2.wav</ShortName>
+							<Path>SFX\NebuloidGameplay - 0001 - FM Player 2_D79FB2B7.wem</Path>
+						</File>
+						<File Id="312212302" Language="SFX">
+							<ShortName>Acc_Guit.wav</ShortName>
+							<Path>SFX\Acc_Guit_D79FB2B7.wem</Path>
+						</File>
+						<File Id="616098679" Language="SFX">
+							<ShortName>Bass_Melody.wav</ShortName>
+							<Path>SFX\Bass_Melody_D79FB2B7.wem</Path>
+						</File>
+						<File Id="1027489376" Language="SFX">
+							<ShortName>Analog_Seq.wav</ShortName>
+							<Path>SFX\Analog_Seq_D79FB2B7.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
