@@ -6028,6 +6028,7 @@ MonoBehaviour:
   outsideFloorPos: {fileID: 4620019184518523776}
   insideFloorPos: {fileID: 664443409355238443}
   hoseAnimator: {fileID: 1753929981140091648}
+  maxDistance: 15
   pullTowardSpeedMultiplier: 120
   maxPullTowardsDistance: 0.2
   pullTowardSpeedCurve:

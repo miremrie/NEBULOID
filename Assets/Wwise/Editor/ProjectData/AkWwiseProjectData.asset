@@ -24,7 +24,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: e7d3747a64799c47a2d6f5b9ddeab36a
     GuidInternal: 
-    m_lastTime: -8585900311844855734
+    m_lastTime: -8585898413744182977
     List:
     - name: Clean BUS
       guid: a6a33b2d6777a54ca2cd71456f48764b
@@ -120,7 +120,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: bd999b8dad637f45917793b0e20362cb
     GuidInternal: 
-    m_lastTime: -8585898510327103665
+    m_lastTime: -8585898507834557452
     List:
     - name: Default
       guid: a5e3873e1289a74a9f54a7ab1a7ee310
@@ -136,7 +136,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 8e8fc2d5bfaacf4f92fdf483cd07cba9
     GuidInternal: 
-    m_lastTime: -8585898509036035242
+    m_lastTime: -8585898413760499095
     List:
     - name: Cable
       guid: 33b062edfdd3904a880b493db2abde14
@@ -554,8 +554,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Movement\Shield\Play_Shield_Close_ExtrudeFanIn
       maxAttenuation: 0
-      maxDuration: 390000
-      minDuration: 390000
+      maxDuration: 872494
+      minDuration: 872494
     - name: Play_Shield_Close_Intrude
       guid: 971a4cb99c23214fa6ded9638673f60c
       id: 1045178680
@@ -570,8 +570,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Movement\Shield\Play_Shield_Close_Intrude
       maxAttenuation: 0
-      maxDuration: 2004535
-      minDuration: 2004535
+      maxDuration: 318430
+      minDuration: 318430
     - name: Play_Shield_Open_Extrude
       guid: 395ab2e0a9b70143bf6faa2d27aa8ad4
       id: 1213474850
@@ -586,8 +586,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Movement\Shield\Play_Shield_Open_Extrude
       maxAttenuation: 0
-      maxDuration: 390000
-      minDuration: 390000
+      maxDuration: 203030
+      minDuration: 203030
     - name: Play_Shield_Open_IntrudeFanOut
       guid: b270930e83de0f4b80bba4a180c10cec
       id: 3234356361
@@ -602,8 +602,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Movement\Shield\Play_Shield_Open_IntrudeFanOut
       maxAttenuation: 0
-      maxDuration: 2092381
-      minDuration: 2092381
+      maxDuration: 1512834
+      minDuration: 1512834
     - name: Play_Ship_Hit
       guid: eebf9702a94f184ca8571822c1c866a7
       id: 3935467706

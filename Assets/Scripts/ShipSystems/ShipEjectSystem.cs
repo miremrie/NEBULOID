@@ -10,6 +10,7 @@ namespace NBLD.ShipSystems
     {
         public Transform outsidePipeEnd, insidePipeEnd, outsideFloorPos, insideFloorPos;
         public PathAnimator hoseAnimator;
+        public float maxDistance;
         public float pullTowardSpeedMultiplier;
         public float maxPullTowardsDistance = 1f;
         public AnimationCurve pullTowardSpeedCurve;
@@ -31,6 +32,7 @@ namespace NBLD.ShipSystems
         protected override void Update()
         {
             base.Update();
+            UpdateDistance();
             UpdatePullTowards();
         }
 
@@ -44,7 +46,8 @@ namespace NBLD.ShipSystems
             if (!occupied)
             {
                 EjectCharacter(charBehaviour);
-            } else
+            }
+            else
             {
                 StartPullTowards(charBehaviour);
             }
@@ -92,20 +95,34 @@ namespace NBLD.ShipSystems
             outsideChar.ApplyForceMovement(Vector2.zero, true);
             pullTowardsStarted = false;
         }
+        private void UpdateDistance()
+        {
+            if (occupied)
+            {
+                float distance = Vector3.Distance(outsideChar.transform.position, outsidePipeEnd.position);
+                if (distance > maxDistance)
+                {
+                    Vector3 newPoint = (outsideChar.transform.position - outsidePipeEnd.position).normalized * maxDistance + outsidePipeEnd.position;
+                    outsideChar.transform.position = newPoint;
+                }
+            }
+        }
 
         private void UpdatePullTowards()
         {
             if (pullTowardsStarted)
             {
-                if ( maxPullTowardsDistance > Vector2.Distance(outsidePipeEnd.position, outsideChar.transform.position) || outsideChar.state != CharacterState.Outside)
+                if (maxPullTowardsDistance > Vector2.Distance(outsidePipeEnd.position, outsideChar.transform.position) || outsideChar.state != CharacterState.Outside)
                 {
                     StopPullTowards();
-                } else
+                }
+                else
                 {
                     if (!pullTowardTimer.IsRunning())
                     {
                         //pullTowardTimer.Start();
-                    } else
+                    }
+                    else
                     {
                         pullTowardTimer.Update(Time.deltaTime);
                     }

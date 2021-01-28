@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="135">
 	<RootPaths>
-		<ProjectRoot>D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>D:\Unity\NEBULOID\Project\NEBULOID\NEBULOID_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -356,7 +356,7 @@
 					<IncludedMemoryFiles>
 						<File Id="180782484" Language="SFX">
 							<ShortName>Shield_Close_Intrude.wav</ShortName>
-							<Path>SFX\Shield_Close_Intrude_A2B9C495.wem</Path>
+							<Path>SFX\Shield_Close_Intrude_459C0AB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -364,7 +364,7 @@
 					<IncludedMemoryFiles>
 						<File Id="811885317" Language="SFX">
 							<ShortName>Shield_Open_Extrude.wav</ShortName>
-							<Path>SFX\Shield_Open_Extrude_02103876.wem</Path>
+							<Path>SFX\Shield_Open_Extrude_0A27C1E9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>

@@ -87,14 +87,17 @@ namespace NBLD.Character
             {
                 ActivateBehaviour(outsideBehaviour);
                 ship.RemoveDependentTransform(transform);
-            } else if (state == CharacterState.Inside)
+            }
+            else if (state == CharacterState.Inside)
             {
                 ActivateBehaviour(insideBehaviour);
                 ship.AddDependentTransform(transform);
-            } else if (state == CharacterState.Dead)
+            }
+            else if (state == CharacterState.Dead)
             {
                 //isDead = true;
-            } else if (state == CharacterState.Transition)
+            }
+            else if (state == CharacterState.Transition)
             {
                 if (this.state == CharacterState.Outside)
                 {
@@ -126,7 +129,8 @@ namespace NBLD.Character
             {
                 action = availableActions[useButton];
                 return true;
-            } else
+            }
+            else
             {
                 action = null;
                 return false;
@@ -134,7 +138,7 @@ namespace NBLD.Character
         }
         public virtual bool CheckIfActionAvailable(UseActionButton useButton)
         {
-            return availableActions.ContainsKey(useButton) 
+            return availableActions.ContainsKey(useButton)
                 && availableActions[useButton].AvailableForCharacterState() == state;
         }
         /*public virtual void CheckThenExecuteAction(UseActionButton useButton)
@@ -165,7 +169,8 @@ namespace NBLD.Character
             if (newState == CharacterState.Inside)
             {
                 behaviourAfterTransition = insideBehaviour;
-            } else if (newState == CharacterState.Outside)
+            }
+            else if (newState == CharacterState.Outside)
             {
                 behaviourAfterTransition = outsideBehaviour;
             }
@@ -230,7 +235,7 @@ namespace NBLD.Character
             }
             else
             {
-                float angle = Mathf.LerpAngle(transform.rotation.eulerAngles.z, targetAngle, rotationSpeed * Time.deltaTime);               
+                float angle = Mathf.LerpAngle(transform.rotation.eulerAngles.z, targetAngle, rotationSpeed * Time.deltaTime);
                 transform.RotateAround(characterCenter.position, Vector3.forward, Mathf.DeltaAngle(transform.rotation.eulerAngles.z, angle));
                 //transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRot, rotationSpeed * Time.deltaTime);
             }
@@ -259,10 +264,8 @@ namespace NBLD.Character
                     {
                         //animator.SetTrigger(transitionPrepOutAnimKey);
                         characterPivot.localPosition = pivotWhenExiting;
-                        Debug.Log($"{pivotWhenExiting}/{characterPivot.localPosition}");
                         animator.SetTrigger(exitAnimKey);
 
-                        Debug.Log($"{pivotWhenExiting}/{characterPivot.position}");
                     }
                     else
                     {
@@ -286,11 +289,11 @@ namespace NBLD.Character
                             animator.SetTrigger(transitionEndInAnimKey);
                         }*/
 
-                    /*} else
-                    {
-                        Vector3 direction = (transitionDst.position - transform.position).normalized;
-                        transform.Translate(direction * transitionSpeed * Time.deltaTime);
-                    }*/
+                /*} else
+                {
+                    Vector3 direction = (transitionDst.position - transform.position).normalized;
+                    transform.Translate(direction * transitionSpeed * Time.deltaTime);
+                }*/
                 //}
             }
         }
