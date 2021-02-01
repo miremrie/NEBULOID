@@ -1065,6 +1065,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61a96702cf810e74e8c5801cd58bca25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  game: {fileID: 0}
   ship: {fileID: 1185245426}
   minDist: 3.5
   chunkSize: 20
@@ -4682,11 +4683,6 @@ PrefabInstance:
       propertyPath: ship
       value: 
       objectReference: {fileID: 2050759953}
-    - target: {fileID: 3774639244991024682, guid: 835fe173342e2294ea00455a759b69ed,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5040788851926938560, guid: 835fe173342e2294ea00455a759b69ed,
         type: 3}
       propertyPath: game
@@ -4821,6 +4817,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91cfce6408cb0cb43abe70e9ce65ee02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2050759954 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7746524489077468006, guid: 835fe173342e2294ea00455a759b69ed,
+    type: 3}
+  m_PrefabInstance: {fileID: 2050759951}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b55e8095922e18448bd2435853a13bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2064421178
@@ -5047,6 +5055,11 @@ PrefabInstance:
       propertyPath: ship
       value: 
       objectReference: {fileID: 2050759953}
+    - target: {fileID: 1632932570725590530, guid: 4cea72866e3357144bb6bea8a74721cc,
+        type: 3}
+      propertyPath: shipEjectSystem
+      value: 
+      objectReference: {fileID: 2050759954}
     - target: {fileID: 4220939312553409196, guid: 4cea72866e3357144bb6bea8a74721cc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5112,6 +5125,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.765
       objectReference: {fileID: 0}
+    - target: {fileID: 5914509732997417416, guid: 4cea72866e3357144bb6bea8a74721cc,
+        type: 3}
+      propertyPath: shipEjectSystem
+      value: 
+      objectReference: {fileID: 2050759954}
     - target: {fileID: 6135734973031854041, guid: 4cea72866e3357144bb6bea8a74721cc,
         type: 3}
       propertyPath: ship
