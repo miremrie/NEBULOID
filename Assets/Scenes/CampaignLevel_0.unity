@@ -1251,6 +1251,18 @@ Transform:
   m_Father: {fileID: 1957269525}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &449057825 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7746524489077468006, guid: 835fe173342e2294ea00455a759b69ed,
+    type: 3}
+  m_PrefabInstance: {fileID: 2050759951}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b55e8095922e18448bd2435853a13bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &451330216
 GameObject:
   m_ObjectHideFlags: 0
@@ -1461,6 +1473,11 @@ PrefabInstance:
       propertyPath: ship
       value: 
       objectReference: {fileID: 2050759953}
+    - target: {fileID: 1632932570725590530, guid: 4cea72866e3357144bb6bea8a74721cc,
+        type: 3}
+      propertyPath: shipEjectSystem
+      value: 
+      objectReference: {fileID: 449057825}
     - target: {fileID: 4220939312553409196, guid: 4cea72866e3357144bb6bea8a74721cc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1521,6 +1538,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Characters
       objectReference: {fileID: 0}
+    - target: {fileID: 5914509732997417416, guid: 4cea72866e3357144bb6bea8a74721cc,
+        type: 3}
+      propertyPath: shipEjectSystem
+      value: 
+      objectReference: {fileID: 449057825}
     - target: {fileID: 6135734973031854041, guid: 4cea72866e3357144bb6bea8a74721cc,
         type: 3}
       propertyPath: ship
@@ -2022,6 +2044,11 @@ PrefabInstance:
       propertyPath: ship
       value: 
       objectReference: {fileID: 2050759953}
+    - target: {fileID: 3338737045761991878, guid: 835fe173342e2294ea00455a759b69ed,
+        type: 3}
+      propertyPath: game
+      value: 
+      objectReference: {fileID: 538758062}
     - target: {fileID: 5040788851926938560, guid: 835fe173342e2294ea00455a759b69ed,
         type: 3}
       propertyPath: game

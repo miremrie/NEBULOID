@@ -7,6 +7,5 @@ namespace NBLD.UseActions
 {
     public class EjectRoomControl : RoomControl
     {
-
     }
 }

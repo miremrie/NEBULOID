@@ -27,6 +27,14 @@ namespace NBLD.Character
             this.charAudio = charAudio;
             initialized = true;
         }
+        public virtual void Activate()
+        {
+            this.enabled = true;
+        }
+        public virtual void Deactivate()
+        {
+            this.enabled = false;
+        }
         public void SetSortingLayer()
         {
             spriteRenderer.sortingLayerID = SortingLayer.NameToID(spriteLayer);

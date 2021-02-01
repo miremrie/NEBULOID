@@ -23,26 +23,32 @@ public class Repairable : MonoBehaviour
     }
 
 
-    public void StartRepairing() {
+    public void StartRepairing()
+    {
         repairing = true;
     }
 
-    public void StopRepairing() {
+    public void StopRepairing()
+    {
         repairing = false;
     }
 
-    public bool IsRepaired() {
+    public bool IsRepaired()
+    {
         return RepairedAmount >= 1f;
     }
 
-    void Update() {
+    void Update()
+    {
 
-        if (!IsRepaired() && repairing) {
+        if (!IsRepaired() && repairing)
+        {
 
             RepairedAmount += repairSpeed * Time.deltaTime;
             maskedSlider.Show();
             maskedSlider.UpdateValue(1 - RepairedAmount);
-            if (IsRepaired()) {
+            if (IsRepaired())
+            {
                 maskedSlider.Hide();
                 // on repaired do once
                 StopRepairing();
@@ -61,5 +67,11 @@ public class Repairable : MonoBehaviour
         RepairedAmount = Mathf.Max(RepairedAmount - percent, 0);
         maskedSlider.UpdateValue(1 - RepairedAmount);
         if (smoke != null) smoke.Play();
+    }
+
+    [ContextMenu("TakeFullDamage")]
+    public void TakeFullDamage()
+    {
+        TakeDamage(1);
     }
 }

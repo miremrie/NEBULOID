@@ -1,4 +1,5 @@
-﻿using NBLD.UI;
+﻿using NBLD.ShipSystems;
+using NBLD.UI;
 using NBLD.UseActions;
 using System.Collections;
 using System.Collections.Generic;
@@ -29,34 +30,40 @@ namespace NBLD.Character
         private Vector2 boostDirection;
         [Header("Oxygen")]
         public MaskedSlider oxygenSlider;
-        public float oxygenLosePerSecond = 1f;
-        public float maxOxygen;
-        private float currentOxygen;
-
-
-
+        public Oxygen oxygen;
+        public ShipEjectSystem shipEjectSystem;
 
         protected override void Start()
         {
             base.Start();
             moveTimer = new Timer(moveSpeed.keys[moveSpeed.length - 1].time);
             //moveTimer.Start();
+            oxygen.SetProvider(shipEjectSystem);
             moveIntensityUI.Initalize(0, standardMoveSpeed);
-            oxygenSlider.Initalize(0, maxOxygen);
+            oxygenSlider.Initalize(oxygen.min, oxygen.max);
         }
 
         protected override void OnEnable()
         {
             base.OnEnable();
-            currentOxygen = maxOxygen;
-            oxygenSlider.gameObject.SetActive(true);
             //moveIntensityUI.gameObject.SetActive(true);
         }
         protected override void OnDisable()
         {
             base.OnDisable();
-            oxygenSlider.gameObject.SetActive(false);
             //moveIntensityUI.gameObject.SetActive(false);
+        }
+        public override void Activate()
+        {
+            base.Activate();
+            oxygen.current = oxygen.max;
+            oxygenSlider.gameObject.SetActive(true);
+        }
+        public override void Deactivate()
+        {
+            base.Deactivate();
+            oxygenSlider.gameObject.SetActive(false);
+            boostVFX.SetActive(false);
         }
         private void Update()
         {
@@ -197,9 +204,9 @@ namespace NBLD.Character
         #region Oxygen
         public void UpdateOxygen()
         {
-            currentOxygen -= oxygenLosePerSecond * Time.deltaTime;
-            oxygenSlider.UpdateValue(currentOxygen);
-            if (currentOxygen < 0)
+            oxygen.UpdateOxygen(Time.deltaTime);
+            oxygenSlider.UpdateValue(oxygen.current);
+            if (!oxygen.HasOxygen())
             {
                 Die();
             }

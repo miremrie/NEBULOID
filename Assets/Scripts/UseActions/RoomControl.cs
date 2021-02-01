@@ -15,6 +15,16 @@ namespace NBLD.UseActions
         public bool hasAssignedSystem = false;
         private InsideCharBehaviour workingChar;
 
+
+        public void InitializeSystem(ShipSystem shipSystem)
+        {
+            hasAssignedSystem = shipSystem != null;
+            this.shipSystem = shipSystem;
+            if (shipSystem != null)
+            {
+                shipSystem.AssignRoomControl(this);
+            }
+        }
         private void Update()
         {
             if (hasAssignedSystem)

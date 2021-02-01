@@ -1,4 +1,5 @@
 ﻿using NBLD.Character;
+using NBLD.UseActions;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,7 @@ namespace NBLD.ShipSystems
         public float cooldownTime = 1f;
         private Timer cooldownTimer;
         protected bool initialized = false;
+        protected RoomControl roomControl;
 
         /*protected virtual void Start()
         {
@@ -28,6 +30,10 @@ namespace NBLD.ShipSystems
                 cooldownTimer = new Timer(cooldownTime);
                 initialized = true;
             }
+        }
+        public void AssignRoomControl(RoomControl roomControl)
+        {
+            this.roomControl = roomControl;
         }
 
         protected virtual void Update()

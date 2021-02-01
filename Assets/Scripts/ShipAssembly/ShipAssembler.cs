@@ -5,7 +5,8 @@ using UnityEngine;
 using NBLD.ShipSystems;
 
 [System.Serializable]
-public struct RoomControlWithID {
+public struct RoomControlWithID
+{
     public RoomName name;
     public RoomControl control;
 }
@@ -53,7 +54,7 @@ public class ShipAssembler : MonoBehaviour
     }
     public void ReassembleShip(ShipData shipData)
     {
-        foreach(SystemData systemData in curShipData.systemDatas)
+        foreach (SystemData systemData in curShipData.systemDatas)
         {
             RoomControl roomControl = GetRoomControl(systemData.room);
             roomControl.shipSystem = null;
@@ -74,14 +75,15 @@ public class ShipAssembler : MonoBehaviour
     }
     public void AssembleShip(ShipData shipData)
     {
-        foreach(SystemData systemData in shipData.systemDatas)
+        foreach (SystemData systemData in shipData.systemDatas)
         {
             RoomControl roomControl = GetRoomControl(systemData.room);
             ShipSystem shipSystem = CreateSystemObject(systemData.system, systemData.GetPosition(), systemData.GetRotation());
             if (shipSystem == null)
             {
                 Debug.LogError("Tried to create non existant system: " + systemData.system);
-            } else
+            }
+            else
             {
                 AssignSystemToRoomAndInit(shipSystem, roomControl);
             }
@@ -96,8 +98,7 @@ public class ShipAssembler : MonoBehaviour
     private void AssignSystemToRoomAndInit(ShipSystem system, RoomControl room)
     {
         system.Initialize();
-        room.shipSystem = system;
-        room.hasAssignedSystem = true;
+        room.InitializeSystem(system);
         system.enabled = true;
         room.enabled = true;
     }

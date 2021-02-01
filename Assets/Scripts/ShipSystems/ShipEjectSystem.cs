@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace NBLD.ShipSystems
 {
-    public class ShipEjectSystem : ShipSystem
+    public class ShipEjectSystem : ShipSystem, IOxygenProvider
     {
         public Transform outsidePipeEnd, insidePipeEnd, outsideFloorPos, insideFloorPos;
         public PathAnimator hoseAnimator;
@@ -18,6 +18,10 @@ namespace NBLD.ShipSystems
         private bool occupied = false;
         private bool pullTowardsStarted;
         private Timer pullTowardTimer;
+        [Header("Oxygen")]
+
+        public float workingOxygenPerSecond;
+        public float brokenOxygenPerSecond;
 
         public override void Initialize()
         {
@@ -134,6 +138,18 @@ namespace NBLD.ShipSystems
         private float GetCurrentPullTowardSpeed()
         {
             return pullTowardSpeedCurve.Evaluate(pullTowardTimer.GetCurrentTime()) * pullTowardSpeedMultiplier;
+        }
+
+        public float GetOxygenPerSecond()
+        {
+            if (roomControl.repairable.IsRepaired())
+            {
+                return workingOxygenPerSecond;
+            }
+            else
+            {
+                return brokenOxygenPerSecond;
+            }
         }
     }
 }

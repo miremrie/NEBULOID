@@ -58,7 +58,8 @@ namespace NBLD.Character
         private const string transitionEndInAnimKey = "EndInTransition";
         private const string exitAnimKey = "Exit";
         private const string enterAnimKey = "Enter";
-        private const string dieAnimKey = "Die";
+        private const string dieAnimKey = "DiePlayed";
+        private const string deadAnimKey = "Dead";
         private CharacterState transitionNewState;
         private bool CanRecieveInput => !inTransition && state != CharacterState.Dead;
 
@@ -74,6 +75,7 @@ namespace NBLD.Character
             outsideBehaviour.enabled = false;
             ChangeState(CharacterState.Inside);
             charAudio.SetEnvironmentBasedOnFloor(1);
+            animator.keepAnimatorControllerStateOnDisable = true;
         }
 
         private void Update()
@@ -96,7 +98,8 @@ namespace NBLD.Character
             }
             else if (state == CharacterState.Dead)
             {
-                animator.SetTrigger(dieAnimKey);
+                animator.SetBool(dieAnimKey, true);
+                animator.SetBool(deadAnimKey, true);
                 DeactivateBehaviour();
             }
             else if (state == CharacterState.Transition)
@@ -112,16 +115,19 @@ namespace NBLD.Character
         }
         private void DeactivateBehaviour()
         {
-            activeBehaviour.enabled = false;
+            if (activeBehaviour.enabled != false)
+            {
+                activeBehaviour.Deactivate();
+            }
         }
         private void ActivateBehaviour(CharBehaviour newActive)
         {
             if (activeBehaviour != null)
             {
-                activeBehaviour.enabled = false;
+                DeactivateBehaviour();
             }
             activeBehaviour = newActive;
-            activeBehaviour.enabled = true;
+            activeBehaviour.Activate();
         }
         public void Die()
         {
@@ -340,7 +346,7 @@ namespace NBLD.Character
             }
         }
 
-        //Input Events
+        #region InputEvents
         public void OnMovement(Vector2 movement)
         {
             if (CanRecieveInput)
@@ -403,5 +409,12 @@ namespace NBLD.Character
                 activeBehaviour.OnMoveAssistPerformed();
             }
         }
+        #endregion
+        #region AnimationEvents
+        public void OnDieAnimPlayed()
+        {
+            animator.SetBool(dieAnimKey, false);
+        }
+        #endregion
     }
 }
