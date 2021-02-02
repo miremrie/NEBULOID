@@ -1234,6 +1234,10 @@ MonoBehaviour:
     max: 100
     current: 0
   shipEjectSystem: {fileID: 0}
+  minesRoot: {fileID: 0}
+  minePrefab: {fileID: 912698103503074033, guid: c3b1d2f586f8a604ca2acd576ee5f806,
+    type: 3}
+  mineCooldown: 7
 --- !u!95 &4265162992504635029
 Animator:
   serializedVersion: 3

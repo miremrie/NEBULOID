@@ -30,6 +30,7 @@ namespace NBLD.Character
         public virtual void Activate()
         {
             this.enabled = true;
+            spriteRenderer.material = spriteMaterial;
         }
         public virtual void Deactivate()
         {
@@ -73,13 +74,15 @@ namespace NBLD.Character
         public virtual void DismissAction(UseAction action)
         {
         }
-        protected void TryExecuteAction(UseActionButton button)
+        protected bool TryExecuteAction(UseActionButton button)
         {
             UseAction action;
             if (charController.TryGetAction(button, out action))
             {
                 ExecuteAction(action);
+                return true;
             }
+            return false;
         }
 
         //Input methods

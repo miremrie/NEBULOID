@@ -32,6 +32,11 @@ namespace NBLD.Character
         public MaskedSlider oxygenSlider;
         public Oxygen oxygen;
         public ShipEjectSystem shipEjectSystem;
+        [Header("Mine")]
+        public Transform minesRoot;
+        public Mine minePrefab;
+        public float mineCooldown;
+        private Timer mineCooldownTimer;
 
         protected override void Start()
         {
@@ -41,6 +46,7 @@ namespace NBLD.Character
             oxygen.SetProvider(shipEjectSystem);
             moveIntensityUI.Initalize(0, standardMoveSpeed);
             oxygenSlider.Initalize(oxygen.min, oxygen.max);
+            mineCooldownTimer = new Timer(mineCooldown);
         }
 
         protected override void OnEnable()
@@ -70,6 +76,7 @@ namespace NBLD.Character
             UpdateRotation();
             UpdateMoveTimer();
             UpdateOxygen();
+            UpdateMineTimer();
         }
         private void FixedUpdate()
         {
@@ -84,6 +91,10 @@ namespace NBLD.Character
             }
             moveIntensityUI.UpdateValue(GetCurrentSpeed());
             moveTimer.Update(Time.deltaTime);*/
+        }
+        private void UpdateMineTimer()
+        {
+            mineCooldownTimer.Update(Time.deltaTime);
         }
         private Vector2 GetBoostMovement()
         {
@@ -185,7 +196,21 @@ namespace NBLD.Character
         public override void OnAction()
         {
             base.OnAction();
-            TryExecuteAction(UseActionButton.Action);
+            if (TryExecuteAction(UseActionButton.Action))
+            {
+                //Action succeded
+            }
+            else
+            {
+                //Action not available - mine time
+                if (!mineCooldownTimer.IsRunning())
+                {
+                    Mine mine = GameObject.Instantiate(minePrefab, transform.position, Quaternion.identity);
+                    mine.transform.parent = minesRoot;
+                    mine.Activate();
+                    mineCooldownTimer.Start();
+                }
+            }
         }
 
         public override void OnMoveAssistPerformed()
