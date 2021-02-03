@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using NBLD.Utils;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -24,12 +25,12 @@ public class Bullet : MonoBehaviour
         if (wasShot)
         {
             transform.position = transform.position + ((direction).normalized * speed * Time.deltaTime);
-            if (!isBulletNotBomb) {
-                if (!bombTimer.IsRunning())
+            if (!isBulletNotBomb)
+            {
+                if (bombTimer.IsTimerDone())
                 {
                     ActivateBomb();
                 }
-                bombTimer.Update(Time.deltaTime);
 
             }
         }
@@ -42,7 +43,7 @@ public class Bullet : MonoBehaviour
 
         origin = transform.position;
         isBulletNotBomb = isBullet;
-        bombTimer.Start();
+        bombTimer.Restart();
         if (!isBullet)
         {
             ((CircleCollider2D)col).radius = bombRadius;

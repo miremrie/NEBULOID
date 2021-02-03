@@ -110,7 +110,7 @@ MonoBehaviour:
       - 0
       globalNormalsAngle: 0
       flipNormals: 0
-    vertexPathUpToDate: 1
+    vertexPathUpToDate: 0
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0.01
     showTransformTool: 1
@@ -541,7 +541,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   shipPullSpeed: 6
-  maxDistance: 20
+  maxDistance: 30
   shipCenterOrigin: {fileID: 9203414623737020717}
   hookOrigin: {fileID: 1435529849701535731}
   rightHookPivot: {fileID: 8290733323858381791}

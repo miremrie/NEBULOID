@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 using DynamicCamera;
 using UnityEngine.UI;
+using NBLD.Utils;
 
 public class CameraController : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class CameraController : MonoBehaviour
     private float dstStandardSizeMultiplier;
     private float dstSize;
     public bool revertingSize = false;
-    private Timer animTimer;
+    //private Timer animTimer;
     private Action callback;
     public List<CamSet> sets = new List<CamSet>();
     private CamSet activeSet;
@@ -23,10 +24,6 @@ public class CameraController : MonoBehaviour
     //Events
     public delegate void CameraEvent();
     public event CameraEvent onCameraMoved;
-    [Header("InteriorCam")]
-    public RawImage interiorCamImage;
-    public AnimationCurve interiorVisiblityPerCamSize;
-
 
     private void Awake()
     {
@@ -43,8 +40,6 @@ public class CameraController : MonoBehaviour
         cam.transform.position = Vector3.Lerp(cam.transform.position, newTarget.pos, s);
 
         onCameraMoved?.Invoke();
-        float interiorT = interiorVisiblityPerCamSize.Evaluate(cam.orthographicSize);
-        interiorCamImage.color = new Color(1, 1, 1, interiorT);
     }
 
     public void ActivateCamSet(CamSet set) => activeSet = set;

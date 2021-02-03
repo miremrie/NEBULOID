@@ -1,6 +1,7 @@
 ﻿using NBLD.ShipSystems;
 using NBLD.UI;
 using NBLD.UseActions;
+using NBLD.Utils;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -41,7 +42,7 @@ namespace NBLD.Character
         protected override void Start()
         {
             base.Start();
-            moveTimer = new Timer(moveSpeed.keys[moveSpeed.length - 1].time);
+            moveTimer = new Timer(moveSpeed.keys[moveSpeed.length - 1].time, false, true);
             //moveTimer.Start();
             oxygen.SetProvider(shipEjectSystem);
             moveIntensityUI.Initalize(0, standardMoveSpeed);
@@ -74,32 +75,16 @@ namespace NBLD.Character
         private void Update()
         {
             UpdateRotation();
-            UpdateMoveTimer();
             UpdateOxygen();
-            UpdateMineTimer();
         }
         private void FixedUpdate()
         {
             UpdateMovement();
         }
         //Movement
-        private void UpdateMoveTimer()
-        {
-            /*if (!moveTimer.IsRunning())
-            {
-                moveTimer.Start();
-            }
-            moveIntensityUI.UpdateValue(GetCurrentSpeed());
-            moveTimer.Update(Time.deltaTime);*/
-        }
-        private void UpdateMineTimer()
-        {
-            mineCooldownTimer.Update(Time.deltaTime);
-        }
         private Vector2 GetBoostMovement()
         {
             float speed = standardMoveSpeed + moveSpeed.Evaluate(moveTimer.GetCurrentTime()) * boostMoveSpeed;
-            moveTimer.Update(Time.deltaTime);
             Vector2 force = boostDirection * speed;
             return force;
         }
@@ -208,7 +193,7 @@ namespace NBLD.Character
                     Mine mine = GameObject.Instantiate(minePrefab, transform.position, Quaternion.identity);
                     mine.transform.parent = minesRoot;
                     mine.Activate();
-                    mineCooldownTimer.Start();
+                    mineCooldownTimer.Restart();
                 }
             }
         }
@@ -218,7 +203,7 @@ namespace NBLD.Character
             base.OnMoveAssistPerformed();
             if (!moveTimer.IsRunning())
             {
-                moveTimer.Start();
+                moveTimer.Restart();
             }
             //LaunchMovement();
         }

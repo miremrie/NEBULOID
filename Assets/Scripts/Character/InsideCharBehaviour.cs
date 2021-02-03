@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using NBLD.UseActions;
+using NBLD.Utils;
 using UnityEngine;
 
 namespace NBLD.Character
@@ -30,7 +31,7 @@ namespace NBLD.Character
         protected override void Start()
         {
             base.Start();
-            transportTimer = new Timer(transportAudioFrequency);
+            transportTimer = new Timer(transportAudioFrequency, true);
         }
         protected override void OnDisable()
         {
@@ -105,17 +106,16 @@ namespace NBLD.Character
                     {
                         transform.position = new Vector2(transportDestination.position.x, transform.position.y);
                         transportInCorrectX = true;
-                    } else
+                    }
+                    else
                     {
                         UpdateMovement((int)Mathf.Sign(xDistance));
                     }
                     return;
-                } else
+                }
+                else
                 {
-                    if (transportTimer.IsRunning())
-                    {
-                        transportTimer.Update(Time.deltaTime);
-                    } else
+                    if (transportTimer.IsTimerDone())
                     {
                         if (transportAscending)
                         {
@@ -125,7 +125,7 @@ namespace NBLD.Character
                         {
                             charAudio.PlayerLadderDsc();
                         }
-                        transportTimer.Start();
+                        transportTimer.Restart();
                     }
                     if (Vector3.Distance(transportDestination.position, transform.localPosition) <= transportMinOffset)
                     {

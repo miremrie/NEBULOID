@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using NBLD.Utils;
 using UnityEngine;
 
 namespace NBLD.Character
@@ -24,7 +25,7 @@ namespace NBLD.Character
         {
             if (!started)
             {
-                timer.Start();
+                timer.Restart();
                 started = true;
                 animator.SetTrigger(tickAnimKey);
             }
@@ -33,8 +34,7 @@ namespace NBLD.Character
         {
             if (started && !exploded)
             {
-                timer.Update(Time.deltaTime);
-                if (!timer.IsRunning())
+                if (timer.IsTimerDone())
                 {
                     Explode();
                 }

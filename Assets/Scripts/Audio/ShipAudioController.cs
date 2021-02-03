@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using NBLD.Utils;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -75,7 +76,7 @@ public class ShipAudioController : MonoBehaviour
     {
         AkSoundEngine.PostEvent(fuelRefillEv, fuelRefillPlayer);
         refillingFuel = true;
-        fuelRefillTimer.Start();
+        fuelRefillTimer.Restart();
     }
 
 
@@ -83,7 +84,6 @@ public class ShipAudioController : MonoBehaviour
     {
         if (refillingFuel)
         {
-            fuelRefillTimer.Update(Time.deltaTime);
             if (fuelRefillTimer.GetCurrentTimePercent() >= 1)
             {
                 StopFuelRefill();

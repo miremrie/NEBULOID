@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using NBLD.Utils;
 using UnityEngine;
 
 namespace NBLD.Input
@@ -12,8 +13,7 @@ namespace NBLD.Input
         protected void InitializeTimer(float time)
         {
             this.timeBeforeHeld = time;
-            holdTimer = new Timer(time);
-            holdTimer.Start();
+            holdTimer = new Timer(time, true, false);
         }
 
         public float GetFullTime()
@@ -30,20 +30,20 @@ namespace NBLD.Input
         }
         public void ResetTimer()
         {
-            holdTimer.Start();
+            holdTimer.Restart();
         }
 
         public void UpdateTime(float deltaTime)
         {
             if (IsHoldInitiated())
             {
-                holdTimer.Update(deltaTime);
-                if (!holdTimer.IsRunning())
+                if (holdTimer.IsTimerDone())
                 {
                     InvokeHeldEvent();
-                } else
+                }
+                else
                 {
-                    InvokeHoldStartedEvent(); 
+                    InvokeHoldStartedEvent();
                 }
             }
         }
@@ -53,7 +53,7 @@ namespace NBLD.Input
 
         public bool IsBeingHeld()
         {
-            return IsHoldInitiated() && !holdTimer.IsRunning();
+            return IsHoldInitiated() && holdTimer.IsTimerDone();
         }
 
         public abstract bool IsHoldInitiated();
@@ -158,6 +158,7 @@ namespace NBLD.Input
 
         protected override void InvokeHeldEvent()
         {
+
             if (onAxisBeingHeld != null)
             {
                 onAxisBeingHeld(value, GetHoldTime());

@@ -1,5 +1,6 @@
 ﻿using NBLD.Character;
 using NBLD.UseActions;
+using NBLD.Utils;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,6 +29,7 @@ namespace NBLD.ShipSystems
             if (!initialized)
             {
                 cooldownTimer = new Timer(cooldownTime);
+                cooldownTimer.Finish();
                 initialized = true;
             }
         }
@@ -38,12 +40,6 @@ namespace NBLD.ShipSystems
 
         protected virtual void Update()
         {
-            UpdateCooldownTimer();
-        }
-
-        private void UpdateCooldownTimer()
-        {
-            cooldownTimer.Update(Time.deltaTime);
         }
         public virtual void DoAction(CharBehaviour charBehaviour)
         {
@@ -51,12 +47,12 @@ namespace NBLD.ShipSystems
         }
         public virtual void DoAction()
         {
-            cooldownTimer.Start();
+            cooldownTimer.Restart();
         }
 
         public virtual bool ReadyToUse()
         {
-            return !cooldownTimer.IsRunning();
+            return cooldownTimer.IsTimerDone();
         }
         public virtual void OnExitAction(CharBehaviour charBehaviour)
         {

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using NBLD.Utils;
 using UnityEngine;
 
 namespace NBLD.ShipSystems
@@ -32,8 +33,7 @@ namespace NBLD.ShipSystems
             base.Update();
             if (isShieldOpen)
             {
-                durationTimer.Update(Time.deltaTime);
-                if (!durationTimer.IsRunning())
+                if (durationTimer.IsTimerDone())
                 {
                     DeactivateShield();
                 }
@@ -47,7 +47,7 @@ namespace NBLD.ShipSystems
 
         private void ActivateShield()
         {
-            durationTimer.Start();
+            durationTimer.Restart();
             isShieldOpen = true;
             animator.SetTrigger(shieldOpenAnim);
             collidersRoot.SetActive(true);

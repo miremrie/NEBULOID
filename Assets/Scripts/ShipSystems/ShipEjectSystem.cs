@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using NBLD.Character;
 using NBLD.Graphics.Path;
+using NBLD.Utils;
 using UnityEngine;
 
 namespace NBLD.ShipSystems
@@ -27,8 +28,7 @@ namespace NBLD.ShipSystems
         {
             if (!initialized)
             {
-                pullTowardTimer = new Timer(pullTowardSpeedCurve.keys[pullTowardSpeedCurve.keys.Length - 1].time);
-                pullTowardTimer.Start();
+                pullTowardTimer = new Timer(pullTowardSpeedCurve.keys[pullTowardSpeedCurve.keys.Length - 1].time, true);
             }
             base.Initialize();
         }
@@ -84,7 +84,7 @@ namespace NBLD.ShipSystems
             if (outsideChar.state == CharacterState.Outside || outsideChar.state == CharacterState.Dead)
             {
                 pullTowardsStarted = true;
-                pullTowardTimer.Start();
+                pullTowardTimer.Restart();
             }
         }
 
@@ -95,7 +95,11 @@ namespace NBLD.ShipSystems
         }
         private void StopPullTowards()
         {
-            outsideChar.ApplyForceMovement(Vector2.zero, true);
+            if (outsideChar != null)
+            {
+                outsideChar.ApplyForceMovement(Vector2.zero, true);
+            }
+
             pullTowardsStarted = false;
         }
         private void UpdateDistance()
@@ -121,14 +125,14 @@ namespace NBLD.ShipSystems
                 }
                 else
                 {
-                    if (!pullTowardTimer.IsRunning())
+                    /*if (!pullTowardTimer.IsRunning())
                     {
                         //pullTowardTimer.Start();
                     }
                     else
                     {
                         pullTowardTimer.Update(Time.deltaTime);
-                    }
+                    }*/
                     Vector2 direction = outsidePipeEnd.position - outsideChar.transform.position;
                     Vector2 force = direction.normalized * GetCurrentPullTowardSpeed();
                     outsideChar.ApplyForceMovement(force, true);
