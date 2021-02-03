@@ -7,20 +7,24 @@ namespace NBLD.Utils
     public class Timer
     {
         private float maxTime;
+        private float minTime;
         private float currentTime;
         private bool timeStarted;
         private float lastUpdatedTime;
         private bool clamp;
         private float delayTime;
+        private bool reverseTime;
 
         public Timer(float time, bool startNow = false, bool clamp = true)
         {
             this.maxTime = time;
+            this.minTime = 0;
             this.currentTime = 0;
             lastUpdatedTime = Time.time;
             this.clamp = clamp;
             timeStarted = false;
             delayTime = 0;
+            reverseTime = false;
             if (startNow)
             {
                 Start();
@@ -32,6 +36,9 @@ namespace NBLD.Utils
         public void Stop() { timeStarted = false; currentTime = 0; }
         public void Restart() { timeStarted = true; currentTime = 0; lastUpdatedTime = Time.time; }
         public void Finish() { Stop(); currentTime = maxTime; }
+        public void StartReversed() { Start(); reverseTime = !reverseTime; }
+        public void StartForward() { Start(); reverseTime = false; }
+        public void StartBackward() { Start(); reverseTime = true; }
         public void RestartDelayed(float delay)
         {
             timeStarted = true;
@@ -50,15 +57,22 @@ namespace NBLD.Utils
                 }
                 else
                 {
-                    currentTime += Time.time - lastUpdatedTime;
+                    if (!reverseTime)
+                    {
+                        currentTime += Time.time - lastUpdatedTime;
+                    }
+                    else
+                    {
+                        currentTime -= Time.time - lastUpdatedTime;
+                    }
                     lastUpdatedTime = Time.time;
                     if (clamp)
                     {
-                        if (currentTime >= maxTime)
+                        if ((!reverseTime && currentTime >= maxTime) || (reverseTime && currentTime <= minTime))
                         {
                             timeStarted = false;
                         }
-                        currentTime = Mathf.Clamp(currentTime, 0, maxTime);
+                        currentTime = Mathf.Clamp(currentTime, minTime, maxTime);
                     }
                 }
             }
