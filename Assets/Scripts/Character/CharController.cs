@@ -72,7 +72,7 @@ namespace NBLD.Character
             charInputManager.RegisterController(this);
             insideBehaviour.Initialize(this, rb2D, charSpriteRenderer, animator, charAudio);
             outsideBehaviour.Initialize(this, rb2D, charSpriteRenderer, animator, charAudio);
-            outsideBehaviour.enabled = false;
+            outsideBehaviour.Deactivate();
             ChangeState(CharacterState.Inside);
             charAudio.SetEnvironmentBasedOnFloor(1);
             animator.keepAnimatorControllerStateOnDisable = true;
