@@ -1,4 +1,5 @@
 ﻿using DynamicCamera;
+using NBLD.Cameras;
 using NBLD.Utils;
 using System.Collections;
 using System.Collections.Generic;
@@ -32,8 +33,10 @@ namespace NBLD.ShipSystems
         public GameObject hookLight;
         [Header("Camera")]
         public CameraController camController;
+        public ContextualCamera contextualCamera;
         private CamSet camSet;
         public CamZone camZone;
+
         private const string cameraSetName = "gameplay";
 
         private const string hookOpenAnim = "HookOpen";
@@ -54,6 +57,7 @@ namespace NBLD.ShipSystems
                 camSet = camController.FindSet(cameraSetName);
                 OffsetColliderBasedOnCollision();
                 previousHookRotation = rightHookPivot.eulerAngles.z;
+                contextualCamera.Deactivate();
             }
         }
 
@@ -144,6 +148,7 @@ namespace NBLD.ShipSystems
             ship.UnlockMovement();
             grabbedObject = null;
             camSet.camZones.Remove(camZone);
+            contextualCamera.Deactivate();
             hookLight.SetActive(false);
         }
         private void FinishShotPrep()
@@ -174,6 +179,8 @@ namespace NBLD.ShipSystems
                 hookAnimator.ResetTrigger(hookGrabAnim);
                 hookAnimator.SetTrigger(hookOpenAnim);
                 camSet.camZones.Add(camZone);
+                contextualCamera.transformToFollow = rightHookPivot;
+                contextualCamera.Activate();
                 hookLight.SetActive(true);
             }
         }
