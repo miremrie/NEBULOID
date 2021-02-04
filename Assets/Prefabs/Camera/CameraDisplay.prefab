@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6869436225873212598}
+  - component: {fileID: 6522996536879968109}
   m_Layer: 5
   m_Name: CameraDisplay
   m_TagString: Untagged
@@ -37,6 +38,26 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &6522996536879968109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475643409277294778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eea9a34f923e014099413245cf1c93a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayImage: {fileID: 1508230555342859586}
+  borderImage: {fileID: 1071991345055550391}
+  yAnchorType: 0
+  xAnchorType: 0
+  xPercentSize: 0.2
+  xEdgeOffsetPercent: 0.01
+  yEdgeOffsetPercent: 0.01
+  xySizeRatio: 1
 --- !u!1 &2412256667386376495
 GameObject:
   m_ObjectHideFlags: 0

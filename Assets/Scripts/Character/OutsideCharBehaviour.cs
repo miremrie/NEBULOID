@@ -12,7 +12,7 @@ namespace NBLD.Character
     public class OutsideCharBehaviour : CharBehaviour
     {
         [Header("Components")]
-        public ContextualCamera exteriorContextCamera;
+        //public ContextualCamera exteriorContextCamera;
         public Transform hoseAttachSpot;
         [Header("Rotation")]
         public Transform rotationCenter;
@@ -68,15 +68,15 @@ namespace NBLD.Character
             base.Activate();
             oxygen.current = oxygen.max;
             oxygenSlider.gameObject.SetActive(true);
-            exteriorContextCamera.transformToFollow = transform;
-            exteriorContextCamera.Activate();
+            /*exteriorContextCamera.transformToFollow = transform;
+            exteriorContextCamera.Activate();*/
         }
         public override void Deactivate()
         {
             base.Deactivate();
             oxygenSlider.gameObject.SetActive(false);
             boostVFX.SetActive(false);
-            exteriorContextCamera.Deactivate();
+            //exteriorContextCamera.Deactivate();
         }
         private void Update()
         {
