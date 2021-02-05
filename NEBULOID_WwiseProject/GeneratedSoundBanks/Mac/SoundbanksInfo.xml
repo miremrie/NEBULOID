@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="12" SoundbankVersion="135">
 	<RootPaths>
-		<ProjectRoot>D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\</SourceFilesRoot>
-		<SoundBanksRoot>D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\GeneratedSoundBanks\Mac\</SoundBanksRoot>
+		<ProjectRoot>D:\Unity\NEBULOID\NEBULOID_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\</SourceFilesRoot>
+		<SoundBanksRoot>D:\Unity\NEBULOID\NEBULOID_WwiseProject\GeneratedSoundBanks\Mac\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\GeneratedSoundBanks\Mac</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>D:\Unity\NEBULOID\NEBULOID_WwiseProject\GeneratedSoundBanks\Mac</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -443,6 +443,7 @@
 				<GameParameter Id="2759611267" Name="Hook_Speed_Pitch" ObjectPath="\Game Parameters\Default Work Unit\Hook_Speed_Pitch"/>
 				<GameParameter Id="3214858684" Name="Sonar_Position" ObjectPath="\Game Parameters\Default Work Unit\Sonar_Position"/>
 				<GameParameter Id="3548314952" Name="Fuel_Amount" ObjectPath="\Game Parameters\Default Work Unit\Fuel_Amount"/>
+				<GameParameter Id="4174463524" Name="Danger" ObjectPath="\Game Parameters\Default Work Unit\Danger"/>
 			</GameParameters>
 		</SoundBank>
 		<SoundBank Id="1355168291" Language="SFX">
@@ -456,6 +457,7 @@
 			</IncludedAuxBusses>
 			<GameParameters>
 				<GameParameter Id="3548314952" Name="Fuel_Amount" ObjectPath="\Game Parameters\Default Work Unit\Fuel_Amount"/>
+				<GameParameter Id="4174463524" Name="Danger" ObjectPath="\Game Parameters\Default Work Unit\Danger"/>
 			</GameParameters>
 		</SoundBank>
 	</SoundBanks>

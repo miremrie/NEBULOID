@@ -67,6 +67,10 @@
 							<GameParameterRef Name="Fuel_Amount" ID="{C738C860-DA16-46E3-AEC0-36D08C5B6455}"/>
 							<Value>0</Value>
 						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="Danger" ID="{4D327351-DDC8-4B2D-BA36-963BEA359900}"/>
+							<Value>41</Value>
+						</RTPCValue>
 					</RTPCValueList>
 					<CurrentStateList ShowAll="true"/>
 					<CurrentSwitchList ShowAll="true">

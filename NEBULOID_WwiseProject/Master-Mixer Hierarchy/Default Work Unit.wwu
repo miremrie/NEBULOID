@@ -22,6 +22,84 @@
 									<ObjectRef Name="CleanBusEq" ID="{A664D017-75E6-472A-A45D-C2133DC48C49}" WorkUnitID="{CBEB4FB4-DE7F-4413-A97A-8CCDCE3E12E0}"/>
 								</Reference>
 							</ReferenceList>
+							<ChildrenList>
+								<Bus Name="Music_Lv1" ID="{86906567-D293-4F84-9AB7-85286D629EF5}"/>
+								<Bus Name="Music_Lv2" ID="{BA615CF3-B952-4C7B-9388-1A7277B4F234}">
+									<PropertyList>
+										<Property Name="BusVolume" Type="Real64">
+											<RTPCList>
+												<RTPC Name="" ID="{7CE07526-B886-4B89-AEFA-38688EDCD98C}" ShortID="316988150">
+													<ReferenceList>
+														<Reference Name="ControlInput">
+															<ObjectRef Name="Danger" ID="{4D327351-DDC8-4B2D-BA36-963BEA359900}" WorkUnitID="{9057AE98-8E85-4ADA-B4BC-84449375C967}"/>
+														</Reference>
+													</ReferenceList>
+													<Curve Name="" ID="{8BBAD368-3DFE-4178-AEE4-AEAD5AF049E6}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="3"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>0.06363</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>69.6629213483146</XPos>
+																<YPos>0.019254274976118</YPos>
+																<Flags>0</Flags>
+															</Point>
+															<Point>
+																<XPos>82.94178</XPos>
+																<YPos>-4.56881</YPos>
+																<Flags>0</Flags>
+															</Point>
+															<Point>
+																<XPos>100</XPos>
+																<YPos>-11.60836</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</RTPC>
+											</RTPCList>
+										</Property>
+										<Property Name="Lowpass" Type="int16">
+											<RTPCList>
+												<RTPC Name="" ID="{0C1D4632-91D1-4BBE-B8EB-BF608747BBF1}" ShortID="197833485">
+													<ReferenceList>
+														<Reference Name="ControlInput">
+															<ObjectRef Name="Danger" ID="{4D327351-DDC8-4B2D-BA36-963BEA359900}" WorkUnitID="{9057AE98-8E85-4ADA-B4BC-84449375C967}"/>
+														</Reference>
+													</ReferenceList>
+													<Curve Name="" ID="{B40271F7-3C05-4FB2-A1B5-BEBA38DC5368}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="65537"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>0</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>67.926455566905</XPos>
+																<YPos>0</YPos>
+																<Flags>0</Flags>
+															</Point>
+															<Point>
+																<XPos>100</XPos>
+																<YPos>-36</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</RTPC>
+											</RTPCList>
+										</Property>
+									</PropertyList>
+								</Bus>
+							</ChildrenList>
 							<PositioningInfo>
 								<Panner Name="" ID="{EBDDF7E2-C87E-4AC9-8D59-C3C01AA572D3}">
 									<PropertyList>
@@ -139,6 +217,17 @@
 											</ReferenceList>
 										</AuxBus>
 									</ChildrenList>
+									<DuckingList>
+										<DuckItem>
+											<BusRef Name="Music_Lv2" ID="{BA615CF3-B952-4C7B-9388-1A7277B4F234}"/>
+											<DuckingParam>
+												<Volume>-3</Volume>
+												<FadeInTime>1</FadeInTime>
+												<FadeOutTime>1</FadeOutTime>
+												<FadeCurve>FadeLinear</FadeCurve>
+											</DuckingParam>
+										</DuckItem>
+									</DuckingList>
 								</Bus>
 							</ChildrenList>
 						</Bus>
