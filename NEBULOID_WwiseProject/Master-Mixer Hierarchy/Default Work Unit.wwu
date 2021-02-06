@@ -141,6 +141,7 @@
 												</RTPC>
 											</RTPCList>
 										</Property>
+										<Property Name="RecoveryTime" Type="Real64" Value="0.1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="AudioDevice">
@@ -221,9 +222,9 @@
 										<DuckItem>
 											<BusRef Name="Music_Lv2" ID="{BA615CF3-B952-4C7B-9388-1A7277B4F234}"/>
 											<DuckingParam>
-												<Volume>-3</Volume>
-												<FadeInTime>1</FadeInTime>
-												<FadeOutTime>1</FadeOutTime>
+												<Volume>-6</Volume>
+												<FadeInTime>0.100000001490116</FadeInTime>
+												<FadeOutTime>0.100000001490116</FadeOutTime>
 												<FadeCurve>FadeLinear</FadeCurve>
 											</DuckingParam>
 										</DuckItem>

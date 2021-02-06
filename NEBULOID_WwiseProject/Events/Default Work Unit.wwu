@@ -517,6 +517,54 @@
 						</Event>
 					</ChildrenList>
 				</Folder>
+				<Folder Name="Player Voices" ID="{D1784B3A-5015-4876-B579-A81BC00535C8}" ShortID="960524059">
+					<ChildrenList>
+						<Event Name="Play_Player_1_Hurt" ID="{6DF8DD01-544F-4645-A726-A657D4D606E5}">
+							<ChildrenList>
+								<Action Name="" ID="{95AD6C12-90CD-403B-A270-280CF38EC0B0}" ShortID="740536126">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Player_1_Hurt" ID="{14BD7307-8058-4DDB-9909-925CD1BAD483}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Player_1_Barbble" ID="{8585DA7B-6772-488A-8DD5-D2D8AC5AE46A}">
+							<ChildrenList>
+								<Action Name="" ID="{0B17CE92-88C2-4B77-8A7D-74F1FE1A59AE}" ShortID="410743487">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Player_1_Babble" ID="{5EAA23F2-2C34-4654-98A3-57C5A55D8CF9}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Player_2_Hurt" ID="{7900D1CA-E140-4F4B-89D4-55834EF3CA8D}">
+							<ChildrenList>
+								<Action Name="" ID="{08C42E7F-3506-442C-9577-D4A7FAE5AB9E}" ShortID="641221414">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Player_2_Hurt" ID="{1AE12D3B-024B-4C3D-9D8E-A21E995BFBE1}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Player_2_Barbble" ID="{CA15A5B8-FBF4-4B1E-BF1D-D973445E364D}">
+							<ChildrenList>
+								<Action Name="" ID="{0889A0BD-83C3-43E9-8703-C38E013116C9}" ShortID="986882025">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Player_2_Babble" ID="{2DBA2AE7-13EE-42C5-A8B1-ED31D7E8F2CF}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

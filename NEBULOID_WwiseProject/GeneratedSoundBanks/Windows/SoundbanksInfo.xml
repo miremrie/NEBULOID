@@ -230,6 +230,10 @@
 							<ShortName>Bass_Melody.wav</ShortName>
 							<Path>SFX\Bass_Melody_D79FB2B7.wem</Path>
 						</File>
+						<File Id="931425727" Language="SFX">
+							<ShortName>IdleDrm.wav</ShortName>
+							<Path>SFX\IdleDrm_D79FB2B7.wem</Path>
+						</File>
 						<File Id="1027489376" Language="SFX">
 							<ShortName>Analog_Seq.wav</ShortName>
 							<Path>SFX\Analog_Seq_D79FB2B7.wem</Path>

@@ -120,6 +120,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	884707605	HookStart	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\HookStart_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Cable\HookGrab\HookStart		199396
 	898425719	GunShot1	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Explosions\Exp1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Hits\GunShot\GunShot1		353952
 	928490104	FootMain-7	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\FootstepsMain\FootMain-7_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsMain\FootMain-7		54908
+	931425727	IdleDrm	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\IdleDrm_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Gameplay\FM_Theme_01\IdleDrm		2822464
 	940568997	LadderDsc-8	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\FootstepsLadderDsc\LadderDsc-8_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderDsc\LadderDsc-8		41096
 	949232450	Shield_Open_IntrudeFanOut	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Shield_Open_IntrudeFanOut_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Shield\Shield_Open_IntrudeFanOut		266928
 	966974960	2 - ClawLock	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\2 - ClawLock_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawLock\2 - ClawLock		277012
