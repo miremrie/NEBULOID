@@ -63,6 +63,7 @@ namespace AK
 
     namespace GAME_PARAMETERS
     {
+        static const AkUniqueID DANGER = 4174463524U;
         static const AkUniqueID FUEL_AMOUNT = 3548314952U;
         static const AkUniqueID HOOK_SPEED_PITCH = 2759611267U;
         static const AkUniqueID SONAR_POSITION = 3214858684U;
@@ -80,6 +81,8 @@ namespace AK
         static const AkUniqueID ENVIROMENT = 3909959462U;
         static const AkUniqueID FX_BUS = 3948848313U;
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;
+        static const AkUniqueID MUSIC_LV1 = 2396622516U;
+        static const AkUniqueID MUSIC_LV2 = 2396622519U;
     } // namespace BUSSES
 
     namespace AUX_BUSSES

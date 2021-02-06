@@ -14,6 +14,10 @@
 							<Position X="0" Y="1"/>
 						</Module>
 						<Module>
+							<ObjectRef Name="Play_Player_1_Barbble" ID="{8585DA7B-6772-488A-8DD5-D2D8AC5AE46A}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}"/>
+							<Position X="0" Y="2"/>
+						</Module>
+						<Module>
 							<ObjectRef Name="Play_Fuel_Refill" ID="{E110AB06-A9E1-4145-AC12-A71DFE05CBBD}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}"/>
 							<Position X="0" Y="3"/>
 						</Module>
@@ -30,6 +34,10 @@
 							<Position X="1" Y="1"/>
 						</Module>
 						<Module>
+							<ObjectRef Name="Play_Player_1_Hurt" ID="{6DF8DD01-544F-4645-A726-A657D4D606E5}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}"/>
+							<Position X="1" Y="2"/>
+						</Module>
+						<Module>
 							<ObjectRef Name="Play_Bullet_Hit" ID="{A4978065-EC81-4313-A7BE-67EC98D6D20D}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}"/>
 							<Position X="1" Y="3"/>
 						</Module>
@@ -42,12 +50,20 @@
 							<Position X="2" Y="1"/>
 						</Module>
 						<Module>
+							<ObjectRef Name="Play_Player_2_Barbble" ID="{CA15A5B8-FBF4-4B1E-BF1D-D973445E364D}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}"/>
+							<Position X="2" Y="2"/>
+						</Module>
+						<Module>
 							<ObjectRef Name="Play_Gun_Shot" ID="{A0FB45BB-DEED-49EB-8EF5-34D8791BD7AB}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}"/>
 							<Position X="2" Y="3"/>
 						</Module>
 						<Module>
 							<ObjectRef Name="Stop_Sonar" ID="{15AFA576-5F73-4D41-826E-9A0AAB18D67F}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}"/>
 							<Position X="3" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Play_Player_2_Hurt" ID="{7900D1CA-E140-4F4B-89D4-55834EF3CA8D}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}"/>
+							<Position X="3" Y="2"/>
 						</Module>
 						<Module>
 							<ObjectRef Name="Play_Ship_Hit" ID="{0297BFEE-4FA9-4C18-A857-1822C1C866A7}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}"/>
@@ -66,6 +82,10 @@
 						<RTPCValue>
 							<GameParameterRef Name="Fuel_Amount" ID="{C738C860-DA16-46E3-AEC0-36D08C5B6455}"/>
 							<Value>0</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="Danger" ID="{4D327351-DDC8-4B2D-BA36-963BEA359900}"/>
+							<Value>51</Value>
 						</RTPCValue>
 					</RTPCValueList>
 					<CurrentStateList ShowAll="true"/>

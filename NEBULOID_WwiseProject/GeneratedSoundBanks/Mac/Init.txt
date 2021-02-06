@@ -1,8 +1,11 @@
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	3548314952	Fuel_Amount			\Default Work Unit\Fuel_Amount	
+	4174463524	Danger			\Default Work Unit\Danger	
 
 Audio Bus	ID	Name			Wwise Object Path	Notes
 	1348820510	Clean BUS			\Default Work Unit\Master Audio Bus\Clean BUS	
+	2396622516	Music_Lv1			\Default Work Unit\Master Audio Bus\Clean BUS\Music_Lv1	
+	2396622519	Music_Lv2			\Default Work Unit\Master Audio Bus\Clean BUS\Music_Lv2	
 	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
 	3909959462	Enviroment			\Default Work Unit\Master Audio Bus\Enviroment	
 	3948848313	FX BUS			\Default Work Unit\Master Audio Bus\Enviroment\FX BUS	
