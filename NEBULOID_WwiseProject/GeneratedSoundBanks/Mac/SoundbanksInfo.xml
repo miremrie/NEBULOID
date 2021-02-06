@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="12" SoundbankVersion="135">
 	<RootPaths>
-		<ProjectRoot>D:\Unity\NEBULOID\NEBULOID_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\</SourceFilesRoot>
-		<SoundBanksRoot>D:\Unity\NEBULOID\NEBULOID_WwiseProject\GeneratedSoundBanks\Mac\</SoundBanksRoot>
+		<ProjectRoot>D:\GameDev\NEBULOID\NEBULOID giterror\NEBULOID\NEBULOID_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>D:\GameDev\NEBULOID\NEBULOID giterror\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\</SourceFilesRoot>
+		<SoundBanksRoot>D:\GameDev\NEBULOID\NEBULOID giterror\NEBULOID\NEBULOID_WwiseProject\GeneratedSoundBanks\Mac\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>D:\Unity\NEBULOID\NEBULOID_WwiseProject\GeneratedSoundBanks\Mac</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>D:\GameDev\NEBULOID\NEBULOID giterror\NEBULOID\NEBULOID_WwiseProject\GeneratedSoundBanks\Mac</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
