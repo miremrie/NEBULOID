@@ -222,7 +222,6 @@ public class ShipAudioController : MonoBehaviour
     //Danger
     private void UpdateDanger(float fuelPercent)
     {
-        Debug.Log((1 - fuelPercent) * 100);
         AkSoundEngine.SetRTPCValue(dangerRTPC, (1 - fuelPercent) * 100);
     }
 }

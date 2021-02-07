@@ -12,6 +12,8 @@ namespace NBLD.Character
 
         public Animator animator;
         private Timer timer;
+        [Header("Damage")]
+        public float oxygenPercentDamage = 0.4f;
         private bool started = false;
         private bool exploded = false;
         private const string tickAnimKey = "Tick";
@@ -49,6 +51,14 @@ namespace NBLD.Character
             Debug.Log("Exploded!");
             for (int i = 0; i < colliders.Length; i++)
             {
+                if (colliders[i].tag == Tags.CHARACTER)
+                {
+                    OutsideCharBehaviour charBehaviour = colliders[i].gameObject.GetComponentInParent<OutsideCharBehaviour>();
+                    if (charBehaviour != null)
+                    {
+                        charBehaviour.GetHit(oxygenPercentDamage);
+                    }
+                }
                 Debug.Log(colliders[i].gameObject.name);
             }
         }

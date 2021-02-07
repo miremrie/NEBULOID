@@ -12,6 +12,7 @@ TagManager:
   - Obstacle
   - stencil
   - ShipShield
+  - Character
   layers:
   - Default
   - TransparentFX

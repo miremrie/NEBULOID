@@ -66,7 +66,7 @@ namespace NBLD.Character
         public override void Activate()
         {
             base.Activate();
-            oxygen.current = oxygen.max;
+            oxygen.ResetToMax();
             oxygenSlider.gameObject.SetActive(true);
             /*exteriorContextCamera.transformToFollow = transform;
             exteriorContextCamera.Activate();*/
@@ -221,11 +221,17 @@ namespace NBLD.Character
         public void UpdateOxygen()
         {
             oxygen.UpdateOxygen(Time.deltaTime);
-            oxygenSlider.UpdateValue(oxygen.current);
+            oxygenSlider.UpdateValue(oxygen.Current);
             if (!oxygen.HasOxygen())
             {
                 Die();
             }
+        }
+        public void GetHit(float oxygenPercentDamage)
+        {
+            oxygen.ReduceByTotalPercent(oxygenPercentDamage);
+            oxygenSlider.UpdateValue(oxygen.Current);
+            charAudio.PlayHurt();
         }
         public void Die()
         {

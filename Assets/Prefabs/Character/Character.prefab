@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1375258119184692799}
   m_Layer: 0
   m_Name: Fill
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -85,7 +85,7 @@ GameObject:
   - component: {fileID: 4638937411788288821}
   m_Layer: 0
   m_Name: MoveMeter
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 4399105567908527944}
   m_Layer: 0
   m_Name: Fill Area
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -229,7 +229,7 @@ GameObject:
   - component: {fileID: 8647758045015476130}
   m_Layer: 0
   m_Name: Light
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -302,7 +302,7 @@ GameObject:
   - component: {fileID: 6773710395299988043}
   m_Layer: 0
   m_Name: Fill
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -375,7 +375,7 @@ GameObject:
   - component: {fileID: 3492493931146603769}
   m_Layer: 0
   m_Name: Background
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -446,7 +446,7 @@ GameObject:
   - component: {fileID: 7698084909700912097}
   m_Layer: 8
   m_Name: HoseAttachSpot
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -478,7 +478,7 @@ GameObject:
   - component: {fileID: 4390604665757306931}
   m_Layer: 0
   m_Name: Background
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -549,7 +549,7 @@ GameObject:
   - component: {fileID: 1369831469631679421}
   m_Layer: 8
   m_Name: CharacterCenter
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -581,7 +581,7 @@ GameObject:
   - component: {fileID: 6290694858956421944}
   m_Layer: 10
   m_Name: OutsideCollider
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -628,7 +628,7 @@ GameObject:
   - component: {fileID: 4058322579414316957}
   m_Layer: 8
   m_Name: Audio
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -659,6 +659,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f52e5d0895ba84caa9c953050ed4ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerIndex: 0
   auxValues:
   - 0
   - 0
@@ -674,7 +675,7 @@ GameObject:
   - component: {fileID: 6471622706664027617}
   m_Layer: 8
   m_Name: BoostFX
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -708,7 +709,7 @@ GameObject:
   - component: {fileID: 3606036874448065341}
   m_Layer: 0
   m_Name: Fill Area
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -796,7 +797,7 @@ GameObject:
   - component: {fileID: 5662814076746485322}
   m_Layer: 8
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -894,7 +895,7 @@ GameObject:
   - component: {fileID: 1247210021773159682}
   m_Layer: 0
   m_Name: OxygenMeter
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -951,7 +952,7 @@ GameObject:
   - component: {fileID: 619621694826615025}
   m_Layer: 8
   m_Name: Character Graphics
-  m_TagString: Player
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1052,7 +1053,7 @@ GameObject:
   - component: {fileID: 4265162992504635029}
   m_Layer: 8
   m_Name: Character
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1161,6 +1162,7 @@ MonoBehaviour:
   spriteLayer: Unlit
   moveSpeed: 2
   transportSpeed: 4
+  idleBehaviourTriggerTime: 20
 --- !u!114 &2816976512444012041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1268,7 +1270,7 @@ GameObject:
   - component: {fileID: 8847336381689410747}
   m_Layer: 8
   m_Name: CharacterPivot
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1301,8 +1303,8 @@ GameObject:
   - component: {fileID: 8022578336486719736}
   - component: {fileID: 7739850062954294746}
   m_Layer: 8
-  m_Name: CharacterCollider
-  m_TagString: Untagged
+  m_Name: InsideCollider
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1403,6 +1405,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Flames
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201248604426948881, guid: 31f838bfe2bbf3946871ac5e3a01ef8a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Character
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31f838bfe2bbf3946871ac5e3a01ef8a, type: 3}
