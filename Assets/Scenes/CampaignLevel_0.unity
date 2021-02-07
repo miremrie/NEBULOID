@@ -1620,7 +1620,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxFuel: 100
-  fuelBurnRate: 2
+  fuelBurnRate: 1
   gameOverScreen: {fileID: 1596660096}
   fuelFillImage: {fileID: 97040016}
   shake: {fileID: 1560085652}
@@ -2882,16 +2882,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6452827047454343644, guid: 8933b87cebe90554983fef8ec1fddb73,
-        type: 3}
-      propertyPath: m_RendererIndex
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6618639463991037840, guid: 8933b87cebe90554983fef8ec1fddb73,
-        type: 3}
-      propertyPath: orthographic size
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 6618639463991037846, guid: 8933b87cebe90554983fef8ec1fddb73,
         type: 3}
       propertyPath: target
@@ -2904,34 +2894,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6618639464236555388, guid: 8933b87cebe90554983fef8ec1fddb73,
         type: 3}
-      propertyPath: smooth
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6618639464236555388, guid: 8933b87cebe90554983fef8ec1fddb73,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6618639464236555388, guid: 8933b87cebe90554983fef8ec1fddb73,
-        type: 3}
-      propertyPath: interiorCamImage
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6618639464236555388, guid: 8933b87cebe90554983fef8ec1fddb73,
-        type: 3}
       propertyPath: sets.Array.data[2].limitZone.trans
       value: 
       objectReference: {fileID: 1185245426}
-    - target: {fileID: 6618639464236555388, guid: 8933b87cebe90554983fef8ec1fddb73,
-        type: 3}
-      propertyPath: sets.Array.data[2].limitZone.radius
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 6618639464236555388, guid: 8933b87cebe90554983fef8ec1fddb73,
-        type: 3}
-      propertyPath: interiorVisiblityPerCamSize.m_Curve.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 6618639464236555388, guid: 8933b87cebe90554983fef8ec1fddb73,
         type: 3}
       propertyPath: sets.Array.data[0].camZones.Array.data[0].trans
@@ -2965,77 +2930,7 @@ PrefabInstance:
     - target: {fileID: 6618639464236555388, guid: 8933b87cebe90554983fef8ec1fddb73,
         type: 3}
       propertyPath: sets.Array.data[2].camZones.Array.data[0].radius
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6618639464236555388, guid: 8933b87cebe90554983fef8ec1fddb73,
-        type: 3}
-      propertyPath: interiorVisiblityPerCamSize.m_Curve.Array.data[1].time
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6618639464236555388, guid: 8933b87cebe90554983fef8ec1fddb73,
-        type: 3}
-      propertyPath: interiorVisiblityPerCamSize.m_Curve.Array.data[2].time
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 6618639464236555388, guid: 8933b87cebe90554983fef8ec1fddb73,
-        type: 3}
-      propertyPath: interiorVisiblityPerCamSize.m_Curve.Array.data[1].value
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6618639464236555388, guid: 8933b87cebe90554983fef8ec1fddb73,
-        type: 3}
-      propertyPath: interiorVisiblityPerCamSize.m_Curve.Array.data[2].value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6618639464236555388, guid: 8933b87cebe90554983fef8ec1fddb73,
-        type: 3}
-      propertyPath: interiorVisiblityPerCamSize.m_Curve.Array.data[0].inSlope
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6618639464236555388, guid: 8933b87cebe90554983fef8ec1fddb73,
-        type: 3}
-      propertyPath: interiorVisiblityPerCamSize.m_Curve.Array.data[1].inSlope
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6618639464236555388, guid: 8933b87cebe90554983fef8ec1fddb73,
-        type: 3}
-      propertyPath: interiorVisiblityPerCamSize.m_Curve.Array.data[0].inWeight
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 6618639464236555388, guid: 8933b87cebe90554983fef8ec1fddb73,
-        type: 3}
-      propertyPath: interiorVisiblityPerCamSize.m_Curve.Array.data[0].outSlope
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6618639464236555388, guid: 8933b87cebe90554983fef8ec1fddb73,
-        type: 3}
-      propertyPath: interiorVisiblityPerCamSize.m_Curve.Array.data[1].inWeight
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 6618639464236555388, guid: 8933b87cebe90554983fef8ec1fddb73,
-        type: 3}
-      propertyPath: interiorVisiblityPerCamSize.m_Curve.Array.data[1].outSlope
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6618639464236555388, guid: 8933b87cebe90554983fef8ec1fddb73,
-        type: 3}
-      propertyPath: interiorVisiblityPerCamSize.m_Curve.Array.data[2].inWeight
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 6618639464236555388, guid: 8933b87cebe90554983fef8ec1fddb73,
-        type: 3}
-      propertyPath: interiorVisiblityPerCamSize.m_Curve.Array.data[0].outWeight
-      value: 0.07858728
-      objectReference: {fileID: 0}
-    - target: {fileID: 6618639464236555388, guid: 8933b87cebe90554983fef8ec1fddb73,
-        type: 3}
-      propertyPath: interiorVisiblityPerCamSize.m_Curve.Array.data[1].outWeight
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 6618639464236555388, guid: 8933b87cebe90554983fef8ec1fddb73,
-        type: 3}
-      propertyPath: interiorVisiblityPerCamSize.m_Curve.Array.data[2].outWeight
-      value: 0.33333334
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 6618639464236555391, guid: 8933b87cebe90554983fef8ec1fddb73,
         type: 3}
@@ -3091,11 +2986,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6618639465253345518, guid: 8933b87cebe90554983fef8ec1fddb73,
-        type: 3}
-      propertyPath: m_positionOffsetData.KeepMe
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8933b87cebe90554983fef8ec1fddb73, type: 3}

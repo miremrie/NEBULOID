@@ -503,8 +503,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldownTime: 1
   hookAnimator: {fileID: 8713795994505403000}
-  fireMaxSpeed: 6
-  retractSpeed: 4
+  fireMaxSpeed: 10
+  retractSpeed: 10
   accelerationTime: 2
   audioController: {fileID: 0}
   acceleration:
@@ -540,7 +540,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  shipPullSpeed: 6
+  shipPullSpeed: 7
   maxDistance: 30
   shipCenterOrigin: {fileID: 9203414623737020717}
   hookOrigin: {fileID: 1435529849701535731}
@@ -554,7 +554,7 @@ MonoBehaviour:
   camZone:
     trans: {fileID: 1747515877327981014}
     radius: 5
-    weight: 0.4
+    weight: 0.7
 --- !u!95 &8713795994505403000
 Animator:
   serializedVersion: 3
