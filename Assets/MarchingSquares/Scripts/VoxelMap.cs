@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace MarchingSquares
 {
-    
+
     public class VoxelMap : MonoBehaviour
     {
         public int voxelResolution = 8;
@@ -30,7 +30,7 @@ namespace MarchingSquares
         public int framesToSkipCollisionUpdate = 10;
 
         public Material overrideMaterial;
-        
+
         ContactFilter2D gridFilter = new ContactFilter2D();
 
 
@@ -71,7 +71,12 @@ namespace MarchingSquares
             var c = collision.GetComponent<VoxelStencilCollider>();
             if (c != null && stencilsInRange.Contains(c)) stencilsInRange.Remove(c);
         }
-        
+
+        public void AddStencil(VoxelStencilCollider stencil)
+        {
+            stencilsInRange.Add(stencil);
+        }
+
         private void CreateInitialShape()
         {
             EditVoxels(initialStencil, true);
@@ -102,7 +107,7 @@ namespace MarchingSquares
             foreach (var c in chunks)
             {
                 results[0] = null;
-                c.boundsTrigger.OverlapCollider(gridFilter,results);
+                c.boundsTrigger.OverlapCollider(gridFilter, results);
                 if (results[0] != null) { gridsToEdit.Add(c); }
                 //Debug.Log(results);
             }
@@ -135,7 +140,7 @@ namespace MarchingSquares
                 foreach (var s in surfaceColliderUpdateList)
                 {
                     s.surface.SetPolygonColliderPath();
-                    s.waitingForCollisionUpdate = false; 
+                    s.waitingForCollisionUpdate = false;
                 }
                 surfaceColliderUpdateList.Clear();
             }
@@ -165,7 +170,7 @@ namespace MarchingSquares
             }
         }
 
-     
+
         internal void SetTopRightTrans(Voxel transform)
         {
             topRight = transform;

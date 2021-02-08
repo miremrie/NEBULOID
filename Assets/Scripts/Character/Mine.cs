@@ -12,6 +12,7 @@ namespace NBLD.Character
         public float time;
 
         public Animator animator;
+        public CircleCollider2D circleCollider;
         private Timer timer;
         [Header("Damage")]
         public float oxygenPercentDamage = 0.4f;
@@ -20,15 +21,21 @@ namespace NBLD.Character
         private bool exploded = false;
         private const string tickAnimKey = "Tick";
         private const string explodeAnimKey = "Explode";
+        private const string explodeSFXKey = "Play_Bullet_Hit";
+        private int explosionFrameCount = 0;
+        private int explosionDisableColliderFrameCount = 2;
 
         private void Awake()
         {
             timer = new Timer(time);
+            circleCollider.gameObject.SetActive(false);
         }
         public void Activate()
         {
             if (!started)
             {
+                circleCollider.gameObject.SetActive(false);
+                circleCollider.radius = radius;
                 timer.Restart();
                 started = true;
                 animator.SetTrigger(tickAnimKey);
@@ -36,20 +43,36 @@ namespace NBLD.Character
         }
         private void Update()
         {
-            if (started && !exploded)
+            if (started)
             {
-                if (timer.IsTimerDone())
+                if (!exploded)
                 {
-                    Explode();
+                    if (timer.IsTimerDone())
+                    {
+                        Explode();
+                    }
                 }
             }
-
+        }
+        private void FixedUpdate()
+        {
+            if (started && exploded)
+            {
+                if (explosionFrameCount == explosionDisableColliderFrameCount)
+                {
+                    circleCollider.gameObject.SetActive(false);
+                }
+                explosionFrameCount++;
+            }
         }
         private void Explode()
         {
+            explosionFrameCount = 0;
             exploded = true;
             animator.SetTrigger(explodeAnimKey);
             Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius);
+            AkSoundEngine.PostEvent(explodeSFXKey, gameObject);
+            circleCollider.gameObject.SetActive(true);
             Debug.Log("Exploded!");
             for (int i = 0; i < colliders.Length; i++)
             {
@@ -67,7 +90,12 @@ namespace NBLD.Character
                     ship.MineHit(this);
 
                 }
-                Debug.Log(colliders[i].gameObject.name);
+                else if (colliders[i].tag == Tags.OBSTACLE)
+                {
+                    Obstacle obstacle = colliders[i].gameObject.GetComponentInParent<Obstacle>();
+                    obstacle.DestroyObstacle();
+                }
+                //Debug.Log(colliders[i].gameObject.name);
             }
         }
 

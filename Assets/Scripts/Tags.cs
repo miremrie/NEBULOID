@@ -11,4 +11,5 @@ public static class Tags
     public const string OBSTACLE = "Obstacle";
     public const string SHIP_SHIELD = "ShipShield";
     public const string CHARACTER = "Character";
+    public const string PLANET = "Planet";
 }

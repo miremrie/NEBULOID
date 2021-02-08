@@ -41,4 +41,9 @@ public class Obstacle : MonoBehaviour
         Damage = size;
         this.game = game;
     }
+
+    public void DestroyObstacle()
+    {
+        Destroy(gameObject);
+    }
 }
