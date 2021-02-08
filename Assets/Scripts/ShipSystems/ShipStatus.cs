@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using NBLD.Character;
 using NBLD.UI;
 using UnityEngine;
 
@@ -89,13 +90,29 @@ namespace NBLD.Ship
         public void ObstacleHit(Obstacle obs)
         {
             screenShake.TriggerShake(0.5f);
-            var rand = new System.Random();
-            var dmgIndex = rand.Next(0, repairables.Length);
-            var rp = repairables[dmgIndex];
-            rp.TakeDamage(obs.Damage);
+            float damage = obs.Damage;
+            Debug.Log(damage);
+            DamageRandomRoom(damage);
             audioController.PlayShipHit();
             audioController.PlayAlarm();
             Instantiate(explosionFX, obs.transform.position, Quaternion.identity);
+        }
+        public void MineHit(Mine mine)
+        {
+            screenShake.TriggerShake(0.5f);
+            float damage = mine.GetRandomRoomDamage();
+            Debug.Log(damage);
+            DamageRandomRoom(damage);
+            audioController.PlayShipHit();
+            audioController.PlayAlarm();
+            //Instantiate(explosionFX, obs.transform.position, Quaternion.identity);
+        }
+        private void DamageRandomRoom(float damage)
+        {
+            var rand = new System.Random();
+            var dmgIndex = rand.Next(0, repairables.Length);
+            var rp = repairables[dmgIndex];
+            rp.TakeDamage(damage);
         }
         public void RoomRepaired(Repairable repairable)
         {

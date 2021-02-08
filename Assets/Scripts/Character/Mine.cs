@@ -15,6 +15,7 @@ namespace NBLD.Character
         private Timer timer;
         [Header("Damage")]
         public float oxygenPercentDamage = 0.4f;
+        public float minRoomPercentDamage = 0.6f, maxRoomPercentDamage = 1f;
         private bool started = false;
         private bool exploded = false;
         private const string tickAnimKey = "Tick";
@@ -62,11 +63,17 @@ namespace NBLD.Character
                 }
                 else if (colliders[i].tag == Tags.SHIP_BODY)
                 {
-                    ShipMovement shipMovement = colliders[i].gameObject.GetComponentInParent<ShipMovement>();
+                    ShipStatus ship = colliders[i].gameObject.GetComponentInParent<ShipStatus>();
+                    ship.MineHit(this);
 
                 }
                 Debug.Log(colliders[i].gameObject.name);
             }
+        }
+
+        public float GetRandomRoomDamage()
+        {
+            return Random.Range(minRoomPercentDamage, maxRoomPercentDamage);
         }
 
         public void OnExplodeAnimationFinished()

@@ -213,6 +213,9 @@ MonoBehaviour:
   radius: 2.5
   time: 5
   animator: {fileID: 912698103503074032}
+  oxygenPercentDamage: 0.4
+  minRoomPercentDamage: 0.6
+  maxRoomPercentDamage: 1
 --- !u!95 &912698103503074032
 Animator:
   serializedVersion: 3
@@ -314,6 +317,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4619012224861686279, guid: e5a8d11103e2d2c4d90ca30b72e09ed2,
         type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4619012224861686279, guid: e5a8d11103e2d2c4d90ca30b72e09ed2,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -329,6 +337,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4619012224861686279, guid: e5a8d11103e2d2c4d90ca30b72e09ed2,
         type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4619012224861686279, guid: e5a8d11103e2d2c4d90ca30b72e09ed2,
+        type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
@@ -341,16 +354,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4619012224861686279, guid: e5a8d11103e2d2c4d90ca30b72e09ed2,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4619012224861686279, guid: e5a8d11103e2d2c4d90ca30b72e09ed2,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4619012224861686279, guid: e5a8d11103e2d2c4d90ca30b72e09ed2,
         type: 3}
