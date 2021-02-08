@@ -961,7 +961,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoke: {fileID: 2600621377682209256}
-  game: {fileID: 0}
+  shipStatus: {fileID: 0}
   alarmIndicator: {fileID: 6366451464509612826}
   maskedSlider: {fileID: 9095295437704758192}
 --- !u!114 &3973760645433340447
@@ -2163,7 +2163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoke: {fileID: 5902629315556377093}
-  game: {fileID: 0}
+  shipStatus: {fileID: 0}
   alarmIndicator: {fileID: 162721477863663594}
   maskedSlider: {fileID: 5374833223377177867}
 --- !u!114 &1873711754226842100
@@ -2830,7 +2830,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoke: {fileID: 2322393881038813444}
-  game: {fileID: 0}
+  shipStatus: {fileID: 0}
   alarmIndicator: {fileID: 3680691958620557618}
   maskedSlider: {fileID: 9095295437631464417}
 --- !u!114 &4033421824343673622
@@ -2925,7 +2925,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoke: {fileID: 2322393881969966588}
-  game: {fileID: 0}
+  shipStatus: {fileID: 0}
   alarmIndicator: {fileID: 8399191953544852190}
   maskedSlider: {fileID: 9095295436473295469}
 --- !u!114 &4121705824966679407
@@ -3056,7 +3056,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoke: {fileID: 2322393882359043035}
-  game: {fileID: 0}
+  shipStatus: {fileID: 0}
   alarmIndicator: {fileID: 2888506338149895753}
   maskedSlider: {fileID: 9095295437065379975}
 --- !u!114 &3181099757117191682
@@ -3187,7 +3187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoke: {fileID: 2322393881523537165}
-  game: {fileID: 0}
+  shipStatus: {fileID: 0}
   alarmIndicator: {fileID: 5719310780919103684}
   maskedSlider: {fileID: 3187060427045403427}
 --- !u!114 &1950990434551381005
@@ -4483,8 +4483,17 @@ MonoBehaviour:
     max: 100
     burnRate: 2
     current: 0
-  shipAudioController: {fileID: 5024028211301265338}
+  repairables:
+  - {fileID: 5040788851926938560}
+  - {fileID: 5625323300134583405}
+  - {fileID: 3338737045761991878}
+  - {fileID: 5625323299245406784}
+  - {fileID: 5625323299509387940}
+  - {fileID: 5625323299240325634}
+  audioController: {fileID: 5024028211301265338}
+  explosionFX: {fileID: 0}
   fuelUI: {fileID: 0}
+  screenShake: {fileID: 0}
 --- !u!1 &7595398177142603589
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,8 +13,6 @@ public class Game : MonoBehaviour
     public ShipStatus shipStatus;
     private bool gameIsOver;
     public GameObject gameOverScreen;
-    public ScreenShake shake;
-    private Repairable[] repairables;
     public GameObject smokePrefab;
     private NBLD.Input.UIInputManager uiInput;
 
@@ -29,7 +27,6 @@ public class Game : MonoBehaviour
     void Start()
     {
         gameOverScreen.SetActive(false);
-        repairables = FindObjectsOfType<Repairable>();
     }
     private void OnEnable()
     {
@@ -84,24 +81,6 @@ public class Game : MonoBehaviour
         audioController.StopAllFX();
         int scene = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(scene, LoadSceneMode.Single);
-    }
-
-    public void ObstacleHit(Obstacle obs)
-    {
-        shake.TriggerShake(0.5f);
-        var rand = new System.Random();
-        var dmgIndex = rand.Next(0, repairables.Length);
-        var rp = repairables[dmgIndex];
-        rp.TakeDamage(obs.Damage);
-        audioController.PlayShipHit();
-        audioController.PlayAlarm();
-        Instantiate(explosionParticle, obs.transform.position, Quaternion.identity);
-    }
-
-    public void Repaired(Repairable r)
-    {
-        if (repairables.Any(rp => !rp.IsRepaired())) return;
-        audioController.StopAlarm();
     }
 
     public void OnSubmit()

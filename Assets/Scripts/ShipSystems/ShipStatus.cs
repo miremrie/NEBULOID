@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using NBLD.UI;
 using UnityEngine;
 
@@ -34,11 +35,14 @@ namespace NBLD.Ship
     {
         public ShipMovement shipMovement;
         public ShipFuel shipFuel;
-
-        public ShipAudioController shipAudioController;
-        [Header("External components")]
+        public Repairable[] repairables;
+        public ShipAudioController audioController;
+        [Header("Prefabs")]
+        public GameObject explosionFX;
+        [Header("External Scene components")]
         private Game game;
         public MaskedSlider fuelUI;
+        public ScreenShake screenShake;
         private bool initialized = false;
         public void Initialize(Game game)
         {
@@ -46,6 +50,10 @@ namespace NBLD.Ship
             shipFuel.FillUp();
             fuelUI.Initalize(shipFuel.min, shipFuel.max);
             initialized = true;
+            for (int i = 0; i < repairables.Length; i++)
+            {
+                repairables[i].Initialize(this);
+            }
         }
         private void Update()
         {
@@ -62,7 +70,7 @@ namespace NBLD.Ship
         private void UpdateFuel()
         {
             shipFuel.UpdateFuel(Time.deltaTime);
-            shipAudioController.SetFuelFX(shipFuel.GetPercent());
+            audioController.SetFuelFX(shipFuel.GetPercent());
             fuelUI.UpdateValue(shipFuel.Current);
             if (shipFuel.IsEmpty())
             {
@@ -72,11 +80,28 @@ namespace NBLD.Ship
 
         public void FuelCollected(FuelTank fuel)
         {
-            shipAudioController.StartFuelRefill();
+            audioController.StartFuelRefill();
             shipFuel.FillUp();
         }
+
         #endregion
-        #region Repairs
+        #region Repairs And Hits
+        public void ObstacleHit(Obstacle obs)
+        {
+            screenShake.TriggerShake(0.5f);
+            var rand = new System.Random();
+            var dmgIndex = rand.Next(0, repairables.Length);
+            var rp = repairables[dmgIndex];
+            rp.TakeDamage(obs.Damage);
+            audioController.PlayShipHit();
+            audioController.PlayAlarm();
+            Instantiate(explosionFX, obs.transform.position, Quaternion.identity);
+        }
+        public void RoomRepaired(Repairable repairable)
+        {
+            if (repairables.Any(rp => !rp.IsRepaired())) return;
+            audioController.StopAlarm();
+        }
         #endregion
 
         private void GameOver()

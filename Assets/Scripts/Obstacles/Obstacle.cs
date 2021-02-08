@@ -1,4 +1,5 @@
 ﻿using System;
+using NBLD.Ship;
 using UnityEngine;
 
 public class Obstacle : MonoBehaviour
@@ -23,7 +24,8 @@ public class Obstacle : MonoBehaviour
         }
         else if (col.tag == Tags.SHIP_BODY)
         {
-            game.ObstacleHit(this);
+            ShipStatus shipStatus = col.GetComponentInParent<ShipStatus>();
+            shipStatus.ObstacleHit(this);
             Destroy(this.gameObject);
         }
         else if (col.tag == Tags.BULLET)
