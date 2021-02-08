@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using NBLD.ShipSystems;
+using NBLD.Ship;
 
 [System.Serializable]
 public struct RoomControlWithID

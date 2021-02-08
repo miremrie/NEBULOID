@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace NBLD.ShipSystems
+namespace NBLD.Ship
 {
     public class ShipMovement : MonoBehaviour
     {

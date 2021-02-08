@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using NBLD.Character;
-using NBLD.ShipSystems;
+using NBLD.Ship;
 using UnityEngine;
 
 namespace NBLD.UseActions

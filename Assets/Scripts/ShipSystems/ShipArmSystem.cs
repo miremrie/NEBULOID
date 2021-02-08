@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using NBLD.Utils;
 using UnityEngine;
 
-namespace NBLD.ShipSystems
+namespace NBLD.Ship
 {
     public class ShipArmSystem : ShipSystem
     {

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using NBLD.Ship;
 using NBLD.Utils;
 using UnityEngine;
 
@@ -58,6 +59,11 @@ namespace NBLD.Character
                     {
                         charBehaviour.GetHit(oxygenPercentDamage);
                     }
+                }
+                else if (colliders[i].tag == Tags.SHIP_BODY)
+                {
+                    ShipMovement shipMovement = colliders[i].gameObject.GetComponentInParent<ShipMovement>();
+
                 }
                 Debug.Log(colliders[i].gameObject.name);
             }

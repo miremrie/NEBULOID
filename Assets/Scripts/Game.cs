@@ -1,4 +1,5 @@
 ﻿using NBLD.Character;
+using NBLD.Ship;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,13 +10,9 @@ using UnityEngine.UI;
 
 public class Game : MonoBehaviour
 {
-    private float currentFuel;
-    public float maxFuel;
-    public float fuelBurnRate;
+    public ShipStatus shipStatus;
     private bool gameIsOver;
-
     public GameObject gameOverScreen;
-    public Image fuelFillImage;
     public ScreenShake shake;
     private Repairable[] repairables;
     public GameObject smokePrefab;
@@ -27,11 +24,11 @@ public class Game : MonoBehaviour
     private void Awake()
     {
         uiInput = new NBLD.Input.UIInputManager();
+        shipStatus.Initialize(this);
     }
     void Start()
     {
         gameOverScreen.SetActive(false);
-        currentFuel = maxFuel;
         repairables = FindObjectsOfType<Repairable>();
     }
     private void OnEnable()
@@ -57,12 +54,6 @@ public class Game : MonoBehaviour
     }
     void Update()
     {
-        currentFuel -= fuelBurnRate * Time.deltaTime;
-
-        UpdateDeath();
-
-        UpdateUI();
-
         uiInput.Update(Time.deltaTime);
     }
 
@@ -71,30 +62,17 @@ public class Game : MonoBehaviour
         Instantiate(explosionParticle, obstacle.transform.position, Quaternion.identity);
         audioController.PlayHitClip();
     }
-
-    void UpdateDeath()
+    public void GameOver()
     {
-        audioController.SetFuelFX(GetFuelPercent());
-        if (currentFuel < 0 && !gameIsOver)
+        if (!gameIsOver)
         {
             audioController.PlayGameOver();
             gameIsOver = true;
             FindObjectsOfType<CharController>().ToList().ForEach(x => x.enabled = false);
             ShowGameOverScreen();
         }
-
     }
-
-    void UpdateUI()
-    {
-        fuelFillImage.fillAmount = currentFuel / maxFuel;
-    }
-
-    public void FuelCollected(Fuel fuel)
-    {
-        audioController.StartFuelRefill();
-        currentFuel = maxFuel;
-    }
+    public bool IsGameOver() => gameIsOver;
 
     void ShowGameOverScreen()
     {
@@ -124,16 +102,6 @@ public class Game : MonoBehaviour
     {
         if (repairables.Any(rp => !rp.IsRepaired())) return;
         audioController.StopAlarm();
-    }
-
-    public float GetCurrentFuel()
-    {
-        return currentFuel;
-    }
-
-    public float GetFuelPercent()
-    {
-        return currentFuel / maxFuel;
     }
 
     public void OnSubmit()

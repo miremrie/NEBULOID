@@ -5,7 +5,7 @@ using NBLD.Graphics.Path;
 using NBLD.Utils;
 using UnityEngine;
 
-namespace NBLD.ShipSystems
+namespace NBLD.Ship
 {
     public class ShipEjectSystem : ShipSystem, IOxygenProvider
     {

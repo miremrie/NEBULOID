@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace NBLD.ShipSystems
+namespace NBLD.Ship
 {
 
     public class ShipSystem : MonoBehaviour

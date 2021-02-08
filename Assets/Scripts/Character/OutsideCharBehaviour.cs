@@ -1,5 +1,5 @@
 ﻿using NBLD.Cameras;
-using NBLD.ShipSystems;
+using NBLD.Ship;
 using NBLD.UI;
 using NBLD.UseActions;
 using NBLD.Utils;

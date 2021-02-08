@@ -16,7 +16,7 @@ namespace NBLD.Character
     }
     public class CharController : MonoBehaviour
     {
-        public ShipSystems.ShipMovement ship;
+        public Ship.ShipMovement ship;
         public Audio.CharAudioController charAudio;
 
         [Header("Input")]
