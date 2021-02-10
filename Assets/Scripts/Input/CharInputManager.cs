@@ -9,45 +9,47 @@ using NBLD.Character;
 
 namespace NBLD.Input
 {
-    public class CharInputManager : MonoBehaviour
+    public interface ICharInputListener
+    {
+        void OnMovement(Vector2 movement);
+        void OnUp();
+        void OnDown();
+        void OnAction();
+        void OnSubAction();
+        void OnTalk();
+        void OnMoveAssistStarted();
+        void OnMoveAssistPerformed();
+    }
+    public class CharInputManager
     {
         public int index;
-        public CharController charController;
+        public List<ICharInputListener> listeners;
         private CharacterInput input;
-        private bool inputInitialized = false;
 
-        private void OnEnable()
+
+        public CharInputManager(CharacterInput input)
         {
-            if (inputInitialized)
-            {
-                Subscribe();
-            }
+            listeners = new List<ICharInputListener>();
+            this.input = input;
+            Subscribe();
+
         }
 
-        private void OnDisable()
-        {
-            if (inputInitialized)
-            {
-                Unsubscribe();
-            }
-        }
-
-        private void OnDestroy()
+        /*private void OnDestroy()
         {
             input.Dispose();
-        }
+        }*/
 
-        public void RegisterController(CharController charController)
+        public void RegisterListener(ICharInputListener listener)
         {
-            this.charController = charController;
+            if (!listeners.Contains(listener))
+            {
+                listeners.Add(listener);
+            }
         }
-
-        public void InitializeInput(UserDevice userDevice)
+        public void RemoveListener(ICharInputListener listener)
         {
-            input = userDevice.inputActions;
-            
-            Subscribe();
-            inputInitialized = true;
+            listeners.Remove(listener);
         }
 
         public void Subscribe()
@@ -72,57 +74,80 @@ namespace NBLD.Input
             input.Character.Talk.performed -= OnTalk;
             input.Character.MoveAssist.started -= OnMoveAssistStarted;
             input.Character.MoveAssist.performed -= OnMoveAssistPerformed;
-        } 
+        }
 
         private void OnMovement(InputAction.CallbackContext context)
         {
             Vector2 movement = context.ReadValue<Vector2>();
             //Debug.Log($"{index}: Move {movement}");
-
-            charController.OnMovement(movement);
+            for (int i = 0; i < listeners.Count; i++)
+            {
+                listeners[i].OnMovement(movement);
+            }
         }
 
         private void OnUp(InputAction.CallbackContext context)
         {
             //Debug.Log($"{index}: Up");
-            charController.OnUp();
+            for (int i = 0; i < listeners.Count; i++)
+            {
+                listeners[i].OnUp();
+            }
         }
 
         private void OnDown(InputAction.CallbackContext context)
         {
             //Debug.Log($"{index}: Down");
-            charController.OnDown();
+            for (int i = 0; i < listeners.Count; i++)
+            {
+                listeners[i].OnDown();
+            }
         }
 
         private void OnAction(InputAction.CallbackContext context)
         {
             //Debug.Log($"{index}: Action");
-            charController.OnAction();
+            for (int i = 0; i < listeners.Count; i++)
+            {
+                listeners[i].OnAction();
+            }
         }
 
         private void OnSubAction(InputAction.CallbackContext context)
         {
             //Debug.Log($"{index}: SubAction");
-            charController.OnSubAction();
+            for (int i = 0; i < listeners.Count; i++)
+            {
+                listeners[i].OnSubAction();
+            }
         }
 
         private void OnTalk(InputAction.CallbackContext context)
         {
             //Debug.Log($"{index}: Talk");
-            charController.OnTalk();
+            for (int i = 0; i < listeners.Count; i++)
+            {
+                listeners[i].OnTalk();
+            }
         }
 
         private void OnMoveAssistStarted(InputAction.CallbackContext context)
         {
             //Debug.Log($"{index}: MoveAssist");
-            charController.OnMoveAssistStarted();
+            for (int i = 0; i < listeners.Count; i++)
+            {
+                listeners[i].OnMoveAssistStarted();
+            }
         }
 
         private void OnMoveAssistPerformed(InputAction.CallbackContext context)
         {
             //Debug.Log($"{index}: MoveAssistPerformed");
-            charController.OnMoveAssistPerformed();
+            for (int i = 0; i < listeners.Count; i++)
+            {
+                listeners[i].OnMoveAssistPerformed();
+            }
         }
-        
+
     }
 }

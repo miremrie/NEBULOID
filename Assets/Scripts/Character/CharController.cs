@@ -14,7 +14,7 @@ namespace NBLD.Character
     {
         Inside, Outside, Dead, Transition
     }
-    public class CharController : MonoBehaviour
+    public class CharController : MonoBehaviour, ICharInputListener
     {
         public Ship.ShipMovement ship;
         public Audio.CharAudioController charAudio;
@@ -69,7 +69,7 @@ namespace NBLD.Character
 
         public void Awake()
         {
-            charInputManager.RegisterController(this);
+            charInputManager.RegisterListener(this);
             insideBehaviour.Initialize(this, rb2D, charSpriteRenderer, animator, charAudio);
             outsideBehaviour.Initialize(this, rb2D, charSpriteRenderer, animator, charAudio);
             outsideBehaviour.Deactivate();
