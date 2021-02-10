@@ -13,6 +13,7 @@ public class PathFinding : MonoBehaviour
     public float margin;
     public Transform target;
     public List<Vector2> output = new List<Vector2>();
+    public float targetDistance;
 
 
     void Update()
@@ -20,28 +21,29 @@ public class PathFinding : MonoBehaviour
         if (Keyboard.current.oKey.IsPressed())
         { 
             output = FindPath(agents[0].position, target.position);
+            output.Reverse();
         }
     }
 
-    // TODO: make a struct with vector and parent for better locality of reference
     List<Vector2> FindPath(Vector2 from, Vector2 target)
     {
-        var tree = new List<Vector2>();
-        var parents = new List<int>();
+        var tree = new List<Node>();
         var result = new List<Vector2>();
         RaycastHit2D[] hits = new RaycastHit2D[1];
 
-        tree.Add(from);
-        parents.Add(-1);
+        var first = new Node { position = from, parentIndex = -1 };
+
+        tree.Add(first);
 
         for (int i = 0; i < tree.Count && i < 100; i++)
         {
-            var currPos = tree[i];
-            var direction = ToVector2(target - currPos);
+            var node = tree[i];
+            var direction = ToVector2(target - node.position);
+            float dist = direction.magnitude;
             direction.Normalize();
-            var hit = Physics2D.RaycastNonAlloc(currPos, direction, hits, rayDistance, layerMask);
+            var hit = Physics2D.RaycastNonAlloc(node.position, direction, hits, dist, layerMask);
 
-            Debug.DrawLine(currPos, currPos + (direction * rayDistance), Color.red);
+            Debug.DrawLine(node.position, node.position + (direction * dist), Color.red);
 
             if (hit > 0)
             {
@@ -49,19 +51,34 @@ public class PathFinding : MonoBehaviour
                 var center = ToVector2(hits[0].transform.position);
                 var cross = Rotate90AntiClockwise(direction);
                 var offset = obstacleSize + margin;
-                var newPos = center + (cross * offset);
+                var newPosAntiClock = center + (cross * offset);
                 var newPosClock = center + (cross * (-offset));
 
-                CheckAndAdd(i, currPos, newPos);
-                CheckAndAdd(i, currPos, newPosClock);
+                CheckAndAdd(newPosAntiClock);
+                CheckAndAdd(newPosClock);
+
+                void CheckAndAdd(Vector2 newPos)
+                {
+                    direction = newPos - node.position;
+                    dist = direction.magnitude; 
+                    var lHit = Physics2D.RaycastNonAlloc(node.position, direction, hits, dist, layerMask);
+                    if (lHit == 0)
+                    {
+                        tree.Add(new Node { position = newPos, parentIndex = i });
+                    }
+                }
             }
             else
             {
                 // found path
-                for (int j = i; j > 0; j = parents[j])
+                var final = target - (direction * targetDistance);
+                result.Add(final);
+
+                for (int j = i; j > 0; j = tree[j].parentIndex)
                 {
-                    result.Add(tree[j]);
+                    result.Add(tree[j].position);
                 }
+
                 return result;
             }
         }
@@ -69,29 +86,37 @@ public class PathFinding : MonoBehaviour
         // reached limit
         return result;
 
-        void CheckAndAdd(int i, Vector2 currPos, Vector2 newPos)
-        {
-            var direction = newPos - currPos;
-            var lHit = Physics2D.RaycastNonAlloc(currPos, direction, hits, rayDistance, layerMask);
-            if (lHit == 0)
-            {
-                tree.Add(newPos);
-                parents.Add(i);
-            }
-        }
     }
 
-    public void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        foreach (var item in output)
-        {
-            Gizmos.DrawSphere(item, .2f);
-        }
+    struct Node {
+        public Vector2 position;
+        public int parentIndex;
     }
 
     Vector2 Rotate90AntiClockwise(Vector2 v) => new Vector2(-v.y, v.x);
     Vector2 Rotate90Clockwise(Vector2 v) => new Vector2(v.y, -v.x);
-
     Vector2 ToVector2(Vector3 v) => new Vector2(v.x, v.y);
+
+    public void OnDrawGizmos()
+    {
+        for (int i = 0; i < output.Count; ++i)
+        {
+            Gizmos.color = Color.Lerp(Color.green, Color.red, i/(float)output.Count);
+            Gizmos.DrawSphere(output[i], .2f);
+        }
+
+
+        if (output.Count > 0)
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawLine(agents[0].position, output[0]);
+        }
+        for (int i = 0; i < output.Count - 1; ++i)
+        {
+            Gizmos.color = Color.Lerp(Color.green, Color.red, i + 1/(float)output.Count);
+            Gizmos.DrawLine(output[i], output[i + 1]);
+        }
+    }
+
+
 }
