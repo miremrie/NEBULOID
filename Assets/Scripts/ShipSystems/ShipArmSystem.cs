@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using NBLD.Utils;
 using UnityEngine;
 
 namespace NBLD.ShipSystems
@@ -28,7 +29,6 @@ namespace NBLD.ShipSystems
         protected override void Update()
         {
             base.Update();
-            moveTimer.Update(Time.deltaTime);
         }
 
         public bool IsMoving()
@@ -40,7 +40,7 @@ namespace NBLD.ShipSystems
         {
             base.DoAction();
             animator.SetTrigger(animArmMoveName);
-            moveTimer.StartDelayed(moveDelayTime);
+            moveTimer.RestartDelayed(moveDelayTime);
             shipMovement.Rotate(isLeft);
         }
 

@@ -12,67 +12,6 @@ public class Colors
         return Color.HSVToRGB(hue, s, v);
     }
 }
-
-class Timer
-{
-    private float time;
-    private float currTime;
-    private float delayTime;
-    private bool playDelayed = false;
-
-    public Timer(float time)
-    {
-        this.time = time;
-        currTime = time;
-    }
-
-    public void Update(float dt)
-    {
-        if (playDelayed)
-        {
-            delayTime += dt;
-            if (delayTime > 0f)
-            {
-                Start();
-                playDelayed = false;
-            }
-        }
-
-        currTime += dt;
-    }
-
-    public bool IsRunning()
-    {
-
-        return (currTime < time);
-    }
-
-    public float GetCurrentTime()
-    {
-        return currTime;
-    }
-
-    public float GetCurrentTimePercent()
-    {
-        return currTime / time;
-    }
-
-    public float GetCurrentTimePercentClamped()
-    {
-        return Mathf.Clamp01(GetCurrentTimePercent());
-    }
-
-    public void Start()
-    {
-        currTime = 0f;
-    }
-
-    public void StartDelayed(float delay)
-    {
-        delayTime = -delay;
-        playDelayed = true;
-    }
-}
 public class MMath
 {
     public static bool LineSegmentsIntersection(Vector2 p1, Vector2 p2, Vector2 p3, Vector2 p4, out Vector2 intersection)

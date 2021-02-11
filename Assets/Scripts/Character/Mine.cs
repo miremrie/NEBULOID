@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using NBLD.Utils;
 using UnityEngine;
 
 namespace NBLD.Character
@@ -11,6 +12,8 @@ namespace NBLD.Character
 
         public Animator animator;
         private Timer timer;
+        [Header("Damage")]
+        public float oxygenPercentDamage = 0.4f;
         private bool started = false;
         private bool exploded = false;
         private const string tickAnimKey = "Tick";
@@ -24,7 +27,7 @@ namespace NBLD.Character
         {
             if (!started)
             {
-                timer.Start();
+                timer.Restart();
                 started = true;
                 animator.SetTrigger(tickAnimKey);
             }
@@ -33,8 +36,7 @@ namespace NBLD.Character
         {
             if (started && !exploded)
             {
-                timer.Update(Time.deltaTime);
-                if (!timer.IsRunning())
+                if (timer.IsTimerDone())
                 {
                     Explode();
                 }
@@ -49,6 +51,14 @@ namespace NBLD.Character
             Debug.Log("Exploded!");
             for (int i = 0; i < colliders.Length; i++)
             {
+                if (colliders[i].tag == Tags.CHARACTER)
+                {
+                    OutsideCharBehaviour charBehaviour = colliders[i].gameObject.GetComponentInParent<OutsideCharBehaviour>();
+                    if (charBehaviour != null)
+                    {
+                        charBehaviour.GetHit(oxygenPercentDamage);
+                    }
+                }
                 Debug.Log(colliders[i].gameObject.name);
             }
         }

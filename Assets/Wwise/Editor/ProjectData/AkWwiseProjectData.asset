@@ -17,14 +17,14 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 8e0095d82626bd49b52f6b491c00e6d0
     GuidInternal: 
-    m_lastTime: -8586161168572889842
+    m_lastTime: -8585889716726618110
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
     ParentPath: Default Work Unit
     guid: e7d3747a64799c47a2d6f5b9ddeab36a
     GuidInternal: 
-    m_lastTime: -8585898413744182977
+    m_lastTime: -8585889695491917878
     List:
     - name: Clean BUS
       guid: a6a33b2d6777a54ca2cd71456f48764b
@@ -45,9 +45,11 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: Master Audio Bus
         ObjectType: 2
+      - ElementName: Clean BUS
+        ObjectType: 2
       - ElementName: Enviroment
         ObjectType: 2
-      Path: Default Work Unit\Master Audio Bus\Enviroment
+      Path: Default Work Unit\Master Audio Bus\Clean BUS\Enviroment
     - name: FX BUS
       guid: 6a1d07859056434aa6c4a15f1f14b8bd
       id: 3948848313
@@ -56,11 +58,13 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: Master Audio Bus
         ObjectType: 2
+      - ElementName: Clean BUS
+        ObjectType: 2
       - ElementName: Enviroment
         ObjectType: 2
       - ElementName: FX BUS
         ObjectType: 2
-      Path: Default Work Unit\Master Audio Bus\Enviroment\FX BUS
+      Path: Default Work Unit\Master Audio Bus\Clean BUS\Enviroment\FX BUS
     - name: LowerRoom
       guid: a67ad28c95ab3c449831ff24494caacc
       id: 2608711957
@@ -69,13 +73,15 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: Master Audio Bus
         ObjectType: 2
+      - ElementName: Clean BUS
+        ObjectType: 2
       - ElementName: Enviroment
         ObjectType: 2
       - ElementName: FX BUS
         ObjectType: 2
       - ElementName: LowerRoom
         ObjectType: 1
-      Path: Default Work Unit\Master Audio Bus\Enviroment\FX BUS\LowerRoom
+      Path: Default Work Unit\Master Audio Bus\Clean BUS\Enviroment\FX BUS\LowerRoom
     - name: MainRoom
       guid: e1e42a46f98cc443bcf70d260a4d9a35
       id: 1485871687
@@ -84,13 +90,15 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: Master Audio Bus
         ObjectType: 2
+      - ElementName: Clean BUS
+        ObjectType: 2
       - ElementName: Enviroment
         ObjectType: 2
       - ElementName: FX BUS
         ObjectType: 2
       - ElementName: MainRoom
         ObjectType: 1
-      Path: Default Work Unit\Master Audio Bus\Enviroment\FX BUS\MainRoom
+      Path: Default Work Unit\Master Audio Bus\Clean BUS\Enviroment\FX BUS\MainRoom
     - name: Master Audio Bus
       guid: d8a41415a61d2a41a17e75ca0c2149f3
       id: 3803692087
@@ -100,6 +108,34 @@ MonoBehaviour:
       - ElementName: Master Audio Bus
         ObjectType: 2
       Path: Default Work Unit\Master Audio Bus
+    - name: Music_Lv1
+      guid: 6765908693d2844f9ab785286d629ef5
+      id: 2396622516
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+      - ElementName: Clean BUS
+        ObjectType: 2
+      - ElementName: Music_Lv1
+        ObjectType: 2
+      Path: Default Work Unit\Master Audio Bus\Clean BUS\Music_Lv1
+    - name: Music_Lv2
+      guid: f35c61ba52b97b4c93881a7277b4f234
+      id: 2396622519
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+      - ElementName: Clean BUS
+        ObjectType: 2
+      - ElementName: Music_Lv1
+        ObjectType: 2
+      - ElementName: Music_Lv2
+        ObjectType: 2
+      Path: Default Work Unit\Master Audio Bus\Clean BUS\Music_Lv1\Music_Lv2
     - name: UpperRoom
       guid: 92c69bdcd8e8664c9091a0169006ba98
       id: 2902541986
@@ -108,19 +144,21 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: Master Audio Bus
         ObjectType: 2
+      - ElementName: Clean BUS
+        ObjectType: 2
       - ElementName: Enviroment
         ObjectType: 2
       - ElementName: FX BUS
         ObjectType: 2
       - ElementName: UpperRoom
         ObjectType: 1
-      Path: Default Work Unit\Master Audio Bus\Enviroment\FX BUS\UpperRoom
+      Path: Default Work Unit\Master Audio Bus\Clean BUS\Enviroment\FX BUS\UpperRoom
   BankWwu:
   - PhysicalPath: SoundBanks\Default Work Unit.wwu
     ParentPath: Default Work Unit
     guid: bd999b8dad637f45917793b0e20362cb
     GuidInternal: 
-    m_lastTime: -8585898507834557452
+    m_lastTime: -8585889683142907406
     List:
     - name: Default
       guid: a5e3873e1289a74a9f54a7ab1a7ee310
@@ -136,7 +174,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 8e8fc2d5bfaacf4f92fdf483cd07cba9
     GuidInternal: 
-    m_lastTime: -8585898413760499095
+    m_lastTime: -8585889695512387943
     List:
     - name: Cable
       guid: 33b062edfdd3904a880b493db2abde14
@@ -540,6 +578,62 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Play_Player_1_Barbble
+      guid: 7bda858572678a488dd5d2d8ac5ae46a
+      id: 3492563074
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Player Voices
+        ObjectType: 4
+      - ElementName: Play_Player_1_Barbble
+        ObjectType: 3
+      Path: Default Work Unit\Player Voices\Play_Player_1_Barbble
+      maxAttenuation: 0
+      maxDuration: 1005354
+      minDuration: 401411
+    - name: Play_Player_1_Hurt
+      guid: 01ddf86d4f544546a726a657d4d606e5
+      id: 223178023
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Player Voices
+        ObjectType: 4
+      - ElementName: Play_Player_1_Hurt
+        ObjectType: 3
+      Path: Default Work Unit\Player Voices\Play_Player_1_Hurt
+      maxAttenuation: 0
+      maxDuration: 486396
+      minDuration: 451292
+    - name: Play_Player_2_Barbble
+      guid: b8a515caf4fb1e4bbf1dd973445e364d
+      id: 4260253969
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Player Voices
+        ObjectType: 4
+      - ElementName: Play_Player_2_Barbble
+        ObjectType: 3
+      Path: Default Work Unit\Player Voices\Play_Player_2_Barbble
+      maxAttenuation: 0
+      maxDuration: 722042
+      minDuration: 486343
+    - name: Play_Player_2_Hurt
+      guid: cad1007940e14b4f89d455834ef3ca8d
+      id: 1926240886
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Player Voices
+        ObjectType: 4
+      - ElementName: Play_Player_2_Hurt
+        ObjectType: 3
+      Path: Default Work Unit\Player Voices\Play_Player_2_Hurt
+      maxAttenuation: 0
+      maxDuration: 634292
+      minDuration: 303073
     - name: Play_Shield_Close_ExtrudeFanIn
       guid: cc2643378f69ce4fa9170e2e96002716
       id: 282728768
@@ -630,6 +724,20 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Notifications\Play_Sonar
       maxAttenuation: 15000000
+      maxDuration: -1
+      minDuration: -1
+    - name: Player Voices
+      guid: 3a4b78d115507648b579a81bc00535c8
+      id: 3283842255
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Player Voices
+        ObjectType: 4
+      - ElementName: Player Voices
+        ObjectType: 3
+      Path: Default Work Unit\Player Voices\Player Voices
+      maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
     - name: Shield
@@ -745,8 +853,17 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 98ae5790858eda4ab4bc84449375c967
     GuidInternal: 
-    m_lastTime: -8586141292304366877
+    m_lastTime: -8585889695512377948
     List:
+    - name: Danger
+      guid: 5173324dc8dd2d4bba36963bea359900
+      id: 4174463524
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Danger
+        ObjectType: 13
+      Path: Default Work Unit\Danger
     - name: Fuel_Amount
       guid: 60c838c716dae346aec036d08c5b6455
       id: 3548314952
@@ -779,14 +896,14 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 9f25bccb9420d449bb3ad4100845c8ff
     GuidInternal: 
-    m_lastTime: -8586161168572929816
+    m_lastTime: -8585889716726628101
     List: []
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
     ParentPath: Default Work Unit
     guid: 3fd3c2bfe0a79341a8fed3c6dcfda912
     GuidInternal: 
-    m_lastTime: -8585900311844009050
+    m_lastTime: -8585889716726628101
     List:
     - name: Floor_Type
       guid: 76c6298fefaadf40aac69ca40161b320
@@ -824,19 +941,12 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 2cd318c5e8e3b941b25eec3444187fbc
     GuidInternal: 
-    m_lastTime: -8586161168572899848
+    m_lastTime: -8585889716726618110
     List: []
   ExpandedItems:
   - /NEBULOID_WwiseProject
-  - /NEBULOID_WwiseProject/Auxiliary Busses
-  - /NEBULOID_WwiseProject/Auxiliary Busses/Default Work Unit
-  - /NEBULOID_WwiseProject/Auxiliary Busses/Default Work Unit/Master Audio Bus
-  - /NEBULOID_WwiseProject/Auxiliary Busses/Default Work Unit/Master Audio Bus/Enviroment
   - /NEBULOID_WwiseProject/Events
   - /NEBULOID_WwiseProject/Events/Default Work Unit
-  - /NEBULOID_WwiseProject/Events/Default Work Unit/Movement
-  - /NEBULOID_WwiseProject/Events/Default Work Unit/Movement/Hook
-  - /NEBULOID_WwiseProject/Events/Default Work Unit/Notifications
-  - /NEBULOID_WwiseProject/Events/Default Work Unit/UI
+  - /NEBULOID_WwiseProject/Events/Default Work Unit/Player Voices
   autoPopulateEnabled: 1
   CurrentPluginConfig: 

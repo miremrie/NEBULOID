@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using DynamicCamera;
+using UnityEngine.UI;
+using NBLD.Utils;
 
 public class CameraController : MonoBehaviour
 {
@@ -13,7 +15,7 @@ public class CameraController : MonoBehaviour
     private float dstStandardSizeMultiplier;
     private float dstSize;
     public bool revertingSize = false;
-    private Timer animTimer;
+    //private Timer animTimer;
     private Action callback;
     public List<CamSet> sets = new List<CamSet>();
     private CamSet activeSet;
@@ -22,7 +24,6 @@ public class CameraController : MonoBehaviour
     //Events
     public delegate void CameraEvent();
     public event CameraEvent onCameraMoved;
-
 
     private void Awake()
     {
@@ -42,7 +43,7 @@ public class CameraController : MonoBehaviour
     }
 
     public void ActivateCamSet(CamSet set) => activeSet = set;
-    public void ActivateCamSet(string setName) => activeSet = FindSet(setName); 
+    public void ActivateCamSet(string setName) => activeSet = FindSet(setName);
 
     public CamSet FindSet(string name)
     {

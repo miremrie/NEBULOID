@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using NBLD.Utils;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -45,12 +46,15 @@ public class ShipAudioController : MonoBehaviour
     //Gameover
     private const string gameOverEv = "Play_Game_Over";
     public GameObject gameOverPlayer;
+    //Danger
+    private const string dangerRTPC = "Danger";
 
     public float fuelRefillTime;
     private Timer fuelRefillTimer;
     private bool refillingFuel = false;
     private bool alarmPlaying = false;
     private float minSpeedPitchValue = 0, maxSpeedPitchValue = 50;
+
 
     private void Awake()
     {
@@ -75,7 +79,7 @@ public class ShipAudioController : MonoBehaviour
     {
         AkSoundEngine.PostEvent(fuelRefillEv, fuelRefillPlayer);
         refillingFuel = true;
-        fuelRefillTimer.Start();
+        fuelRefillTimer.Restart();
     }
 
 
@@ -83,7 +87,6 @@ public class ShipAudioController : MonoBehaviour
     {
         if (refillingFuel)
         {
-            fuelRefillTimer.Update(Time.deltaTime);
             if (fuelRefillTimer.GetCurrentTimePercent() >= 1)
             {
                 StopFuelRefill();
@@ -100,6 +103,7 @@ public class ShipAudioController : MonoBehaviour
     public void SetFuelFX(float fuelPercent)
     {
         AkSoundEngine.SetRTPCValue(fuelAmountRTPC, (1 - fuelPercent) * 100);
+        UpdateDanger(fuelPercent);
     }
 
     public void ActivateSonar(float time, GameObject sonarEmitter)
@@ -214,5 +218,10 @@ public class ShipAudioController : MonoBehaviour
     public void PlayShieldCloseIntrude()
     {
         AkSoundEngine.PostEvent(shieldCloseIntrudeEv, shieldCloseIntrudePlayer);
+    }
+    //Danger
+    private void UpdateDanger(float fuelPercent)
+    {
+        AkSoundEngine.SetRTPCValue(dangerRTPC, (1 - fuelPercent) * 100);
     }
 }

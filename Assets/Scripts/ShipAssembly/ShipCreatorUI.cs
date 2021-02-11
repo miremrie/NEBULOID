@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using NBLD.Utils;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -53,7 +54,7 @@ namespace NBLD.ShipCreation
         private void Awake()
         {
             shipCreator.onCreationStageChanged += ChangeStage;
-            heldVerticalTimer = new Timer(heldVerticalChangeSelectionTime);
+            heldVerticalTimer = new Timer(heldVerticalChangeSelectionTime, true);
             shipNameInputField.Select();
             uiInput = new NBLD.Input.UIInputManager();
         }
@@ -111,39 +112,39 @@ namespace NBLD.ShipCreation
                 case (CreationStage.CreateName):
                     break;
                 case (CreationStage.SelectRoom):
-                {
-                    if (previousStage == CreationStage.PlaceSystem)
                     {
-                        RotatePlaceSystem(shipCreator.GetCurrentEditRotation());
+                        if (previousStage == CreationStage.PlaceSystem)
+                        {
+                            RotatePlaceSystem(shipCreator.GetCurrentEditRotation());
+                        }
+                        shipNameInputField.transform.parent.gameObject.SetActive(false);
+                        ResetRoomSelection();
+                        ReengageRoomSelection();
+                        break;
                     }
-                    shipNameInputField.transform.parent.gameObject.SetActive(false);
-                    ResetRoomSelection();
-                    ReengageRoomSelection();
-                    break;
-                }
                 case (CreationStage.SelectSystem):
-                {
-                    RoomName currentRoom = shipCreator.GetCurrentEditRoom();
-                    RegisterNewRoomDisplayText(currentRoom);
-                    if (roomToAttachedSystem.ContainsKey(currentRoom))
                     {
-                        Destroy(roomToAttachedSystem[currentRoom]);
-                        roomToAttachedSystem.Remove(currentRoom);
+                        RoomName currentRoom = shipCreator.GetCurrentEditRoom();
+                        RegisterNewRoomDisplayText(currentRoom);
+                        if (roomToAttachedSystem.ContainsKey(currentRoom))
+                        {
+                            Destroy(roomToAttachedSystem[currentRoom]);
+                            roomToAttachedSystem.Remove(currentRoom);
+                        }
+                        ChangeRoomText(curEditIndexDisplayTable, shipCreator.GetCurrentEditRoom().ToString(), false);
+                        ReengageSystemSelection();
+                        break;
                     }
-                    ChangeRoomText(curEditIndexDisplayTable, shipCreator.GetCurrentEditRoom().ToString(), false);
-                    ReengageSystemSelection();
-                    break;
-                }
                 case (CreationStage.PlaceSystem):
-                {
-                    shipCreator.HideAllSystems();
-                    RoomName currentRoom = shipCreator.GetCurrentEditRoom();
-                    SystemName currentSystem = shipCreator.GetCurrentEditSystem();
-                    currentPlacementSystem = shipCreator.CreateSampleSystem(currentSystem);
-                    roomToAttachedSystem.Add(currentRoom, currentPlacementSystem);
-                    ChangeSystemText(curEditIndexDisplayTable, currentSystem, false);
-                    break;
-                }
+                    {
+                        shipCreator.HideAllSystems();
+                        RoomName currentRoom = shipCreator.GetCurrentEditRoom();
+                        SystemName currentSystem = shipCreator.GetCurrentEditSystem();
+                        currentPlacementSystem = shipCreator.CreateSampleSystem(currentSystem);
+                        roomToAttachedSystem.Add(currentRoom, currentPlacementSystem);
+                        ChangeSystemText(curEditIndexDisplayTable, currentSystem, false);
+                        break;
+                    }
 
                 case (CreationStage.Finished):
                     if (previousStage == CreationStage.PlaceSystem)
@@ -192,12 +193,15 @@ namespace NBLD.ShipCreation
         }
         private void OnNavigationHeldInt(int value, float time)
         {
-            if (!heldVerticalTimer.IsRunning())
+            /*if (!heldVerticalTimer.IsRunning())
+            {
+                heldVerticalTimer.Restart();
+            }*/
+            if (heldVerticalTimer.IsTimerDone())
             {
                 IntNavigationChange(value);
-                heldVerticalTimer.Start();
+                heldVerticalTimer.Restart();
             }
-            heldVerticalTimer.Update(Time.deltaTime);
         }
         private void OnNavigationChangedInt(Vector2Int navigation)
         {
@@ -260,7 +264,8 @@ namespace NBLD.ShipCreation
                     eulerAngles += Vector3.forward * deltaAngle;
 
                 }
-            } else
+            }
+            else
             {
                 float rotSpeed = placementRotSpeed * changeDirection.y;
                 eulerAngles += Vector3.forward * rotSpeed * Time.deltaTime;

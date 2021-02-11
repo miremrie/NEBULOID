@@ -1,6 +1,8 @@
-﻿using NBLD.ShipSystems;
+﻿using NBLD.Cameras;
+using NBLD.ShipSystems;
 using NBLD.UI;
 using NBLD.UseActions;
+using NBLD.Utils;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +11,8 @@ namespace NBLD.Character
 {
     public class OutsideCharBehaviour : CharBehaviour
     {
+        [Header("Components")]
+        //public ContextualCamera exteriorContextCamera;
         public Transform hoseAttachSpot;
         [Header("Rotation")]
         public Transform rotationCenter;
@@ -41,7 +45,7 @@ namespace NBLD.Character
         protected override void Start()
         {
             base.Start();
-            moveTimer = new Timer(moveSpeed.keys[moveSpeed.length - 1].time);
+            moveTimer = new Timer(moveSpeed.keys[moveSpeed.length - 1].time, false, true);
             //moveTimer.Start();
             oxygen.SetProvider(shipEjectSystem);
             moveIntensityUI.Initalize(0, standardMoveSpeed);
@@ -62,44 +66,31 @@ namespace NBLD.Character
         public override void Activate()
         {
             base.Activate();
-            oxygen.current = oxygen.max;
+            oxygen.ResetToMax();
             oxygenSlider.gameObject.SetActive(true);
+            /*exteriorContextCamera.transformToFollow = transform;
+            exteriorContextCamera.Activate();*/
         }
         public override void Deactivate()
         {
             base.Deactivate();
             oxygenSlider.gameObject.SetActive(false);
             boostVFX.SetActive(false);
+            //exteriorContextCamera.Deactivate();
         }
         private void Update()
         {
             UpdateRotation();
-            UpdateMoveTimer();
             UpdateOxygen();
-            UpdateMineTimer();
         }
         private void FixedUpdate()
         {
             UpdateMovement();
         }
         //Movement
-        private void UpdateMoveTimer()
-        {
-            /*if (!moveTimer.IsRunning())
-            {
-                moveTimer.Start();
-            }
-            moveIntensityUI.UpdateValue(GetCurrentSpeed());
-            moveTimer.Update(Time.deltaTime);*/
-        }
-        private void UpdateMineTimer()
-        {
-            mineCooldownTimer.Update(Time.deltaTime);
-        }
         private Vector2 GetBoostMovement()
         {
             float speed = standardMoveSpeed + moveSpeed.Evaluate(moveTimer.GetCurrentTime()) * boostMoveSpeed;
-            moveTimer.Update(Time.deltaTime);
             Vector2 force = boostDirection * speed;
             return force;
         }
@@ -208,7 +199,7 @@ namespace NBLD.Character
                     Mine mine = GameObject.Instantiate(minePrefab, transform.position, Quaternion.identity);
                     mine.transform.parent = minesRoot;
                     mine.Activate();
-                    mineCooldownTimer.Start();
+                    mineCooldownTimer.Restart();
                 }
             }
         }
@@ -218,7 +209,7 @@ namespace NBLD.Character
             base.OnMoveAssistPerformed();
             if (!moveTimer.IsRunning())
             {
-                moveTimer.Start();
+                moveTimer.Restart();
             }
             //LaunchMovement();
         }
@@ -230,11 +221,17 @@ namespace NBLD.Character
         public void UpdateOxygen()
         {
             oxygen.UpdateOxygen(Time.deltaTime);
-            oxygenSlider.UpdateValue(oxygen.current);
+            oxygenSlider.UpdateValue(oxygen.Current);
             if (!oxygen.HasOxygen())
             {
                 Die();
             }
+        }
+        public void GetHit(float oxygenPercentDamage)
+        {
+            oxygen.ReduceByTotalPercent(oxygenPercentDamage);
+            oxygenSlider.UpdateValue(oxygen.Current);
+            charAudio.PlayHurt();
         }
         public void Die()
         {

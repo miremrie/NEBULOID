@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using NBLD.Utils;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -36,8 +37,7 @@ namespace NBLD.MainMenu
                 saveData = SaveSystem.LoadData();
             }
             FillShipEntries();
-            heldVerticalTimer = new Timer(heldVerticalChangeSelectionTime);
-            heldVerticalTimer.Start();
+            heldVerticalTimer = new Timer(heldVerticalChangeSelectionTime, true);
         }
         private void OnEnable()
         {
@@ -138,12 +138,11 @@ namespace NBLD.MainMenu
         }
         private void OnNavigationHeld(int value, float time)
         {
-            if (!heldVerticalTimer.IsRunning())
+            if (heldVerticalTimer.IsTimerDone())
             {
                 ChangeSelection(-value);
-                heldVerticalTimer.Start();
+                heldVerticalTimer.Restart();
             }
-            heldVerticalTimer.Update(Time.deltaTime);
         }
 
         //Visual UI

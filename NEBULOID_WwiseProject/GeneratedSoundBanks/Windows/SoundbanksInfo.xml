@@ -360,11 +360,11 @@
 					<IncludedMemoryFiles>
 						<File Id="29698790" Language="SFX">
 							<ShortName>JetpackTsst.wav</ShortName>
-							<Path>SFX\JetpackTsst_64D701E5.wem</Path>
+							<Path>SFX\JetpackTsst_0383D5DC.wem</Path>
 						</File>
 						<File Id="160886571" Language="SFX">
 							<ShortName>JetpackTsst.wav</ShortName>
-							<Path>SFX\JetpackTsst_DF70E17D.wem</Path>
+							<Path>SFX\JetpackTsst_4264639E.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -372,7 +372,7 @@
 					<IncludedMemoryFiles>
 						<File Id="198633129" Language="SFX">
 							<ShortName>JetpackTsst.wav</ShortName>
-							<Path>SFX\JetpackTsst_037E592C.wem</Path>
+							<Path>SFX\JetpackTsst_CAF87F81.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>

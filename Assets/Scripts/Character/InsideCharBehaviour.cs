@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using NBLD.UseActions;
+using NBLD.Utils;
 using UnityEngine;
 
 namespace NBLD.Character
@@ -22,23 +23,31 @@ namespace NBLD.Character
         private bool transportAscending;
 
         private bool lockedByTransport;
+        [Header("Idle Behaviour")]
+        public float idleBehaviourTriggerTime = 20f;
+        private Timer idleBehaviourTimer;
+
 
         //Animation
         private const string moveAnimName = "Move";
         private const string moveVerAnimName = "MoveVer";
 
-        protected override void Start()
+        protected void Awake()
         {
-            base.Start();
-            transportTimer = new Timer(transportAudioFrequency);
+            transportTimer = new Timer(transportAudioFrequency, true);
+            idleBehaviourTimer = new Timer(idleBehaviourTriggerTime);
         }
-        protected override void OnDisable()
+        public override void Activate()
         {
-            base.OnDisable();
+            base.Activate();
+            idleBehaviourTimer.Restart();
+        }
+        public override void Deactivate()
+        {
+            base.Deactivate();
             ResetMovement();
             ResetAnimations();
         }
-
         private void Update()
         {
             if (!lockedByTransport)
@@ -46,6 +55,7 @@ namespace NBLD.Character
                 UpdateMovement(GetCurrentMoveDirection());
             }
             UpdateTransport();
+            UpdateIdleBehaviour();
 
         }
         //Reset
@@ -105,17 +115,16 @@ namespace NBLD.Character
                     {
                         transform.position = new Vector2(transportDestination.position.x, transform.position.y);
                         transportInCorrectX = true;
-                    } else
+                    }
+                    else
                     {
                         UpdateMovement((int)Mathf.Sign(xDistance));
                     }
                     return;
-                } else
+                }
+                else
                 {
-                    if (transportTimer.IsRunning())
-                    {
-                        transportTimer.Update(Time.deltaTime);
-                    } else
+                    if (transportTimer.IsTimerDone())
                     {
                         if (transportAscending)
                         {
@@ -123,9 +132,9 @@ namespace NBLD.Character
                         }
                         else
                         {
-                            charAudio.PlayerLadderDsc();
+                            charAudio.PlayLadderDsc();
                         }
-                        transportTimer.Start();
+                        transportTimer.Restart();
                     }
                     if (Vector3.Distance(transportDestination.position, transform.localPosition) <= transportMinOffset)
                     {
@@ -158,24 +167,40 @@ namespace NBLD.Character
         public override void OnMovement(Vector2 movement)
         {
             currentMovement = movement;
+            ResetIdleBehaviour();
         }
         public override void OnAction()
         {
             base.OnAction();
             TryExecuteAction(UseActionButton.Action);
+            ResetIdleBehaviour();
         }
         public override void OnUp()
         {
             base.OnUp();
             TryExecuteAction(UseActionButton.Up);
+            ResetIdleBehaviour();
         }
         public override void OnDown()
         {
             base.OnDown();
             Debug.Log("Down Action");
             TryExecuteAction(UseActionButton.Down);
+            ResetIdleBehaviour();
         }
-
+        //Idle Behaviour
+        private void UpdateIdleBehaviour()
+        {
+            if (idleBehaviourTimer.IsTimerDone())
+            {
+                idleBehaviourTimer.Restart();
+                charAudio.PlayIdleBehaviour();
+            }
+        }
+        private void ResetIdleBehaviour()
+        {
+            idleBehaviourTimer.Restart();
+        }
         //Audio
         public void AudioPlayFootstep()
         {

@@ -1,4 +1,6 @@
 ﻿using DynamicCamera;
+using NBLD.Cameras;
+using NBLD.Utils;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,7 +14,7 @@ namespace NBLD.ShipSystems
         public float fireMaxSpeed, retractSpeed;
         public float accelerationTime;
         public ShipAudioController audioController;
-        private Timer fireTimer;
+        private Timer fireSpeedTimer;
         public AnimationCurve acceleration;
         public float shipPullSpeed;
         public float maxDistance;
@@ -31,8 +33,10 @@ namespace NBLD.ShipSystems
         public GameObject hookLight;
         [Header("Camera")]
         public CameraController camController;
+        //public ContextualCamera contextualCamera;
         private CamSet camSet;
         public CamZone camZone;
+
         private const string cameraSetName = "gameplay";
 
         private const string hookOpenAnim = "HookOpen";
@@ -49,10 +53,11 @@ namespace NBLD.ShipSystems
             if (!initialized)
             {
                 base.Initialize();
-                fireTimer = new Timer(accelerationTime);
+                fireSpeedTimer = new Timer(accelerationTime);
                 camSet = camController.FindSet(cameraSetName);
                 OffsetColliderBasedOnCollision();
                 previousHookRotation = rightHookPivot.eulerAngles.z;
+                //contextualCamera.Deactivate();
             }
         }
 
@@ -64,7 +69,6 @@ namespace NBLD.ShipSystems
 
         private void Move()
         {
-            fireTimer.Update(Time.deltaTime);
             if (wasShot && shotPrepFinished)
             {
                 float currentSpeed;
@@ -114,7 +118,7 @@ namespace NBLD.ShipSystems
 
         private float GetFireSpeed()
         {
-            return acceleration.Evaluate(fireTimer.GetCurrentTimePercentClamped()) * fireMaxSpeed;
+            return acceleration.Evaluate(fireSpeedTimer.GetCurrentTimePercentClamped()) * fireMaxSpeed;
         }
 
         private void AdjustRotation()
@@ -144,6 +148,7 @@ namespace NBLD.ShipSystems
             ship.UnlockMovement();
             grabbedObject = null;
             camSet.camZones.Remove(camZone);
+            //contextualCamera.Deactivate();
             hookLight.SetActive(false);
         }
         private void FinishShotPrep()
@@ -169,11 +174,13 @@ namespace NBLD.ShipSystems
                 hookRotWhenFired = transform.rotation;
                 wasShot = true;
                 ship.LockHook();
-                fireTimer.Start();
+                fireSpeedTimer.Restart();
                 hookAnimator.ResetTrigger(hookCloseAnim);
                 hookAnimator.ResetTrigger(hookGrabAnim);
                 hookAnimator.SetTrigger(hookOpenAnim);
                 camSet.camZones.Add(camZone);
+                //contextualCamera.transformToFollow = rightHookPivot;
+                //contextualCamera.Activate();
                 hookLight.SetActive(true);
             }
         }

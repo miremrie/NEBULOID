@@ -1,4 +1,5 @@
 ﻿using DynamicCamera;
+using NBLD.Utils;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -50,24 +51,21 @@ namespace NBLD.ShipSystems
             //SonarCircleLight.enabled = repairable.IsRepaired();
             if (sonarStarted)
             {
-                if (!sonarMoveTimer.IsRunning())
+                if (sonarMoveTimer.IsTimerDone())
                 {
                     sonarStarted = false;
                     SonarMovingLightPivot.gameObject.SetActive(false);
-                    revertTimer.Start();
+                    revertTimer.Restart();
                     revertStarted = true;
                     audioController.StopSonar(audioEmitter);
                 }
-
-                sonarMoveTimer.Update(Time.deltaTime);
                 SonarMovingLightPivot.transform.Rotate(0, 0, 2 * 360 * Time.deltaTime / sonarMoveTime);
                 AnimateCamZoneRadius();
             }
             if (revertStarted)
             {
-                revertTimer.Update(Time.deltaTime);
                 AnimateCamZoneRadius();
-                if (!revertTimer.IsRunning())
+                if (revertTimer.IsTimerDone())
                 {
                     ResetCamZone();
                     revertStarted = false;
@@ -86,7 +84,8 @@ namespace NBLD.ShipSystems
             {
                 float timePercent = revertTimer.GetCurrentTimePercentClamped();
                 sonarCamZone.radius = Mathf.Lerp(sonarCamStartRadius, zoomRadius, revertRadiusCurve.Evaluate(timePercent));
-            } else 
+            }
+            else
             {
                 float time = sonarMoveTimer.GetCurrentTime();
                 if (time <= camZoomTime)
@@ -100,7 +99,7 @@ namespace NBLD.ShipSystems
             base.DoAction();
             SonarMovingLightPivot.gameObject.SetActive(true);
             sonarStarted = true;
-            sonarMoveTimer.Start();
+            sonarMoveTimer.Restart();
             camSet.camZones.Add(sonarCamZone);
             //camController.ChangeSizeOverTime(newCamSize, camZoomTime);
             audioController.ActivateSonar(camZoomTime, audioEmitter);

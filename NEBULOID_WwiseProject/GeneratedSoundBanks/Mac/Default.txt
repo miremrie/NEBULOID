@@ -54,7 +54,7 @@ Effect plug-ins	ID	Name	Type				Notes
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	20945893	FootMain-2	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\FootstepsMain\FootMain-2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsMain\FootMain-2		52632
 	24182909	LadderDsc-7	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\FootstepsLadderDsc\LadderDsc-7_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderDsc\LadderDsc-7		59848
-	29698790	JetpackTsst_Loop	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\JetpackTsst_64D701E5.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Jetpack\Jetpack_Press\JetpackTsst_Loop		1978256
+	29698790	JetpackTsst_Loop	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\JetpackTsst_0383D5DC.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Jetpack\Jetpack_Press\JetpackTsst_Loop		1978256
 	53106075	4 - ClawBite	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\4 - ClawBite_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawBite\4 - ClawBite		238204
 	70480507	Strings	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Strings_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Gameplay\FM_Theme\Strings		18452544
 	78273926	FootMain-1	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\FootstepsMain\FootMain-1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsMain\FootMain-1		53136
@@ -66,14 +66,14 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	126468548	LadderAsc-8	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Footsteps LadderAsc\LadderAsc-8_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderAsc\LadderAsc-8		62728
 	133806398	FootMain-6	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\FootstepsMain\FootMain-6_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsMain\FootMain-6		50852
 	134160763	1 - ClawBite	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\1 - ClawBite_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawBite\1 - ClawBite		275248
-	160886571	JetpackTsst_Start	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\JetpackTsst_DF70E17D.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Jetpack\Jetpack_Press\JetpackTsst_Start		40020
+	160886571	JetpackTsst_Start	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\JetpackTsst_4264639E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Jetpack\Jetpack_Press\JetpackTsst_Start		40020
 	165794786	ShipHitLong	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Hits\ObstacleHitLong_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Hits\ShipHit\ShipHitLong		268682
 	172645744	FmTheme	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\NebuloidGameplay - 0001 - FM Player 2_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Gameplay\FM_Theme\FmTheme		12153664
 	174540903	LadderAsc-1	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Footsteps LadderAsc\LadderAsc-1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderAsc\LadderAsc-1		60104
 	180782484	Shield_Close_Intrude	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Shield_Close_Intrude_459C0AB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Shield\Shield_Close_Intrude		56236
 	183631485	4 - ClawBitePrep	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\4 - ClawBitePrep_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawBitePrep\4 - ClawBitePrep		340520
 	197222373	LadderDsc-91	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\FootstepsLadderDsc\LadderDsc-91_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderDsc\LadderDsc-91		39356
-	198633129	JetpackTsst_End	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\JetpackTsst_037E592C.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Jetpack\JetpackTsst_End		92416
+	198633129	JetpackTsst_End	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\JetpackTsst_CAF87F81.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Jetpack\JetpackTsst_End		92416
 	231082383	FuelRefillLoop	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Notifications\FuelRefillLoop_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Notifications\FuelRefillLoop		357018
 	241956040	FootMain-9	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\FootstepsMain\FootMain-9_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsMain\FootMain-9		54800
 	279627525	ArmR	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Mac\SFX\Movement\ArmR_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\ArmR\ArmR		184612
