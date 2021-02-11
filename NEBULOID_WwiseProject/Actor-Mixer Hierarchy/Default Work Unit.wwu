@@ -6,6 +6,15 @@
 				<Folder Name="Movement" ID="{8AB93460-A926-4F44-A68F-3771133794E7}" ShortID="19960315">
 					<ChildrenList>
 						<RandomSequenceContainer Name="ArmL" ID="{9958780E-B16C-4B31-8055-2F465CBAF9EC}" ShortID="277152486">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{AE1A7743-21F2-48EC-84A7-2FFADB93B98E}"/>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
@@ -48,6 +57,15 @@
 							</PositioningInfo>
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="ArmR" ID="{30C626EC-8860-48CA-A4D0-0958C711CDF7}" ShortID="215083739">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{FB729C2A-ABFA-4583-A39F-82908E021E1D}"/>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
@@ -1041,6 +1059,195 @@
 								</Sound>
 							</ChildrenList>
 						</Folder>
+						<Folder Name="Jetpack" ID="{B47FCBAA-F611-439C-9CB3-B075D3860711}" ShortID="1056451654">
+							<ChildrenList>
+								<Sound Name="JetpackTsst_End" ID="{9751833B-7891-44D7-8120-E2B65E548DB5}" ShortID="253256384">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{E69144D2-B294-46D7-8283-213B2F1EBB68}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="400"/>
+															<Property Name="Min" Type="Real64" Value="-200"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>3</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+										</Reference>
+										<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+											<ObjectRef Name="High_Pass_60Hz" ID="{F9627628-0B10-4272-BC30-D4C20423CB38}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="JetpackTsst" ID="{318C171B-0A8B-4758-8C63-E208F66F83D4}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.0342295370731414"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.29678022708574"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="12.932594785097"/>
+												<Property Name="TrimEnd" Type="Real64" Value="13.4561266314927"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>JetpackTsst.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="198633129"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="JetpackTsst" ID="{318C171B-0A8B-4758-8C63-E208F66F83D4}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<RandomSequenceContainer Name="Jetpack_Press" ID="{B1CDBD3D-3E49-47CF-A9B8-036B8B2A339C}" ShortID="889842728">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{2FD9103E-7AD0-4CAC-A420-F642DA956C21}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="400"/>
+															<Property Name="Min" Type="Real64" Value="-200"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+										<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="0.5"/>
+										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+										<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>3</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+										</Reference>
+										<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+											<ObjectRef Name="High_Pass_60Hz" ID="{F9627628-0B10-4272-BC30-D4C20423CB38}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="FX BUS" ID="{85071D6A-5690-4A43-A6C4-A15F1F14B8BD}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="JetpackTsst_Loop" ID="{0CD0EA2E-3595-445E-9DCC-230B7296CED9}" ShortID="349147976">
+											<PropertyList>
+												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{28E6A228-7133-4213-B927-A192C25358B3}">
+																<PropertyList>
+																	<Property Name="Max" Type="Real64" Value="152"/>
+																	<Property Name="Min" Type="Real64" Value="-101"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-7</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="JetpackTsst" ID="{B2D64D19-7319-4E42-86F6-3F481B37D267}">
+													<PropertyList>
+														<Property Name="CrossfadeDuration" Type="Real64" Value="149.874"/>
+														<Property Name="LoopBegin" Type="Real64" Value="1.03360458732816"/>
+														<Property Name="LoopEnd" Type="Real64" Value="12.0951105181494"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.957969055696157"/>
+														<Property Name="TrimEnd" Type="Real64" Value="12.1718421194335"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>JetpackTsst.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="29698790"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="JetpackTsst" ID="{B2D64D19-7319-4E42-86F6-3F481B37D267}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="JetpackTsst_Start" ID="{D575EBEF-CAC3-4729-871B-A1FF2725ABA7}" ShortID="734501003">
+											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{977532B1-0382-4AEC-B2C8-BED4B8152C83}"/>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>3</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="JetpackTsst" ID="{FB544F53-9A34-4F48-B6B5-75629E2B8DE8}">
+													<PropertyList>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.226498271933974"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>JetpackTsst.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="160886571"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="JetpackTsst" ID="{FB544F53-9A34-4F48-B6B5-75629E2B8DE8}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+									<Playlist>
+										<ItemRef Name="JetpackTsst_Start" ID="{D575EBEF-CAC3-4729-871B-A1FF2725ABA7}"/>
+										<ItemRef Name="JetpackTsst_Loop" ID="{0CD0EA2E-3595-445E-9DCC-230B7296CED9}"/>
+									</Playlist>
+								</RandomSequenceContainer>
+							</ChildrenList>
+						</Folder>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Notifications" ID="{A8A2B02A-9473-4E53-A79E-66DDA1561A98}" ShortID="670949365">
@@ -1762,6 +1969,8 @@
 				</Folder>
 				<ActorMixer Name="Player_02" ID="{93E31E52-0F4E-4292-94E6-EE228C0CF583}" ShortID="704820185">
 					<PropertyList>
+						<Property Name="3DSpatialization" Type="int16" Value="1"/>
+						<Property Name="SpeakerPanning3DSpatializationMix" Type="int32" Value="0"/>
 						<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
 						<Property Name="UserAuxSendVolume0" Type="Real64">
 							<ValueList>
@@ -2859,6 +3068,8 @@
 				</ActorMixer>
 				<ActorMixer Name="Player_01" ID="{5334778C-7FDE-4651-8C96-6E98477AAD30}" ShortID="817257788">
 					<PropertyList>
+						<Property Name="3DSpatialization" Type="int16" Value="1"/>
+						<Property Name="SpeakerPanning3DSpatializationMix" Type="int32" Value="0"/>
 						<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
 						<Property Name="UserAuxSendVolume0" Type="Real64">
 							<ValueList>

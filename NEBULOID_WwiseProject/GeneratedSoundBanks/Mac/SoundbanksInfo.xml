@@ -356,6 +356,26 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="1069277812" Name="Play_Jetpack_Press" ObjectPath="\Events\Default Work Unit\Movement\Play_Jetpack_Press" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="29698790" Language="SFX">
+							<ShortName>JetpackTsst.wav</ShortName>
+							<Path>SFX\JetpackTsst_64D701E5.wem</Path>
+						</File>
+						<File Id="160886571" Language="SFX">
+							<ShortName>JetpackTsst.wav</ShortName>
+							<Path>SFX\JetpackTsst_DF70E17D.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3410260274" Name="Play_Jetpack_Release" ObjectPath="\Events\Default Work Unit\Movement\Play_Jetpack_Release" DurationType="OneShot" DurationMin="0.415527" DurationMax="0.587645">
+					<IncludedMemoryFiles>
+						<File Id="198633129" Language="SFX">
+							<ShortName>JetpackTsst.wav</ShortName>
+							<Path>SFX\JetpackTsst_037E592C.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="2228153899" Name="Play_Menu_Music" ObjectPath="\Events\Default Work Unit\Play_Menu_Music" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="621301210" Language="SFX">

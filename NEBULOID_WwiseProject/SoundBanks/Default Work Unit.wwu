@@ -19,6 +19,7 @@
 						<ObjectRef Name="Play_Hook_Cable_Back" ID="{B6C3F690-8673-4731-A318-37AE779CBC5F}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Stop_Hook_Cable" ID="{3182E49D-C5CF-4751-9440-2B122732D2D2}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Arm_R" ID="{4878EDEB-E0EF-4760-AEA8-29E21F7EBF3F}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Jetpack_Press" ID="{AD3F37DF-A3B9-47CB-8B8D-C719B651188C}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Hook_ClawBitePrep" ID="{0F88CE63-CCE4-483E-8AC4-C3610D8117EF}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Stop_Hook_Cable_Back" ID="{C8BFFDD3-1D01-4946-A4EB-DBECC2841140}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Hook_ClawBite" ID="{B8B2F65F-9A3A-49D5-B190-78ECEDFB2FA5}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
@@ -32,6 +33,7 @@
 						<ObjectRef Name="Stop_Sonar" ID="{15AFA576-5F73-4D41-826E-9A0AAB18D67F}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Stop_Fuel_Refill" ID="{5848353B-700F-4D68-A94A-27FEC339B046}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Menu_Music" ID="{53A01F8B-F177-4E30-8D09-D44FD595CBA8}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Jetpack_Release" ID="{AFEF08B7-7BC2-4E54-90D3-D0779D0CC9F9}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Shield_Close_Intrude" ID="{B94C1A97-239C-4F21-A6DE-D9638673F60C}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Game_Over" ID="{CEE70ED2-6EDB-4F3A-BF30-96186EABC0E5}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Shield_Close_ExtrudeFanIn" ID="{374326CC-698F-4FCE-A917-0E2E96002716}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>

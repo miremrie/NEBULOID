@@ -31,6 +31,8 @@ namespace AK
         static const AkUniqueID PLAY_HOOK_CLAWBITEPREP = 3700767316U;
         static const AkUniqueID PLAY_HOOK_CLAWLOCK = 3637158234U;
         static const AkUniqueID PLAY_HOOK_CLAWOPEN = 1303580447U;
+        static const AkUniqueID PLAY_JETPACK_PRESS = 1069277812U;
+        static const AkUniqueID PLAY_JETPACK_RELEASE = 3410260274U;
         static const AkUniqueID PLAY_MENU_MUSIC = 2228153899U;
         static const AkUniqueID PLAY_SHIELD_CLOSE_EXTRUDEFANIN = 282728768U;
         static const AkUniqueID PLAY_SHIELD_CLOSE_INTRUDE = 1045178680U;
