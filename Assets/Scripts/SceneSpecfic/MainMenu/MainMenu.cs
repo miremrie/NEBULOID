@@ -76,13 +76,13 @@ namespace NBLD.MainMenu
         //Events
         private void OnSubmit()
         {
-            if (!inShipSelectionMode)
+            /*if (!inShipSelectionMode)
             {
                 LoadArcadeLevel();
             } else
             {
                 LoadGarage();
-            }
+            }*/
         }
         private void OnChangeSelect()
         {

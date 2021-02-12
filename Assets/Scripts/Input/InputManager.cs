@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using GeneratedInputActions;
 using UnityEngine;
@@ -14,19 +14,22 @@ namespace NBLD.Input
     }
     public class UserDevice
     {
+        public readonly int deviceIndex;
         public InputUser user;
         public InputDevice device;
         private string schemeName;
-        public CharacterInput inputActions;
+        public CharacterInput gameplayInput;
+        public UIInput uiInput;
 
-        public UserDevice(InputDevice device, string schemeName)
+        public UserDevice(int deviceIndex, InputDevice device, string schemeName)
         {
+            this.deviceIndex = deviceIndex;
             this.user = InputUser.CreateUserWithoutPairedDevices();
-            CharacterInput input = new CharacterInput();
-            this.inputActions = input;
-            user.AssociateActionsWithUser(inputActions);
+            this.gameplayInput = new CharacterInput();
+            //user.AssociateActionsWithUser(gameplayInput);
+            this.uiInput = new UIInput();
+            //user.AssociateActionsWithUser(uiInput);
             SetDevice(device, schemeName);
-            //ActivateKeyboard();
         }
         public void SetDevice(InputDevice device, string schemeName)
         {
@@ -37,14 +40,39 @@ namespace NBLD.Input
         private void ActivateDevice()
         {
             InputUser.PerformPairingWithDevice(this.device, user);
-            inputActions.Enable();
-            user.AssociateActionsWithUser(inputActions);
+            //gameplayInput.Enable();
+            user.AssociateActionsWithUser(gameplayInput);
+            user.AssociateActionsWithUser(uiInput);
             user.ActivateControlScheme(this.schemeName);
+        }
+
+        public void EnableGameplayInput(bool enabled)
+        {
+            if (enabled)
+            {
+                gameplayInput.Enable();
+            }
+            else
+            {
+                gameplayInput.Disable();
+            }
+        }
+        public void EnableUIInput(bool enabled)
+        {
+            if (enabled)
+            {
+                uiInput.Enable();
+            }
+            else
+            {
+                uiInput.Disable();
+            }
         }
 
         public void Dispose()
         {
-            inputActions.Dispose();
+            gameplayInput.Dispose();
+            uiInput.Dispose();
             user.UnpairDevicesAndRemoveUser();
         }
     }
@@ -52,28 +80,35 @@ namespace NBLD.Input
     {
         public int playerIndex;
         public PlayerData playerData;
-        public CharInputManager charInputManager;
+        public PlayerGameplayInputManager gameplayInputManager;
         public int deviceIndex;
 
-        public PlayerSessionData(int playerIndex, int deviceIndex, CharInputManager charInputManager)
+        public PlayerSessionData(int playerIndex, int deviceIndex, PlayerGameplayInputManager charInputManager)
         {
             this.playerIndex = playerIndex;
             this.deviceIndex = deviceIndex;
-            this.charInputManager = charInputManager;
+            this.gameplayInputManager = charInputManager;
             playerData = new PlayerData();
         }
     }
     public class InputManager : MonoBehaviour
     {
         public int maxNumberOfPlayers;
-        public List<CharInputManager> characterManagers;
-        public List<CharSelectController> charSelectControllers;
+        public List<PlayerGameplayInputManager> gameplayInputManagers;
+        public List<PlayerUIInputManager> uiInputManagers;
         public List<string> keyboardSchemeNames;
         public string gamepadSchemeName;
         private List<UserDevice> userDevices;
         private List<PlayerSessionData> activePlayers;
-        private bool initialized = false;
+        public bool Initialized
+        {
+            get; private set;
+        } = false;
         private bool subscribed = false;
+        public delegate void DeviceRegisteredHandler(UserDevice userDevice, PlayerGameplayInputManager gameplayInputManager, PlayerUIInputManager uiInputManager);
+        public delegate void InitHandler();
+        public event InitHandler OnInputInitialized;
+        public event DeviceRegisteredHandler OnDeviceRegistered;
 
         private void Awake()
         {
@@ -81,13 +116,13 @@ namespace NBLD.Input
         }
         private void Initialize()
         {
-            if (!initialized)
+            if (!Initialized)
             {
-                initialized = true;
+                Initialized = true;
                 InputUser.listenForUnpairedDeviceActivity++;
                 userDevices = new List<UserDevice>();
-                characterManagers = new List<CharInputManager>();
-                charSelectControllers = new List<CharSelectController>();
+                gameplayInputManagers = new List<PlayerGameplayInputManager>();
+                uiInputManagers = new List<PlayerUIInputManager>();
                 activePlayers = new List<PlayerSessionData>();
                 if (Keyboard.current != null)
                 {
@@ -97,25 +132,32 @@ namespace NBLD.Input
                     }
                 }
                 Subscribe();
+                OnInputInitialized?.Invoke();
             }
 
         }
 
         private void InitializeUnusedDevice(InputDevice device, string schemeName)
         {
-            int playerIndex = userDevices.Count;
-            UserDevice uDevice = new UserDevice(device, schemeName);
+            int deviceIndex = userDevices.Count;
+            UserDevice uDevice = new UserDevice(deviceIndex, device, schemeName);
             userDevices.Add(uDevice);
-            CharInputManager charInputManager = new CharInputManager(uDevice.inputActions);
-            characterManagers.Add(charInputManager);
-            CharSelectController charController = new CharSelectController(playerIndex, this);
-            charInputManager.RegisterListener(charController);
-            charSelectControllers.Add(charController);
+            PlayerGameplayInputManager gameplayInputManager = new PlayerGameplayInputManager(uDevice.gameplayInput);
+            gameplayInputManagers.Add(gameplayInputManager);
+            PlayerUIInputManager uiInputManager = new PlayerUIInputManager(uDevice.uiInput, deviceIndex);
+            uiInputManagers.Add(uiInputManager);
+            //uDevice.EnableUIInput(true);
+            //This should be elsewhere or conditional
+            /*SelectScreenPlayerController playerSelectController = new SelectScreenPlayerController(deviceIndex, uiInputManager, this);
+            playerSelectControllers.Add(playerSelectController);*/
+            OnDeviceRegistered?.Invoke(uDevice, gameplayInputManager, uiInputManager);
+            Debug.Log($"Registering device {device.name} with scheme {schemeName}");
         }
         private PlayerSessionData CreatePlayerWithDevice(int deviceIndex)
         {
-            PlayerSessionData playerSessionData = new PlayerSessionData(activePlayers.Count, deviceIndex, characterManagers[deviceIndex]);
+            PlayerSessionData playerSessionData = new PlayerSessionData(activePlayers.Count, deviceIndex, gameplayInputManagers[deviceIndex]);
             activePlayers.Add(playerSessionData);
+            Debug.Log($"Creating player id: {playerSessionData.playerIndex} with device id {deviceIndex}");
             return playerSessionData;
         }
         private void OnEnable()
@@ -138,7 +180,7 @@ namespace NBLD.Input
 
         private void Subscribe()
         {
-            if (initialized && !subscribed)
+            if (Initialized && !subscribed)
             {
                 subscribed = true;
                 //InputUser.onChange += OnControlsChanged;
@@ -148,7 +190,7 @@ namespace NBLD.Input
         }
         private void Unsubscribe()
         {
-            if (initialized && subscribed)
+            if (Initialized && subscribed)
             {
                 subscribed = false;
                 //InputUser.onChange -= OnControlsChanged;
@@ -205,6 +247,19 @@ namespace NBLD.Input
                 }
             }
             return false;
+        }
+        public int GetDeviceCount() => userDevices.Count;
+        public UserDevice GetDevice(int deviceIndex)
+        {
+            return userDevices[deviceIndex];
+        }
+        public PlayerGameplayInputManager GetGameplayInputManager(int deviceIndex)
+        {
+            return gameplayInputManagers[deviceIndex];
+        }
+        public PlayerUIInputManager GetUIInputManager(int deviceIndex)
+        {
+            return uiInputManagers[deviceIndex];
         }
         private void ListenForUnpairedGamepads(InputControl control, InputEventPtr inputEventPtr)
         {

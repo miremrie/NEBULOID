@@ -12,8 +12,6 @@ namespace NBLD.Input
         public float holdDuration = 1f;
         public float navigationDeadzoneValue = 0.4f;
 
-
-
         public event Action<Vector2> onNavigation, onNavigationChanged;
         public event Action<Vector2Int> onNavigationChangedInt;
         public event Action onSubmit, onCancel, onChangeSelect, onEscape;

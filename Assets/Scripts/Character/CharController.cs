@@ -14,13 +14,13 @@ namespace NBLD.Character
     {
         Inside, Outside, Dead, Transition
     }
-    public class CharController : MonoBehaviour, ICharInputListener
+    public class CharController : MonoBehaviour
     {
         public Ship.ShipMovement ship;
         public Audio.CharAudioController charAudio;
 
         [Header("Input")]
-        public CharInputManager charInputManager;
+        public PlayerGameplayInputManager charInputManager;
 
         [Header("Animation")]
         public Animator animator;
@@ -69,18 +69,46 @@ namespace NBLD.Character
 
         public void Awake()
         {
-            charInputManager.RegisterListener(this);
             insideBehaviour.Initialize(this, rb2D, charSpriteRenderer, animator, charAudio);
             outsideBehaviour.Initialize(this, rb2D, charSpriteRenderer, animator, charAudio);
             outsideBehaviour.Deactivate();
             ChangeState(CharacterState.Inside);
             charAudio.SetEnvironmentBasedOnFloor(1);
             animator.keepAnimatorControllerStateOnDisable = true;
+            Subscribe();
+        }
+        private void OnDestroy()
+        {
+            Unsubscribe();
         }
 
         private void Update()
         {
             UpdateEjectTransition();
+        }
+
+        private void Subscribe()
+        {
+            charInputManager.OnMove += OnMovement;
+            charInputManager.OnUp += OnUp;
+            charInputManager.OnDown += OnDown;
+            charInputManager.OnAction += OnAction;
+            charInputManager.OnSubAction += OnSubAction;
+            charInputManager.OnTalk += OnTalk;
+            charInputManager.OnMoveAssistPerformed += OnMoveAssistPerformed;
+            charInputManager.OnMoveAssistStarted += OnMoveAssistStarted;
+
+        }
+        private void Unsubscribe()
+        {
+            charInputManager.OnMove -= OnMovement;
+            charInputManager.OnUp -= OnUp;
+            charInputManager.OnDown -= OnDown;
+            charInputManager.OnAction -= OnAction;
+            charInputManager.OnSubAction -= OnSubAction;
+            charInputManager.OnTalk -= OnTalk;
+            charInputManager.OnMoveAssistPerformed -= OnMoveAssistPerformed;
+            charInputManager.OnMoveAssistStarted -= OnMoveAssistStarted;
         }
 
         //States
