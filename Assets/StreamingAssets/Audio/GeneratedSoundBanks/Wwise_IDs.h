@@ -34,6 +34,8 @@ namespace AK
         static const AkUniqueID PLAY_JETPACK_PRESS = 1069277812U;
         static const AkUniqueID PLAY_JETPACK_RELEASE = 3410260274U;
         static const AkUniqueID PLAY_MENU_MUSIC = 2228153899U;
+        static const AkUniqueID PLAY_PLAYER_SHIP_ENTER = 918446985U;
+        static const AkUniqueID PLAY_PLAYER_SHIP_EXIT = 2499757029U;
         static const AkUniqueID PLAY_SHIELD_CLOSE_EXTRUDEFANIN = 282728768U;
         static const AkUniqueID PLAY_SHIELD_CLOSE_INTRUDE = 1045178680U;
         static const AkUniqueID PLAY_SHIELD_OPEN_EXTRUDE = 1213474850U;

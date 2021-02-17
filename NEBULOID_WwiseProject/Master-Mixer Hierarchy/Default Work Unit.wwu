@@ -23,7 +23,12 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<Bus Name="Music_Lv1" ID="{86906567-D293-4F84-9AB7-85286D629EF5}"/>
+								<Bus Name="Music_Lv1" ID="{86906567-D293-4F84-9AB7-85286D629EF5}">
+									<PropertyList>
+										<Property Name="MaxDuckVolume" Type="Real64" Value="-45"/>
+										<Property Name="RecoveryTime" Type="Real64" Value="0.5"/>
+									</PropertyList>
+								</Bus>
 								<Bus Name="Music_Lv2" ID="{BA615CF3-B952-4C7B-9388-1A7277B4F234}">
 									<PropertyList>
 										<Property Name="BusVolume" Type="Real64">
@@ -97,6 +102,8 @@
 												</RTPC>
 											</RTPCList>
 										</Property>
+										<Property Name="MaxDuckVolume" Type="Real64" Value="-45"/>
+										<Property Name="RecoveryTime" Type="Real64" Value="0.5"/>
 									</PropertyList>
 								</Bus>
 							</ChildrenList>

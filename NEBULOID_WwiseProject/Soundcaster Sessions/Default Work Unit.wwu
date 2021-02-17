@@ -66,6 +66,10 @@
 							<Position X="2" Y="3"/>
 						</Module>
 						<Module>
+							<ObjectRef Name="Play_Player_Ship_Enter" ID="{15291631-6650-4D5E-A6F3-FDF61718D057}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}"/>
+							<Position X="2" Y="5"/>
+						</Module>
+						<Module>
 							<ObjectRef Name="Stop_Sonar" ID="{15AFA576-5F73-4D41-826E-9A0AAB18D67F}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}"/>
 							<Position X="3" Y="1"/>
 						</Module>
@@ -76,6 +80,10 @@
 						<Module>
 							<ObjectRef Name="Play_Ship_Hit" ID="{0297BFEE-4FA9-4C18-A857-1822C1C866A7}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}"/>
 							<Position X="3" Y="3"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Play_Player_Ship_Exit" ID="{2A123A28-1E1B-4446-B783-239996A8463F}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}"/>
+							<Position X="3" Y="5"/>
 						</Module>
 					</ModuleList>
 					<RTPCValueList ShowAll="true">

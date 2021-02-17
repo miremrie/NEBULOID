@@ -384,6 +384,54 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="918446985" Name="Play_Player_Ship_Enter" ObjectPath="\Events\Default Work Unit\Movement\Play_Player_Ship_Enter" DurationType="OneShot" DurationMin="0.361866" DurationMax="0.519010">
+					<IncludedMemoryFiles>
+						<File Id="34271772" Language="SFX">
+							<ShortName>Pipe_Tap_3.wav</ShortName>
+							<Path>SFX\Pipe_Tap_3_1DCA1325.wem</Path>
+						</File>
+						<File Id="42653129" Language="SFX">
+							<ShortName>Pipe_Tap_2.wav</ShortName>
+							<Path>SFX\Pipe_Tap_2_17DF42FB.wem</Path>
+						</File>
+						<File Id="77676051" Language="SFX">
+							<ShortName>Pipe_Tap.wav</ShortName>
+							<Path>SFX\Pipe_Tap_54A31BE9.wem</Path>
+						</File>
+						<File Id="120692266" Language="SFX">
+							<ShortName>Ship_enter_whoosh.wav</ShortName>
+							<Path>SFX\Ship_enter_whoosh_DE2AE519.wem</Path>
+						</File>
+						<File Id="414121996" Language="SFX">
+							<ShortName>Ship_enter_whoosh.wav</ShortName>
+							<Path>SFX\Ship_enter_whoosh_8E813E4F.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2499757029" Name="Play_Player_Ship_Exit" ObjectPath="\Events\Default Work Unit\Movement\Play_Player_Ship_Exit" DurationType="OneShot" DurationMin="0.319804" DurationMax="0.480954">
+					<IncludedMemoryFiles>
+						<File Id="46947002" Language="SFX">
+							<ShortName>Pipe_Tap.wav</ShortName>
+							<Path>SFX\Pipe_Tap_6CC7BE7B.wem</Path>
+						</File>
+						<File Id="613135107" Language="SFX">
+							<ShortName>Ship_exit_whoosh.wav</ShortName>
+							<Path>SFX\Ship_exit_whoosh_17024171.wem</Path>
+						</File>
+						<File Id="757524799" Language="SFX">
+							<ShortName>Pipe_Tap_3.wav</ShortName>
+							<Path>SFX\Pipe_Tap_3_4812B588.wem</Path>
+						</File>
+						<File Id="759339961" Language="SFX">
+							<ShortName>Pipe_Tap_2.wav</ShortName>
+							<Path>SFX\Pipe_Tap_2_D1832124.wem</Path>
+						</File>
+						<File Id="1030484973" Language="SFX">
+							<ShortName>Ship_exit_whoosh.wav</ShortName>
+							<Path>SFX\Ship_exit_whoosh_7D47031C.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="282728768" Name="Play_Shield_Close_ExtrudeFanIn" ObjectPath="\Events\Default Work Unit\Movement\Shield\Play_Shield_Close_ExtrudeFanIn" DurationType="OneShot" DurationMin="0.872494" DurationMax="0.872494">
 					<IncludedMemoryFiles>
 						<File Id="456136316" Language="SFX">

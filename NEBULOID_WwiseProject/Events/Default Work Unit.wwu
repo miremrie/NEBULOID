@@ -316,6 +316,28 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_Player_Ship_Exit" ID="{2A123A28-1E1B-4446-B783-239996A8463F}">
+							<ChildrenList>
+								<Action Name="" ID="{600AB90B-3AEB-41B3-968C-B8A69F3ACA7E}" ShortID="905941664">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Ship_Exit" ID="{10F22577-E391-4957-A6D8-B9494FE8181D}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Player_Ship_Enter" ID="{15291631-6650-4D5E-A6F3-FDF61718D057}">
+							<ChildrenList>
+								<Action Name="" ID="{991C5F85-F671-432C-AC63-2403F1FC8963}" ShortID="458039681">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Ship_Enter" ID="{51F65AC9-3D3F-4599-9598-8AE10E4B91B2}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Notifications" ID="{E6C2D303-5838-41A2-9919-72FF65122284}" ShortID="265461644">
