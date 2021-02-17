@@ -56,6 +56,7 @@ namespace NBLD.Input
         {
             Vector2Int oldNavInt = InputUtils.Axis2DToInt(oldNav, navigationDeadZoneValue);
             Vector2Int newNavInt = InputUtils.Axis2DToInt(newNav, navigationDeadZoneValue);
+            Debug.Log($"old{oldNavInt},{newNavInt}");
             if (oldNav.x != newNav.x || oldNav.y != newNav.y)
             {
                 OnNavigationIntChanged?.Invoke(newNavInt);
@@ -66,12 +67,15 @@ namespace NBLD.Input
         {
             Vector2 oldNav = navigation;
             navigation = context.ReadValue<Vector2>();
-            if (context.interaction is HoldInteraction)
+            if (context.interaction is HeldInteraction)
             {
+                Debug.Log($"Held{navigation}");
+
                 OnNavigationHeld?.Invoke(navigation);
             }
-            else
+            if (context.interaction is PressInteraction)
             {
+                Debug.Log($"InputGen{navigation}");
                 //Default to press
                 TryNavigationChangedInt(oldNav, navigation);
                 OnNavigation?.Invoke(navigation);

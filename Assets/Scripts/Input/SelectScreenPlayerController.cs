@@ -45,7 +45,7 @@ namespace NBLD.Input
                 playerActive = true;
                 playerIndex = playerSessionData.playerIndex;
                 csPanel = characterSelectScreen.GetPanelForPlayer(playerIndex);
-                csPanel.Activate();
+                csPanel.Activate(playerIndex, playerUIInputManager);
             }
         }
         #endregion

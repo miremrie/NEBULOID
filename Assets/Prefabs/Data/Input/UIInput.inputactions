@@ -583,7 +583,7 @@
                     "id": "afc7d4b0-944a-4af0-a5eb-53d534b6d124",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": "Hold,Press"
+                    "interactions": "Press,Held(duration=0.2)"
                 },
                 {
                     "name": "ChangeSelect",

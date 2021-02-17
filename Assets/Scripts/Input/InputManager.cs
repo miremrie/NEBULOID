@@ -81,6 +81,7 @@ namespace NBLD.Input
         public int playerIndex;
         public PlayerData playerData;
         public PlayerGameplayInputManager gameplayInputManager;
+        public string characterName;
         public int deviceIndex;
 
         public PlayerSessionData(int playerIndex, int deviceIndex, PlayerGameplayInputManager charInputManager)
@@ -106,9 +107,11 @@ namespace NBLD.Input
         } = false;
         private bool subscribed = false;
         public delegate void DeviceRegisteredHandler(UserDevice userDevice, PlayerGameplayInputManager gameplayInputManager, PlayerUIInputManager uiInputManager);
+        public delegate void PlayerRegisteredHandler(PlayerSessionData playerSessionData);
         public delegate void InitHandler();
         public event InitHandler OnInputInitialized;
         public event DeviceRegisteredHandler OnDeviceRegistered;
+        public event PlayerRegisteredHandler OnPlayerRegistered;
 
         private void Awake()
         {
@@ -118,6 +121,7 @@ namespace NBLD.Input
         {
             if (!Initialized)
             {
+
                 Initialized = true;
                 InputUser.listenForUnpairedDeviceActivity++;
                 userDevices = new List<UserDevice>();
@@ -157,6 +161,7 @@ namespace NBLD.Input
         {
             PlayerSessionData playerSessionData = new PlayerSessionData(activePlayers.Count, deviceIndex, gameplayInputManagers[deviceIndex]);
             activePlayers.Add(playerSessionData);
+            OnPlayerRegistered?.Invoke(playerSessionData);
             Debug.Log($"Creating player id: {playerSessionData.playerIndex} with device id {deviceIndex}");
             return playerSessionData;
         }
