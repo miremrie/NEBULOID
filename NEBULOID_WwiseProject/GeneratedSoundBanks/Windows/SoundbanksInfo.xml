@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="135">
 	<RootPaths>
-		<ProjectRoot>D:\Unity\NEBULOID\NEBULOID_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>D:\Unity\NEBULOID\NEBULOID_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>D:\Unity\NEBULOID\NEBULOID_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -384,51 +384,115 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="3492563074" Name="Play_Player_1_Barbble" ObjectPath="\Events\Default Work Unit\Player Voices\Play_Player_1_Barbble" DurationType="OneShot" DurationMin="0.401411" DurationMax="1.005354">
+					<IncludedMemoryFiles>
+						<File Id="28137877" Language="SFX">
+							<ShortName>Player_1_Babble (1).wav</ShortName>
+							<Path>SFX\Player_1_Babble (1)_10C4C929.wem</Path>
+						</File>
+						<File Id="90686282" Language="SFX">
+							<ShortName>Player_1_Babble (3).wav</ShortName>
+							<Path>SFX\Player_1_Babble (3)_10C4C929.wem</Path>
+						</File>
+						<File Id="374011693" Language="SFX">
+							<ShortName>Player_1_Babble (2).wav</ShortName>
+							<Path>SFX\Player_1_Babble (2)_10C4C929.wem</Path>
+						</File>
+						<File Id="608359960" Language="SFX">
+							<ShortName>Player_1_Babble (4).wav</ShortName>
+							<Path>SFX\Player_1_Babble (4)_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="223178023" Name="Play_Player_1_Hurt" ObjectPath="\Events\Default Work Unit\Player Voices\Play_Player_1_Hurt" DurationType="OneShot" DurationMin="0.451292" DurationMax="0.486396">
+					<IncludedMemoryFiles>
+						<File Id="63679972" Language="SFX">
+							<ShortName>Player1_Hurt_1.wav</ShortName>
+							<Path>SFX\Player1_Hurt_1_10C4C929.wem</Path>
+						</File>
+						<File Id="120458956" Language="SFX">
+							<ShortName>Player1_Hurt_2.wav</ShortName>
+							<Path>SFX\Player1_Hurt_2_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="4260253969" Name="Play_Player_2_Barbble" ObjectPath="\Events\Default Work Unit\Player Voices\Play_Player_2_Barbble" DurationType="OneShot" DurationMin="0.486343" DurationMax="0.722042">
+					<IncludedMemoryFiles>
+						<File Id="78056958" Language="SFX">
+							<ShortName>Player_2_Babble (4).wav</ShortName>
+							<Path>SFX\Player_2_Babble (4)_10C4C929.wem</Path>
+						</File>
+						<File Id="236102167" Language="SFX">
+							<ShortName>Player_2_Babble (2).wav</ShortName>
+							<Path>SFX\Player_2_Babble (2)_10C4C929.wem</Path>
+						</File>
+						<File Id="251704736" Language="SFX">
+							<ShortName>Player_2_Babble (3).wav</ShortName>
+							<Path>SFX\Player_2_Babble (3)_10C4C929.wem</Path>
+						</File>
+						<File Id="784492865" Language="SFX">
+							<ShortName>Player_2_Babble (1).wav</ShortName>
+							<Path>SFX\Player_2_Babble (1)_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1926240886" Name="Play_Player_2_Hurt" ObjectPath="\Events\Default Work Unit\Player Voices\Play_Player_2_Hurt" DurationType="OneShot" DurationMin="0.303073" DurationMax="0.634292">
+					<IncludedMemoryFiles>
+						<File Id="73992220" Language="SFX">
+							<ShortName>Player2_Hurt1.wav</ShortName>
+							<Path>SFX\Player2_Hurt1_10C4C929.wem</Path>
+						</File>
+						<File Id="237738597" Language="SFX">
+							<ShortName>Player2_Hurt2.wav</ShortName>
+							<Path>SFX\Player2_Hurt2_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="918446985" Name="Play_Player_Ship_Enter" ObjectPath="\Events\Default Work Unit\Movement\Play_Player_Ship_Enter" DurationType="OneShot" DurationMin="0.361866" DurationMax="0.519010">
 					<IncludedMemoryFiles>
 						<File Id="34271772" Language="SFX">
 							<ShortName>Pipe_Tap_3.wav</ShortName>
-							<Path>SFX\Pipe_Tap_3_1DCA1325.wem</Path>
+							<Path>SFX\Pipe_Tap_3_FD56AEC9.wem</Path>
 						</File>
 						<File Id="42653129" Language="SFX">
 							<ShortName>Pipe_Tap_2.wav</ShortName>
-							<Path>SFX\Pipe_Tap_2_17DF42FB.wem</Path>
+							<Path>SFX\Pipe_Tap_2_14D80BF4.wem</Path>
 						</File>
 						<File Id="77676051" Language="SFX">
 							<ShortName>Pipe_Tap.wav</ShortName>
-							<Path>SFX\Pipe_Tap_54A31BE9.wem</Path>
+							<Path>SFX\Pipe_Tap_814CFB9D.wem</Path>
 						</File>
 						<File Id="120692266" Language="SFX">
 							<ShortName>Ship_enter_whoosh.wav</ShortName>
-							<Path>SFX\Ship_enter_whoosh_DE2AE519.wem</Path>
+							<Path>SFX\Ship_enter_whoosh_4C614C2E.wem</Path>
 						</File>
 						<File Id="414121996" Language="SFX">
 							<ShortName>Ship_enter_whoosh.wav</ShortName>
-							<Path>SFX\Ship_enter_whoosh_8E813E4F.wem</Path>
+							<Path>SFX\Ship_enter_whoosh_6119CDBE.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2499757029" Name="Play_Player_Ship_Exit" ObjectPath="\Events\Default Work Unit\Movement\Play_Player_Ship_Exit" DurationType="OneShot" DurationMin="0.319804" DurationMax="0.480954">
+				<Event Id="2499757029" Name="Play_Player_Ship_Exit" ObjectPath="\Events\Default Work Unit\Movement\Play_Player_Ship_Exit" DurationType="OneShot" DurationMin="0.291388" DurationMax="0.445866">
 					<IncludedMemoryFiles>
 						<File Id="46947002" Language="SFX">
 							<ShortName>Pipe_Tap.wav</ShortName>
-							<Path>SFX\Pipe_Tap_6CC7BE7B.wem</Path>
+							<Path>SFX\Pipe_Tap_9DF82DE0.wem</Path>
 						</File>
 						<File Id="613135107" Language="SFX">
 							<ShortName>Ship_exit_whoosh.wav</ShortName>
-							<Path>SFX\Ship_exit_whoosh_17024171.wem</Path>
+							<Path>SFX\Ship_exit_whoosh_A58E040F.wem</Path>
 						</File>
 						<File Id="757524799" Language="SFX">
 							<ShortName>Pipe_Tap_3.wav</ShortName>
-							<Path>SFX\Pipe_Tap_3_4812B588.wem</Path>
+							<Path>SFX\Pipe_Tap_3_604D0FF9.wem</Path>
 						</File>
 						<File Id="759339961" Language="SFX">
 							<ShortName>Pipe_Tap_2.wav</ShortName>
-							<Path>SFX\Pipe_Tap_2_D1832124.wem</Path>
+							<Path>SFX\Pipe_Tap_2_E7870576.wem</Path>
 						</File>
 						<File Id="1030484973" Language="SFX">
 							<ShortName>Ship_exit_whoosh.wav</ShortName>
-							<Path>SFX\Ship_exit_whoosh_7D47031C.wem</Path>
+							<Path>SFX\Ship_exit_whoosh_0A2E2622.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>

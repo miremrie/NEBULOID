@@ -32,6 +32,8 @@ namespace NBLD.Character
         private Timer moveTimer;
         private Vector2 moveDirection;
         private Vector2 boostDirection;
+        private bool isBoosting = false;
+        private const float boostSFXPercentStop = 0.9f;
         [Header("Oxygen")]
         public MaskedSlider oxygenSlider;
         public Oxygen oxygen;
@@ -41,6 +43,7 @@ namespace NBLD.Character
         public Mine minePrefab;
         public float mineCooldown;
         private Timer mineCooldownTimer;
+
 
         protected override void Start()
         {
@@ -103,11 +106,13 @@ namespace NBLD.Character
         private void UpdateMovement()
         {
             bool moving = (moveDirection.x != 0 || moveDirection.y != 0 || (moveTimer.IsRunning()));
-            if (!moving)
+            if (isBoosting && moveTimer.GetCurrentTimePercent() >= boostSFXPercentStop)
             {
-                //rb2D.velocity = Vector2.Lerp(Vector2.zero, rb2D.velocity, velocityDropPercentAfterLaunch);
+                Debug.Log("Stopping jetpack");
+                isBoosting = false;
+                charAudio.PlayJetpackStop();
             }
-            else
+            if (moving)
             {
                 Vector2 force = Vector2.zero;
                 float maxMag = maxVelocityMag;
@@ -210,6 +215,8 @@ namespace NBLD.Character
             if (!moveTimer.IsRunning())
             {
                 moveTimer.Restart();
+                charAudio.PlayJetpackStart();
+                isBoosting = true;
             }
             //LaunchMovement();
         }
