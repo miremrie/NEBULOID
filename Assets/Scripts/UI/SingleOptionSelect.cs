@@ -13,13 +13,14 @@ namespace NBLD.UI
         public ChangeDirection forwardDirection;
         public ChangeDirection backwardsDirection;
         public float holdOffsetTime = 0.1f;
-        private Timer heldTimer;
+        private Timer holdTimer;
         public delegate void ChangeHandler(int index);
         public event ChangeHandler OnSelectionChanged;
         private bool subscribedToInput = false;
+        private Vector2Int holdDirection;
         private void Awake()
         {
-            heldTimer = new Timer(holdOffsetTime);
+            holdTimer = new Timer(holdOffsetTime);
         }
 
 
@@ -45,7 +46,24 @@ namespace NBLD.UI
             }
 
         }
+
+        private void Update()
+        {
+            if (holdTimer.IsRunning() && holdTimer.IsTimerDone())
+            {
+                holdTimer.Restart();
+                ChangeSelection(holdDirection);
+            }
+        }
         private void OnNavigationIntChanged(Vector2Int navigation)
+        {
+            if (holdDirection != navigation)
+            {
+                holdTimer.Stop();
+            }
+            ChangeSelection(navigation);
+        }
+        private void ChangeSelection(Vector2 navigation)
         {
             if (IsNavigationMatchingDirection(navigation, forwardDirection))
             {
@@ -58,18 +76,8 @@ namespace NBLD.UI
         }
         private void OnNavigationHeld(Vector2 navigation)
         {
-            if (heldTimer.IsTimerDone())
-            {
-                heldTimer.Restart();
-                if (IsNavigationMatchingDirection(navigation, forwardDirection))
-                {
-                    OnSelectionChanged?.Invoke(1);
-                }
-                if (IsNavigationMatchingDirection(navigation, backwardsDirection))
-                {
-                    OnSelectionChanged?.Invoke(-1);
-                }
-            }
+            holdDirection = InputUtils.Axis2DToInt(navigation, uiInputManager.navigationDeadZoneValue);
+            holdTimer.Restart();
         }
 
         private bool IsNavigationMatchingDirection(Vector2 navigation, ChangeDirection direction)

@@ -598,7 +598,7 @@ namespace GeneratedInputActions
                     ""id"": ""afc7d4b0-944a-4af0-a5eb-53d534b6d124"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
-                    ""interactions"": ""Press,Held(duration=0.2)""
+                    ""interactions"": ""Press,Hold,Press(behavior=1)""
                 },
                 {
                     ""name"": ""ChangeSelect"",

@@ -108,7 +108,7 @@ namespace NBLD.MainMenu
             devotionNameOptionSelect.UpdateText(devotionName);
             string spiritName = characterSelectScreen.characterNames.GetSpiritName(playerData.spiritNameIndex);
             spiritNameOptionSelect.UpdateText(spiritName);
-            Debug.Log(devotionName + " " + spiritName);
+            //Debug.Log(devotionName + " " + spiritName);
         }
 
     }
