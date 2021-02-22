@@ -109,9 +109,11 @@ namespace NBLD.Input
         public delegate void DeviceRegisteredHandler(UserDevice userDevice, PlayerGameplayInputManager gameplayInputManager, PlayerUIInputManager uiInputManager);
         public delegate void PlayerRegisteredHandler(PlayerSessionData playerSessionData);
         public delegate void InitHandler();
+        public delegate void UpdateHandler(float deltaTime);
         public event InitHandler OnInputInitialized;
         public event DeviceRegisteredHandler OnDeviceRegistered;
         public event PlayerRegisteredHandler OnPlayerRegistered;
+        public static event UpdateHandler OnInputTick;
 
         private void Awake()
         {
@@ -201,6 +203,11 @@ namespace NBLD.Input
                 //InputUser.onChange -= OnControlsChanged;
                 InputUser.onUnpairedDeviceUsed -= ListenForUnpairedGamepads;
             }
+        }
+
+        private void Update()
+        {
+            OnInputTick?.Invoke(Time.deltaTime);
         }
 
         /*void OnControlsChanged(InputUser user, InputUserChange change, InputDevice device)

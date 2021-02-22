@@ -598,7 +598,7 @@ namespace GeneratedInputActions
                     ""id"": ""afc7d4b0-944a-4af0-a5eb-53d534b6d124"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
-                    ""interactions"": ""Press,Hold,Press(behavior=1)""
+                    ""interactions"": ""Press(behavior=2)""
                 },
                 {
                     ""name"": ""ChangeSelect"",
@@ -658,6 +658,17 @@ namespace GeneratedInputActions
                 },
                 {
                     ""name"": ""up"",
+                    ""id"": ""b810d460-e6ba-4020-a8f4-aecb774b22b3"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad;Any"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""up"",
                     ""id"": ""1b0859c2-66e7-4358-8854-aed5d13791f5"",
                     ""path"": ""<Gamepad>/rightStick/up"",
                     ""interactions"": """",
@@ -671,6 +682,17 @@ namespace GeneratedInputActions
                     ""name"": ""down"",
                     ""id"": ""18802c67-5421-463f-9038-d8a148618085"",
                     ""path"": ""<Gamepad>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad;Any"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""2d26b9cc-40db-4fd4-b833-a85a8a86e94d"",
+                    ""path"": ""<Gamepad>/dpad/down"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad;Any"",
@@ -712,6 +734,17 @@ namespace GeneratedInputActions
                     ""isPartOfComposite"": true
                 },
                 {
+                    ""name"": ""left"",
+                    ""id"": ""7f491f29-315e-4826-95ae-bae7e94e3eb9"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad;Any"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": ""right"",
                     ""id"": ""dcf9ba6c-283a-41ed-96d2-786cfaf01a80"",
                     ""path"": ""<Gamepad>/leftStick/right"",
@@ -734,15 +767,15 @@ namespace GeneratedInputActions
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""8e6e1df7-284b-41d8-b05c-78193d5d975f"",
-                    ""path"": ""<Gamepad>/dpad"",
+                    ""name"": ""right"",
+                    ""id"": ""e50eaefd-8a21-4e04-a1a8-311d86d5f9a4"",
+                    ""path"": ""<Gamepad>/dpad/right"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad;Any"",
                     ""action"": ""Navigate"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": false
+                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""Joystick"",

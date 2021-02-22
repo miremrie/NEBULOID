@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14c85cbf5c84d5a4791ef764df71cc65, type: 3}
+  m_Name: Character Skins
+  m_EditorClassIdentifier: 
+  skinDatas:
+  - graphicsPrefab: {fileID: 5502166203119305689, guid: b87cbeb3ffc9fa9479346300a948ade9,
+      type: 3}
+    defaultImage: {fileID: 21300000, guid: 460c880bc0c24e747ad5fc20d659cd5e, type: 3}
+    name: Yello
+  - graphicsPrefab: {fileID: 4630218785697782379, guid: 23cefe2a0a4597b4aa81ec0b65971aa4,
+      type: 3}
+    defaultImage: {fileID: 21300000, guid: 98470cd12f678004aad0af26f66728ca, type: 3}
+    name: Blo

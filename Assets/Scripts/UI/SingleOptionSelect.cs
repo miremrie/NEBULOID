@@ -8,16 +8,17 @@ namespace NBLD.UI
 {
     public class SingleOptionSelect : BaseUIComponent
     {
-        public enum ChangeDirection { Up, Down, Left, Right };
-        public TMPro.TextMeshProUGUI currentlySelected;
-        public ChangeDirection forwardDirection;
-        public ChangeDirection backwardsDirection;
+        public enum ChangeOrientation { Horizontal, Vertical };
+        //public TMPro.TextMeshProUGUI currentlySelected;
+        public ChangeOrientation changeOrientation;
+        public bool forwardIsPositive;
         public float holdOffsetTime = 0.1f;
         private Timer holdTimer;
         public delegate void ChangeHandler(int index);
         public event ChangeHandler OnSelectionChanged;
         private bool subscribedToInput = false;
-        private Vector2Int holdDirection;
+        private int holdValue;
+        private bool isHolding = false;
         private void Awake()
         {
             holdTimer = new Timer(holdOffsetTime);
@@ -31,7 +32,14 @@ namespace NBLD.UI
             {
                 subscribedToInput = true;
                 uiInputManager.OnNavigationIntChanged += OnNavigationIntChanged;
-                uiInputManager.OnNavigationHeld += OnNavigationHeld;
+                if (changeOrientation == ChangeOrientation.Horizontal)
+                {
+                    uiInputManager.horizontalHold.onAxisBeingHeldInt += OnNavigationHeld;
+                }
+                else if (changeOrientation == ChangeOrientation.Vertical)
+                {
+                    uiInputManager.verticalHold.onAxisBeingHeldInt += OnNavigationHeld;
+                }
             }
 
         }
@@ -41,57 +49,79 @@ namespace NBLD.UI
             if (subscribedToInput)
             {
                 uiInputManager.OnNavigationIntChanged -= OnNavigationIntChanged;
-                uiInputManager.OnNavigationHeld -= OnNavigationHeld;
+                if (changeOrientation == ChangeOrientation.Horizontal)
+                {
+                    uiInputManager.horizontalHold.onAxisBeingHeldInt -= OnNavigationHeld;
+                }
+                else if (changeOrientation == ChangeOrientation.Vertical)
+                {
+                    uiInputManager.verticalHold.onAxisBeingHeldInt -= OnNavigationHeld;
+                }
                 subscribedToInput = false;
             }
 
         }
-
-        private void Update()
-        {
-            if (holdTimer.IsRunning() && holdTimer.IsTimerDone())
-            {
-                holdTimer.Restart();
-                ChangeSelection(holdDirection);
-            }
-        }
         private void OnNavigationIntChanged(Vector2Int navigation)
         {
-            if (holdDirection != navigation)
-            {
-                holdTimer.Stop();
-            }
-            ChangeSelection(navigation);
+            int relevantNavValue = GetRelevantNavValue(navigation);
+            ChangeSelection(relevantNavValue);
         }
-        private void ChangeSelection(Vector2 navigation)
+        private void OnNavigationHeld(int value, float time)
         {
-            if (IsNavigationMatchingDirection(navigation, forwardDirection))
+            Debug.Log($"{value}:{time}");
+            holdValue = value;
+            if (isHolding)
+            {
+                if (holdTimer.IsTimerDone())
+                {
+                    ChangeSelection(value);
+                    holdTimer.Restart();
+                }
+            }
+            else
+            {
+                holdTimer.Restart();
+                isHolding = true;
+            }
+        }
+        private void ChangeSelection(int relevantNavValue)
+        {
+            if (IsNavigationMatchingDirection(relevantNavValue, forwardIsPositive))
             {
                 OnSelectionChanged?.Invoke(1);
             }
-            if (IsNavigationMatchingDirection(navigation, backwardsDirection))
+            if (IsNavigationMatchingDirection(relevantNavValue, !forwardIsPositive))
             {
                 OnSelectionChanged?.Invoke(-1);
             }
         }
-        private void OnNavigationHeld(Vector2 navigation)
+
+        private int GetRelevantNavValue(Vector2Int navigation)
         {
-            holdDirection = InputUtils.Axis2DToInt(navigation, uiInputManager.navigationDeadZoneValue);
-            holdTimer.Restart();
+            int relevantValue = 0;
+            if (navigation.y != 0 && changeOrientation == ChangeOrientation.Vertical)
+            {
+                relevantValue = navigation.y;
+            }
+            else if (navigation.x != 0 && changeOrientation == ChangeOrientation.Horizontal)
+            {
+                relevantValue = navigation.x;
+            }
+            return relevantValue;
+        }
+        private bool IsNavigationMatchingDirection(int relevantNavValue, bool directionIsPositive)
+        {
+            if (relevantNavValue != 0)
+            {
+                return directionIsPositive == (relevantNavValue > 0);
+            }
+            return false;
         }
 
-        private bool IsNavigationMatchingDirection(Vector2 navigation, ChangeDirection direction)
-        {
-            return (navigation.x > 0 && direction == ChangeDirection.Right)
-                    || (navigation.x < 0 && direction == ChangeDirection.Left)
-                    || (navigation.y > 0 && direction == ChangeDirection.Up)
-                    || (navigation.y < 0 && direction == ChangeDirection.Down);
-        }
-
-        public void UpdateText(string text)
+        /*public void UpdateText(string text)
         {
             currentlySelected.text = text;
-        }
+        }*/
 
     }
 }

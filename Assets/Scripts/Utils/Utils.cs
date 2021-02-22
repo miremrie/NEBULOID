@@ -58,4 +58,23 @@ public static class LMath
     {
         return (value >= border1 && value <= border2) || (value >= border2 && value <= border1);
     }
+    /*public static int AdditionOverflowKeepDirection(int current, int step, int min, int max)
+    {
+        int newValue = current + step;
+        if (newValue > max)
+        {
+            int distanceFromEdge = Mathf.Abs(step) - (max - current);
+            int distance = (Mathf.Abs(distanceFromEdge - max));
+            int distanceMod = distance % (max - min);
+            newValue = min + distanceMod;
+        }
+        else if (newValue < min)
+        {
+            int distanceFromEdge = step - (current - min);
+            int distance = (Mathf.Abs(distanceFromEdge + min));
+            int distanceMod = distance % (max - min);
+            newValue = max + distanceMod;
+        }
+        return newValue;
+    }*/
 }

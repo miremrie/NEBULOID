@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 753114dc45b5f084099ad404b0726551, type: 3}
   m_Name: Character Names
   m_EditorClassIdentifier: 
-  devotionNames: Trash,Junk,Filth,Gunk,Slop,Litter,Feces,Waste,Scrap,Scum,Rust
-  spiritNames: Friend,Baby,Queen,King,Prince,Princess,Spirit,God,Child,Temptress
+  devotionNames: Trash,Junk,Filth,Gunk,Slop,Litter,Feces,Waste,Scrap,Scum,Rust,Slop,Yuck
+  spiritNames: Friend,Baby,Queen,King,Prince,Princess,Spirit,God,Child,Temptress,Dad,Mom,Pal,Devil

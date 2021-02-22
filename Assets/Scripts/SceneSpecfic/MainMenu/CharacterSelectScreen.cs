@@ -9,6 +9,7 @@ namespace NBLD.MainMenu
     public class SelectScreenPlayerData
     {
         public PlayerSessionData playerSessionData;
+        public int skinIndex;
         public int devotionNameIndex;
         public int spiritNameIndex;
         public bool confirmedName;
@@ -20,6 +21,7 @@ namespace NBLD.MainMenu
         public InputManager inputManager;
         public CharacterSelectSinglePanel[] csPanels;
         public CharacterNames characterNames;
+        public CharacterSkins characterSkins;
         private SelectScreenPlayerData[] selectScreenPlayerDatas;
         private List<SelectScreenPlayerController> playerControllers;
         private bool initialized = false;
@@ -47,7 +49,6 @@ namespace NBLD.MainMenu
                     csPanels[i].Deactivate();
                 }
                 selectScreenPlayerDatas = new SelectScreenPlayerData[inputManager.maxNumberOfPlayers];
-                Debug.Log("Initialized");
             }
         }
         private void OnEnable()
@@ -86,7 +87,8 @@ namespace NBLD.MainMenu
             SelectScreenPlayerData ssPlayerData = new SelectScreenPlayerData();
             selectScreenPlayerDatas[playerSessionData.playerIndex] = ssPlayerData;
             ssPlayerData.playerSessionData = playerSessionData;
-            AssignRandomNames(selectScreenPlayerDatas[playerSessionData.playerIndex]);
+            AssignRandomNames(ssPlayerData);
+            AssignRandomSkin(ssPlayerData);
         }
         private void CreateNewPlayer(UserDevice userDevice, PlayerUIInputManager uiInputManager)
         {
@@ -113,6 +115,24 @@ namespace NBLD.MainMenu
         {
             return csPanels[playerIndex];
         }
+        #region Character Skins
+        public void ChangeCharacterSkin(int playerIndex, int step)
+        {
+            SelectScreenPlayerData playerData = selectScreenPlayerDatas[playerIndex];
+            int currentIndex = playerData.skinIndex;
+            currentIndex += step;
+            if (currentIndex >= characterSkins.GetSkinsCount())
+            {
+                currentIndex = 0;
+            }
+            else if (currentIndex < 0)
+            {
+                currentIndex = characterSkins.GetSkinsCount() - 1;
+            }
+            playerData.skinIndex = currentIndex;
+            csPanels[playerData.playerSessionData.playerIndex].UpdatePanel(playerData);
+        }
+        #endregion
         #region Character Names
         private void AssignRandomNames(SelectScreenPlayerData playerData)
         {
@@ -120,7 +140,13 @@ namespace NBLD.MainMenu
             int spiritIndex = Random.Range(0, characterNames.GetSpiritNamesCount());
             playerData.devotionNameIndex = devotionIndex;
             playerData.spiritNameIndex = spiritIndex;
-            Debug.Log($"indices {devotionIndex},{spiritIndex}");
+            //Debug.Log($"indices {devotionIndex},{spiritIndex}");
+            csPanels[playerData.playerSessionData.playerIndex].UpdatePanel(playerData);
+        }
+        private void AssignRandomSkin(SelectScreenPlayerData playerData)
+        {
+            int skinIndex = Random.Range(0, characterSkins.GetSkinsCount());
+            playerData.skinIndex = skinIndex;
             csPanels[playerData.playerSessionData.playerIndex].UpdatePanel(playerData);
         }
         public void ChangeDevotionName(int playerIndex, int step)

@@ -16,26 +16,29 @@ namespace NBLD.Input
         public delegate void NavigationIntEventHandler(Vector2Int navigation);
         public delegate void ClickEventHandler();
         public event NavigationEventHandler OnNavigation;
-        public event NavigationEventHandler OnNavigationHeld;
         public event NavigationIntEventHandler OnNavigationIntChanged;
         public event ClickEventHandler OnSubmit;
         public event ClickEventHandler OnCancel;
         public event ClickEventHandler OnChangeSelect;
         public event ClickEventHandler OnEscape;
 
-
         private Vector2 navigation = Vector2.zero;
+        private float holdDuration = 0.6f;
+        public AxisHeldInputProc horizontalHold, verticalHold;
         //Hold Values
         public PlayerUIInputManager(UIInput input, int deviceIndex)
         {
             this.input = input;
             this.deviceIndex = deviceIndex;
+            horizontalHold = new AxisHeldInputProc(holdDuration, 0, navigationDeadZoneValue);
+            verticalHold = new AxisHeldInputProc(holdDuration, 0, navigationDeadZoneValue);
             Subscribe();
         }
 
         private void Subscribe()
         {
             Debug.Log("Subscribing to input");
+            InputManager.OnInputTick += OnInputTick;
             input.UI.Navigate.performed += InputNavigationChanged;
             input.UI.Submit.performed += OnInputSubmit;
             input.UI.Cancel.performed += OnInputCancel;
@@ -44,12 +47,19 @@ namespace NBLD.Input
         }
         private void Unsubscribe()
         {
-            Debug.Log("Unsubscribing");
+            InputManager.OnInputTick -= OnInputTick;
             input.UI.Navigate.performed -= InputNavigationChanged;
             input.UI.Submit.performed -= OnInputSubmit;
             input.UI.Cancel.performed -= OnInputCancel;
             input.UI.ChangeSelect.performed -= OnInputChangeSelect;
             input.UI.Escape.performed -= OnInputEscape;
+        }
+
+        private void OnInputTick(float deltaTime)
+        {
+            horizontalHold.UpdateTime(deltaTime);
+            verticalHold.UpdateTime(deltaTime);
+            OnNavigation?.Invoke(navigation);
         }
 
         private void TryNavigationChangedInt(Vector2 oldNav, Vector2 newNav)
@@ -67,18 +77,10 @@ namespace NBLD.Input
         {
             Vector2 oldNav = navigation;
             navigation = context.ReadValue<Vector2>();
-            if (context.interaction is HoldInteraction)
-            {
-                Debug.Log($"Hold{navigation}");
-                OnNavigationHeld?.Invoke(navigation);
-            }
-            if (context.interaction is PressInteraction)
-            {
-                Debug.Log($"InputGen{navigation}");
-                //Default to press
-                TryNavigationChangedInt(oldNav, navigation);
-                OnNavigation?.Invoke(navigation);
-            }
+            horizontalHold.SetValue(navigation.x);
+            verticalHold.SetValue(navigation.y);
+            //Default to press
+            TryNavigationChangedInt(oldNav, navigation);
         }
         private void OnInputSubmit(InputAction.CallbackContext context)
         {
@@ -94,7 +96,6 @@ namespace NBLD.Input
             //Debug.Log("ChangeSelect");
             OnChangeSelect?.Invoke();
         }
-
         private void OnInputEscape(InputAction.CallbackContext context)
         {
             //Debug.Log("Escape");

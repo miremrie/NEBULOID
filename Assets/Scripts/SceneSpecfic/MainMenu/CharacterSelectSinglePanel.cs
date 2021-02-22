@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using NBLD.Data;
 using NBLD.Input;
 using NBLD.UI;
 using UnityEngine;
@@ -14,7 +15,8 @@ namespace NBLD.MainMenu
         public GameObject inactivePanel;
         public GameObject activePanel;
         public BaseUIComponent[] activeUIElements;
-        public SingleOptionSelect devotionNameOptionSelect, spiritNameOptionSelect;
+        public SingleOptionSelectImage skinOptionSelect;
+        public SingleOptionSelectText devotionNameOptionSelect, spiritNameOptionSelect;
         public int currentlySelectedElement = 0;
         private PlayerUIInputManager uiInputManager;
         private bool subscribedToInput = false;
@@ -45,7 +47,6 @@ namespace NBLD.MainMenu
             if (!subscribedToInput)
             {
                 uiInputManager.OnNavigationIntChanged += OnNavigationIntChanged;
-                Debug.Log("subinput");
                 subscribedToInput = true;
             }
         }
@@ -61,11 +62,13 @@ namespace NBLD.MainMenu
         }
         private void SubscribeToUI()
         {
+            skinOptionSelect.OnSelectionChanged += OnSkinSelectChanged;
             devotionNameOptionSelect.OnSelectionChanged += OnDevotionSelectChanged;
             spiritNameOptionSelect.OnSelectionChanged += OnSpiritSelectChanged;
         }
         private void UnsubscribeFromUI()
         {
+            skinOptionSelect.OnSelectionChanged -= OnSkinSelectChanged;
             devotionNameOptionSelect.OnSelectionChanged -= OnDevotionSelectChanged;
             spiritNameOptionSelect.OnSelectionChanged -= OnSpiritSelectChanged;
         }
@@ -92,6 +95,10 @@ namespace NBLD.MainMenu
 
         #endregion
         #region UIEvents
+        private void OnSkinSelectChanged(int step)
+        {
+            characterSelectScreen.ChangeCharacterSkin(playerIndex, step);
+        }
         private void OnDevotionSelectChanged(int step)
         {
             characterSelectScreen.ChangeDevotionName(playerIndex, step);
@@ -108,6 +115,8 @@ namespace NBLD.MainMenu
             devotionNameOptionSelect.UpdateText(devotionName);
             string spiritName = characterSelectScreen.characterNames.GetSpiritName(playerData.spiritNameIndex);
             spiritNameOptionSelect.UpdateText(spiritName);
+            CharacterSkinData skinData = characterSelectScreen.characterSkins.GetSkinData(playerData.skinIndex);
+            skinOptionSelect.UpdateImage(skinData.defaultImage);
             //Debug.Log(devotionName + " " + spiritName);
         }
 
