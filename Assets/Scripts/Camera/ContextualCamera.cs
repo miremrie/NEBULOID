@@ -11,6 +11,7 @@ namespace NBLD.Cameras
         public Transform transformToFollow;
         private Vector3 initialOffset;
         public CameraController mainCameraController;
+        public ContextCamDisplay camDisplay;
         public Camera cam;
         public RawImage displayImage;
         public Image borderImage;
@@ -49,11 +50,13 @@ namespace NBLD.Cameras
         public void Activate()
         {
             captureEnabled = true;
+            camDisplay.gameObject.SetActive(true);
         }
 
         public void Deactivate()
         {
             captureEnabled = false;
+            camDisplay.gameObject.SetActive(false);
         }
         private void FollowTransform()
         {
@@ -89,6 +92,11 @@ namespace NBLD.Cameras
         }
         public void OnMainCameraMoved()
         {
+        }
+
+        public void SetFollowTarget(Transform target)
+        {
+            this.transformToFollow = target;
         }
     }
 }

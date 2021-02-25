@@ -974,8 +974,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.42000002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 5131746733638001419}
-  m_RootOrder: 0
+  m_Father: {fileID: 8847336381689410747}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2917806909764477764
 SpriteRenderer:
@@ -1042,37 +1042,6 @@ MonoBehaviour:
   spriteRenderer: {fileID: 2917806909764477764}
   currentSpriteIndex: 0
   sprites: []
---- !u!1 &8838765593396784771
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5131746733638001419}
-  m_Layer: 8
-  m_Name: GraphicsRoot
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5131746733638001419
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8838765593396784771}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4219495756760480173}
-  m_Father: {fileID: 8847336381689410747}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8847336380807913325
 GameObject:
   m_ObjectHideFlags: 0
@@ -1149,7 +1118,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ship: {fileID: 0}
   charAudio: {fileID: 4058322579414316957}
-  graphicsRoot: {fileID: 8838765593396784771}
+  graphicsRoot: {fileID: 0}
+  charAnimator: {fileID: 619621694826615025}
   animator: {fileID: 4265162992504635029}
   charSpriteRenderer: {fileID: 2917806909764477764}
   characterPivot: {fileID: 8847336381689410747}
@@ -1308,7 +1278,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1369831469631679421}
-  - {fileID: 5131746733638001419}
+  - {fileID: 4219495756760480173}
   - {fileID: 6771823563361393758}
   m_Father: {fileID: 8847336380807913326}
   m_RootOrder: 0

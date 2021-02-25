@@ -11,7 +11,6 @@ namespace NBLD.Input
 {
     public class PlayerGameplayInputManager
     {
-        public int index;
         private CharacterInput input;
 
         public delegate void ButtonActionHandler();
@@ -28,7 +27,6 @@ namespace NBLD.Input
         {
             this.input = input;
             Subscribe();
-
         }
 
         /*private void OnDestroy()

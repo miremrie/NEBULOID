@@ -13,11 +13,55 @@ MonoBehaviour:
   m_Name: Character Skins
   m_EditorClassIdentifier: 
   skinDatas:
-  - graphicsPrefab: {fileID: 5502166203119305689, guid: b87cbeb3ffc9fa9479346300a948ade9,
-      type: 3}
+  - name: Yello
     defaultImage: {fileID: 21300000, guid: 460c880bc0c24e747ad5fc20d659cd5e, type: 3}
-    name: Yello
-  - graphicsPrefab: {fileID: 4630218785697782379, guid: 23cefe2a0a4597b4aa81ec0b65971aa4,
-      type: 3}
+    animatorController: {fileID: 9100000, guid: 97f21950620112f4a91e3c879f0535c7,
+      type: 2}
+    sprites:
+    - {fileID: 21300000, guid: 460c880bc0c24e747ad5fc20d659cd5e, type: 3}
+    - {fileID: 21300000, guid: b4a60b2bf947af4448ec54070cad12af, type: 3}
+    - {fileID: 21300000, guid: 19fe88d312848d243b5f7adb532ec8f2, type: 3}
+    - {fileID: 21300000, guid: d82de9163a2e8a740b750a3f9ac4a2ff, type: 3}
+    - {fileID: 21300000, guid: 5b34a6b64037aab41bbc11b8f599a11b, type: 3}
+    - {fileID: 21300000, guid: 85235586cdd27e5419a1f03a946ca45f, type: 3}
+    - {fileID: 21300000, guid: 69fd8e5569be9b94e9a2da40c66d46ff, type: 3}
+    - {fileID: 21300000, guid: 4f5dd29e8daa187429fe1db511b6d566, type: 3}
+    - {fileID: 21300000, guid: 1b4a28ad18191b94a88475c3456bcc69, type: 3}
+    - {fileID: 21300000, guid: 9cb46fb46742ad244bcd291a801e5536, type: 3}
+    - {fileID: 21300000, guid: 0c7a693b43a0d7046ab8616a03c5a8ca, type: 3}
+    - {fileID: 21300000, guid: 18bd5552344d63048b1bb2b3a8935843, type: 3}
+    - {fileID: 21300000, guid: 950e05b5539ed1043bff8284a85ee04a, type: 3}
+    - {fileID: 21300000, guid: 26bba44c7972c2a4c82f18c095dd4a7c, type: 3}
+    - {fileID: 21300000, guid: 1bec2b605e9a1b543932c8bc3e62de30, type: 3}
+    - {fileID: 21300000, guid: e85d54b9d183aae439ebff4e6cfa9a32, type: 3}
+    - {fileID: 21300000, guid: a45985a52a808ba41abca6dbedc5dc6e, type: 3}
+    - {fileID: 21300000, guid: 1f1a1f231e0f2c7478b2fd3bc92906b2, type: 3}
+    - {fileID: 21300000, guid: e9ac0b00378619044aff986c7253751f, type: 3}
+    - {fileID: 21300000, guid: 29f14ecdcf7fa3d41a3d41aba10c0277, type: 3}
+    - {fileID: 21300000, guid: 702230d9bfadf4d418a1bb20aa500b7d, type: 3}
+  - name: Blo
     defaultImage: {fileID: 21300000, guid: 98470cd12f678004aad0af26f66728ca, type: 3}
-    name: Blo
+    animatorController: {fileID: 9100000, guid: 97f21950620112f4a91e3c879f0535c7,
+      type: 2}
+    sprites:
+    - {fileID: 21300000, guid: 98470cd12f678004aad0af26f66728ca, type: 3}
+    - {fileID: 21300000, guid: 949a2931a9790f241b33b862a7b27eb4, type: 3}
+    - {fileID: 21300000, guid: ef21edef728287744bb6ec0dfc64daf6, type: 3}
+    - {fileID: 21300000, guid: a5a618df6729d1f49a254a8f237f89cf, type: 3}
+    - {fileID: 21300000, guid: 0da77ff04b954ed478e4e47f2604bea9, type: 3}
+    - {fileID: 21300000, guid: 949a2931a9790f241b33b862a7b27eb4, type: 3}
+    - {fileID: 21300000, guid: ef21edef728287744bb6ec0dfc64daf6, type: 3}
+    - {fileID: 21300000, guid: a5a618df6729d1f49a254a8f237f89cf, type: 3}
+    - {fileID: 21300000, guid: ef21edef728287744bb6ec0dfc64daf6, type: 3}
+    - {fileID: 21300000, guid: 949a2931a9790f241b33b862a7b27eb4, type: 3}
+    - {fileID: 21300000, guid: ef21edef728287744bb6ec0dfc64daf6, type: 3}
+    - {fileID: 21300000, guid: a5a618df6729d1f49a254a8f237f89cf, type: 3}
+    - {fileID: 21300000, guid: ef21edef728287744bb6ec0dfc64daf6, type: 3}
+    - {fileID: 21300000, guid: 949a2931a9790f241b33b862a7b27eb4, type: 3}
+    - {fileID: 21300000, guid: ef21edef728287744bb6ec0dfc64daf6, type: 3}
+    - {fileID: 21300000, guid: a5a618df6729d1f49a254a8f237f89cf, type: 3}
+    - {fileID: 21300000, guid: ef21edef728287744bb6ec0dfc64daf6, type: 3}
+    - {fileID: 21300000, guid: 949a2931a9790f241b33b862a7b27eb4, type: 3}
+    - {fileID: 21300000, guid: ef21edef728287744bb6ec0dfc64daf6, type: 3}
+    - {fileID: 21300000, guid: 29f14ecdcf7fa3d41a3d41aba10c0277, type: 3}
+    - {fileID: 21300000, guid: 702230d9bfadf4d418a1bb20aa500b7d, type: 3}

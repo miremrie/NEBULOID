@@ -109,6 +109,15 @@ namespace DynamicCamera
         public float radius;
         [Range(0, 1)]
         public float weight;
+
+        public CamZone Copy()
+        {
+            CamZone copy = new CamZone();
+            copy.trans = trans;
+            copy.radius = radius;
+            copy.weight = weight;
+            return copy;
+        }
     }
 
     [Serializable]

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 
 namespace NBLD.Data
@@ -7,9 +8,11 @@ namespace NBLD.Data
     [System.Serializable]
     public class CharacterSkinData
     {
-        public GameObject graphicsPrefab;
-        public Sprite defaultImage;
         public string name;
+        public Sprite defaultImage;
+        public AnimatorController animatorController;
+        public List<Sprite> sprites;
+
     }
     [CreateAssetMenu(fileName = "Character Skins", menuName = "NBLD/Character Skins", order = 2)]
     public class CharacterSkins : ScriptableObject

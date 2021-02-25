@@ -22,10 +22,9 @@ namespace NBLD.Character
         [Header("Input")]
         public PlayerGameplayInputManager charInputManager;
         private PlayerSessionData playerSessionData;
-        [Header("Character Graphics")]
-        public GameObject graphicsRoot;
         private const string graphicsObjectName = "Character Graphics";
         [Header("Animation")]
+        public CharAnimator charAnimator;
         public Animator animator;
         public SpriteRenderer charSpriteRenderer;
         public Transform characterPivot;
@@ -70,20 +69,19 @@ namespace NBLD.Character
         //Actions
         protected Dictionary<UseActionButton, UseAction> availableActions = new Dictionary<UseActionButton, UseAction>();
 
-        public void Initialize(PlayerSessionData playerSessionData)
+        public void Initialize(PlayerSessionData playerSessionData, int startingFloor)
         {
             this.playerSessionData = playerSessionData;
             this.charInputManager = playerSessionData.gameplayInputManager;
-            GameObject graphics = GameObject.Instantiate(playerSessionData.skin.graphicsPrefab);
-            graphics.name = graphicsObjectName;
-            Destroy(graphicsRoot.transform.GetChild(0).gameObject);
-            graphics.transform.SetParent(graphicsRoot.transform);
+            this.charAnimator.sprites = playerSessionData.skin.sprites.ToArray();
+            animator.runtimeAnimatorController = playerSessionData.skin.animatorController;
+            ship.AddDependentTransform(transform);
             SetGameplayInputActive();
             insideBehaviour.Initialize(this, rb2D, charSpriteRenderer, animator, charAudio);
             outsideBehaviour.Initialize(this, rb2D, charSpriteRenderer, animator, charAudio);
             outsideBehaviour.Deactivate();
             ChangeState(CharacterState.Inside);
-            charAudio.SetEnvironmentBasedOnFloor(1);
+            charAudio.SetEnvironmentBasedOnFloor(startingFloor);
             animator.keepAnimatorControllerStateOnDisable = true;
 
             Subscribe();

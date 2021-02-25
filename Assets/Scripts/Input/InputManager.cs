@@ -51,6 +51,8 @@ namespace NBLD.Input
         {
             if (enabled)
             {
+                user.AssociateActionsWithUser(gameplayInput);
+                user.ActivateControlScheme(this.schemeName);
                 gameplayInput.Enable();
             }
             else
