@@ -18,8 +18,11 @@ namespace NBLD.MainMenu
         public SingleOptionSelectImage skinOptionSelect;
         public SingleOptionSelectText devotionNameOptionSelect, spiritNameOptionSelect;
         public int currentlySelectedElement = 0;
+        public GameObject playerReadyObject;
         private PlayerUIInputManager uiInputManager;
         private bool subscribedToInput = false;
+        private bool subscribedToUI = false;
+
         public void Activate(int playerIndex, PlayerUIInputManager uiInputManager)
         {
             this.playerIndex = playerIndex;
@@ -42,11 +45,18 @@ namespace NBLD.MainMenu
             UnsubscribeFromUI();
             UnsubscribeFromInput();
         }
+        private void OnDisable()
+        {
+            UnsubscribeFromInput();
+            UnsubscribeFromUI();
+        }
         private void SubscribeToInput()
         {
             if (!subscribedToInput)
             {
                 uiInputManager.OnNavigationIntChanged += OnNavigationIntChanged;
+                uiInputManager.OnSubmit += OnSubmit;
+                uiInputManager.OnCancel += OnCancel;
                 subscribedToInput = true;
             }
         }
@@ -56,26 +66,36 @@ namespace NBLD.MainMenu
             {
                 subscribedToInput = false;
                 uiInputManager.OnNavigationIntChanged -= OnNavigationIntChanged;
-
+                uiInputManager.OnSubmit -= OnSubmit;
+                uiInputManager.OnCancel -= OnCancel;
             }
-
         }
         private void SubscribeToUI()
         {
-            skinOptionSelect.OnSelectionChanged += OnSkinSelectChanged;
-            devotionNameOptionSelect.OnSelectionChanged += OnDevotionSelectChanged;
-            spiritNameOptionSelect.OnSelectionChanged += OnSpiritSelectChanged;
+            if (!subscribedToUI)
+            {
+                subscribedToUI = true;
+                skinOptionSelect.OnSelectionChanged += OnSkinSelectChanged;
+                devotionNameOptionSelect.OnSelectionChanged += OnDevotionSelectChanged;
+                spiritNameOptionSelect.OnSelectionChanged += OnSpiritSelectChanged;
+            }
+
         }
         private void UnsubscribeFromUI()
         {
-            skinOptionSelect.OnSelectionChanged -= OnSkinSelectChanged;
-            devotionNameOptionSelect.OnSelectionChanged -= OnDevotionSelectChanged;
-            spiritNameOptionSelect.OnSelectionChanged -= OnSpiritSelectChanged;
+            if (subscribedToUI)
+            {
+                subscribedToUI = false;
+                skinOptionSelect.OnSelectionChanged -= OnSkinSelectChanged;
+                devotionNameOptionSelect.OnSelectionChanged -= OnDevotionSelectChanged;
+                spiritNameOptionSelect.OnSelectionChanged -= OnSpiritSelectChanged;
+            }
+
         }
         #region Input Events
         private void OnNavigationIntChanged(Vector2Int navigation)
         {
-            Debug.Log(navigation);
+            //Debug.Log(navigation);
             if (navigation.x != 0)
             {
                 int oldSelection = currentlySelectedElement;
@@ -91,6 +111,14 @@ namespace NBLD.MainMenu
                 activeUIElements[oldSelection].LoseFocus();
                 activeUIElements[currentlySelectedElement].Focus(uiInputManager);
             }
+        }
+        private void OnSubmit()
+        {
+            characterSelectScreen.SetPlayerReady(playerIndex, true);
+        }
+        private void OnCancel()
+        {
+            characterSelectScreen.PlayerClickedCancel(playerIndex);
         }
 
         #endregion
@@ -117,6 +145,7 @@ namespace NBLD.MainMenu
             spiritNameOptionSelect.UpdateText(spiritName);
             CharacterSkinData skinData = characterSelectScreen.characterSkins.GetSkinData(playerData.skinIndex);
             skinOptionSelect.UpdateImage(skinData.defaultImage);
+            playerReadyObject.SetActive(playerData.playerReady);
             //Debug.Log(devotionName + " " + spiritName);
         }
 

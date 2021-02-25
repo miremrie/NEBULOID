@@ -57,7 +57,7 @@ namespace NBLD.MainMenu
             shipSelectionScreen.SetActive(this.inShipSelectionMode);
         }
         //Scene Changers
-        private void LoadArcadeLevel()
+        public void LoadArcadeLevel()
         {
             AkSoundEngine.StopAll();
             SceneManager.LoadScene(gameSceneIndex, LoadSceneMode.Single);

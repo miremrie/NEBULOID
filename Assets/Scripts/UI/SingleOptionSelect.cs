@@ -23,7 +23,10 @@ namespace NBLD.UI
         {
             holdTimer = new Timer(holdOffsetTime);
         }
-
+        private void OnDisable()
+        {
+            UnsubscribeFromInput();
+        }
 
         protected override void SubscribeToInput()
         {
@@ -68,7 +71,6 @@ namespace NBLD.UI
         }
         private void OnNavigationHeld(int value, float time)
         {
-            Debug.Log($"{value}:{time}");
             holdValue = value;
             if (isHolding)
             {

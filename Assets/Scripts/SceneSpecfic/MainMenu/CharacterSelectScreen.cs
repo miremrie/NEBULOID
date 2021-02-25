@@ -12,12 +12,22 @@ namespace NBLD.MainMenu
         public int skinIndex;
         public int devotionNameIndex;
         public int spiritNameIndex;
-        public bool confirmedName;
+        public bool playerActive = false;
+        public bool playerReady = false;
 
+        public void CopyData(SelectScreenPlayerData ssPlayerData)
+        {
+            this.playerSessionData = ssPlayerData.playerSessionData;
+            this.skinIndex = ssPlayerData.skinIndex;
+            this.devotionNameIndex = ssPlayerData.devotionNameIndex;
+            this.spiritNameIndex = ssPlayerData.spiritNameIndex;
+            this.playerActive = ssPlayerData.playerActive;
+            this.playerReady = ssPlayerData.playerReady;
+        }
     }
     public class CharacterSelectScreen : MonoBehaviour
     {
-
+        public MainMenu mainMenu;
         public InputManager inputManager;
         public CharacterSelectSinglePanel[] csPanels;
         public CharacterNames characterNames;
@@ -41,7 +51,7 @@ namespace NBLD.MainMenu
                 playerControllers = new List<SelectScreenPlayerController>();
                 for (int i = 0; i < inputManager.GetDeviceCount(); i++)
                 {
-                    CreateNewPlayer(inputManager.GetDevice(i), inputManager.GetUIInputManager(i));
+                    CreateNewPossiblePlayer(inputManager.GetDevice(i), inputManager.GetUIInputManager(i));
                 }
                 SubscribeToInput();
                 for (int i = 0; i < csPanels.Length; i++)
@@ -72,25 +82,73 @@ namespace NBLD.MainMenu
         {
             inputManager.OnDeviceRegistered += OnDeviceRegistered;
             inputManager.OnPlayerRegistered += OnPlayerRegistered;
+            inputManager.OnPlayerRemoved += OnPlayerRemoved;
+            inputManager.OnPlayerChangedIndex += OnPlayerChangedIndex;
         }
         private void UnsubscribeFromInput()
         {
             inputManager.OnDeviceRegistered -= OnDeviceRegistered;
             inputManager.OnPlayerRegistered -= OnPlayerRegistered;
+            inputManager.OnPlayerRemoved -= OnPlayerRemoved;
+            inputManager.OnPlayerChangedIndex -= OnPlayerChangedIndex;
+
         }
         private void OnDeviceRegistered(UserDevice userDevice, PlayerGameplayInputManager gameplayInputManager, PlayerUIInputManager uiInputManager)
         {
-            CreateNewPlayer(userDevice, uiInputManager);
+            CreateNewPossiblePlayer(userDevice, uiInputManager);
         }
         private void OnPlayerRegistered(PlayerSessionData playerSessionData)
         {
             SelectScreenPlayerData ssPlayerData = new SelectScreenPlayerData();
             selectScreenPlayerDatas[playerSessionData.playerIndex] = ssPlayerData;
             ssPlayerData.playerSessionData = playerSessionData;
+            ssPlayerData.playerActive = true;
+            ssPlayerData.playerReady = false;
             AssignRandomNames(ssPlayerData);
             AssignRandomSkin(ssPlayerData);
+            csPanels[playerSessionData.playerIndex].Activate(playerSessionData.playerIndex, playerSessionData.uiInputManager);
         }
-        private void CreateNewPlayer(UserDevice userDevice, PlayerUIInputManager uiInputManager)
+        private void OnPlayerRemoved(PlayerSessionData playerSessionData)
+        {
+            for (int i = 0; i < playerControllers.Count; i++)
+            {
+                if (playerControllers[i].playerIndex == playerSessionData.playerIndex)
+                {
+                    playerControllers[i].SetPlayerActive(false);
+                    break;
+                }
+            }
+            for (int i = 0; i < selectScreenPlayerDatas.Length; i++)
+            {
+                if (selectScreenPlayerDatas[i] != null)
+                {
+                    selectScreenPlayerDatas[i].playerReady = false;
+                    csPanels[selectScreenPlayerDatas[i].playerSessionData.playerIndex].UpdatePanel(selectScreenPlayerDatas[i]);
+                }
+            }
+            csPanels[playerSessionData.playerIndex].Deactivate();
+        }
+        private void OnPlayerChangedIndex(PlayerSessionData playerSessionData, int oldIndex)
+        {
+            selectScreenPlayerDatas[playerSessionData.playerIndex].CopyData(selectScreenPlayerDatas[oldIndex]);
+            selectScreenPlayerDatas[oldIndex].playerActive = false;
+            selectScreenPlayerDatas[oldIndex].playerReady = false;
+
+            for (int i = 0; i < playerControllers.Count; i++)
+            {
+                if (playerControllers[i].playerIndex == oldIndex)
+                {
+                    playerControllers[i].playerIndex = playerSessionData.playerIndex;
+                }
+            }
+
+            csPanels[playerSessionData.playerIndex].UpdatePanel(selectScreenPlayerDatas[playerSessionData.playerIndex]);
+            csPanels[playerSessionData.playerIndex].Activate(playerSessionData.playerIndex, playerSessionData.uiInputManager);
+            csPanels[oldIndex].UpdatePanel(selectScreenPlayerDatas[oldIndex]);
+            csPanels[oldIndex].Deactivate();
+
+        }
+        private void CreateNewPossiblePlayer(UserDevice userDevice, PlayerUIInputManager uiInputManager)
         {
             while (userDevice.deviceIndex >= playerControllers.Count)
             {
@@ -99,7 +157,6 @@ namespace NBLD.MainMenu
             userDevice.EnableUIInput(true);
             SelectScreenPlayerController playerSelectController = new SelectScreenPlayerController(userDevice.deviceIndex, uiInputManager, this);
             playerControllers[userDevice.deviceIndex] = playerSelectController;
-
         }
 
         public bool RegisterPlayer(int deviceIndex)
@@ -120,15 +177,7 @@ namespace NBLD.MainMenu
         {
             SelectScreenPlayerData playerData = selectScreenPlayerDatas[playerIndex];
             int currentIndex = playerData.skinIndex;
-            currentIndex += step;
-            if (currentIndex >= characterSkins.GetSkinsCount())
-            {
-                currentIndex = 0;
-            }
-            else if (currentIndex < 0)
-            {
-                currentIndex = characterSkins.GetSkinsCount() - 1;
-            }
+            currentIndex = MMath.SumAllowFlow(currentIndex, step, 0, characterSkins.GetSkinsCount() - 1);
             playerData.skinIndex = currentIndex;
             csPanels[playerData.playerSessionData.playerIndex].UpdatePanel(playerData);
         }
@@ -153,16 +202,7 @@ namespace NBLD.MainMenu
         {
             SelectScreenPlayerData playerData = selectScreenPlayerDatas[playerIndex];
             int currentIndex = playerData.devotionNameIndex;
-            currentIndex += step;
-            if (currentIndex >= characterNames.GetDevotionNamesCount())
-            {
-                currentIndex = 0;
-
-            }
-            else if (currentIndex < 0)
-            {
-                currentIndex = characterNames.GetDevotionNamesCount() - 1;
-            }
+            currentIndex = MMath.SumAllowFlow(currentIndex, step, 0, characterNames.GetDevotionNamesCount() - 1);
             playerData.devotionNameIndex = currentIndex;
             csPanels[playerIndex].UpdatePanel(playerData);
 
@@ -171,18 +211,69 @@ namespace NBLD.MainMenu
         {
             SelectScreenPlayerData playerData = selectScreenPlayerDatas[playerIndex];
             int currentIndex = playerData.spiritNameIndex;
-            currentIndex += step;
-            if (currentIndex >= characterNames.GetSpiritNamesCount())
-            {
-                currentIndex = 0;
-
-            }
-            else if (currentIndex < 0)
-            {
-                currentIndex = characterNames.GetSpiritNamesCount() - 1;
-            }
+            currentIndex = MMath.SumAllowFlow(currentIndex, step, 0, characterNames.GetSpiritNamesCount() - 1);
             playerData.spiritNameIndex = currentIndex;
             csPanels[playerIndex].UpdatePanel(playerData);
+        }
+        #endregion
+        #region Player Ready/Active states
+        public void SetPlayerReady(int playerIndex, bool isReady)
+        {
+            SelectScreenPlayerData playerData = selectScreenPlayerDatas[playerIndex];
+            if (playerData.playerReady != isReady)
+            {
+                playerData.playerReady = isReady;
+                csPanels[playerIndex].UpdatePanel(playerData);
+                if (isReady)
+                {
+                    CheckIfAllPlayersAreReady();
+                }
+            }
+        }
+        public void PlayerClickedCancel(int playerIndex)
+        {
+            SelectScreenPlayerData playerData = selectScreenPlayerDatas[playerIndex];
+            if (playerData.playerReady)
+            {
+                playerData.playerReady = false;
+                csPanels[playerIndex].UpdatePanel(playerData);
+            }
+            else
+            {
+                inputManager.RemovePlayer(playerIndex);
+            }
+        }
+        private void CheckIfAllPlayersAreReady()
+        {
+            bool playersReady = true;
+            for (int i = 0; i < selectScreenPlayerDatas.Length; i++)
+            {
+                var sspData = selectScreenPlayerDatas[i];
+                if (sspData != null && sspData.playerActive && !sspData.playerReady)
+                {
+                    playersReady = false;
+                    break;
+                }
+            }
+            if (playersReady)
+            {
+                //Save playerData?
+                RecordPlayerSessionData();
+                mainMenu.LoadArcadeLevel();
+            }
+        }
+        private void RecordPlayerSessionData()
+        {
+            for (int i = 0; i < selectScreenPlayerDatas.Length; i++)
+            {
+                if (selectScreenPlayerDatas[i] != null && selectScreenPlayerDatas[i].playerActive)
+                {
+                    var sspData = selectScreenPlayerDatas[i];
+                    sspData.playerSessionData.skin = characterSkins.GetSkinData(sspData.skinIndex);
+                    sspData.playerSessionData.devotionName = characterNames.GetDevotionName(sspData.devotionNameIndex);
+                    sspData.playerSessionData.spiritName = characterNames.GetSpiritName(sspData.spiritNameIndex);
+                }
+            }
         }
         #endregion
     }

@@ -38,6 +38,13 @@ public class MMath
 
         return true;
     }
+    public static int SumAllowFlow(int a, int b, int min, int max)
+    {
+        int sum = a + b;
+        if (sum >= min && sum <= max) return sum;
+        else if (sum > max) return min + ((sum - max - 1) % (max + 1 - min));
+        else return max + ((sum - min + 1) % (max + 1 - min));
+    }
 
 }
 public static class LMath

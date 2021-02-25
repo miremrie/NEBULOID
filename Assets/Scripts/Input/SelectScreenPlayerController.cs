@@ -7,10 +7,16 @@ namespace NBLD.Input
     {
         public int playerIndex = -1;
         public CharacterSelectScreen characterSelectScreen;
-        public CharacterSelectSinglePanel csPanel;
         private PlayerUIInputManager playerUIInputManager;
         private bool playerActive = false;
-        private PlayerSessionData playerSessionData;
+        public void SetPlayerActive(bool active)
+        {
+            playerActive = active;
+            if (!playerActive)
+            {
+                playerIndex = -1;
+            }
+        }
 
         #region Initialization
         public SelectScreenPlayerController(int index, PlayerUIInputManager playerUIInputManager, CharacterSelectScreen characterSelectScreen)
@@ -41,11 +47,9 @@ namespace NBLD.Input
             bool success = characterSelectScreen.RegisterPlayer(playerUIInputManager.deviceIndex);
             if (success)
             {
-                playerSessionData = characterSelectScreen.GetPlayerByDevice(playerUIInputManager.deviceIndex);
-                playerActive = true;
+                var playerSessionData = characterSelectScreen.GetPlayerByDevice(playerUIInputManager.deviceIndex);
                 playerIndex = playerSessionData.playerIndex;
-                csPanel = characterSelectScreen.GetPanelForPlayer(playerIndex);
-                csPanel.Activate(playerIndex, playerUIInputManager);
+                playerActive = true;
             }
         }
         #endregion

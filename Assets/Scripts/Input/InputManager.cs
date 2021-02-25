@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using GeneratedInputActions;
+using NBLD.Data;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.LowLevel;
@@ -81,14 +82,19 @@ namespace NBLD.Input
         public int playerIndex;
         public PlayerData playerData;
         public PlayerGameplayInputManager gameplayInputManager;
-        public string characterName;
+        public PlayerUIInputManager uiInputManager;
+        public string devotionName = "";
+        public string spiritName = "";
+        public CharacterSkinData skin;
+        public string CharacterName => $"{devotionName} {spiritName}";
         public int deviceIndex;
 
-        public PlayerSessionData(int playerIndex, int deviceIndex, PlayerGameplayInputManager charInputManager)
+        public PlayerSessionData(int playerIndex, int deviceIndex, PlayerGameplayInputManager charInputManager, PlayerUIInputManager uiInputManager)
         {
             this.playerIndex = playerIndex;
             this.deviceIndex = deviceIndex;
             this.gameplayInputManager = charInputManager;
+            this.uiInputManager = uiInputManager;
             playerData = new PlayerData();
         }
     }
@@ -108,16 +114,31 @@ namespace NBLD.Input
         private bool subscribed = false;
         public delegate void DeviceRegisteredHandler(UserDevice userDevice, PlayerGameplayInputManager gameplayInputManager, PlayerUIInputManager uiInputManager);
         public delegate void PlayerRegisteredHandler(PlayerSessionData playerSessionData);
+        public delegate void PlayerChangedIndexHandler(PlayerSessionData playerSessionData, int oldPlayerIndex);
         public delegate void InitHandler();
         public delegate void UpdateHandler(float deltaTime);
         public event InitHandler OnInputInitialized;
         public event DeviceRegisteredHandler OnDeviceRegistered;
-        public event PlayerRegisteredHandler OnPlayerRegistered;
+        public event PlayerRegisteredHandler OnPlayerRegistered, OnPlayerRemoved;
+        public event PlayerChangedIndexHandler OnPlayerChangedIndex;
         public static event UpdateHandler OnInputTick;
+
+        #region Singleton
+        public static InputManager Instance { get; private set; }
+        #endregion
 
         private void Awake()
         {
-            Initialize();
+            if (Instance == null)
+            {
+                Instance = this;
+                DontDestroyOnLoad(this);
+                Initialize();
+            }
+            else
+            {
+                Destroy(this);
+            }
         }
         private void Initialize()
         {
@@ -140,9 +161,7 @@ namespace NBLD.Input
                 Subscribe();
                 OnInputInitialized?.Invoke();
             }
-
         }
-
         private void InitializeUnusedDevice(InputDevice device, string schemeName)
         {
             int deviceIndex = userDevices.Count;
@@ -161,7 +180,7 @@ namespace NBLD.Input
         }
         private PlayerSessionData CreatePlayerWithDevice(int deviceIndex)
         {
-            PlayerSessionData playerSessionData = new PlayerSessionData(activePlayers.Count, deviceIndex, gameplayInputManagers[deviceIndex]);
+            PlayerSessionData playerSessionData = new PlayerSessionData(activePlayers.Count, deviceIndex, gameplayInputManagers[deviceIndex], uiInputManagers[deviceIndex]);
             activePlayers.Add(playerSessionData);
             OnPlayerRegistered?.Invoke(playerSessionData);
             Debug.Log($"Creating player id: {playerSessionData.playerIndex} with device id {deviceIndex}");
@@ -179,9 +198,12 @@ namespace NBLD.Input
         private void OnDestroy()
         {
             Unsubscribe();
-            for (int i = 0; i < userDevices.Count; i++)
+            if (userDevices != null)
             {
-                userDevices[i].Dispose();
+                for (int i = 0; i < userDevices.Count; i++)
+                {
+                    userDevices[i].Dispose();
+                }
             }
         }
 
@@ -204,6 +226,7 @@ namespace NBLD.Input
                 InputUser.onUnpairedDeviceUsed -= ListenForUnpairedGamepads;
             }
         }
+
 
         private void Update()
         {
@@ -284,7 +307,7 @@ namespace NBLD.Input
                 }
             }
         }
-
+        #region Players
         public bool RegisterPlayer(int deviceIndex)
         {
             if (deviceIndex.IsBetween(-1, userDevices.Count) && !IsDeviceUsed(deviceIndex))
@@ -294,5 +317,37 @@ namespace NBLD.Input
             }
             return false;
         }
+        public void RemovePlayer(int playerIndex)
+        {
+            if (activePlayers.Count > playerIndex)
+            {
+                var psData = activePlayers[playerIndex];
+                activePlayers.RemoveAt(playerIndex);
+                OnPlayerRemoved?.Invoke(psData);
+                for (int i = playerIndex; i < maxNumberOfPlayers; i++)
+                {
+                    if (i < activePlayers.Count && activePlayers[i] != null)
+                    {
+                        PlayerSessionData pData = activePlayers[i];
+                        pData.playerIndex = i;
+                        OnPlayerChangedIndex?.Invoke(pData, i + 1);
+                    }
+                }
+            }
+        }
+        public int GetPlayerCount()
+        {
+            return activePlayers.Count;
+        }
+        public PlayerSessionData GetPlayerSessionData(int playerIndex)
+        {
+            return activePlayers[playerIndex];
+        }
+        public void SetPlayerGameplayEnabled(int playerIndex, bool enable)
+        {
+            UserDevice device = GetDevice(activePlayers[playerIndex].deviceIndex);
+            device.EnableGameplayInput(enable);
+        }
+        #endregion
     }
 }

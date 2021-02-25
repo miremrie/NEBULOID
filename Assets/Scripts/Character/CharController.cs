@@ -21,7 +21,10 @@ namespace NBLD.Character
 
         [Header("Input")]
         public PlayerGameplayInputManager charInputManager;
-
+        private PlayerSessionData playerSessionData;
+        [Header("Character Graphics")]
+        public GameObject graphicsRoot;
+        private const string graphicsObjectName = "Character Graphics";
         [Header("Animation")]
         public Animator animator;
         public SpriteRenderer charSpriteRenderer;
@@ -67,15 +70,27 @@ namespace NBLD.Character
         //Actions
         protected Dictionary<UseActionButton, UseAction> availableActions = new Dictionary<UseActionButton, UseAction>();
 
-        public void Awake()
+        public void Initialize(PlayerSessionData playerSessionData)
         {
+            this.playerSessionData = playerSessionData;
+            this.charInputManager = playerSessionData.gameplayInputManager;
+            GameObject graphics = GameObject.Instantiate(playerSessionData.skin.graphicsPrefab);
+            graphics.name = graphicsObjectName;
+            Destroy(graphicsRoot.transform.GetChild(0).gameObject);
+            graphics.transform.SetParent(graphicsRoot.transform);
+            SetGameplayInputActive();
             insideBehaviour.Initialize(this, rb2D, charSpriteRenderer, animator, charAudio);
             outsideBehaviour.Initialize(this, rb2D, charSpriteRenderer, animator, charAudio);
             outsideBehaviour.Deactivate();
             ChangeState(CharacterState.Inside);
             charAudio.SetEnvironmentBasedOnFloor(1);
             animator.keepAnimatorControllerStateOnDisable = true;
+
             Subscribe();
+        }
+        private void SetGameplayInputActive()
+        {
+            InputManager.Instance.SetPlayerGameplayEnabled(playerSessionData.playerIndex, true);
         }
         private void OnDestroy()
         {
