@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -8,7 +9,7 @@ public class Colors
 {
     public static Color RandomColor(float s, float v)
     {
-        var hue = Random.Range(0f, 1f);
+        var hue = UnityEngine.Random.Range(0f, 1f);
         return Color.HSVToRGB(hue, s, v);
     }
 }
@@ -57,5 +58,40 @@ public static class LMath
     public static bool IsBetweenOrEqual(this int value, int border1, int border2)
     {
         return (value >= border1 && value <= border2) || (value >= border2 && value <= border1);
+    }
+
+}
+
+public static class Vectors
+{ 
+    public static Vector2 ToVector2(this Vector3 v) => new Vector2(v.x, v.y);
+}
+
+
+internal class MaybeNot : Exception { }
+public struct Maybe<T>
+{
+    private T item;
+    public bool Valid { get; private set;}
+
+    public T Item
+    {
+        get
+        {
+            if (!Valid) throw new MaybeNot();
+            else return item;
+        }
+
+        set
+        {
+            item = value;
+            Valid = true;
+        }
+    }
+
+    public Maybe(T item, bool isValid = true)
+    {
+        this.item = item;
+        this.Valid = isValid;
     }
 }

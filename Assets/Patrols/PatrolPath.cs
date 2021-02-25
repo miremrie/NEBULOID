@@ -30,6 +30,7 @@ public struct PatrolWalkConfig
     }
 }
 
+
 public class PatrolWalk
 {
     PatrolPath path;
