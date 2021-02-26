@@ -27,7 +27,12 @@ namespace NBLD.Character
         [Header("Outside Behaviour Assignables")]
         public ShipEjectSystem shipEjectSystem;
         public Transform minesRoot;
+        private List<CharController> playerCharacters = new List<CharController>();
+        private CamSet gameplaySet;
+        private CamSet charactersSet;
         private bool initialized = false;
+        private bool subscribed = false;
+
         private void Awake()
         {
             if (InputManager.Instance.Initialized)
@@ -42,34 +47,68 @@ namespace NBLD.Character
         private void Initialize()
         {
             initialized = true;
-            CreateCharacters();
+            CreateInitialCharacters();
             InputManager.Instance.OnInputInitialized -= Initialize;
+            Subscribe();
         }
 
-        private void CreateCharacters()
+        private void Subscribe()
+        {
+            if (initialized && !subscribed)
+            {
+                subscribed = true;
+                //InputManager.Instance.OnPlayerRegistered += CreateCharacter;
+            }
+        }
+        private void Unsubscribe()
+        {
+            if (initialized && subscribed)
+            {
+                subscribed = false;
+                //InputManager.Instance.OnPlayerRegistered -= CreateCharacter;
+            }
+        }
+        private void OnEnable()
+        {
+            Subscribe();
+        }
+        private void OnDisable()
+        {
+            Unsubscribe();
+        }
+
+        private void CreateInitialCharacters()
         {
             int playerCount = InputManager.Instance.GetPlayerCount();
-            CamSet gameplaySet = mainCameraController.FindSet(gameplayCamSetName);
-            CamSet charactersSet = mainCameraController.FindSet(charactersCamSetName);
+            gameplaySet = mainCameraController.FindSet(gameplayCamSetName);
+            charactersSet = mainCameraController.FindSet(charactersCamSetName);
+            playerCharacters = new List<CharController>();
             for (int i = 0; i < playerCount; i++)
             {
-                PlayerSessionData playerSessionData = InputManager.Instance.GetPlayerSessionData(i);
-                CharController newChar = GameObject.Instantiate(characterPrefab, spawnLocations[i % spawnLocations.Count]);
-                newChar.ship = shipMovement;
-                newChar.outsideBehaviour.shipEjectSystem = shipEjectSystem;
-                newChar.outsideBehaviour.minesRoot = minesRoot;
-                newChar.transform.parent = charactersRoot;
-                newChar.Initialize(playerSessionData, spawnFloors[i % spawnFloors.Count]);
-                //Cameras
-                contextCams[i].SetFollowTarget(newChar.transform);
-                contextCams[i].Activate();
-                CamZone charGameplayCamZone = gameplayCamZone.Copy();
-                charGameplayCamZone.trans = newChar.transform;
-                gameplaySet.camZones.Add(charGameplayCamZone);
-                CamZone charCharactersCamZone = characterCamZone.Copy();
-                charCharactersCamZone.trans = newChar.transform;
-                charactersSet.camZones.Add(charCharactersCamZone);
+                CreateCharacter(InputManager.Instance.GetPlayerSessionData(i));
             }
+        }
+
+        public void CreateCharacter(PlayerSessionData psData)
+        {
+
+            CharController newChar = GameObject.Instantiate(characterPrefab, spawnLocations[psData.playerIndex % spawnLocations.Count]);
+            newChar.ship = shipMovement;
+            newChar.outsideBehaviour.shipEjectSystem = shipEjectSystem;
+            newChar.outsideBehaviour.minesRoot = minesRoot;
+            newChar.transform.parent = charactersRoot;
+            newChar.Initialize(psData, spawnFloors[psData.playerIndex % spawnFloors.Count]);
+            //Cameras
+            contextCams[psData.playerIndex].SetFollowTarget(newChar.transform);
+            contextCams[psData.playerIndex].Activate();
+            CamZone charGameplayCamZone = gameplayCamZone.Copy();
+            charGameplayCamZone.trans = newChar.transform;
+            gameplaySet.camZones.Add(charGameplayCamZone);
+            CamZone charCharactersCamZone = characterCamZone.Copy();
+            charCharactersCamZone.trans = newChar.transform;
+            charactersSet.camZones.Add(charCharactersCamZone);
+
+            playerCharacters.Add(newChar);
         }
     }
 }

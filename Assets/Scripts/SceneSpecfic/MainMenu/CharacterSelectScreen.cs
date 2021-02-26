@@ -73,8 +73,13 @@ namespace NBLD.MainMenu
         private void OnDisable()
         {
             inputManager.OnInputInitialized -= Initialize;
+            for (int i = 0; i < playerControllers.Count; i++)
+            {
+                playerControllers[i].Unsubscribe();
+            }
             if (initialized && subscribed)
             {
+
                 UnsubscribeFromInput();
             }
         }

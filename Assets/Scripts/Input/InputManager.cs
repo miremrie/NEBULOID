@@ -9,10 +9,8 @@ using UnityEngine.InputSystem.Users;
 
 namespace NBLD.Input
 {
-    public class PlayerData
-    {
+    public enum DeviceType { Keyboard, Gamepad, Unknown };
 
-    }
     public class UserDevice
     {
         public readonly int deviceIndex;
@@ -21,9 +19,22 @@ namespace NBLD.Input
         private string schemeName;
         public CharacterInput gameplayInput;
         public UIInput uiInput;
+        public DeviceType deviceType;
 
         public UserDevice(int deviceIndex, InputDevice device, string schemeName)
         {
+            if (device is Keyboard)
+            {
+                deviceType = DeviceType.Keyboard;
+            }
+            else if (device is Gamepad)
+            {
+                deviceType = DeviceType.Gamepad;
+            }
+            else
+            {
+                deviceType = DeviceType.Unknown;
+            }
             this.deviceIndex = deviceIndex;
             this.user = InputUser.CreateUserWithoutPairedDevices();
             this.gameplayInput = new CharacterInput();
@@ -64,6 +75,8 @@ namespace NBLD.Input
         {
             if (enabled)
             {
+                user.AssociateActionsWithUser(uiInput);
+                user.ActivateControlScheme(this.schemeName);
                 uiInput.Enable();
             }
             else
@@ -82,7 +95,7 @@ namespace NBLD.Input
     public class PlayerSessionData
     {
         public int playerIndex;
-        public PlayerData playerData;
+        //public PlayerData playerData;
         public PlayerGameplayInputManager gameplayInputManager;
         public PlayerUIInputManager uiInputManager;
         public string devotionName = "";
@@ -97,7 +110,7 @@ namespace NBLD.Input
             this.deviceIndex = deviceIndex;
             this.gameplayInputManager = charInputManager;
             this.uiInputManager = uiInputManager;
-            playerData = new PlayerData();
+            //playerData = new PlayerData();
         }
     }
     public class InputManager : MonoBehaviour
@@ -107,12 +120,14 @@ namespace NBLD.Input
         public List<PlayerUIInputManager> uiInputManagers;
         public List<string> keyboardSchemeNames;
         public string gamepadSchemeName;
+        public bool useDefault = false;
         private List<UserDevice> userDevices;
         private List<PlayerSessionData> activePlayers;
         public bool Initialized
         {
             get; private set;
         } = false;
+
         private bool subscribed = false;
         public delegate void DeviceRegisteredHandler(UserDevice userDevice, PlayerGameplayInputManager gameplayInputManager, PlayerUIInputManager uiInputManager);
         public delegate void PlayerRegisteredHandler(PlayerSessionData playerSessionData);
@@ -128,6 +143,7 @@ namespace NBLD.Input
         #region Singleton
         public static InputManager Instance { get; private set; }
         #endregion
+
 
         private void Awake()
         {
@@ -160,29 +176,38 @@ namespace NBLD.Input
                         InitializeUnusedDevice(Keyboard.current, keyboardSchemeNames[i]);
                     }
                 }
+
                 Subscribe();
                 OnInputInitialized?.Invoke();
             }
         }
+        private void InitializeDefaultSetup()
+        {
+
+        }
+
         private void InitializeUnusedDevice(InputDevice device, string schemeName)
         {
             int deviceIndex = userDevices.Count;
-            UserDevice uDevice = new UserDevice(deviceIndex, device, schemeName);
-            userDevices.Add(uDevice);
-            PlayerGameplayInputManager gameplayInputManager = new PlayerGameplayInputManager(uDevice.gameplayInput);
+            UserDevice userDevice = new UserDevice(deviceIndex, device, schemeName);
+            userDevices.Add(userDevice);
+            PlayerGameplayInputManager gameplayInputManager = new PlayerGameplayInputManager(userDevice.gameplayInput);
             gameplayInputManagers.Add(gameplayInputManager);
-            PlayerUIInputManager uiInputManager = new PlayerUIInputManager(uDevice.uiInput, deviceIndex);
+            PlayerUIInputManager uiInputManager = new PlayerUIInputManager(userDevice.uiInput, deviceIndex);
             uiInputManagers.Add(uiInputManager);
             //uDevice.EnableUIInput(true);
             //This should be elsewhere or conditional
             /*SelectScreenPlayerController playerSelectController = new SelectScreenPlayerController(deviceIndex, uiInputManager, this);
             playerSelectControllers.Add(playerSelectController);*/
-            OnDeviceRegistered?.Invoke(uDevice, gameplayInputManager, uiInputManager);
+            OnDeviceRegistered?.Invoke(userDevice, gameplayInputManager, uiInputManager);
             Debug.Log($"Registering device {device.name} with scheme {schemeName}");
         }
-        private PlayerSessionData CreatePlayerWithDevice(int deviceIndex)
+        private PlayerSessionData CreatePlayerWithDevice(int deviceIndex, CharacterSkinData skinData = null, string devotionName = "", string spiritName = "")
         {
             PlayerSessionData playerSessionData = new PlayerSessionData(activePlayers.Count, deviceIndex, gameplayInputManagers[deviceIndex], uiInputManagers[deviceIndex]);
+            playerSessionData.skin = skinData;
+            playerSessionData.devotionName = devotionName;
+            playerSessionData.spiritName = spiritName;
             activePlayers.Add(playerSessionData);
             OnPlayerRegistered?.Invoke(playerSessionData);
             Debug.Log($"Creating player id: {playerSessionData.playerIndex} with device id {deviceIndex}");
@@ -274,7 +299,7 @@ namespace NBLD.Input
             }
             return null;
         }
-        private bool IsDeviceUsed(int deviceIndex)
+        public bool IsDeviceUsed(int deviceIndex)
         {
             for (int i = 0; i < activePlayers.Count; i++)
             {
@@ -310,11 +335,11 @@ namespace NBLD.Input
             }
         }
         #region Players
-        public bool RegisterPlayer(int deviceIndex)
+        public bool RegisterPlayer(int deviceIndex, CharacterSkinData skinData = null, string devotionName = null, string spiritName = null)
         {
             if (deviceIndex.IsBetween(-1, userDevices.Count) && !IsDeviceUsed(deviceIndex))
             {
-                CreatePlayerWithDevice(deviceIndex);
+                CreatePlayerWithDevice(deviceIndex, skinData, devotionName, spiritName);
                 return true;
             }
             return false;

@@ -30,11 +30,11 @@ namespace NBLD.Input
         {
             Unsubscribe();
         }
-        private void Subscribe()
+        public void Subscribe()
         {
             playerUIInputManager.OnSubmit += OnSubmit;
         }
-        private void Unsubscribe()
+        public void Unsubscribe()
         {
             playerUIInputManager.OnSubmit -= OnSubmit;
         }
