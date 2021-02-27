@@ -1,5 +1,6 @@
 Event	ID	Name			Wwise Object Path	Notes
 	117524643	Stop_Hook_Cable_Back			\Default Work Unit\Movement\Hook\Cable\Stop_Hook_Cable_Back	
+	128912062	Play_Menu_Exit			\Default Work Unit\UI\Play_Menu_Exit	
 	282728768	Play_Shield_Close_ExtrudeFanIn			\Default Work Unit\Movement\Shield\Play_Shield_Close_ExtrudeFanIn	
 	311910498	Play_Click			\Default Work Unit\UI\Play_Click	
 	377487063	Stop_Alarm			\Default Work Unit\Notifications\Stop_Alarm	
@@ -7,6 +8,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	725000905	Play_Game_Over			\Default Work Unit\Notifications\Play_Game_Over	
 	918446985	Play_Player_Ship_Enter			\Default Work Unit\Movement\Play_Player_Ship_Enter	
 	1045178680	Play_Shield_Close_Intrude			\Default Work Unit\Movement\Shield\Play_Shield_Close_Intrude	
+	1049090908	Play_Menu_Enter			\Default Work Unit\UI\Play_Menu_Enter	
 	1069277812	Play_Jetpack_Press			\Default Work Unit\Movement\Play_Jetpack_Press	
 	1213474850	Play_Shield_Open_Extrude			\Default Work Unit\Movement\Shield\Play_Shield_Open_Extrude	
 	1231987938	Play_Gameplay_Music			\Default Work Unit\Play_Gameplay_Music	
@@ -31,6 +33,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	3571136941	Play_Footsteps_Main			\Default Work Unit\Movement\Footsteps\Play_Footsteps_Main	
 	3637158234	Play_Hook_ClawLock			\Default Work Unit\Movement\Hook\Claw\Play_Hook_ClawLock	
 	3700767316	Play_Hook_ClawBitePrep			\Default Work Unit\Movement\Hook\Claw\Play_Hook_ClawBitePrep	
+	3835684012	Play_Menu_Hover			\Default Work Unit\UI\Play_Menu_Hover	
 	3935467706	Play_Ship_Hit			\Default Work Unit\Hits\Play_Ship_Hit	
 	4270212347	Play_Gun_Shot			\Default Work Unit\Hits\Play_Gun_Shot	
 
@@ -57,18 +60,20 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	20945893	FootMain-2	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\FootstepsMain\FootMain-2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsMain\FootMain-2		52632
 	24182909	LadderDsc-7	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\FootstepsLadderDsc\LadderDsc-7_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderDsc\LadderDsc-7		59848
 	29698790	JetpackTsst_Loop	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\JetpackTsst_0383D5DC.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Jetpack\Jetpack_Press\JetpackTsst_Loop		1978256
-	34271772	Pipe_Tap_3	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Pipe_Tap_3_1DCA1325.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Ship_Exit_Enter\Ship_Enter\Pipe_Tap\Pipe_Tap_3		64232
-	42653129	Pipe_Tap_2	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Pipe_Tap_2_17DF42FB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Ship_Exit_Enter\Ship_Enter\Pipe_Tap\Pipe_Tap_2		61472
-	46947002	Pipe_Tap	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Pipe_Tap_6CC7BE7B.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Ship_Exit_Enter\Ship_Exit\Pipe_Tap\Pipe_Tap		52504
+	34271772	Pipe_Tap_3	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Pipe_Tap_3_FD56AEC9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Ship_Exit_Enter\Ship_Enter\Pipe_Tap\Pipe_Tap_3		64232
+	42653129	Pipe_Tap_2	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Pipe_Tap_2_14D80BF4.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Ship_Exit_Enter\Ship_Enter\Pipe_Tap\Pipe_Tap_2		61472
+	46947002	Pipe_Tap	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Pipe_Tap_9DF82DE0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Ship_Exit_Enter\Ship_Exit\Pipe_Tap\Pipe_Tap		52504
 	53106075	4 - ClawBite	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\4 - ClawBite_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawBite\4 - ClawBite		238204
 	70480507	Strings	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Strings_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Gameplay\FM_Theme\Strings		18452544
-	77676051	Pipe_Tap	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Pipe_Tap_54A31BE9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Ship_Exit_Enter\Ship_Enter\Pipe_Tap\Pipe_Tap		55064
+	70665657	MenuHover3	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\MenuHover3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Menu_Hover\MenuHover3		125900
+	75001239	MenuHover4	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\MenuHover4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Menu_Hover\MenuHover4		125900
+	77676051	Pipe_Tap	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Pipe_Tap_814CFB9D.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Ship_Exit_Enter\Ship_Enter\Pipe_Tap\Pipe_Tap		55064
 	78273926	FootMain-1	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\FootstepsMain\FootMain-1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsMain\FootMain-1		53136
 	80018712	HookBackStart	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\HookBackStart_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Cable\HookBack\HookBackStart		68860
 	86287898	AlarmLoop	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Notifications\AlarmLoop 1_FF5B2032.wem		\Actor-Mixer Hierarchy\Default Work Unit\Notifications\AlarmLoop		114106
 	101292689	LadderDsc-3	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\FootstepsLadderDsc\LadderDsc-3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderDsc\LadderDsc-3		48908
 	106730093	1 - ClawLock	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\1 - ClawLock_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawLock\1 - ClawLock		268192
-	120692266	Ship_enter_whoosh	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Ship_enter_whoosh_DE2AE519.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Ship_Exit_Enter\Ship_Enter\Ship_Enter\Ship_enter_whoosh		43172
+	120692266	Ship_enter_whoosh	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Ship_enter_whoosh_4C614C2E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Ship_Exit_Enter\Ship_Enter\Ship_Enter\Ship_enter_whoosh		43172
 	124221590	ShipHitShort	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Hits\ObstacleHitShort_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Hits\ShipHit\ShipHitShort		177398
 	126468548	LadderAsc-8	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Footsteps LadderAsc\LadderAsc-8_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderAsc\LadderAsc-8		62728
 	133806398	FootMain-6	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\FootstepsMain\FootMain-6_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsMain\FootMain-6		50852
@@ -81,6 +86,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	183631485	4 - ClawBitePrep	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\4 - ClawBitePrep_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawBitePrep\4 - ClawBitePrep		340520
 	197222373	LadderDsc-91	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\FootstepsLadderDsc\LadderDsc-91_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderDsc\LadderDsc-91		39356
 	198633129	JetpackTsst_End	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\JetpackTsst_CAF87F81.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Jetpack\JetpackTsst_End		92416
+	210530522	MenuHover1	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\MenuHover1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Menu_Hover\MenuHover1		125900
 	231082383	FuelRefillLoop	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Notifications\FuelRefillLoop_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Notifications\FuelRefillLoop		357018
 	241956040	FootMain-9	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\FootstepsMain\FootMain-9_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsMain\FootMain-9		54800
 	279627525	ArmR	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Movement\ArmR_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\ArmR\ArmR		184612
@@ -92,7 +98,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	324782420	LadderDsc-2	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\FootstepsLadderDsc\LadderDsc-2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderDsc\LadderDsc-2		48908
 	329691644	Click	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\UI\Click_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Click		16500
 	405090761	3 - ClawBite	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\3 - ClawBite_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawBite\3 - ClawBite		234676
-	414121996	Ship_enter_whoosh_01	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Ship_enter_whoosh_8E813E4F.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Ship_Exit_Enter\Ship_Enter\Ship_Enter\Ship_enter_whoosh_01		42484
+	414121996	Ship_enter_whoosh_01	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Ship_enter_whoosh_6119CDBE.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Ship_Exit_Enter\Ship_Enter\Ship_Enter\Ship_enter_whoosh_01		42484
 	415235210	3 - ClawBitePrep	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\3 - ClawBitePrep_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawBitePrep\3 - ClawBitePrep		324644
 	427815737	4 - ClawLock	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\4 - ClawLock_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawLock\4 - ClawLock		341680
 	439336671	LadderAsc-6	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Footsteps LadderAsc\LadderAsc-6_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderAsc\LadderAsc-6		60396
@@ -109,19 +115,20 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	549127255	2 - ClawOpen	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\2 - ClawOpen_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawOpen\2 - ClawOpen		425188
 	566796927	LadderAsc-91	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Footsteps LadderAsc\LadderAsc-91_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderAsc\LadderAsc-91		46196
 	590961326	LadderDsc-6	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\FootstepsLadderDsc\LadderDsc-6_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderDsc\LadderDsc-6		52032
-	613135107	Ship_exit_whoosh	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Ship_exit_whoosh_17024171.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Ship_Exit_Enter\Ship_Exit\Ship_Exit\Ship_exit_whoosh		50812
+	613135107	Ship_exit_whoosh	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Ship_exit_whoosh_A58E040F.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Ship_Exit_Enter\Ship_Exit\Ship_Exit\Ship_exit_whoosh		45224
 	614939510	1 - ClawBitePrep	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\1 - ClawBitePrep_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawBitePrep\1 - ClawBitePrep		374032
 	616098679	Bass_Melody	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Bass_Melody_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Gameplay\Acc_Guit_FM_Theme_Analog_Seq_Bass_Melody\Bass_Melody		17926976
 	621301210	MENU_EVOID	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\MENU_EVOID_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Menu\MENU_EVOID\MENU_EVOID		4164332
 	655215047	LadderAsc-2	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Footsteps LadderAsc\LadderAsc-2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderAsc\LadderAsc-2		59232
 	661249972	FootMain-3	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\FootstepsMain\FootMain-3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsMain\FootMain-3		55488
 	669341810	HookLoop	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\HookLoop_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Cable\HookGrab\HookLoop		225856
+	679319130	MenuHover5	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\MenuHov5_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Menu_Hover\MenuHover5		125900
 	680478364	LadderDsc-4	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\FootstepsLadderDsc\LadderDsc-4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderDsc\LadderDsc-4		48908
 	726397064	2 - ClawBitePrep	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\2 - ClawBitePrep_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawBitePrep\2 - ClawBitePrep		382852
 	732950509	GunShot3	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Explosions\Exp3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Hits\GunShot\GunShot3		297038
 	750554884	LadderDsc-1	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\FootstepsLadderDsc\LadderDsc-1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderDsc\LadderDsc-1		46172
-	757524799	Pipe_Tap_3	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Pipe_Tap_3_4812B588.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Ship_Exit_Enter\Ship_Exit\Pipe_Tap\Pipe_Tap_3		51604
-	759339961	Pipe_Tap_2	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Pipe_Tap_2_D1832124.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Ship_Exit_Enter\Ship_Exit\Pipe_Tap\Pipe_Tap_2		51312
+	757524799	Pipe_Tap_3	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Pipe_Tap_3_604D0FF9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Ship_Exit_Enter\Ship_Exit\Pipe_Tap\Pipe_Tap_3		51604
+	759339961	Pipe_Tap_2	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Pipe_Tap_2_E7870576.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Ship_Exit_Enter\Ship_Exit\Pipe_Tap\Pipe_Tap_2		51312
 	765862514	LadderDsc-5	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\FootstepsLadderDsc\LadderDsc-5_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderDsc\LadderDsc-5		47736
 	767327232	HookStop	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\HookStop_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Cable\HookStop		315820
 	788548806	Sonar	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Sonar_6AD58737.wem		\Actor-Mixer Hierarchy\Default Work Unit\Notifications\Sonar		862272
@@ -136,13 +143,16 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	882834192	2 - ClawBite	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\2 - ClawBite_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawBite\2 - ClawBite		245260
 	884707605	HookStart	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\HookStart_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Cable\HookGrab\HookStart		199396
 	898425719	GunShot1	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Explosions\Exp1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Hits\GunShot\GunShot1		353952
+	918439379	MenuEnter	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\MenuEnter_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\MenuEnter		125900
 	928490104	FootMain-7	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\FootstepsMain\FootMain-7_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsMain\FootMain-7		54908
 	931425727	IdleDrm	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\IdleDrm_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Gameplay\FM_Theme_01\IdleDrm		2822464
+	932519221	MenuExit	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\MenuExit_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\MenuExit		125900
 	940568997	LadderDsc-8	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\FootstepsLadderDsc\LadderDsc-8_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderDsc\LadderDsc-8		41096
 	949232450	Shield_Open_IntrudeFanOut	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Shield_Open_IntrudeFanOut_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Shield\Shield_Open_IntrudeFanOut		266928
 	966974960	2 - ClawLock	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\2 - ClawLock_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawLock\2 - ClawLock		277012
 	1002772589	4 - ClawOpen	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\4 - ClawOpen_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Hook\Claw\ClawOpen\4 - ClawOpen		375796
 	1013121627	LadderAsc-4	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Footsteps LadderAsc\LadderAsc-4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_02\Footsteps\FootstepsLadderAsc\LadderAsc-4		59812
+	1020808773	MenuHover2	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\MenuHover2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Menu_Hover\MenuHover2		125900
 	1027489376	Analog_Seq	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Analog_Seq_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Gameplay\Acc_Guit_FM_Theme_Analog_Seq\Analog_Seq		11866944
-	1030484973	Ship_exit_whoosh_01	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Ship_exit_whoosh_7D47031C.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Ship_Exit_Enter\Ship_Exit\Ship_Exit\Ship_exit_whoosh_01		46664
+	1030484973	Ship_exit_whoosh_01	D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\SFX\Ship_exit_whoosh_0A2E2622.wem		\Actor-Mixer Hierarchy\Default Work Unit\Movement\Ship_Exit_Enter\Ship_Exit\Ship_Exit\Ship_exit_whoosh_01		40140
 

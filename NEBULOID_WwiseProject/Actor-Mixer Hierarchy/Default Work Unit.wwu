@@ -2385,6 +2385,230 @@
 								<ActiveSource Name="Click" ID="{E313587E-218F-47B5-8766-15A907AF5CAD}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
+						<Sound Name="MenuEnter" ID="{58CB1901-7081-459B-AF9B-A26369814B39}" ShortID="41098292">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{7820D894-124E-47BD-AD53-6B6373F07A56}"/>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-4</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="MenuEnter" ID="{A867D358-315B-47F9-8C78-F35CC0077E4B}">
+									<Language>SFX</Language>
+									<AudioFile>MenuEnter.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="918439379"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="MenuEnter" ID="{A867D358-315B-47F9-8C78-F35CC0077E4B}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="MenuExit" ID="{DDE8E8CE-850C-4BEE-B041-A73796DC7CF8}" ShortID="384400986">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{E8FBE010-246D-4D0F-A214-EDF892C228BF}"/>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-4</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="MenuExit" ID="{715E0648-22EA-480C-AFCF-4EA2D1618459}">
+									<Language>SFX</Language>
+									<AudioFile>MenuExit.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="932519221"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="MenuExit" ID="{715E0648-22EA-480C-AFCF-4EA2D1618459}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<RandomSequenceContainer Name="Menu_Hover" ID="{19A2A922-DEF4-408A-BF14-EEBCCE9FFB93}" ShortID="50612381">
+							<PropertyList>
+								<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{78D2BBB5-7A1D-43D0-83DE-A9B69F38903D}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="202"/>
+													<Property Name="Min" Type="Real64" Value="-202"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-21</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="FX BUS" ID="{85071D6A-5690-4A43-A6C4-A15F1F14B8BD}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="MenuHover1" ID="{9DA3A339-7F66-4B88-A448-DD2822A22785}" ShortID="284491866">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="MenuHover1" ID="{3550AFE9-E263-43A2-9E9D-D94EC449B5A9}">
+											<Language>SFX</Language>
+											<AudioFile>MenuHover1.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="210530522"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="MenuHover1" ID="{3550AFE9-E263-43A2-9E9D-D94EC449B5A9}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="MenuHover2" ID="{78C303D0-8336-4C72-8AA0-BB8576EA9876}" ShortID="193954228">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="MenuHover2" ID="{B9650072-B3F3-4C03-A43B-457E961B5DD5}">
+											<Language>SFX</Language>
+											<AudioFile>MenuHover2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1020808773"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="MenuHover2" ID="{B9650072-B3F3-4C03-A43B-457E961B5DD5}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="MenuHover3" ID="{F619893A-4B56-4B40-9B04-856D3B80B6C3}" ShortID="534501847">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="MenuHover3" ID="{3E8E4E19-4331-443C-92E7-3CC17B69F06D}">
+											<Language>SFX</Language>
+											<AudioFile>MenuHover3.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="70665657"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="MenuHover3" ID="{3E8E4E19-4331-443C-92E7-3CC17B69F06D}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="MenuHover4" ID="{E13754F2-615E-4844-9419-04176446DFEE}" ShortID="383889021">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="MenuHover4" ID="{66341E37-A275-4DCD-A84E-D92659289C12}">
+											<Language>SFX</Language>
+											<AudioFile>MenuHover4.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="75001239"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="MenuHover4" ID="{66341E37-A275-4DCD-A84E-D92659289C12}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="MenuHover5" ID="{071A04A3-E3D3-4C91-8E8E-283FE98C86B0}" ShortID="774217096">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{F4410A09-0956-4BB2-8DD5-93933B785CAE}"/>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="MenuHov5" ID="{ACE5DA00-A0A6-44A9-A0CD-9663AD779CB9}">
+											<Language>SFX</Language>
+											<AudioFile>MenuHov5.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="679319130"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="MenuHov5" ID="{ACE5DA00-A0A6-44A9-A0CD-9663AD779CB9}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Hits" ID="{C9CBE489-C58D-4BC3-A184-BF5F08AF39C9}" ShortID="544168026">
