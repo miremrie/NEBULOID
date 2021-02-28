@@ -16,6 +16,8 @@ namespace NBLD.Character
         public List<Transform> spawnLocations;
         public List<int> spawnFloors;
         public List<ContextualCamera> contextCams = new List<ContextualCamera>();
+        public bool allowRecordedInput = false;
+        public List<RecordedInputPlayer> recordedInputPlayers;
         public CameraController mainCameraController;
         public CamZone gameplayCamZone;
         public CamZone characterCamZone;
@@ -97,7 +99,16 @@ namespace NBLD.Character
             newChar.outsideBehaviour.shipEjectSystem = shipEjectSystem;
             newChar.outsideBehaviour.minesRoot = minesRoot;
             newChar.transform.parent = charactersRoot;
-            newChar.Initialize(psData, spawnFloors[psData.playerIndex % spawnFloors.Count]);
+            GameplayInputEvents giEvents;
+            if (allowRecordedInput && recordedInputPlayers.Count > psData.playerIndex && recordedInputPlayers[psData.playerIndex] != null)
+            {
+                giEvents = recordedInputPlayers[psData.playerIndex].inputEvents;
+            }
+            else
+            {
+                giEvents = psData.gameplayInputManager;
+            }
+            newChar.Initialize(psData, spawnFloors[psData.playerIndex % spawnFloors.Count], giEvents);
             //Cameras
             contextCams[psData.playerIndex].SetFollowTarget(newChar.transform);
             contextCams[psData.playerIndex].Activate();

@@ -20,7 +20,7 @@ namespace NBLD.Character
         public Audio.CharAudioController charAudio;
 
         [Header("Input")]
-        public PlayerGameplayInputManager charInputManager;
+        public GameplayInputEvents inputEvents;
         private PlayerSessionData playerSessionData;
         private const string graphicsObjectName = "Character Graphics";
         [Header("Animation")]
@@ -69,10 +69,10 @@ namespace NBLD.Character
         //Actions
         protected Dictionary<UseActionButton, UseAction> availableActions = new Dictionary<UseActionButton, UseAction>();
 
-        public void Initialize(PlayerSessionData playerSessionData, int startingFloor)
+        public void Initialize(PlayerSessionData playerSessionData, int startingFloor, GameplayInputEvents gameplayEvents)
         {
             this.playerSessionData = playerSessionData;
-            this.charInputManager = playerSessionData.gameplayInputManager;
+            this.inputEvents = gameplayEvents;
             this.charAnimator.sprites = playerSessionData.skin.sprites.ToArray();
             animator.runtimeAnimatorController = playerSessionData.skin.animatorController;
             ship.AddDependentTransform(transform);
@@ -102,26 +102,26 @@ namespace NBLD.Character
 
         private void Subscribe()
         {
-            charInputManager.OnMove += OnMovement;
-            charInputManager.OnUp += OnUp;
-            charInputManager.OnDown += OnDown;
-            charInputManager.OnAction += OnAction;
-            charInputManager.OnSubAction += OnSubAction;
-            charInputManager.OnTalk += OnTalk;
-            charInputManager.OnMoveAssistPerformed += OnMoveAssistPerformed;
-            charInputManager.OnMoveAssistStarted += OnMoveAssistStarted;
+            inputEvents.OnMove += OnMovement;
+            inputEvents.OnUp += OnUp;
+            inputEvents.OnDown += OnDown;
+            inputEvents.OnAction += OnAction;
+            inputEvents.OnSubAction += OnSubAction;
+            inputEvents.OnTalk += OnTalk;
+            inputEvents.OnMoveAssistPerformed += OnMoveAssistPerformed;
+            inputEvents.OnMoveAssistStarted += OnMoveAssistStarted;
 
         }
         private void Unsubscribe()
         {
-            charInputManager.OnMove -= OnMovement;
-            charInputManager.OnUp -= OnUp;
-            charInputManager.OnDown -= OnDown;
-            charInputManager.OnAction -= OnAction;
-            charInputManager.OnSubAction -= OnSubAction;
-            charInputManager.OnTalk -= OnTalk;
-            charInputManager.OnMoveAssistPerformed -= OnMoveAssistPerformed;
-            charInputManager.OnMoveAssistStarted -= OnMoveAssistStarted;
+            inputEvents.OnMove -= OnMovement;
+            inputEvents.OnUp -= OnUp;
+            inputEvents.OnDown -= OnDown;
+            inputEvents.OnAction -= OnAction;
+            inputEvents.OnSubAction -= OnSubAction;
+            inputEvents.OnTalk -= OnTalk;
+            inputEvents.OnMoveAssistPerformed -= OnMoveAssistPerformed;
+            inputEvents.OnMoveAssistStarted -= OnMoveAssistStarted;
         }
 
         //States

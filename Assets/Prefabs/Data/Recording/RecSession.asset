@@ -1,0 +1,283 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b195ed778dc8dce41812287314c4f1d6, type: 3}
+  m_Name: RecSession
+  m_EditorClassIdentifier: 
+  updateMode: 1
+  actionButtonHistory:
+  - time: 3.307007
+    frameNumber: 189
+    pressed: 1
+  - time: 5.953548
+    frameNumber: 336
+    pressed: 1
+  - time: 9.022309
+    frameNumber: 521
+    pressed: 1
+  subActionButtonHistory: []
+  upButtonHistory:
+  - time: 2.3145385
+    frameNumber: 129
+    pressed: 1
+  - time: 4.970355
+    frameNumber: 279
+    pressed: 1
+  downButtonHistory:
+  - time: 7.181272
+    frameNumber: 410
+    pressed: 1
+  - time: 8.165132
+    frameNumber: 469
+    pressed: 1
+  - time: 12.247406
+    frameNumber: 703
+    pressed: 1
+  talkButtonHistory: []
+  moveAssistStartedHistory: []
+  moveAssistPerformedHistory: []
+  moveHistory:
+  - time: 1.0889877
+    frameNumber: 58
+    value: {x: -1, y: 0}
+  - time: 2.0153372
+    frameNumber: 111
+    value: {x: 0, y: 0}
+  - time: 2.3145385
+    frameNumber: 129
+    value: {x: 0, y: 1}
+  - time: 2.5962
+    frameNumber: 146
+    value: {x: 0, y: 0}
+  - time: 2.811961
+    frameNumber: 159
+    value: {x: -1, y: 0}
+  - time: 3.0449758
+    frameNumber: 173
+    value: {x: 0, y: 0}
+  - time: 4.2813745
+    frameNumber: 240
+    value: {x: 1, y: 0}
+  - time: 4.6817813
+    frameNumber: 262
+    value: {x: 0, y: 0}
+  - time: 4.970355
+    frameNumber: 279
+    value: {x: 0, y: 1}
+  - time: 5.29221
+    frameNumber: 298
+    value: {x: 0, y: 0}
+  - time: 5.518867
+    frameNumber: 311
+    value: {x: 1, y: 0}
+  - time: 5.776478
+    frameNumber: 326
+    value: {x: 0, y: 0}
+  - time: 6.7343884
+    frameNumber: 383
+    value: {x: -1, y: 0}
+  - time: 7.011111
+    frameNumber: 400
+    value: {x: 0, y: 0}
+  - time: 7.181272
+    frameNumber: 410
+    value: {x: 0, y: -1}
+  - time: 7.338159
+    frameNumber: 419
+    value: {x: 0, y: 0}
+  - time: 7.540656
+    frameNumber: 431
+    value: {x: 1, y: 0}
+  - time: 7.950502
+    frameNumber: 456
+    value: {x: 0, y: 0}
+  - time: 8.165132
+    frameNumber: 469
+    value: {x: 0, y: -1}
+  - time: 8.305264
+    frameNumber: 477
+    value: {x: 0, y: 0}
+  - time: 8.580512
+    frameNumber: 494
+    value: {x: 1, y: 0}
+  - time: 8.859101
+    frameNumber: 511
+    value: {x: 0, y: 0}
+  - time: 11.731664
+    frameNumber: 678
+    value: {x: -1, y: 0}
+  - time: 12.247406
+    frameNumber: 703
+    value: {x: -0.707107, y: -0.707107}
+  - time: 12.292535
+    frameNumber: 705
+    value: {x: 0, y: -1}
+  - time: 12.378588
+    frameNumber: 710
+    value: {x: 0, y: 0}
+  verticalMoveHistory:
+  - time: 1.0889877
+    frameNumber: 58
+    value: 0
+  - time: 2.0153372
+    frameNumber: 111
+    value: 0
+  - time: 2.3145385
+    frameNumber: 129
+    value: 1
+  - time: 2.5962
+    frameNumber: 146
+    value: 0
+  - time: 2.811961
+    frameNumber: 159
+    value: 0
+  - time: 3.0449758
+    frameNumber: 173
+    value: 0
+  - time: 4.2813745
+    frameNumber: 240
+    value: 0
+  - time: 4.6817813
+    frameNumber: 262
+    value: 0
+  - time: 4.970355
+    frameNumber: 279
+    value: 1
+  - time: 5.29221
+    frameNumber: 298
+    value: 0
+  - time: 5.518867
+    frameNumber: 311
+    value: 0
+  - time: 5.776478
+    frameNumber: 326
+    value: 0
+  - time: 6.7343884
+    frameNumber: 383
+    value: 0
+  - time: 7.011111
+    frameNumber: 400
+    value: 0
+  - time: 7.181272
+    frameNumber: 410
+    value: -1
+  - time: 7.338159
+    frameNumber: 419
+    value: 0
+  - time: 7.540656
+    frameNumber: 431
+    value: 0
+  - time: 7.950502
+    frameNumber: 456
+    value: 0
+  - time: 8.165132
+    frameNumber: 469
+    value: -1
+  - time: 8.305264
+    frameNumber: 477
+    value: 0
+  - time: 8.580512
+    frameNumber: 494
+    value: 0
+  - time: 8.859101
+    frameNumber: 511
+    value: 0
+  - time: 11.731664
+    frameNumber: 678
+    value: 0
+  - time: 12.247406
+    frameNumber: 703
+    value: -0.707107
+  - time: 12.292535
+    frameNumber: 705
+    value: -1
+  - time: 12.378588
+    frameNumber: 710
+    value: 0
+  horizontalMoveHistory:
+  - time: 1.0889877
+    frameNumber: 58
+    value: -1
+  - time: 2.0153372
+    frameNumber: 111
+    value: 0
+  - time: 2.3145385
+    frameNumber: 129
+    value: 0
+  - time: 2.5962
+    frameNumber: 146
+    value: 0
+  - time: 2.811961
+    frameNumber: 159
+    value: -1
+  - time: 3.0449758
+    frameNumber: 173
+    value: 0
+  - time: 4.2813745
+    frameNumber: 240
+    value: 1
+  - time: 4.6817813
+    frameNumber: 262
+    value: 0
+  - time: 4.970355
+    frameNumber: 279
+    value: 0
+  - time: 5.29221
+    frameNumber: 298
+    value: 0
+  - time: 5.518867
+    frameNumber: 311
+    value: 1
+  - time: 5.776478
+    frameNumber: 326
+    value: 0
+  - time: 6.7343884
+    frameNumber: 383
+    value: -1
+  - time: 7.011111
+    frameNumber: 400
+    value: 0
+  - time: 7.181272
+    frameNumber: 410
+    value: 0
+  - time: 7.338159
+    frameNumber: 419
+    value: 0
+  - time: 7.540656
+    frameNumber: 431
+    value: 1
+  - time: 7.950502
+    frameNumber: 456
+    value: 0
+  - time: 8.165132
+    frameNumber: 469
+    value: 0
+  - time: 8.305264
+    frameNumber: 477
+    value: 0
+  - time: 8.580512
+    frameNumber: 494
+    value: 1
+  - time: 8.859101
+    frameNumber: 511
+    value: 0
+  - time: 11.731664
+    frameNumber: 678
+    value: -1
+  - time: 12.247406
+    frameNumber: 703
+    value: -0.707107
+  - time: 12.292535
+    frameNumber: 705
+    value: 0
+  - time: 12.378588
+    frameNumber: 710
+    value: 0

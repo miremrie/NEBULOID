@@ -9,10 +9,8 @@ using NBLD.Character;
 
 namespace NBLD.Input
 {
-    public class PlayerGameplayInputManager
+    public class GameplayInputEvents
     {
-        private CharacterInput input;
-
         public delegate void ButtonActionHandler();
         public delegate void Axis2DActionHandler(Vector2 value);
         //public delegate void Axis2DIntActionHandler(Vector2Int value);
@@ -22,7 +20,50 @@ namespace NBLD.Input
         public event Axis2DActionHandler OnMove;
         public event AxisActionHandler OnMoveHorizontal, OnMoveVertical;
 
-
+        public void RaiseAction()
+        {
+            OnAction?.Invoke();
+        }
+        public void RaiseSubAction()
+        {
+            OnSubAction?.Invoke();
+        }
+        public void RaiseUp()
+        {
+            OnUp?.Invoke();
+        }
+        public void RaiseDown()
+        {
+            OnDown?.Invoke();
+        }
+        public void RaiseTalk()
+        {
+            OnTalk?.Invoke();
+        }
+        public void RaiseMoveAssistStarted()
+        {
+            OnMoveAssistStarted?.Invoke();
+        }
+        public void RaiseMoveAssistPerformed()
+        {
+            OnMoveAssistPerformed?.Invoke();
+        }
+        public void RaiseMove(Vector2 nav)
+        {
+            OnMove?.Invoke(nav);
+        }
+        public void RaiseMoveHorizontal(float value)
+        {
+            OnMoveHorizontal?.Invoke(value);
+        }
+        public void RaiseMoveVertical(float value)
+        {
+            OnMoveVertical?.Invoke(value);
+        }
+    }
+    public class PlayerGameplayInputManager : GameplayInputEvents
+    {
+        private CharacterInput input;
         public PlayerGameplayInputManager(CharacterInput input)
         {
             this.input = input;
@@ -62,52 +103,51 @@ namespace NBLD.Input
         {
             Vector2 movement = context.ReadValue<Vector2>();
             //Debug.Log($"{index}: Move {movement}");
-            OnMove?.Invoke(movement);
-            OnMoveHorizontal?.Invoke(movement.x);
-            OnMoveVertical?.Invoke(movement.y);
+            RaiseMove(movement);
+            RaiseMoveHorizontal(movement.x);
+            RaiseMoveVertical(movement.y);
         }
 
         private void OnUpInput(InputAction.CallbackContext context)
         {
             //Debug.Log($"{index}: Up");
-            OnUp?.Invoke();
+            RaiseUp();
         }
 
         private void OnInputDown(InputAction.CallbackContext context)
         {
             //Debug.Log($"{index}: Down");
-            OnDown?.Invoke();
+            RaiseDown();
         }
 
         private void OnInputAction(InputAction.CallbackContext context)
         {
             //Debug.Log($"{index}: Action");
-            OnAction?.Invoke();
+            RaiseAction();
         }
 
         private void OnInputSubAction(InputAction.CallbackContext context)
         {
             //Debug.Log($"{index}: SubAction");
-            OnSubAction?.Invoke();
+            RaiseSubAction();
         }
 
         private void OnInputTalk(InputAction.CallbackContext context)
         {
             //Debug.Log($"{index}: Talk");
-            OnTalk?.Invoke();
+            RaiseTalk();
         }
 
         private void OnInputMoveAssistStarted(InputAction.CallbackContext context)
         {
             //Debug.Log($"{index}: MoveAssist");
-            OnMoveAssistStarted?.Invoke();
+            RaiseMoveAssistStarted();
         }
 
         private void OnInputMoveAssistPerformed(InputAction.CallbackContext context)
         {
             //Debug.Log($"{index}: MoveAssistPerformed");
-            OnMoveAssistPerformed?.Invoke();
+            RaiseMoveAssistPerformed();
         }
-
     }
 }
