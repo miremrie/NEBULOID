@@ -33,10 +33,14 @@ namespace AK
         static const AkUniqueID PLAY_HOOK_CLAWOPEN = 1303580447U;
         static const AkUniqueID PLAY_JETPACK_PRESS = 1069277812U;
         static const AkUniqueID PLAY_JETPACK_RELEASE = 3410260274U;
-        static const AkUniqueID PLAY_MENU_ENTER = 1049090908U;
-        static const AkUniqueID PLAY_MENU_EXIT = 128912062U;
         static const AkUniqueID PLAY_MENU_HOVER = 3835684012U;
         static const AkUniqueID PLAY_MENU_MUSIC = 2228153899U;
+        static const AkUniqueID PLAY_MENUENTER = 1184046643U;
+        static const AkUniqueID PLAY_MENUEXIT = 3169174387U;
+        static const AkUniqueID PLAY_PLAYER_1_BARBBLE = 3492563074U;
+        static const AkUniqueID PLAY_PLAYER_1_HURT = 223178023U;
+        static const AkUniqueID PLAY_PLAYER_2_BARBBLE = 4260253969U;
+        static const AkUniqueID PLAY_PLAYER_2_HURT = 1926240886U;
         static const AkUniqueID PLAY_PLAYER_SHIP_ENTER = 918446985U;
         static const AkUniqueID PLAY_PLAYER_SHIP_EXIT = 2499757029U;
         static const AkUniqueID PLAY_SHIELD_CLOSE_EXTRUDEFANIN = 282728768U;

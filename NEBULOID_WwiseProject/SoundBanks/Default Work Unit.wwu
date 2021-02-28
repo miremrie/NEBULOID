@@ -16,6 +16,7 @@
 						<ObjectRef Name="Play_Footsteps_Ladder_Asc" ID="{FE89BA9B-B7BD-4491-91C0-E9769DD29B3D}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Footsteps_Dsc" ID="{A19DE504-D2E9-45F0-9B78-61654AA7F308}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Menu_Hover" ID="{A05C9F6C-92D0-4615-8814-58BABECBA940}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Player_1_Hurt" ID="{6DF8DD01-544F-4645-A726-A657D4D606E5}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Footsteps_Main" ID="{F7129FBD-5BD7-4663-9671-95E0FACACBF4}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Hook_Cable_Grab" ID="{D466F3BD-EAB7-46CA-A533-3D751095A8DA}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Hook_Cable_Back" ID="{B6C3F690-8673-4731-A318-37AE779CBC5F}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
@@ -23,10 +24,12 @@
 						<ObjectRef Name="Play_Arm_R" ID="{4878EDEB-E0EF-4760-AEA8-29E21F7EBF3F}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Jetpack_Press" ID="{AD3F37DF-A3B9-47CB-8B8D-C719B651188C}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Hook_ClawBitePrep" ID="{0F88CE63-CCE4-483E-8AC4-C3610D8117EF}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Player_1_Barbble" ID="{8585DA7B-6772-488A-8DD5-D2D8AC5AE46A}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Stop_Hook_Cable_Back" ID="{C8BFFDD3-1D01-4946-A4EB-DBECC2841140}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Hook_ClawBite" ID="{B8B2F65F-9A3A-49D5-B190-78ECEDFB2FA5}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Gun_Shot" ID="{A0FB45BB-DEED-49EB-8EF5-34D8791BD7AB}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Shield_Open_IntrudeFanOut" ID="{0E9370B2-DE83-4B0F-80BB-A4A180C10CEC}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Player_2_Barbble" ID="{CA15A5B8-FBF4-4B1E-BF1D-D973445E364D}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Hook_ClawLock" ID="{BF397A9F-E163-4B81-BE30-EB024380BD8C}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Hook_ClawOpen" ID="{3D81A5B7-A5C2-4BB0-963D-8E6171E89E15}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Sonar" ID="{79CDEAC3-56F2-4BDA-B28D-45EB5015923C}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
@@ -41,6 +44,7 @@
 						<ObjectRef Name="Play_Jetpack_Release" ID="{AFEF08B7-7BC2-4E54-90D3-D0779D0CC9F9}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Shield_Close_Intrude" ID="{B94C1A97-239C-4F21-A6DE-D9638673F60C}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Game_Over" ID="{CEE70ED2-6EDB-4F3A-BF30-96186EABC0E5}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Player_2_Hurt" ID="{7900D1CA-E140-4F4B-89D4-55834EF3CA8D}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Shield_Close_ExtrudeFanIn" ID="{374326CC-698F-4FCE-A917-0E2E96002716}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
