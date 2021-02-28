@@ -28,6 +28,7 @@ public class PatrolTestAI : MonoBehaviour
     public float attackRadius = 10;
     public float agentSize;
     public float randomDelta;
+    public FindPathInput pathfindingInput;
 
     void Start()
     {
@@ -45,7 +46,10 @@ public class PatrolTestAI : MonoBehaviour
         attack = (transform.position - attackTarget.position).magnitude < attackRadius;
         if (attack)
         {
-            attackPath = pathfinding.FindPath(transform.position, attackTarget.position, agentSize);
+            pathfindingInput.from = transform.position;
+            pathfindingInput.target = attackTarget.position;
+
+            attackPath = PathFinding.FindPath(pathfindingInput);
             attackWalk = new Walk(attackPath, transform, nearDistance);
         }
 
