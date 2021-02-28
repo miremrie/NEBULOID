@@ -12,14 +12,17 @@
 						<ObjectRef Name="Play_Shield_Open_Extrude" ID="{E0B25A39-B7A9-4301-BF6F-AA2D27AA8AD4}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Bullet_Hit" ID="{A4978065-EC81-4313-A7BE-67EC98D6D20D}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Arm_L" ID="{763160EC-244D-43D3-ACA7-B79F7A15B8C1}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Player_Ship_Exit" ID="{2A123A28-1E1B-4446-B783-239996A8463F}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Footsteps_Ladder_Asc" ID="{FE89BA9B-B7BD-4491-91C0-E9769DD29B3D}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Footsteps_Dsc" ID="{A19DE504-D2E9-45F0-9B78-61654AA7F308}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Menu_Hover" ID="{A05C9F6C-92D0-4615-8814-58BABECBA940}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Player_1_Hurt" ID="{6DF8DD01-544F-4645-A726-A657D4D606E5}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Footsteps_Main" ID="{F7129FBD-5BD7-4663-9671-95E0FACACBF4}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Hook_Cable_Grab" ID="{D466F3BD-EAB7-46CA-A533-3D751095A8DA}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Hook_Cable_Back" ID="{B6C3F690-8673-4731-A318-37AE779CBC5F}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Stop_Hook_Cable" ID="{3182E49D-C5CF-4751-9440-2B122732D2D2}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Arm_R" ID="{4878EDEB-E0EF-4760-AEA8-29E21F7EBF3F}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Jetpack_Press" ID="{AD3F37DF-A3B9-47CB-8B8D-C719B651188C}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Hook_ClawBitePrep" ID="{0F88CE63-CCE4-483E-8AC4-C3610D8117EF}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Player_1_Barbble" ID="{8585DA7B-6772-488A-8DD5-D2D8AC5AE46A}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Stop_Hook_Cable_Back" ID="{C8BFFDD3-1D01-4946-A4EB-DBECC2841140}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
@@ -32,9 +35,13 @@
 						<ObjectRef Name="Play_Sonar" ID="{79CDEAC3-56F2-4BDA-B28D-45EB5015923C}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Click" ID="{70BD6076-6664-4BE9-AF72-35B270FC14F9}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Ship_Hit" ID="{0297BFEE-4FA9-4C18-A857-1822C1C866A7}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_MenuEnter" ID="{A3676356-2B75-4C53-AFE5-7DFBF075742F}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Stop_Sonar" ID="{15AFA576-5F73-4D41-826E-9A0AAB18D67F}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_MenuExit" ID="{9643E0D0-A96C-4D4B-98A1-A757A99F24C9}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Player_Ship_Enter" ID="{15291631-6650-4D5E-A6F3-FDF61718D057}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Stop_Fuel_Refill" ID="{5848353B-700F-4D68-A94A-27FEC339B046}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Menu_Music" ID="{53A01F8B-F177-4E30-8D09-D44FD595CBA8}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Jetpack_Release" ID="{AFEF08B7-7BC2-4E54-90D3-D0779D0CC9F9}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Shield_Close_Intrude" ID="{B94C1A97-239C-4F21-A6DE-D9638673F60C}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Game_Over" ID="{CEE70ED2-6EDB-4F3A-BF30-96186EABC0E5}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Player_2_Hurt" ID="{7900D1CA-E140-4F4B-89D4-55834EF3CA8D}" WorkUnitID="{D5C28F8E-AABF-4FCF-92FD-F483CD07CBA9}" Origin="Manual" Filter="7"/>

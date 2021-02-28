@@ -318,13 +318,14 @@ namespace NBLD.Character
                         //animator.SetTrigger(transitionPrepOutAnimKey);
                         characterPivot.localPosition = pivotWhenExiting;
                         animator.SetTrigger(exitAnimKey);
-
+                        charAudio.PlayShipExit();
                     }
                     else
                     {
                         //animator.SetTrigger(transitionPrepInAnimKey);
                         characterPivot.localPosition = pivotWhenEntering;
                         animator.SetTrigger(enterAnimKey);
+                        charAudio.PlayShipEnter();
                     }
                 }
                 /*if (transitionPrepAnimationOver) {

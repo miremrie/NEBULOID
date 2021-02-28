@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="135">
 	<RootPaths>
-		<ProjectRoot>D:\GameDev\NEBULOID\NEBULOID giterror\NEBULOID\NEBULOID_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>D:\GameDev\NEBULOID\NEBULOID giterror\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>D:\GameDev\NEBULOID\NEBULOID giterror\NEBULOID\NEBULOID_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>D:\Unity\NEBULOID\NEBULOID_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>D:\Unity\NEBULOID\NEBULOID_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>D:\GameDev\NEBULOID\NEBULOID giterror\NEBULOID\NEBULOID_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>D:\Unity\NEBULOID\NEBULOID_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -356,11 +356,71 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="1069277812" Name="Play_Jetpack_Press" ObjectPath="\Events\Default Work Unit\Movement\Play_Jetpack_Press" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="29698790" Language="SFX">
+							<ShortName>JetpackTsst.wav</ShortName>
+							<Path>SFX\JetpackTsst_0383D5DC.wem</Path>
+						</File>
+						<File Id="160886571" Language="SFX">
+							<ShortName>JetpackTsst.wav</ShortName>
+							<Path>SFX\JetpackTsst_4264639E.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3410260274" Name="Play_Jetpack_Release" ObjectPath="\Events\Default Work Unit\Movement\Play_Jetpack_Release" DurationType="OneShot" DurationMin="0.415527" DurationMax="0.587645">
+					<IncludedMemoryFiles>
+						<File Id="198633129" Language="SFX">
+							<ShortName>JetpackTsst.wav</ShortName>
+							<Path>SFX\JetpackTsst_CAF87F81.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3835684012" Name="Play_Menu_Hover" ObjectPath="\Events\Default Work Unit\UI\Play_Menu_Hover" DurationType="OneShot" DurationMin="0.583217" DurationMax="0.736507">
+					<IncludedMemoryFiles>
+						<File Id="70665657" Language="SFX">
+							<ShortName>MenuHover3.wav</ShortName>
+							<Path>SFX\MenuHover3_10C4C929.wem</Path>
+						</File>
+						<File Id="75001239" Language="SFX">
+							<ShortName>MenuHover4.wav</ShortName>
+							<Path>SFX\MenuHover4_10C4C929.wem</Path>
+						</File>
+						<File Id="210530522" Language="SFX">
+							<ShortName>MenuHover1.wav</ShortName>
+							<Path>SFX\MenuHover1_10C4C929.wem</Path>
+						</File>
+						<File Id="679319130" Language="SFX">
+							<ShortName>MenuHov5.wav</ShortName>
+							<Path>SFX\MenuHov5_10C4C929.wem</Path>
+						</File>
+						<File Id="1020808773" Language="SFX">
+							<ShortName>MenuHover2.wav</ShortName>
+							<Path>SFX\MenuHover2_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="2228153899" Name="Play_Menu_Music" ObjectPath="\Events\Default Work Unit\Play_Menu_Music" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="621301210" Language="SFX">
 							<ShortName>MENU_EVOID.wav</ShortName>
 							<Path>SFX\MENU_EVOID_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1184046643" Name="Play_MenuEnter" ObjectPath="\Events\Default Work Unit\UI\Play_MenuEnter" DurationType="OneShot" DurationMin="0.655396" DurationMax="0.655396">
+					<IncludedMemoryFiles>
+						<File Id="918439379" Language="SFX">
+							<ShortName>MenuEnter.wav</ShortName>
+							<Path>SFX\MenuEnter_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3169174387" Name="Play_MenuExit" ObjectPath="\Events\Default Work Unit\UI\Play_MenuExit" DurationType="OneShot" DurationMin="0.655396" DurationMax="0.655396">
+					<IncludedMemoryFiles>
+						<File Id="932519221" Language="SFX">
+							<ShortName>MenuExit.wav</ShortName>
+							<Path>SFX\MenuExit_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -425,6 +485,54 @@
 						<File Id="237738597" Language="SFX">
 							<ShortName>Player2_Hurt2.wav</ShortName>
 							<Path>SFX\Player2_Hurt2_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="918446985" Name="Play_Player_Ship_Enter" ObjectPath="\Events\Default Work Unit\Movement\Play_Player_Ship_Enter" DurationType="OneShot" DurationMin="0.361866" DurationMax="0.519010">
+					<IncludedMemoryFiles>
+						<File Id="34271772" Language="SFX">
+							<ShortName>Pipe_Tap_3.wav</ShortName>
+							<Path>SFX\Pipe_Tap_3_FD56AEC9.wem</Path>
+						</File>
+						<File Id="42653129" Language="SFX">
+							<ShortName>Pipe_Tap_2.wav</ShortName>
+							<Path>SFX\Pipe_Tap_2_14D80BF4.wem</Path>
+						</File>
+						<File Id="77676051" Language="SFX">
+							<ShortName>Pipe_Tap.wav</ShortName>
+							<Path>SFX\Pipe_Tap_814CFB9D.wem</Path>
+						</File>
+						<File Id="120692266" Language="SFX">
+							<ShortName>Ship_enter_whoosh.wav</ShortName>
+							<Path>SFX\Ship_enter_whoosh_4C614C2E.wem</Path>
+						</File>
+						<File Id="414121996" Language="SFX">
+							<ShortName>Ship_enter_whoosh.wav</ShortName>
+							<Path>SFX\Ship_enter_whoosh_6119CDBE.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2499757029" Name="Play_Player_Ship_Exit" ObjectPath="\Events\Default Work Unit\Movement\Play_Player_Ship_Exit" DurationType="OneShot" DurationMin="0.291388" DurationMax="0.445866">
+					<IncludedMemoryFiles>
+						<File Id="46947002" Language="SFX">
+							<ShortName>Pipe_Tap.wav</ShortName>
+							<Path>SFX\Pipe_Tap_9DF82DE0.wem</Path>
+						</File>
+						<File Id="613135107" Language="SFX">
+							<ShortName>Ship_exit_whoosh.wav</ShortName>
+							<Path>SFX\Ship_exit_whoosh_A58E040F.wem</Path>
+						</File>
+						<File Id="757524799" Language="SFX">
+							<ShortName>Pipe_Tap_3.wav</ShortName>
+							<Path>SFX\Pipe_Tap_3_604D0FF9.wem</Path>
+						</File>
+						<File Id="759339961" Language="SFX">
+							<ShortName>Pipe_Tap_2.wav</ShortName>
+							<Path>SFX\Pipe_Tap_2_E7870576.wem</Path>
+						</File>
+						<File Id="1030484973" Language="SFX">
+							<ShortName>Ship_exit_whoosh.wav</ShortName>
+							<Path>SFX\Ship_exit_whoosh_0A2E2622.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>

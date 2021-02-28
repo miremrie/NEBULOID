@@ -3,7 +3,15 @@
 	<Effects>
 		<WorkUnit Name="Default Work Unit" ID="{CBEB4FB4-DE7F-4413-A97A-8CCDCE3E12E0}" PersistMode="Standalone">
 			<ChildrenList>
-				<Effect Name="CleanBusEq" ID="{A664D017-75E6-472A-A45D-C2133DC48C49}" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3"/>
+				<Effect Name="CleanBusEq" ID="{A664D017-75E6-472A-A45D-C2133DC48C49}" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+					<PropertyList>
+						<Property Name="FilterTypeBand1" Type="int32" Value="1"/>
+						<Property Name="FrequencyBand1" Type="Real32" Value="80"/>
+						<Property Name="FrequencyBand2" Type="Real32" Value="400"/>
+						<Property Name="GainBand2" Type="Real32" Value="-6"/>
+						<Property Name="QFactorBand2" Type="Real32" Value="0.6"/>
+					</PropertyList>
+				</Effect>
 				<Effect Name="New_iZotope_Trash_Delay" ID="{6F7965C0-2945-485D-8960-6A4F56D6776D}" PluginName="iZotope Trash Delay" CompanyID="259" PluginID="4" PluginType="3">
 					<PropertyList>
 						<Property Name="WetOut" Type="Real32" Value="82"/>

@@ -12,6 +12,10 @@ namespace NBLD.Audio
         public float[] auxValues = new float[3];
         private const string ladderAscendEv = "Play_Footsteps_Ladder_Asc";
         private const string ladderDescendEv = "Play_Footsteps_Dsc";
+        private const string shipEnterEv = "Play_Player_Ship_Enter";
+        private const string shipExitEv = "Play_Player_Ship_Exit";
+        private const string jetpackStartEv = "Play_Jetpack_Press";
+        private const string jetpackStopEv = "Play_Jetpack_Release";
         //public GameObject ladderPlayer;
         private static int auxCount = 3;
         private static string[] floorAux = new string[]
@@ -78,6 +82,23 @@ namespace NBLD.Audio
             {
                 AkSoundEngine.PostEvent(hurtEvents[0], gameObject);
             }
+        }
+
+        public void PlayShipEnter()
+        {
+            AkSoundEngine.PostEvent(shipEnterEv, gameObject);
+        }
+        public void PlayShipExit()
+        {
+            AkSoundEngine.PostEvent(shipExitEv, gameObject);
+        }
+        public void PlayJetpackStart()
+        {
+            AkSoundEngine.PostEvent(jetpackStartEv, gameObject);
+        }
+        public void PlayJetpackStop()
+        {
+            AkSoundEngine.PostEvent(jetpackStopEv, gameObject);
         }
     }
 }

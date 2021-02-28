@@ -284,6 +284,60 @@
 								</Event>
 							</ChildrenList>
 						</Folder>
+						<Event Name="Play_Jetpack_Press" ID="{AD3F37DF-A3B9-47CB-8B8D-C719B651188C}">
+							<ChildrenList>
+								<Action Name="" ID="{B737F741-C250-4DF9-AF6F-2A6369DBCB33}" ShortID="827508184">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Jetpack_Press" ID="{B1CDBD3D-3E49-47CF-A9B8-036B8B2A339C}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Jetpack_Release" ID="{AFEF08B7-7BC2-4E54-90D3-D0779D0CC9F9}">
+							<ChildrenList>
+								<Action Name="" ID="{C455F7AE-CD21-43D5-9496-7C829F8A1323}" ShortID="737804661">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="JetpackTsst_Loop" ID="{0CD0EA2E-3595-445E-9DCC-230B7296CED9}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{95C5A0CE-0E20-4265-97F6-E38479170AB9}" ShortID="104389459">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="JetpackTsst_End" ID="{9751833B-7891-44D7-8120-E2B65E548DB5}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Player_Ship_Exit" ID="{2A123A28-1E1B-4446-B783-239996A8463F}">
+							<ChildrenList>
+								<Action Name="" ID="{600AB90B-3AEB-41B3-968C-B8A69F3ACA7E}" ShortID="905941664">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Ship_Exit" ID="{10F22577-E391-4957-A6D8-B9494FE8181D}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Player_Ship_Enter" ID="{15291631-6650-4D5E-A6F3-FDF61718D057}">
+							<ChildrenList>
+								<Action Name="" ID="{991C5F85-F671-432C-AC63-2403F1FC8963}" ShortID="458039681">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Ship_Enter" ID="{51F65AC9-3D3F-4599-9598-8AE10E4B91B2}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Notifications" ID="{E6C2D303-5838-41A2-9919-72FF65122284}" ShortID="265461644">
@@ -510,6 +564,39 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Click" ID="{EE4BDB06-A7C1-485A-A283-F990F4961665}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Menu_Hover" ID="{A05C9F6C-92D0-4615-8814-58BABECBA940}">
+							<ChildrenList>
+								<Action Name="" ID="{DD84DF0B-175F-427B-8DB6-924BF338D361}" ShortID="669155184">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Menu_Hover" ID="{19A2A922-DEF4-408A-BF14-EEBCCE9FFB93}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_MenuExit" ID="{9643E0D0-A96C-4D4B-98A1-A757A99F24C9}">
+							<ChildrenList>
+								<Action Name="" ID="{2DBCC2A7-D69F-48EE-BF8A-DD6E0245AD38}" ShortID="620234949">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="MenuExit" ID="{DDE8E8CE-850C-4BEE-B041-A73796DC7CF8}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_MenuEnter" ID="{A3676356-2B75-4C53-AFE5-7DFBF075742F}">
+							<ChildrenList>
+								<Action Name="" ID="{32186C1A-D7EF-459D-930C-10AFB3E8D47D}" ShortID="855566116">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="MenuEnter" ID="{58CB1901-7081-459B-AF9B-A26369814B39}" WorkUnitID="{9F7FF301-7E3A-42A9-96F4-7477556B9CC0}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

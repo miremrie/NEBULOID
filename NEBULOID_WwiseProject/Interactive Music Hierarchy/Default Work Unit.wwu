@@ -524,6 +524,9 @@
 							<PropertyList>
 								<Property Name="GridOffsetPreset" Type="int16" Value="52"/>
 								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-2</Value>
+									</ValueList>
 									<RTPCList>
 										<RTPC Name="" ID="{065ED7F4-3981-4367-AA1E-CB8630ADF115}" ShortID="7301105">
 											<ReferenceList>
@@ -555,6 +558,9 @@
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
+								</Reference>
+								<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+									<ObjectRef Name="Bass_Remover_1" ID="{D313DB05-6B33-4C1F-8C2F-F989052E8120}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
 								</Reference>
 								<Reference Name="OutputBus">
 									<ObjectRef Name="Music_Lv2" ID="{BA615CF3-B952-4C7B-9388-1A7277B4F234}" WorkUnitID="{7A74D3E7-7964-479C-A2D6-F5B9DDEAB36A}"/>
@@ -7794,6 +7800,13 @@
 											</SequenceList>
 										</MusicTrack>
 										<MusicTrack Name="IdleDrm" ID="{51005FB3-8AC5-43B6-BA08-4872D3F55C6D}" ShortID="434524968">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-3</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
@@ -8865,6 +8878,13 @@
 											</SequenceList>
 										</MusicTrack>
 										<MusicTrack Name="IdleDrm" ID="{A27FBCA7-8535-43DD-B7E4-F705DCD832A3}" ShortID="281511816">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-3</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
@@ -9069,7 +9089,7 @@
 								<MusicSegment Name="Acc_Guit_FM_Theme_Analog_Seq_01" ID="{6D02F3ED-9BF2-409F-A408-F872103964F9}" ShortID="177005269">
 									<PropertyList>
 										<Property Name="Color" Type="int16" Value="19"/>
-										<Property Name="EndPosition" Type="Real64" Value="36000"/>
+										<Property Name="EndPosition" Type="Real64" Value="39500"/>
 										<Property Name="GridOffsetPreset" Type="int16" Value="52"/>
 										<Property Name="OverrideColor" Type="bool" Value="True"/>
 									</PropertyList>
@@ -9391,9 +9411,9 @@
 														<MusicClip Name="Analog_Seq" ID="{DC0D2455-C5F7-45F9-85AA-A5F54B60E6EA}">
 															<PropertyList>
 																<Property Name="BeginTrimOffset" Type="Real64" Value="16000"/>
-																<Property Name="EndTrimOffset" Type="Real64" Value="52000"/>
+																<Property Name="EndTrimOffset" Type="Real64" Value="54000"/>
 																<Property Name="FadeInDuration" Type="Real64" Value="3190.8957570233"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="1740.42605308848"/>
+																<Property Name="FadeOutDuration" Type="Real64" Value="3886.57989924232"/>
 																<Property Name="PlayAt" Type="Real64" Value="-16000"/>
 															</PropertyList>
 															<AudioSourceRef Name="Analog_Seq" ID="{3C06F533-17DC-4A1D-A048-4FDAB8B166A1}"/>
@@ -9410,7 +9430,7 @@
 																				<Flags>5</Flags>
 																			</Point>
 																			<Point>
-																				<XPos>52</XPos>
+																				<XPos>54</XPos>
 																				<YPos>0</YPos>
 																				<Flags>37</Flags>
 																			</Point>
@@ -9429,7 +9449,7 @@
 																				<Flags>5</Flags>
 																			</Point>
 																			<Point>
-																				<XPos>52</XPos>
+																				<XPos>54</XPos>
 																				<YPos>0</YPos>
 																				<Flags>37</Flags>
 																			</Point>
@@ -9463,7 +9483,7 @@
 																				<Flags>0</Flags>
 																			</Point>
 																			<Point>
-																				<XPos>52</XPos>
+																				<XPos>54</XPos>
 																				<YPos>0</YPos>
 																				<Flags>37</Flags>
 																			</Point>
@@ -9827,6 +9847,13 @@
 											</SequenceList>
 										</MusicTrack>
 										<MusicTrack Name="IdleDrm" ID="{507BF6FA-8B7D-43E3-AD7D-3D7EF745D57D}" ShortID="614225631">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-3</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
@@ -10445,6 +10472,13 @@
 											</SequenceList>
 										</MusicTrack>
 										<MusicTrack Name="IdleDrm" ID="{2A8D37C6-1DE4-43F3-A635-9967673C982A}" ShortID="232323156">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-3</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
@@ -10553,9 +10587,9 @@
 														</MusicClip>
 														<MusicClip Name="IdleDrm" ID="{18B5E8D7-A84A-4A3D-B145-B0EDF5CBD4B7}">
 															<PropertyList>
-																<Property Name="EndTrimOffset" Type="Real64" Value="2000"/>
+																<Property Name="EndTrimOffset" Type="Real64" Value="4000"/>
 																<Property Name="FadeInMode" Type="int16" Value="0"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="2000"/>
+																<Property Name="FadeOutDuration" Type="Real64" Value="3765.38461538461"/>
 																<Property Name="PlayAt" Type="Real64" Value="18000"/>
 															</PropertyList>
 															<AudioSourceRef Name="IdleDrm" ID="{5A9F868E-3742-4237-934A-8B8B40F0E65F}"/>
@@ -10572,7 +10606,7 @@
 																				<Flags>5</Flags>
 																			</Point>
 																			<Point>
-																				<XPos>2</XPos>
+																				<XPos>4</XPos>
 																				<YPos>0</YPos>
 																				<Flags>37</Flags>
 																			</Point>
@@ -10591,7 +10625,7 @@
 																				<Flags>5</Flags>
 																			</Point>
 																			<Point>
-																				<XPos>2</XPos>
+																				<XPos>4</XPos>
 																				<YPos>0</YPos>
 																				<Flags>37</Flags>
 																			</Point>
@@ -10610,7 +10644,7 @@
 																				<Flags>5</Flags>
 																			</Point>
 																			<Point>
-																				<XPos>2</XPos>
+																				<XPos>4</XPos>
 																				<YPos>0</YPos>
 																				<Flags>37</Flags>
 																			</Point>
@@ -10829,6 +10863,13 @@
 											</SequenceList>
 										</MusicTrack>
 										<MusicTrack Name="IdleDrm" ID="{5384252F-C9C9-4E37-B6AB-74FCE4D237BE}" ShortID="897386893">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-3</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
@@ -10996,9 +11037,9 @@
 														</MusicClip>
 														<MusicClip Name="IdleDrm" ID="{AB054D5C-D519-403B-BEBF-5A50DC5C7B11}">
 															<PropertyList>
-																<Property Name="EndTrimOffset" Type="Real64" Value="2000"/>
+																<Property Name="EndTrimOffset" Type="Real64" Value="4000"/>
 																<Property Name="FadeInDuration" Type="Real64" Value="34.6153846153838"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="1965.38461538462"/>
+																<Property Name="FadeOutDuration" Type="Real64" Value="3657.69230769231"/>
 																<Property Name="PlayAt" Type="Real64" Value="10000"/>
 															</PropertyList>
 															<AudioSourceRef Name="IdleDrm" ID="{E3109651-C58E-4D3D-B65A-FD9A02F2CCF9}"/>
@@ -11015,7 +11056,7 @@
 																				<Flags>5</Flags>
 																			</Point>
 																			<Point>
-																				<XPos>2</XPos>
+																				<XPos>4</XPos>
 																				<YPos>0</YPos>
 																				<Flags>37</Flags>
 																			</Point>
@@ -11034,7 +11075,7 @@
 																				<Flags>5</Flags>
 																			</Point>
 																			<Point>
-																				<XPos>2</XPos>
+																				<XPos>4</XPos>
 																				<YPos>0</YPos>
 																				<Flags>37</Flags>
 																			</Point>
@@ -11053,7 +11094,7 @@
 																				<Flags>5</Flags>
 																			</Point>
 																			<Point>
-																				<XPos>2</XPos>
+																				<XPos>4</XPos>
 																				<YPos>0</YPos>
 																				<Flags>37</Flags>
 																			</Point>
@@ -11724,6 +11765,13 @@
 											</SequenceList>
 										</MusicTrack>
 										<MusicTrack Name="IdleDrm" ID="{7D061697-7915-41DD-B270-C2B438871DB6}" ShortID="83647424">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-3</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
@@ -12710,6 +12758,13 @@
 											</SequenceList>
 										</MusicTrack>
 										<MusicTrack Name="IdleDrm" ID="{617D80F3-DAD4-49A1-ABBA-3B3880529DAB}" ShortID="112982888">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-3</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
@@ -13616,6 +13671,13 @@
 											</SequenceList>
 										</MusicTrack>
 										<MusicTrack Name="IdleDrm" ID="{0613F953-59DA-46F3-A141-63C1E52CDEA8}" ShortID="296540720">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-3</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
@@ -14227,6 +14289,13 @@
 											</SequenceList>
 										</MusicTrack>
 										<MusicTrack Name="IdleDrm" ID="{5124D348-3B3B-4A4E-8BE1-1F356E11068F}" ShortID="1011529434">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-3</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
@@ -14423,7 +14492,7 @@
 								<MusicSegment Name="Bass_Melody_FM_Theme_01" ID="{32FA2B09-E16C-4EAF-8828-0E3E9CD64C61}" ShortID="1055636361">
 									<PropertyList>
 										<Property Name="Color" Type="int16" Value="19"/>
-										<Property Name="EndPosition" Type="Real64" Value="37000"/>
+										<Property Name="EndPosition" Type="Real64" Value="38500"/>
 										<Property Name="GridOffsetPreset" Type="int16" Value="52"/>
 										<Property Name="OverrideColor" Type="bool" Value="True"/>
 									</PropertyList>
@@ -15122,6 +15191,13 @@
 											</SequenceList>
 										</MusicTrack>
 										<MusicTrack Name="IdleDrm" ID="{55E72EFC-DB19-45F4-B3C9-122C1FB1E0CF}" ShortID="344789190">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-3</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
@@ -15238,9 +15314,9 @@
 														</MusicClip>
 														<MusicClip Name="IdleDrm" ID="{07ABCCDE-DC14-421D-9243-0B6961A1AA81}">
 															<PropertyList>
-																<Property Name="EndTrimOffset" Type="Real64" Value="2000"/>
+																<Property Name="EndTrimOffset" Type="Real64" Value="4000"/>
 																<Property Name="FadeInDuration" Type="Real64" Value="34.6153846153838"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="1965.38461538462"/>
+																<Property Name="FadeOutDuration" Type="Real64" Value="4000"/>
 																<Property Name="PlayAt" Type="Real64" Value="34000"/>
 															</PropertyList>
 															<AudioSourceRef Name="IdleDrm" ID="{AC2E6639-7D9C-4113-A0C0-0D1976CC907C}"/>
@@ -15257,7 +15333,7 @@
 																				<Flags>5</Flags>
 																			</Point>
 																			<Point>
-																				<XPos>2</XPos>
+																				<XPos>4</XPos>
 																				<YPos>0</YPos>
 																				<Flags>37</Flags>
 																			</Point>
@@ -15276,7 +15352,7 @@
 																				<Flags>5</Flags>
 																			</Point>
 																			<Point>
-																				<XPos>2</XPos>
+																				<XPos>4</XPos>
 																				<YPos>0</YPos>
 																				<Flags>37</Flags>
 																			</Point>
@@ -15295,7 +15371,7 @@
 																				<Flags>5</Flags>
 																			</Point>
 																			<Point>
-																				<XPos>2</XPos>
+																				<XPos>4</XPos>
 																				<YPos>0</YPos>
 																				<Flags>37</Flags>
 																			</Point>
@@ -15991,6 +16067,13 @@
 											</SequenceList>
 										</MusicTrack>
 										<MusicTrack Name="IdleDrm" ID="{710AA164-6E21-4B64-9E97-4EEC019A95A8}" ShortID="149006744">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-3</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>
