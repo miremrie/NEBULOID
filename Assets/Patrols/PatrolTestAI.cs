@@ -29,20 +29,23 @@ public class PatrolTestAI : MonoBehaviour
     public float agentSize;
     public float randomDelta;
     public FindPathInput pathfindingInput;
+    public float rotationSpeed = 1f;
+
+    public MotorResult motorState;
 
     void Start()
     {
-        motor.trans = transform;
-        Randomize(ref motor.maxForce, randomDelta);
-        Randomize(ref motor.maxSpeed, randomDelta);
+        //Randomize(ref motor.maxForce, randomDelta);
+        //Randomize(ref motor.maxSpeed, randomDelta);
         UpdatePatrolPathWalk();
     }
+
+    public Vector3 GetVelocity() => motorState.velocity;
 
     void Randomize (ref float val, float delta) { val = UnityEngine.Random.Range(val - delta, val + delta);}
 
     void Update()
     {
-
         attack = (transform.position - attackTarget.position).magnitude < attackRadius;
         if (attack)
         {
@@ -56,9 +59,10 @@ public class PatrolTestAI : MonoBehaviour
         var target = SelectTarget();
         if (target != Vector2.zero)
         {
-            UpdateMotorVelocity(motor, SelectTarget(), obsAvoidance);
-            transform.position += motor.velocity * Time.deltaTime;
-            transform.rotation = Quaternion.LookRotation(motor.velocity, Vector3.back);
+            motorState = motor.UpdateMotorVelocity(transform, SelectTarget(), motorState.velocity);
+            transform.position += motorState.velocity * Time.deltaTime;
+            if (motor.AbsoluteRotation())  transform.rotation = motorState.rotation; 
+            else transform.rotation *= motorState.rotation; 
         }
     }
 
@@ -82,25 +86,7 @@ public class PatrolTestAI : MonoBehaviour
     }
 
     // Simple steering with bullshit added
-    private void UpdateMotorVelocity(Motor motor, Vector3 target, Vector3 obsAvoidance)
-    {
-        Vector3 desiredVelocity;
-        {
-            // arrival
-            var targetDirection = target - transform.position;
-            var distance = targetDirection.magnitude;
-            float rampedSpeed = motor.maxSpeed * Math.Min(1f, distance / slowingDistance);
-            desiredVelocity = rampedSpeed * targetDirection.normalized;
-            desiredVelocity += obsAvoidance;
-        }
 
-        var steering = desiredVelocity - motor.velocity;
-
-        var steering_force = Vector3.ClampMagnitude(steering, motor.maxForce);
-
-        var acceleration = steering_force / motor.mass;
-        motor.velocity = Vector3.ClampMagnitude(motor.velocity + acceleration, motor.maxSpeed);
-    }
 
     public void SetObstacleAvoidance(Vector3 v)
     {
@@ -123,15 +109,6 @@ public class PatrolTestAI : MonoBehaviour
 
     }
 
-    [Serializable]
-    public class Motor
-    {
-        public Transform trans;
-        public float mass = 1f;
-        public Vector3 velocity;
-        public float maxSpeed = 5f;
-        public float maxForce = 5f;
-    }
 
     // TODO: Overlap functionality with patrol path, merge behind interface
     // Walks backwards because pathfinding returns the path backwards

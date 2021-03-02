@@ -347,12 +347,7 @@ MonoBehaviour:
   forward: 1
   startIndex: 0
   nearDistance: 1
-  motor:
-    trans: {fileID: 0}
-    mass: 70
-    velocity: {x: 0, y: 0, z: 0}
-    maxSpeed: 3
-    maxForce: 0.7
+  motor: {fileID: 11400000, guid: 12d0b41075723f0429227c1fae41af46, type: 2}
   slowingDistance: 2
   radius: 0.5
   attackTarget: {fileID: 1594191044}
@@ -371,6 +366,7 @@ MonoBehaviour:
     margin: 1
     targetDistance: 1
     obstacleSize: 1
+  rotationSpeed: 1
 --- !u!23 &97393492
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -634,7 +630,7 @@ GameObject:
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &185431038
 Transform:
   m_ObjectHideFlags: 0
@@ -943,7 +939,7 @@ GameObject:
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &304269640
 Transform:
   m_ObjectHideFlags: 0
@@ -973,7 +969,7 @@ GameObject:
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &319316107
 Transform:
   m_ObjectHideFlags: 0
@@ -1532,7 +1528,7 @@ GameObject:
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &537551413
 Transform:
   m_ObjectHideFlags: 0
@@ -1695,12 +1691,7 @@ MonoBehaviour:
   forward: 1
   startIndex: 0
   nearDistance: 1
-  motor:
-    trans: {fileID: 0}
-    mass: 70
-    velocity: {x: 0, y: 0, z: 0}
-    maxSpeed: 3
-    maxForce: 0.7
+  motor: {fileID: 11400000, guid: 12d0b41075723f0429227c1fae41af46, type: 2}
   slowingDistance: 2
   radius: 0.5
   attackTarget: {fileID: 1594191044}
@@ -1719,6 +1710,7 @@ MonoBehaviour:
     margin: 1
     targetDistance: 1
     obstacleSize: 1
+  rotationSpeed: 1
 --- !u!23 &553201930
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1818,12 +1810,7 @@ MonoBehaviour:
   forward: 1
   startIndex: 0
   nearDistance: 1
-  motor:
-    trans: {fileID: 0}
-    mass: 70
-    velocity: {x: 0, y: 0, z: 0}
-    maxSpeed: 3
-    maxForce: 0.7
+  motor: {fileID: 11400000, guid: 12d0b41075723f0429227c1fae41af46, type: 2}
   slowingDistance: 2
   radius: 0.5
   attackTarget: {fileID: 1594191044}
@@ -1842,6 +1829,7 @@ MonoBehaviour:
     margin: 1
     targetDistance: 1
     obstacleSize: 1
+  rotationSpeed: 1
 --- !u!23 &557810173
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1904,7 +1892,7 @@ GameObject:
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &565111963
 Transform:
   m_ObjectHideFlags: 0
@@ -1971,12 +1959,7 @@ MonoBehaviour:
   forward: 1
   startIndex: 0
   nearDistance: 1
-  motor:
-    trans: {fileID: 0}
-    mass: 70
-    velocity: {x: 0, y: 0, z: 0}
-    maxSpeed: 3
-    maxForce: 0.7
+  motor: {fileID: 11400000, guid: 12d0b41075723f0429227c1fae41af46, type: 2}
   slowingDistance: 2
   radius: 0.5
   attackTarget: {fileID: 1594191044}
@@ -1995,6 +1978,7 @@ MonoBehaviour:
     margin: 1
     targetDistance: 1
     obstacleSize: 1
+  rotationSpeed: 1
 --- !u!23 &580047157
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2182,7 +2166,7 @@ GameObject:
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &659588894
 Transform:
   m_ObjectHideFlags: 0
@@ -2423,12 +2407,7 @@ MonoBehaviour:
   forward: 1
   startIndex: 0
   nearDistance: 1
-  motor:
-    trans: {fileID: 0}
-    mass: 70
-    velocity: {x: 0, y: 0, z: 0}
-    maxSpeed: 3
-    maxForce: 0.7
+  motor: {fileID: 11400000, guid: 12d0b41075723f0429227c1fae41af46, type: 2}
   slowingDistance: 2
   radius: 0.5
   attackTarget: {fileID: 1594191044}
@@ -2447,6 +2426,7 @@ MonoBehaviour:
     margin: 1
     targetDistance: 1
     obstacleSize: 1
+  rotationSpeed: 1
 --- !u!23 &723201460
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2695,12 +2675,7 @@ MonoBehaviour:
   forward: 1
   startIndex: 0
   nearDistance: 1
-  motor:
-    trans: {fileID: 0}
-    mass: 70
-    velocity: {x: 0, y: 0, z: 0}
-    maxSpeed: 3
-    maxForce: 0.7
+  motor: {fileID: 11400000, guid: 12d0b41075723f0429227c1fae41af46, type: 2}
   slowingDistance: 2
   radius: 0.5
   attackTarget: {fileID: 1594191044}
@@ -2719,6 +2694,7 @@ MonoBehaviour:
     margin: 1
     targetDistance: 1
     obstacleSize: 1
+  rotationSpeed: 1
 --- !u!23 &904288314
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2818,12 +2794,7 @@ MonoBehaviour:
   forward: 1
   startIndex: 0
   nearDistance: 1
-  motor:
-    trans: {fileID: 0}
-    mass: 70
-    velocity: {x: 0, y: 0, z: 0}
-    maxSpeed: 3
-    maxForce: 0.7
+  motor: {fileID: 11400000, guid: 12d0b41075723f0429227c1fae41af46, type: 2}
   slowingDistance: 2
   radius: 0.5
   attackTarget: {fileID: 1594191044}
@@ -2842,6 +2813,7 @@ MonoBehaviour:
     margin: 1
     targetDistance: 1
     obstacleSize: 1
+  rotationSpeed: 1
 --- !u!23 &925704277
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3004,12 +2976,7 @@ MonoBehaviour:
   forward: 1
   startIndex: 0
   nearDistance: 1
-  motor:
-    trans: {fileID: 0}
-    mass: 70
-    velocity: {x: 0, y: 0, z: 0}
-    maxSpeed: 3
-    maxForce: 0.7
+  motor: {fileID: 11400000, guid: 12d0b41075723f0429227c1fae41af46, type: 2}
   slowingDistance: 2
   radius: 0.5
   attackTarget: {fileID: 1594191044}
@@ -3028,6 +2995,7 @@ MonoBehaviour:
     margin: 1
     targetDistance: 1
     obstacleSize: 1
+  rotationSpeed: 1
 --- !u!23 &950317503
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3223,12 +3191,7 @@ MonoBehaviour:
   forward: 1
   startIndex: 0
   nearDistance: 1
-  motor:
-    trans: {fileID: 0}
-    mass: 70
-    velocity: {x: 0, y: 0, z: 0}
-    maxSpeed: 3
-    maxForce: 0.7
+  motor: {fileID: 11400000, guid: 12d0b41075723f0429227c1fae41af46, type: 2}
   slowingDistance: 2
   radius: 0.5
   attackTarget: {fileID: 1594191044}
@@ -3247,6 +3210,7 @@ MonoBehaviour:
     margin: 1
     targetDistance: 1
     obstacleSize: 1
+  rotationSpeed: 1
 --- !u!23 &954780648
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3520,7 +3484,7 @@ GameObject:
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &988992907
 Transform:
   m_ObjectHideFlags: 0
@@ -3734,12 +3698,7 @@ MonoBehaviour:
   forward: 1
   startIndex: 0
   nearDistance: 1
-  motor:
-    trans: {fileID: 0}
-    mass: 70
-    velocity: {x: 0, y: 0, z: 0}
-    maxSpeed: 3
-    maxForce: 0.7
+  motor: {fileID: 11400000, guid: 12d0b41075723f0429227c1fae41af46, type: 2}
   slowingDistance: 2
   radius: 0.5
   attackTarget: {fileID: 1594191044}
@@ -3758,6 +3717,7 @@ MonoBehaviour:
     margin: 1
     targetDistance: 1
     obstacleSize: 1
+  rotationSpeed: 1
 --- !u!23 &1119969762
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3857,12 +3817,7 @@ MonoBehaviour:
   forward: 1
   startIndex: 0
   nearDistance: 1
-  motor:
-    trans: {fileID: 0}
-    mass: 70
-    velocity: {x: 0, y: 0, z: 0}
-    maxSpeed: 3
-    maxForce: 0.7
+  motor: {fileID: 11400000, guid: 12d0b41075723f0429227c1fae41af46, type: 2}
   slowingDistance: 2
   radius: 0.5
   attackTarget: {fileID: 1594191044}
@@ -3881,6 +3836,7 @@ MonoBehaviour:
     margin: 1
     targetDistance: 1
     obstacleSize: 1
+  rotationSpeed: 1
 --- !u!23 &1204743506
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4169,12 +4125,7 @@ MonoBehaviour:
   forward: 1
   startIndex: 0
   nearDistance: 1
-  motor:
-    trans: {fileID: 0}
-    mass: 70
-    velocity: {x: 0, y: 0, z: 0}
-    maxSpeed: 3
-    maxForce: 0.7
+  motor: {fileID: 11400000, guid: 12d0b41075723f0429227c1fae41af46, type: 2}
   slowingDistance: 2
   radius: 0.5
   attackTarget: {fileID: 1594191044}
@@ -4193,6 +4144,7 @@ MonoBehaviour:
     margin: 1
     targetDistance: 1
     obstacleSize: 1
+  rotationSpeed: 1
 --- !u!23 &1252550396
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4348,7 +4300,7 @@ GameObject:
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1394171587
 Transform:
   m_ObjectHideFlags: 0
@@ -4445,12 +4397,7 @@ MonoBehaviour:
   forward: 1
   startIndex: 0
   nearDistance: 1
-  motor:
-    trans: {fileID: 0}
-    mass: 70
-    velocity: {x: 0, y: 0, z: 0}
-    maxSpeed: 3
-    maxForce: 0.7
+  motor: {fileID: 11400000, guid: 12d0b41075723f0429227c1fae41af46, type: 2}
   slowingDistance: 2
   radius: 0.5
   attackTarget: {fileID: 1594191044}
@@ -4469,6 +4416,7 @@ MonoBehaviour:
     margin: 1
     targetDistance: 1
     obstacleSize: 1
+  rotationSpeed: 1
 --- !u!23 &1424222250
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4624,7 +4572,7 @@ GameObject:
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1522316176
 Transform:
   m_ObjectHideFlags: 0
@@ -4666,7 +4614,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1547884858}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -1.6500006, y: 4.3599997, z: 10}
+  m_LocalPosition: {x: -1.76, y: 4.23, z: 9.989}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1678183738}
@@ -4691,12 +4639,7 @@ MonoBehaviour:
   forward: 1
   startIndex: 0
   nearDistance: 1
-  motor:
-    trans: {fileID: 0}
-    mass: 70
-    velocity: {x: 0, y: 0, z: 0}
-    maxSpeed: 3
-    maxForce: 0.7
+  motor: {fileID: 11400000, guid: 12d0b41075723f0429227c1fae41af46, type: 2}
   slowingDistance: 2
   radius: 0.5
   attackTarget: {fileID: 1594191044}
@@ -4715,6 +4658,7 @@ MonoBehaviour:
     margin: 1
     targetDistance: 1
     obstacleSize: 1
+  rotationSpeed: 1
 --- !u!23 &1547884861
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4799,12 +4743,7 @@ MonoBehaviour:
   forward: 1
   startIndex: 0
   nearDistance: 1
-  motor:
-    trans: {fileID: 0}
-    mass: 70
-    velocity: {x: 0, y: 0, z: 0}
-    maxSpeed: 3
-    maxForce: 0.7
+  motor: {fileID: 11400000, guid: 12d0b41075723f0429227c1fae41af46, type: 2}
   slowingDistance: 2
   radius: 0.5
   attackTarget: {fileID: 1594191044}
@@ -4823,6 +4762,7 @@ MonoBehaviour:
     margin: 1
     targetDistance: 1
     obstacleSize: 1
+  rotationSpeed: 1
 --- !u!23 &1566183280
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5507,12 +5447,7 @@ MonoBehaviour:
   forward: 1
   startIndex: 0
   nearDistance: 1
-  motor:
-    trans: {fileID: 0}
-    mass: 70
-    velocity: {x: 0, y: 0, z: 0}
-    maxSpeed: 3
-    maxForce: 0.7
+  motor: {fileID: 11400000, guid: 12d0b41075723f0429227c1fae41af46, type: 2}
   slowingDistance: 2
   radius: 0.5
   attackTarget: {fileID: 1594191044}
@@ -5531,6 +5466,7 @@ MonoBehaviour:
     margin: 1
     targetDistance: 1
     obstacleSize: 1
+  rotationSpeed: 1
 --- !u!23 &1713252419
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5630,12 +5566,7 @@ MonoBehaviour:
   forward: 1
   startIndex: 0
   nearDistance: 1
-  motor:
-    trans: {fileID: 0}
-    mass: 70
-    velocity: {x: 0, y: 0, z: 0}
-    maxSpeed: 3
-    maxForce: 0.7
+  motor: {fileID: 11400000, guid: 12d0b41075723f0429227c1fae41af46, type: 2}
   slowingDistance: 2
   radius: 0.5
   attackTarget: {fileID: 1594191044}
@@ -5654,6 +5585,7 @@ MonoBehaviour:
     margin: 1
     targetDistance: 1
     obstacleSize: 1
+  rotationSpeed: 1
 --- !u!23 &1748914245
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6110,12 +6042,7 @@ MonoBehaviour:
   forward: 1
   startIndex: 0
   nearDistance: 1
-  motor:
-    trans: {fileID: 0}
-    mass: 70
-    velocity: {x: 0, y: 0, z: 0}
-    maxSpeed: 3
-    maxForce: 0.7
+  motor: {fileID: 11400000, guid: 12d0b41075723f0429227c1fae41af46, type: 2}
   slowingDistance: 2
   radius: 0.5
   attackTarget: {fileID: 1594191044}
@@ -6134,6 +6061,7 @@ MonoBehaviour:
     margin: 1
     targetDistance: 1
     obstacleSize: 1
+  rotationSpeed: 1
 --- !u!23 &1931298963
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6233,12 +6161,7 @@ MonoBehaviour:
   forward: 1
   startIndex: 0
   nearDistance: 1
-  motor:
-    trans: {fileID: 0}
-    mass: 70
-    velocity: {x: 0, y: 0, z: 0}
-    maxSpeed: 3
-    maxForce: 0.7
+  motor: {fileID: 11400000, guid: 12d0b41075723f0429227c1fae41af46, type: 2}
   slowingDistance: 2
   radius: 0.5
   attackTarget: {fileID: 1594191044}
@@ -6257,6 +6180,7 @@ MonoBehaviour:
     margin: 1
     targetDistance: 1
     obstacleSize: 1
+  rotationSpeed: 1
 --- !u!23 &1941544193
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6371,12 +6295,7 @@ MonoBehaviour:
   forward: 1
   startIndex: 0
   nearDistance: 1
-  motor:
-    trans: {fileID: 0}
-    mass: 70
-    velocity: {x: 0, y: 0, z: 0}
-    maxSpeed: 3
-    maxForce: 0.7
+  motor: {fileID: 11400000, guid: 12d0b41075723f0429227c1fae41af46, type: 2}
   slowingDistance: 2
   radius: 0.5
   attackTarget: {fileID: 1594191044}
@@ -6395,6 +6314,7 @@ MonoBehaviour:
     margin: 1
     targetDistance: 1
     obstacleSize: 1
+  rotationSpeed: 1
 --- !u!23 &1941722951
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6469,7 +6389,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1948586201}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 13.95, y: 1.3700004, z: 10}
+  m_LocalPosition: {x: 13.13, y: 1.92, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1710065709}
@@ -6494,12 +6414,7 @@ MonoBehaviour:
   forward: 1
   startIndex: 0
   nearDistance: 1
-  motor:
-    trans: {fileID: 0}
-    mass: 70
-    velocity: {x: 0, y: 0, z: 0}
-    maxSpeed: 3
-    maxForce: 0.7
+  motor: {fileID: 11400000, guid: 12d0b41075723f0429227c1fae41af46, type: 2}
   slowingDistance: 2
   radius: 0.5
   attackTarget: {fileID: 1594191044}
@@ -6518,6 +6433,7 @@ MonoBehaviour:
     margin: 1
     targetDistance: 1
     obstacleSize: 1
+  rotationSpeed: 1
 --- !u!23 &1948586204
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6806,12 +6722,7 @@ MonoBehaviour:
   forward: 1
   startIndex: 0
   nearDistance: 1
-  motor:
-    trans: {fileID: 0}
-    mass: 70
-    velocity: {x: 0, y: 0, z: 0}
-    maxSpeed: 3
-    maxForce: 0.7
+  motor: {fileID: 11400000, guid: 12d0b41075723f0429227c1fae41af46, type: 2}
   slowingDistance: 2
   radius: 0.5
   attackTarget: {fileID: 1594191044}
@@ -6830,6 +6741,7 @@ MonoBehaviour:
     margin: 1
     targetDistance: 1
     obstacleSize: 1
+  rotationSpeed: 1
 --- !u!23 &2065375793
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6929,12 +6841,7 @@ MonoBehaviour:
   forward: 1
   startIndex: 0
   nearDistance: 1
-  motor:
-    trans: {fileID: 0}
-    mass: 70
-    velocity: {x: 0, y: 0, z: 0}
-    maxSpeed: 3
-    maxForce: 0.7
+  motor: {fileID: 11400000, guid: 12d0b41075723f0429227c1fae41af46, type: 2}
   slowingDistance: 2
   radius: 0.5
   attackTarget: {fileID: 1594191044}
@@ -6953,6 +6860,7 @@ MonoBehaviour:
     margin: 1
     targetDistance: 1
     obstacleSize: 1
+  rotationSpeed: 1
 --- !u!23 &2100549022
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7226,12 +7134,7 @@ MonoBehaviour:
   forward: 1
   startIndex: 0
   nearDistance: 1
-  motor:
-    trans: {fileID: 0}
-    mass: 70
-    velocity: {x: 0, y: 0, z: 0}
-    maxSpeed: 3
-    maxForce: 0.7
+  motor: {fileID: 11400000, guid: 12d0b41075723f0429227c1fae41af46, type: 2}
   slowingDistance: 2
   radius: 0.5
   attackTarget: {fileID: 1594191044}
@@ -7250,6 +7153,7 @@ MonoBehaviour:
     margin: 1
     targetDistance: 1
     obstacleSize: 1
+  rotationSpeed: 1
 --- !u!23 &2144345894
 MeshRenderer:
   m_ObjectHideFlags: 0
