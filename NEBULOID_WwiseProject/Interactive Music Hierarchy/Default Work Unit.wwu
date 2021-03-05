@@ -408,6 +408,13 @@
 							</CueList>
 						</MusicSegment>
 						<MusicPlaylistContainer Name="Menu" ID="{5192F892-6807-4D42-ACA8-C03DCF0AEE60}" ShortID="843848660">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-10</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8A3855F3-A511-4AF2-899B-6ADE3B7CFCAD}"/>

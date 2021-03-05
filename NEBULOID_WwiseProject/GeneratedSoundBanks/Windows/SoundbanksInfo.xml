@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="135">
 	<RootPaths>
-		<ProjectRoot>D:\Unity\NEBULOID\NEBULOID_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>D:\Unity\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>D:\Unity\NEBULOID\NEBULOID_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>D:\Unity\NEBULOID\NEBULOID_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>D:\GameDev\NEBULOID\NEBULOID\NEBULOID_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>

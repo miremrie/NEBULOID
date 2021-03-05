@@ -10,10 +10,14 @@
 				<Property Name="Event Action List\{374326CC-698F-4FCE-A917-0E2E96002716}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{3D81A5B7-A5C2-4BB0-963D-8E6171E89E15}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{4878EDEB-E0EF-4760-AEA8-29E21F7EBF3F}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{53A01F8B-F177-4E30-8D09-D44FD595CBA8}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{70BD6076-6664-4BE9-AF72-35B270FC14F9}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{763160EC-244D-43D3-ACA7-B79F7A15B8C1}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{81B8C5C4-2A54-4088-A587-F238F669F847}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{9643E0D0-A96C-4D4B-98A1-A757A99F24C9}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{A05C9F6C-92D0-4615-8814-58BABECBA940}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{A19DE504-D2E9-45F0-9B78-61654AA7F308}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{A3676356-2B75-4C53-AFE5-7DFBF075742F}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{A4978065-EC81-4313-A7BE-67EC98D6D20D}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{B6C3F690-8673-4731-A318-37AE779CBC5F}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{B8B2F65F-9A3A-49D5-B190-78ECEDFB2FA5}\x64_Expand States" Type="string" Value=""/>
@@ -44,6 +48,7 @@
 				<Property Name="GenerateSoundBanks\x64_SelectedPlatforms" Type="string" Value="Xu4Yx47sM0aD9xNz1eA63A=="/>
 				<Property Name="GenerateSoundBanks\x64_SelectedSoundBanks" Type="string" Value="peOHPhKJp0qfVKerGn7jEA=="/>
 				<Property Name="HardwareController\CurrentSession" Type="string" Value="{00000000-0000-0000-0000-000000000000}"/>
+				<Property Name="Interactive Music\x64_{2F4FD936-A77A-49A2-858B-F88606232E02} - SegmentEditorZoomInfo" Type="string" Value="AAAAAAAA8D8AAAAAAADwP1jVOIfTW0NAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAA"/>
 				<Property Name="LoudnessMeterView\LastObject1" Type="string" Value="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"/>
 				<Property Name="MeterView\LastObject1" Type="string" Value="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"/>
 				<Property Name="MeterView\LastObject2" Type="string" Value="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"/>

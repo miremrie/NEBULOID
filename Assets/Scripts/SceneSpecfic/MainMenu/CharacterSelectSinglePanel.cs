@@ -19,6 +19,7 @@ namespace NBLD.MainMenu
         public SingleOptionSelectText devotionNameOptionSelect, spiritNameOptionSelect;
         public int currentlySelectedElement = 0;
         public GameObject playerReadyObject;
+        public Audio.UIAudioController audioController;
         private PlayerUIInputManager uiInputManager;
         private bool subscribedToInput = false;
         private bool subscribedToUI = false;
@@ -110,6 +111,7 @@ namespace NBLD.MainMenu
                 }
                 activeUIElements[oldSelection].LoseFocus();
                 activeUIElements[currentlySelectedElement].Focus(uiInputManager);
+                audioController.PlayClick();
             }
         }
         private void OnSubmit()
@@ -126,14 +128,17 @@ namespace NBLD.MainMenu
         private void OnSkinSelectChanged(int step)
         {
             characterSelectScreen.ChangeCharacterSkin(playerIndex, step);
+            audioController.PlayHover();
         }
         private void OnDevotionSelectChanged(int step)
         {
             characterSelectScreen.ChangeDevotionName(playerIndex, step);
+            audioController.PlayHover();
         }
         private void OnSpiritSelectChanged(int step)
         {
             characterSelectScreen.ChangeSpiritName(playerIndex, step);
+            audioController.PlayHover();
         }
         #endregion
 

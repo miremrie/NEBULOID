@@ -32,6 +32,7 @@ namespace NBLD.MainMenu
         public CharacterSelectSinglePanel[] csPanels;
         public CharacterNames characterNames;
         public CharacterSkins characterSkins;
+        public Audio.UIAudioController audioController;
         private SelectScreenPlayerData[] selectScreenPlayerDatas;
         private List<SelectScreenPlayerController> playerControllers;
         private bool initialized = false;
@@ -112,6 +113,7 @@ namespace NBLD.MainMenu
             AssignRandomNames(ssPlayerData);
             AssignRandomSkin(ssPlayerData);
             csPanels[playerSessionData.playerIndex].Activate(playerSessionData.playerIndex, playerSessionData.uiInputManager);
+            audioController.PlayEnter();
         }
         private void OnPlayerRemoved(PlayerSessionData playerSessionData)
         {
@@ -131,14 +133,18 @@ namespace NBLD.MainMenu
                     csPanels[selectScreenPlayerDatas[i].playerSessionData.playerIndex].UpdatePanel(selectScreenPlayerDatas[i]);
                 }
             }
+            selectScreenPlayerDatas[playerSessionData.playerIndex].playerActive = false;
+            selectScreenPlayerDatas[playerSessionData.playerIndex].playerReady = false;
+
+            audioController.PlayExit();
             csPanels[playerSessionData.playerIndex].Deactivate();
         }
         private void OnPlayerChangedIndex(PlayerSessionData playerSessionData, int oldIndex)
         {
             selectScreenPlayerDatas[playerSessionData.playerIndex].CopyData(selectScreenPlayerDatas[oldIndex]);
-            selectScreenPlayerDatas[oldIndex].playerActive = false;
             selectScreenPlayerDatas[oldIndex].playerReady = false;
-
+            selectScreenPlayerDatas[oldIndex].playerActive = false;
+            selectScreenPlayerDatas[playerSessionData.playerIndex].playerActive = true;
             for (int i = 0; i < playerControllers.Count; i++)
             {
                 if (playerControllers[i].playerIndex == oldIndex)
