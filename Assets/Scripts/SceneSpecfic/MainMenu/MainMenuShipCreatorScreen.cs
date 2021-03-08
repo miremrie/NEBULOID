@@ -125,12 +125,12 @@ namespace NBLD.MainMenu
         private void OnChangeSelect()
         {
             ConfirmSelection();
-            mainMenu.ChangeShipSelectionMode(false);
+            mainMenu.ChangeScreenToRootMainMenu();
         }
         private void OnCancel()
         {
             DismissSelection();
-            mainMenu.ChangeShipSelectionMode(false);
+            mainMenu.ChangeScreenToRootMainMenu();
         }
         private void OnNavigationChanged(Vector2Int navigation)
         {

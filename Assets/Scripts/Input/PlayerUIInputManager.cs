@@ -66,7 +66,6 @@ namespace NBLD.Input
         {
             Vector2Int oldNavInt = InputUtils.Axis2DToInt(oldNav, navigationDeadZoneValue);
             Vector2Int newNavInt = InputUtils.Axis2DToInt(newNav, navigationDeadZoneValue);
-            Debug.Log($"old{oldNavInt},{newNavInt}");
             if (oldNav.x != newNav.x || oldNav.y != newNav.y)
             {
                 OnNavigationIntChanged?.Invoke(newNavInt);

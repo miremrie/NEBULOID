@@ -41,14 +41,14 @@ namespace NBLD.Character
             }
             else
             {
-                InputManager.Instance.OnInputInitialized += Initialize;
+                InputManager.OnInputInitialized += Initialize;
             }
         }
         private void Initialize()
         {
             initialized = true;
             CreateInitialCharacters();
-            InputManager.Instance.OnInputInitialized -= Initialize;
+            InputManager.OnInputInitialized -= Initialize;
             Subscribe();
         }
 

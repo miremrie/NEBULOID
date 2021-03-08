@@ -9,6 +9,7 @@ namespace NBLD.Input
         public CharacterSelectScreen characterSelectScreen;
         private PlayerUIInputManager playerUIInputManager;
         private bool playerActive = false;
+        private bool subscribed = false;
         public void SetPlayerActive(bool active)
         {
             playerActive = active;
@@ -24,7 +25,7 @@ namespace NBLD.Input
             this.characterSelectScreen = characterSelectScreen;
             this.playerUIInputManager = playerUIInputManager;
             this.playerActive = false;
-            Subscribe();
+            //Subscribe();
         }
         ~SelectScreenPlayerController()
         {
@@ -32,11 +33,19 @@ namespace NBLD.Input
         }
         public void Subscribe()
         {
-            playerUIInputManager.OnSubmit += OnSubmit;
+            if (!subscribed)
+            {
+                subscribed = true;
+                playerUIInputManager.OnSubmit += OnSubmit;
+            }
         }
         public void Unsubscribe()
         {
-            playerUIInputManager.OnSubmit -= OnSubmit;
+            if (subscribed)
+            {
+                subscribed = false;
+                playerUIInputManager.OnSubmit -= OnSubmit;
+            }
         }
         #endregion
         #region Inactive Player

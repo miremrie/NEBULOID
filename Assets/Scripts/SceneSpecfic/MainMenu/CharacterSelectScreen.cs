@@ -37,15 +37,9 @@ namespace NBLD.MainMenu
         private List<SelectScreenPlayerController> playerControllers;
         private bool initialized = false;
         private bool subscribed = false;
-        private void Awake()
-        {
-            if (inputManager.Initialized)
-            {
-                Initialize();
-            }
-        }
         private void Initialize()
         {
+            inputManager = InputManager.Instance;
             if (!initialized)
             {
                 initialized = true;
@@ -54,34 +48,55 @@ namespace NBLD.MainMenu
                 {
                     CreateNewPossiblePlayer(inputManager.GetDevice(i), inputManager.GetUIInputManager(i));
                 }
-                SubscribeToInput();
                 for (int i = 0; i < csPanels.Length; i++)
                 {
                     csPanels[i].Deactivate();
                 }
                 selectScreenPlayerDatas = new SelectScreenPlayerData[inputManager.maxNumberOfPlayers];
+                Subscribe();
             }
         }
         private void OnEnable()
         {
-            inputManager.OnInputInitialized += Initialize;
+            if (InputManager.Instance != null && InputManager.Instance.Initialized)
+            {
+                Initialize();
+            }
+            else
+            {
+                InputManager.OnInputInitialized += Initialize;
+            }
+            Subscribe();
+        }
+
+
+        private void OnDisable()
+        {
+            InputManager.OnInputInitialized -= Initialize;
+            Unsubscribe();
+        }
+        private void Subscribe()
+        {
             if (initialized && !subscribed)
             {
                 SubscribeToInput();
+                for (int i = 0; i < playerControllers.Count; i++)
+                {
+                    playerControllers[i].Subscribe();
+                }
+                subscribed = true;
             }
-
         }
-        private void OnDisable()
+        private void Unsubscribe()
         {
-            inputManager.OnInputInitialized -= Initialize;
-            for (int i = 0; i < playerControllers.Count; i++)
-            {
-                playerControllers[i].Unsubscribe();
-            }
             if (initialized && subscribed)
             {
-
                 UnsubscribeFromInput();
+                for (int i = 0; i < playerControllers.Count; i++)
+                {
+                    playerControllers[i].Unsubscribe();
+                }
+                subscribed = false;
             }
         }
         private void SubscribeToInput()
@@ -97,7 +112,6 @@ namespace NBLD.MainMenu
             inputManager.OnPlayerRegistered -= OnPlayerRegistered;
             inputManager.OnPlayerRemoved -= OnPlayerRemoved;
             inputManager.OnPlayerChangedIndex -= OnPlayerChangedIndex;
-
         }
         private void OnDeviceRegistered(UserDevice userDevice, PlayerGameplayInputManager gameplayInputManager, PlayerUIInputManager uiInputManager)
         {
@@ -135,9 +149,13 @@ namespace NBLD.MainMenu
             }
             selectScreenPlayerDatas[playerSessionData.playerIndex].playerActive = false;
             selectScreenPlayerDatas[playerSessionData.playerIndex].playerReady = false;
-
             audioController.PlayExit();
             csPanels[playerSessionData.playerIndex].Deactivate();
+
+            if (inputManager.GetPlayerCount() == 0)
+            {
+                mainMenu.ChangeScreenToRootMainMenu();
+            }
         }
         private void OnPlayerChangedIndex(PlayerSessionData playerSessionData, int oldIndex)
         {
@@ -168,6 +186,7 @@ namespace NBLD.MainMenu
             userDevice.EnableUIInput(true);
             SelectScreenPlayerController playerSelectController = new SelectScreenPlayerController(userDevice.deviceIndex, uiInputManager, this);
             playerControllers[userDevice.deviceIndex] = playerSelectController;
+            playerSelectController.Subscribe();
         }
 
         public bool RegisterPlayer(int deviceIndex)

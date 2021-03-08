@@ -134,7 +134,7 @@ namespace NBLD.Input
         public delegate void PlayerChangedIndexHandler(PlayerSessionData playerSessionData, int oldPlayerIndex);
         public delegate void InitHandler();
         public delegate void UpdateHandler(float deltaTime);
-        public event InitHandler OnInputInitialized;
+        public static event InitHandler OnInputInitialized;
         public event DeviceRegisteredHandler OnDeviceRegistered;
         public event PlayerRegisteredHandler OnPlayerRegistered, OnPlayerRemoved;
         public event PlayerChangedIndexHandler OnPlayerChangedIndex;
@@ -143,8 +143,6 @@ namespace NBLD.Input
         #region Singleton
         public static InputManager Instance { get; private set; }
         #endregion
-
-
         private void Awake()
         {
             if (Instance == null)

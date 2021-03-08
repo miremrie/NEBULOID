@@ -8,8 +8,11 @@ namespace NBLD.MainMenu
     public class MainMenu : MonoBehaviour
     {
         public int primaryInput, altInput;
-        public GameObject shipSelectionScreen, shipSelectionPrompt;
-        public bool inShipSelectionMode = false;
+        public GameObject charSelectionScreen;
+        public GameObject shipSelectionScreen;
+        public GameObject mainMenuRootScreen;
+        public bool onShipSelectScreen = false;
+        public bool onCharSelectScreen = false;
         private Input.UIInputManager uiInput;
         public int gameSceneIndex = 1;
         public int garageSceneIndex = 2;
@@ -20,7 +23,8 @@ namespace NBLD.MainMenu
         }
         void Start()
         {
-            ChangeShipSelectionMode(false);
+
+            ChangeScreenToRootMainMenu();
         }
         private void OnEnable()
         {
@@ -49,12 +53,31 @@ namespace NBLD.MainMenu
         {
             uiInput.Update(Time.deltaTime);
         }
+        private bool IsOnMainMenuRootScreen() => !onShipSelectScreen && !onCharSelectScreen;
 
-        public void ChangeShipSelectionMode(bool inShipSelectionMode)
+        public void ChangeScreenToShipSelect()
         {
-            this.inShipSelectionMode = inShipSelectionMode;
-            shipSelectionPrompt.SetActive(!this.inShipSelectionMode);
-            shipSelectionScreen.SetActive(this.inShipSelectionMode);
+            this.onShipSelectScreen = true;
+            this.onCharSelectScreen = false;
+            ChangeScreen();
+        }
+        public void ChangeScreenToCharSelect()
+        {
+            this.onCharSelectScreen = true;
+            this.onShipSelectScreen = false;
+            ChangeScreen();
+        }
+        public void ChangeScreenToRootMainMenu()
+        {
+            this.onShipSelectScreen = false;
+            this.onCharSelectScreen = false;
+            ChangeScreen();
+        }
+        private void ChangeScreen()
+        {
+            mainMenuRootScreen.SetActive(IsOnMainMenuRootScreen());
+            charSelectionScreen.SetActive(this.onCharSelectScreen);
+            shipSelectionScreen.SetActive(this.onShipSelectScreen);
         }
         //Scene Changers
         public void LoadArcadeLevel()
@@ -76,19 +99,20 @@ namespace NBLD.MainMenu
         //Events
         private void OnSubmit()
         {
-            /*if (!inShipSelectionMode)
+            if (IsOnMainMenuRootScreen())
             {
-                LoadArcadeLevel();
-            } else
+                ChangeScreenToCharSelect();
+            }
+            else if (onShipSelectScreen)
             {
                 LoadGarage();
-            }*/
+            }
         }
         private void OnChangeSelect()
         {
-            if (!inShipSelectionMode)
+            if (IsOnMainMenuRootScreen())
             {
-                ChangeShipSelectionMode(true);
+                ChangeScreenToShipSelect();
             }
         }
         private void OnEscape()
