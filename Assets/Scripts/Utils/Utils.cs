@@ -69,16 +69,16 @@ public static class LMath
 }
 
 public static class Vectors
-{ 
+{
     public static Vector2 ToVector2(this Vector3 v) => new Vector2(v.x, v.y);
 }
 
 
-internal class MaybeNot : Exception { }
+internal class MaybeNot : System.Exception { }
 public struct Maybe<T>
 {
     private T item;
-    public bool Valid { get; private set;}
+    public bool Valid { get; private set; }
 
     public T Item
     {
