@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using UnityEngine;
-
 namespace MarchingSquares
 {
     // TODO: Get rid of GC allocations
@@ -52,9 +51,9 @@ namespace MarchingSquares
             this.gridTrans = gridTransform;
         }
 
-        private Validated<EdgeData> TryFindValidEdge(Voxel a, Voxel b, bool horizontal)
+        private Maybe<EdgeData> TryFindValidEdge(Voxel a, Voxel b, bool horizontal)
         {
-            var invalidResult = new Validated<EdgeData>();
+            var invalidResult = new Maybe<EdgeData>();
 
             if (InDifferentStates(a, b)) return invalidResult;
             var forward = PickDirection(a, b, out Vector2 from, out Vector2 to);
@@ -74,7 +73,7 @@ namespace MarchingSquares
                 EdgeOffset = newOffset,
                 Normal = r.normal
             };
-            return new Validated<EdgeData>(edge);
+            return new Maybe<EdgeData>(edge);
         }
 
         protected  void FindHorizontalCrossing(Voxel xMin, Voxel xMax)
@@ -93,7 +92,7 @@ namespace MarchingSquares
             if (edge.IsValid) ApplyEdge(a, edge, horizontal);
         }
 
-        private static void ApplyEdge(Voxel voxel, Validated<EdgeData> edge, bool horizontal)
+        private static void ApplyEdge(Voxel voxel, Maybe<EdgeData> edge, bool horizontal)
         {
             if (horizontal) voxel.SetHorizontalEdge(edge.Item);
             else voxel.SetVerticalEdge(edge.Item);
@@ -122,13 +121,13 @@ namespace MarchingSquares
             return true;
         }
 
-        private Validated<RaycastHit2D> FindValidWorldHitPoint(Vector2 a, Vector2 b)
+        private Maybe<RaycastHit2D> FindValidWorldHitPoint(Vector2 a, Vector2 b)
         {
             // TODO: This raycasts againts any collider in mask, and is wrong when there are multiple stencils on the same layer
             var hit = Physics2D.LinecastNonAlloc(a, b, results, mask);
             var r = results[0];
 
-            return new Validated<RaycastHit2D>(r, hit >= 1);
+            return new Maybe<RaycastHit2D>(r, hit >= 1);
         }
 
         private bool PickDirection(Voxel min, Voxel max, out Vector2 from, out Vector2 to)
@@ -168,25 +167,37 @@ namespace MarchingSquares
             }
         }
 
-        private struct Validated<T>
-        {
-            private readonly T item;
-            public bool IsValid { get; }
+    }
 
-            public T Item {
-                get {
-                    if (!IsValid) throw new InvalidValueException();
-                    else return item;
-                }
+    // TODO: This is redefined in utils but marching squares does not have the assembly reference
+    internal class MaybeNot : Exception { }
+    public struct Maybe<T>
+    {
+        private T item;
+        public bool IsValid { get; private set; }
+
+        public T Item
+        {
+            get
+            {
+                if (!IsValid) throw new MaybeNot();
+                else return item;
             }
 
-            public Validated(T item, bool isValid = true)
+            set
             {
-                this.item = item;
-                this.IsValid = isValid;
+                item = value;
+                IsValid = true;
             }
         }
+
+        public Maybe(T item, bool isValid = true)
+        {
+            this.item = item;
+            this.IsValid = isValid;
+        }
     }
+
 
     public interface IStencil
     {
@@ -197,5 +208,4 @@ namespace MarchingSquares
         void SetGridTransform(Transform transform);
     }
 
-    internal class InvalidValueException : Exception { }
 }

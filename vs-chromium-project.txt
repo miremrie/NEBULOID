@@ -1,0 +1,6 @@
+[SearchableFiles.include]
+*.cs
+[SearchableFiles.ignore]
+Wwise/
+Library/
+

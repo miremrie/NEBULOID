@@ -42,11 +42,11 @@ public class ObstacleAvoidance : MonoBehaviour
             for (int oIndex = 0; oIndex < obstacles.Length; oIndex++, gIndex++)
             {
                 var obs = obstacles[oIndex];
-                var t = (float) PredictCollision(agent.transform.position, obs.transform.position, agent.motor.velocity, obs.velocity, agent.radius, obs.radius);
+                var t = (float) PredictCollision(agent.transform.position, obs.transform.position, agent.GetVelocity(), obs.velocity, agent.radius, obs.radius);
 
                 if (t != -1 && t < time)
                 {
-                    var agentPredict = agent.transform.position + (t * agent.motor.velocity);
+                    var agentPredict = agent.transform.position + (t * agent.GetVelocity());
                     var obsPredict = obs.transform.position + (Vector3)(t * obs.velocity);
 
                     agent.SetObstacleAvoidance((agentPredict - obsPredict).normalized * (1 / (t * t)));
