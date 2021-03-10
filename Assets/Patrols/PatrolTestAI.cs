@@ -32,6 +32,7 @@ public class PatrolTestAI : MonoBehaviour
     public float rotationSpeed = 1f;
 
     public MotorResult motorState;
+    public Flocking flocking;
 
     void Start()
     {
@@ -63,6 +64,11 @@ public class PatrolTestAI : MonoBehaviour
             transform.position += motorState.velocity * Time.deltaTime;
             if (motor.AbsoluteRotation())  transform.rotation = motorState.rotation; 
             else transform.rotation *= motorState.rotation; 
+
+            if (flocking)
+            {
+                transform.position += flocking.Nudge(transform).ToVector3();
+            }
         }
     }
 
