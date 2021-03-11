@@ -81,12 +81,12 @@ namespace NBLD.Character
             boostVFX.SetActive(false);
             //exteriorContextCamera.Deactivate();
         }
-        private void Update()
+        protected override void BehaviourUpdate()
         {
             UpdateRotation();
             UpdateOxygen();
         }
-        private void FixedUpdate()
+        protected override void BehaviourFixedUpdate()
         {
             UpdateMovement();
         }

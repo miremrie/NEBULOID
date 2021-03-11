@@ -53,7 +53,12 @@ namespace NBLD.MainMenu
                     csPanels[i].Deactivate();
                 }
                 selectScreenPlayerDatas = new SelectScreenPlayerData[inputManager.maxNumberOfPlayers];
-                Subscribe();
+                if (enabled)
+                {
+                    InitScreen();
+                    Subscribe();
+                }
+
             }
         }
         private void OnEnable()
@@ -61,11 +66,13 @@ namespace NBLD.MainMenu
             if (InputManager.Instance != null && InputManager.Instance.Initialized)
             {
                 Initialize();
+
             }
             else
             {
                 InputManager.OnInputInitialized += Initialize;
             }
+            InitScreen();
             Subscribe();
         }
 
@@ -74,6 +81,17 @@ namespace NBLD.MainMenu
         {
             InputManager.OnInputInitialized -= Initialize;
             Unsubscribe();
+        }
+        private void InitScreen()
+        {
+            if (initialized)
+            {
+                for (int i = 0; i < InputManager.Instance.GetPlayerCount(); i++)
+                {
+                    var psd = InputManager.Instance.GetPlayerSessionData(i);
+                    OnPlayerRegistered(psd);
+                }
+            }
         }
         private void Subscribe()
         {
@@ -113,7 +131,7 @@ namespace NBLD.MainMenu
             inputManager.OnPlayerRemoved -= OnPlayerRemoved;
             inputManager.OnPlayerChangedIndex -= OnPlayerChangedIndex;
         }
-        private void OnDeviceRegistered(UserDevice userDevice, PlayerGameplayInputManager gameplayInputManager, PlayerUIInputManager uiInputManager)
+        private void OnDeviceRegistered(UserDevice userDevice, PlayerGameplayInputManager gameplayInputManager, UIInputManager uiInputManager)
         {
             CreateNewPossiblePlayer(userDevice, uiInputManager);
         }
@@ -177,7 +195,7 @@ namespace NBLD.MainMenu
             csPanels[oldIndex].Deactivate();
 
         }
-        private void CreateNewPossiblePlayer(UserDevice userDevice, PlayerUIInputManager uiInputManager)
+        private void CreateNewPossiblePlayer(UserDevice userDevice, UIInputManager uiInputManager)
         {
             while (userDevice.deviceIndex >= playerControllers.Count)
             {

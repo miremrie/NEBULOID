@@ -15,5 +15,4 @@ MonoBehaviour:
   allShips:
   - {fileID: 11400000, guid: fb543da36583bca4ab4d840422048560, type: 2}
   - {fileID: 11400000, guid: f7edc1d11e570a84d927472947b23656, type: 2}
-  - {fileID: 11400000, guid: dd4767d738566c0478e8ddece809ed83, type: 2}
   selectedShip: 0

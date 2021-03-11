@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using NBLD.Input;
 using NBLD.Utils;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -24,23 +25,34 @@ namespace NBLD.MainMenu
         public float heldVerticalChangeSelectionTime = 0.1f;
         private Timer heldVerticalTimer;
         private Input.UIInputManager uiInput;
+        private bool initialized = false;
+        private bool subscribed = false;
 
-        private void Awake()
+        private void Initialize()
         {
-            uiInput = new Input.UIInputManager();
-        }
-
-        private void Start()
-        {
-            if (saveData == null)
+            if (!initialized)
             {
-                saveData = SaveSystem.LoadData();
+                if (saveData == null)
+                {
+                    saveData = SaveSystem.LoadData();
+                }
+                FillShipEntries();
+                heldVerticalTimer = new Timer(heldVerticalChangeSelectionTime, true);
+                uiInput = InputManager.Instance.generalUIInputManager;
+                initialized = true;
+                Subscribe();
             }
-            FillShipEntries();
-            heldVerticalTimer = new Timer(heldVerticalChangeSelectionTime, true);
         }
         private void OnEnable()
         {
+            if (InputManager.Instance != null && InputManager.Instance.Initialized)
+            {
+                Initialize();
+            }
+            else
+            {
+                InputManager.OnInputInitialized += Initialize;
+            }
             Subscribe();
         }
         private void OnDisable()
@@ -49,24 +61,25 @@ namespace NBLD.MainMenu
         }
         private void Subscribe()
         {
-            uiInput.Enable();
-            uiInput.onNavigationChangedInt += OnNavigationChanged;
-            uiInput.onCancel += OnCancel;
-            uiInput.onChangeSelect += OnChangeSelect;
-            uiInput.verticalHold.onAxisBeingHeldInt += OnNavigationHeld;
+            if (initialized && !subscribed)
+            {
+                uiInput.OnNavigationIntChanged += OnNavigationChanged;
+                uiInput.OnCancel += OnCancel;
+                uiInput.OnChangeSelect += OnChangeSelect;
+                uiInput.verticalHold.onAxisBeingHeldInt += OnNavigationHeld;
+                subscribed = true;
+            }
         }
         private void Unsubscribe()
         {
-            uiInput.Disable();
-            uiInput.onNavigationChangedInt -= OnNavigationChanged;
-            uiInput.onCancel -= OnCancel;
-            uiInput.onChangeSelect -= OnChangeSelect;
-            uiInput.verticalHold.onAxisBeingHeldInt -= OnNavigationHeld;
-        }
-
-        private void Update()
-        {
-            uiInput.Update(Time.deltaTime);
+            if (initialized && subscribed)
+            {
+                uiInput.OnNavigationIntChanged -= OnNavigationChanged;
+                uiInput.OnCancel -= OnCancel;
+                uiInput.OnChangeSelect -= OnChangeSelect;
+                uiInput.verticalHold.onAxisBeingHeldInt -= OnNavigationHeld;
+                subscribed = false;
+            }
         }
 
         private void FillShipEntries()

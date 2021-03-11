@@ -6,8 +6,9 @@ namespace NBLD.Input
     public class SelectScreenPlayerController
     {
         public int playerIndex = -1;
+        private int deviceIndex = -1;
         public CharacterSelectScreen characterSelectScreen;
-        private PlayerUIInputManager playerUIInputManager;
+        private UIInputManager playerUIInputManager;
         private bool playerActive = false;
         private bool subscribed = false;
         public void SetPlayerActive(bool active)
@@ -20,8 +21,9 @@ namespace NBLD.Input
         }
 
         #region Initialization
-        public SelectScreenPlayerController(int index, PlayerUIInputManager playerUIInputManager, CharacterSelectScreen characterSelectScreen)
+        public SelectScreenPlayerController(int deviceIndex, UIInputManager playerUIInputManager, CharacterSelectScreen characterSelectScreen)
         {
+            this.deviceIndex = deviceIndex;
             this.characterSelectScreen = characterSelectScreen;
             this.playerUIInputManager = playerUIInputManager;
             this.playerActive = false;
@@ -53,10 +55,10 @@ namespace NBLD.Input
         #region Active Player
         private void TryRegisteringPlayer()
         {
-            bool success = characterSelectScreen.RegisterPlayer(playerUIInputManager.deviceIndex);
+            bool success = characterSelectScreen.RegisterPlayer(deviceIndex);
             if (success)
             {
-                var playerSessionData = characterSelectScreen.GetPlayerByDevice(playerUIInputManager.deviceIndex);
+                var playerSessionData = characterSelectScreen.GetPlayerByDevice(deviceIndex);
                 playerIndex = playerSessionData.playerIndex;
                 playerActive = true;
             }
@@ -76,7 +78,7 @@ namespace NBLD.Input
         private void PrintInput(string methodName, string additionalParam = "")
         {
             string playerName = (playerActive) ? (playerIndex.ToString()) : "Inactive";
-            Debug.Log($"Device {playerUIInputManager.deviceIndex} Called {methodName} - Player {playerName} with Param: ({additionalParam})");
+            Debug.Log($"Device {deviceIndex} Called {methodName} - Player {playerName} with Param: ({additionalParam})");
         }
         #endregion
     }

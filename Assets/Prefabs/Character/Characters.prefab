@@ -163,7 +163,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4220939312553409196}
-  - component: {fileID: 4220939312553409199}
   - component: {fileID: 3378733564399968008}
   - component: {fileID: 585427652}
   m_Layer: 0
@@ -188,24 +187,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4220939312553409199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4220939312553409197}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c00117ff4c3149241b3ef7c8cb96da34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxNumberOfPlayers: 4
-  keyboardSchemeNames:
-  - Keyboard1
-  - Keyboard2
-  gamepadSchemeName: Gamepad
-  useDefault: 0
 --- !u!114 &3378733564399968008
 MonoBehaviour:
   m_ObjectHideFlags: 0

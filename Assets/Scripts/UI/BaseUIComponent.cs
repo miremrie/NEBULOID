@@ -8,8 +8,8 @@ namespace NBLD.UI
     public class BaseUIComponent : MonoBehaviour
     {
         public GameObject[] activeOnFocus;
-        protected PlayerUIInputManager uiInputManager;
-        public virtual void Focus(PlayerUIInputManager uiInputManager)
+        protected UIInputManager uiInputManager;
+        public virtual void Focus(UIInputManager uiInputManager)
         {
             SetAllFocusElementsVisibility(true);
             this.uiInputManager = uiInputManager;

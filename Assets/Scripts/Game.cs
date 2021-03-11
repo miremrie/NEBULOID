@@ -1,4 +1,5 @@
 ﻿using NBLD.Character;
+using NBLD.Input;
 using NBLD.Ship;
 using System;
 using System.Collections;
@@ -19,10 +20,17 @@ public class Game : MonoBehaviour
     public GameObject explosionParticle;
 
     public ShipAudioController audioController;
-    private void Awake()
+    private bool initialized = false;
+    private bool subscribed = false;
+    private void Initialize()
     {
-        uiInput = new NBLD.Input.UIInputManager();
-        shipStatus.Initialize(this);
+        if (!initialized)
+        {
+            uiInput = InputManager.Instance.generalUIInputManager;
+            shipStatus.Initialize(this);
+            initialized = true;
+            Subscribe();
+        }
     }
     void Start()
     {
@@ -30,6 +38,14 @@ public class Game : MonoBehaviour
     }
     private void OnEnable()
     {
+        if (InputManager.Instance != null && InputManager.Instance.Initialized)
+        {
+            Initialize();
+        }
+        else
+        {
+            InputManager.OnInputInitialized += Initialize;
+        }
         Subscribe();
     }
     private void OnDisable()
@@ -38,20 +54,21 @@ public class Game : MonoBehaviour
     }
     private void Subscribe()
     {
-        uiInput.Enable();
-        uiInput.onSubmit += OnSubmit;
-        uiInput.onEscape += OnEscape;
+        if (initialized && !subscribed)
+        {
+            uiInput.OnSubmit += OnSubmit;
+            uiInput.OnEscape += OnEscape;
+            subscribed = true;
+        }
     }
     private void Unsubscribe()
     {
-        uiInput.Disable();
-        uiInput.onSubmit -= OnSubmit;
-        uiInput.onEscape -= OnEscape;
-
-    }
-    void Update()
-    {
-        uiInput.Update(Time.deltaTime);
+        if (initialized && subscribed)
+        {
+            uiInput.OnSubmit -= OnSubmit;
+            uiInput.OnEscape -= OnEscape;
+            subscribed = false;
+        }
     }
 
     internal void BulletHit(Obstacle obstacle)

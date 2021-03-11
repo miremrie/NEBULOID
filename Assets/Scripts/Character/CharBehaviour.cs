@@ -40,7 +40,6 @@ namespace NBLD.Character
         {
             spriteRenderer.sortingLayerID = SortingLayer.NameToID(spriteLayer);
             //spriteRenderer.sortingLayerID = spriteLayer.id;
-
         }
         public void EnableCollisions()
         {
@@ -62,8 +61,31 @@ namespace NBLD.Character
 
         protected virtual void OnDisable()
         {
+
         }
         protected virtual void Start()
+        {
+
+        }
+        private void Update()
+        {
+            if (initialized)
+            {
+                BehaviourUpdate();
+            }
+        }
+        private void FixedUpdate()
+        {
+            if (initialized)
+            {
+                BehaviourFixedUpdate();
+            }
+        }
+        protected virtual void BehaviourUpdate()
+        {
+
+        }
+        protected virtual void BehaviourFixedUpdate()
         {
 
         }

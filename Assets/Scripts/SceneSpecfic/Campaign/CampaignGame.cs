@@ -1,4 +1,5 @@
-﻿using NBLD.ShipCreation;
+﻿using NBLD.Input;
+using NBLD.ShipCreation;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,11 +16,18 @@ public class CampaignGame : MonoBehaviour
     public List<GameObject> gameplayOnlyObjects = new List<GameObject>();
     public List<GameObject> garageOnlyObjects = new List<GameObject>();
     private NBLD.Input.UIInputManager uiInput;
-
+    public bool enableOnDemandGarage = false;
+    private bool initialized = false;
+    private bool subscribed = false;
     // Start is called before the first frame update
-    private void Awake()
+    private void Initialize()
     {
-        uiInput = new NBLD.Input.UIInputManager();
+        if (!initialized)
+        {
+            uiInput = InputManager.Instance.generalUIInputManager;
+            initialized = true;
+            Subscribe();
+        }
     }
     void Start()
     {
@@ -27,6 +35,14 @@ public class CampaignGame : MonoBehaviour
     }
     private void OnEnable()
     {
+        if (InputManager.Instance != null && InputManager.Instance.Initialized)
+        {
+            Initialize();
+        }
+        else
+        {
+            InputManager.OnInputInitialized += Initialize;
+        }
         Subscribe();
     }
     private void OnDisable()
@@ -35,25 +51,28 @@ public class CampaignGame : MonoBehaviour
     }
     private void Subscribe()
     {
-        uiInput.Enable();
-        uiInput.onChangeSelect += UpdateGameState;
-        //Garage
-        shipCreator.onCreationStageChanged += OnGarageCreationStageChanged;
+        if (initialized && !subscribed)
+        {
+
+            uiInput.OnChangeSelect += UpdateGameState;
+            //Garage
+            shipCreator.onCreationStageChanged += OnGarageCreationStageChanged;
+            subscribed = true;
+        }
+
     }
     private void Unsubscribe()
     {
-        uiInput.Disable();
-        uiInput.onChangeSelect -= UpdateGameState;
-    }
-
-    private void Update()
-    {
-        uiInput.Update(Time.deltaTime);
+        if (initialized && subscribed)
+        {
+            uiInput.OnChangeSelect -= UpdateGameState;
+            subscribed = true;
+        }
     }
 
     public void UpdateGameState()
     {
-        if (currentState == GameState.Gameplay)
+        if (enableOnDemandGarage && currentState == GameState.Gameplay)
         {
             ChangeState(GameState.Garage);
         }

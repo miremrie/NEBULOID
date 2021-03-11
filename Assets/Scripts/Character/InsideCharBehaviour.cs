@@ -48,7 +48,7 @@ namespace NBLD.Character
             ResetMovement();
             ResetAnimations();
         }
-        private void Update()
+        protected override void BehaviourUpdate()
         {
             if (!lockedByTransport)
             {
@@ -184,7 +184,6 @@ namespace NBLD.Character
         public override void OnDown()
         {
             base.OnDown();
-            Debug.Log("Down Action");
             TryExecuteAction(UseActionButton.Down);
             ResetIdleBehaviour();
         }

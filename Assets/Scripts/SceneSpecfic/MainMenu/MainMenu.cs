@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using NBLD.Input;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,10 +17,16 @@ namespace NBLD.MainMenu
         private Input.UIInputManager uiInput;
         public int gameSceneIndex = 1;
         public int garageSceneIndex = 2;
-
-        private void Awake()
+        private bool initialized = false;
+        private bool subscribed = false;
+        private void Initialize()
         {
-            uiInput = new Input.UIInputManager();
+            if (!initialized)
+            {
+                initialized = true;
+                uiInput = InputManager.Instance.generalUIInputManager;
+                Subscribe();
+            }
         }
         void Start()
         {
@@ -28,6 +35,14 @@ namespace NBLD.MainMenu
         }
         private void OnEnable()
         {
+            if (InputManager.Instance != null && InputManager.Instance.Initialized)
+            {
+                Initialize();
+            }
+            else
+            {
+                InputManager.OnInputInitialized += Initialize;
+            }
             Subscribe();
         }
         private void OnDisable()
@@ -36,22 +51,23 @@ namespace NBLD.MainMenu
         }
         private void Subscribe()
         {
-            uiInput.Enable();
-            uiInput.onSubmit += OnSubmit;
-            uiInput.onChangeSelect += OnChangeSelect;
-            uiInput.onEscape += OnEscape;
+            if (initialized && !subscribed)
+            {
+                uiInput.OnSubmit += OnSubmit;
+                uiInput.OnChangeSelect += OnChangeSelect;
+                uiInput.OnEscape += OnEscape;
+                subscribed = true;
+            }
         }
         private void Unsubscribe()
         {
-            uiInput.Disable();
-            uiInput.onSubmit -= OnSubmit;
-            uiInput.onChangeSelect -= OnChangeSelect;
-            uiInput.onEscape -= OnEscape;
-        }
-
-        private void Update()
-        {
-            uiInput.Update(Time.deltaTime);
+            if (initialized && subscribed)
+            {
+                uiInput.OnSubmit -= OnSubmit;
+                uiInput.OnChangeSelect -= OnChangeSelect;
+                uiInput.OnEscape -= OnEscape;
+                subscribed = false;
+            }
         }
         private bool IsOnMainMenuRootScreen() => !onShipSelectScreen && !onCharSelectScreen;
 

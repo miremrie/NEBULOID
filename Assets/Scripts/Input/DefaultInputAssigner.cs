@@ -34,11 +34,12 @@ namespace NBLD.Input
         private void Initialize()
         {
             initialized = true;
-            if (!InputManager.Instance.useDefault)
+            if (!InputManager.Instance.useDefault || InputManager.Instance.GetPlayerCount() > 0)
             {
                 Destroy(this);
                 return;
             }
+
             defaultDevicesExpected = new List<DefaultPlayerSessionData>();
             for (int i = 0; i < defaultDeviceTypes.Count; i++)
             {
@@ -88,7 +89,7 @@ namespace NBLD.Input
                 Initialize();
             }
         }
-        private void OnDeviceRegistered(UserDevice userDevice, PlayerGameplayInputManager gameplayInputManager, PlayerUIInputManager uiInputManager)
+        private void OnDeviceRegistered(UserDevice userDevice, PlayerGameplayInputManager gameplayInputManager, UIInputManager uiInputManager)
         {
             TryToAssignDefaultDevice(userDevice);
         }

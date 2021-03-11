@@ -27,12 +27,12 @@ MonoBehaviour:
     - rotation:
       - -0
       - 0
-      - 0
+      - 80
       position:
       - 0
       - 0
       - 0
-      system: 3
+      system: 4
       room: 1
     - rotation:
       - -0
@@ -42,26 +42,26 @@ MonoBehaviour:
       - 0
       - 0
       - 0
-      system: 1
+      system: 2
       room: 2
     - rotation:
       - -0
       - 0
-      - 0
+      - 180
       position:
       - 0
       - 0
       - 0
-      system: 2
+      system: 1
       room: 3
     - rotation:
       - -0
       - 0
-      - 0
+      - 90
       position:
       - 0
       - 0
       - 0
-      system: 4
+      system: 6
       room: 4
     shipName: NEBULOID

@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
 
 namespace NBLD.Data
@@ -10,7 +9,7 @@ namespace NBLD.Data
     {
         public string name;
         public Sprite defaultImage;
-        public AnimatorController animatorController;
+        public RuntimeAnimatorController animatorController;
         public List<Sprite> sprites;
 
     }

@@ -27,23 +27,13 @@ MonoBehaviour:
     - rotation:
       - -0
       - 0
-      - 0
-      position:
-      - 0
-      - 0
-      - 0
-      system: 2
-      room: 1
-    - rotation:
-      - -0
-      - 0
-      - 0
+      - 130
       position:
       - 0
       - 0
       - 0
       system: 1
-      room: 2
+      room: 1
     - rotation:
       - -0
       - 0
@@ -53,15 +43,25 @@ MonoBehaviour:
       - 0
       - 0
       system: 2
-      room: 3
+      room: 2
     - rotation:
       - -0
       - 0
-      - 310
+      - 180
       position:
       - 0
       - 0
       - 0
       system: 1
+      room: 3
+    - rotation:
+      - -0
+      - 0
+      - 0
+      position:
+      - 0
+      - 0
+      - 0
+      system: 2
       room: 4
     shipName: KAKERLAKEN

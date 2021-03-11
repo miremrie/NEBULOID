@@ -90,9 +90,11 @@ namespace NBLD.Character
         {
             InputManager.Instance.SetPlayerGameplayEnabled(playerSessionData.playerIndex, true);
         }
-        private void OnDestroy()
+        private void OnDisable()
         {
             Unsubscribe();
+            insideBehaviour.Deactivate();
+            outsideBehaviour.Deactivate();
         }
 
         private void Update()

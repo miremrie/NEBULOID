@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using NBLD.Input;
 using NBLD.Utils;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -50,16 +51,30 @@ namespace NBLD.ShipCreation
         public bool placeSystemTowardsDirection;
 
         private Input.UIInputManager uiInput;
-
-        private void Awake()
+        private bool initialized = false;
+        private bool subscribed = false;
+        private void Initialize()
         {
-            shipCreator.onCreationStageChanged += ChangeStage;
-            heldVerticalTimer = new Timer(heldVerticalChangeSelectionTime, true);
-            shipNameInputField.Select();
-            uiInput = new NBLD.Input.UIInputManager();
+            if (!initialized)
+            {
+                shipCreator.onCreationStageChanged += ChangeStage;
+                heldVerticalTimer = new Timer(heldVerticalChangeSelectionTime, true);
+                shipNameInputField.Select();
+                uiInput = InputManager.Instance.generalUIInputManager;
+                initialized = true;
+                Subscribe();
+            }
         }
         private void OnEnable()
         {
+            if (InputManager.Instance != null && InputManager.Instance.Initialized)
+            {
+                Initialize();
+            }
+            else
+            {
+                InputManager.OnInputInitialized += Initialize;
+            }
             Subscribe();
         }
         private void OnDisable()
@@ -67,40 +82,40 @@ namespace NBLD.ShipCreation
             Unsubscribe();
         }
 
-        private void Update()
-        {
-            uiInput.Update(Time.deltaTime);
-        }
-
         private void Subscribe()
         {
-            //UI Items
-            shipNameInputField.onEndEdit.AddListener(OnShipNameEntered);
-            //Input
-            uiInput.Enable();
-            uiInput.onSubmit += OnSubmit;
-            uiInput.onCancel += OnCancel;
-            uiInput.onEscape += OnCancel;
-            uiInput.onChangeSelect += OnChangeSelect;
-            uiInput.onNavigationChangedInt += OnNavigationChangedInt;
-            uiInput.verticalHold.onAxisBeingHeldInt += OnNavigationHeldInt;
-            uiInput.onNavigation += OnNavigation;
+            if (initialized && !subscribed)
+            {
+                //UI Items
+                shipNameInputField.onEndEdit.AddListener(OnShipNameEntered);
+                //Input
+                uiInput.OnSubmit += OnSubmit;
+                uiInput.OnCancel += OnCancel;
+                uiInput.OnEscape += OnCancel;
+                uiInput.OnChangeSelect += OnChangeSelect;
+                uiInput.OnNavigationIntChanged += OnNavigationChangedInt;
+                uiInput.verticalHold.onAxisBeingHeldInt += OnNavigationHeldInt;
+                uiInput.OnNavigation += OnNavigation;
+                subscribed = true;
+            }
         }
 
         private void Unsubscribe()
         {
-            //UI Items
-            shipNameInputField.onEndEdit.RemoveListener(OnShipNameEntered);
-            //Input
-            uiInput.Disable();
-            uiInput.onSubmit -= OnSubmit;
-            uiInput.onCancel -= OnCancel;
-            uiInput.onEscape -= OnCancel;
-            uiInput.onChangeSelect -= OnChangeSelect;
-            uiInput.onNavigationChangedInt -= OnNavigationChangedInt;
-            uiInput.verticalHold.onAxisBeingHeldInt -= OnNavigationHeldInt;
-            uiInput.onNavigation -= OnNavigation;
-
+            if (initialized && subscribed)
+            {
+                //UI Items
+                shipNameInputField.onEndEdit.RemoveListener(OnShipNameEntered);
+                //Input
+                uiInput.OnSubmit -= OnSubmit;
+                uiInput.OnCancel -= OnCancel;
+                uiInput.OnEscape -= OnCancel;
+                uiInput.OnChangeSelect -= OnChangeSelect;
+                uiInput.OnNavigationIntChanged -= OnNavigationChangedInt;
+                uiInput.verticalHold.onAxisBeingHeldInt -= OnNavigationHeldInt;
+                uiInput.OnNavigation -= OnNavigation;
+                subscribed = false;
+            }
         }
 
 

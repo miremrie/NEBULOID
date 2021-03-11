@@ -20,11 +20,11 @@ namespace NBLD.MainMenu
         public int currentlySelectedElement = 0;
         public GameObject playerReadyObject;
         public Audio.UIAudioController audioController;
-        private PlayerUIInputManager uiInputManager;
+        private UIInputManager uiInputManager;
         private bool subscribedToInput = false;
         private bool subscribedToUI = false;
 
-        public void Activate(int playerIndex, PlayerUIInputManager uiInputManager)
+        public void Activate(int playerIndex, UIInputManager uiInputManager)
         {
             this.playerIndex = playerIndex;
             this.uiInputManager = uiInputManager;

@@ -7,10 +7,9 @@ using UnityEngine.InputSystem.Interactions;
 
 namespace NBLD.Input
 {
-    public class PlayerUIInputManager
+    public class UIInputManager
     {
         public float navigationDeadZoneValue = 0.4f;
-        public int deviceIndex;
         private UIInput input;
         public delegate void NavigationEventHandler(Vector2 navigation);
         public delegate void NavigationIntEventHandler(Vector2Int navigation);
@@ -26,10 +25,9 @@ namespace NBLD.Input
         private float holdDuration = 0.6f;
         public AxisHeldInputProc horizontalHold, verticalHold;
         //Hold Values
-        public PlayerUIInputManager(UIInput input, int deviceIndex)
+        public UIInputManager(UIInput input)
         {
             this.input = input;
-            this.deviceIndex = deviceIndex;
             horizontalHold = new AxisHeldInputProc(holdDuration, 0, navigationDeadZoneValue);
             verticalHold = new AxisHeldInputProc(holdDuration, 0, navigationDeadZoneValue);
             Subscribe();
@@ -37,7 +35,6 @@ namespace NBLD.Input
 
         private void Subscribe()
         {
-            Debug.Log("Subscribing to input");
             InputManager.OnInputTick += OnInputTick;
             input.UI.Navigate.performed += InputNavigationChanged;
             input.UI.Submit.performed += OnInputSubmit;

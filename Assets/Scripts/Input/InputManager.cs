@@ -90,6 +90,7 @@ namespace NBLD.Input
             gameplayInput.Dispose();
             uiInput.Dispose();
             user.UnpairDevicesAndRemoveUser();
+            Debug.Log("Disposing User");
         }
     }
     public class PlayerSessionData
@@ -97,14 +98,14 @@ namespace NBLD.Input
         public int playerIndex;
         //public PlayerData playerData;
         public PlayerGameplayInputManager gameplayInputManager;
-        public PlayerUIInputManager uiInputManager;
+        public UIInputManager uiInputManager;
         public string devotionName = "";
         public string spiritName = "";
         public CharacterSkinData skin;
         public string CharacterName => $"{devotionName} {spiritName}";
         public int deviceIndex;
 
-        public PlayerSessionData(int playerIndex, int deviceIndex, PlayerGameplayInputManager charInputManager, PlayerUIInputManager uiInputManager)
+        public PlayerSessionData(int playerIndex, int deviceIndex, PlayerGameplayInputManager charInputManager, UIInputManager uiInputManager)
         {
             this.playerIndex = playerIndex;
             this.deviceIndex = deviceIndex;
@@ -117,19 +118,21 @@ namespace NBLD.Input
     {
         public int maxNumberOfPlayers;
         public List<PlayerGameplayInputManager> gameplayInputManagers;
-        public List<PlayerUIInputManager> uiInputManagers;
+        public List<UIInputManager> playerUIInputManagers;
+        public UIInputManager generalUIInputManager;
         public List<string> keyboardSchemeNames;
         public string gamepadSchemeName;
         public bool useDefault = false;
         private List<UserDevice> userDevices;
         private List<PlayerSessionData> activePlayers;
+        private float lastTickTime = 0;
         public bool Initialized
         {
             get; private set;
         } = false;
 
         private bool subscribed = false;
-        public delegate void DeviceRegisteredHandler(UserDevice userDevice, PlayerGameplayInputManager gameplayInputManager, PlayerUIInputManager uiInputManager);
+        public delegate void DeviceRegisteredHandler(UserDevice userDevice, PlayerGameplayInputManager gameplayInputManager, UIInputManager uiInputManager);
         public delegate void PlayerRegisteredHandler(PlayerSessionData playerSessionData);
         public delegate void PlayerChangedIndexHandler(PlayerSessionData playerSessionData, int oldPlayerIndex);
         public delegate void InitHandler();
@@ -162,10 +165,15 @@ namespace NBLD.Input
             {
 
                 Initialized = true;
+
+                var uiInput = new UIInput();
+                uiInput.Enable();
+                generalUIInputManager = new UIInputManager(uiInput);
+
                 InputUser.listenForUnpairedDeviceActivity++;
                 userDevices = new List<UserDevice>();
                 gameplayInputManagers = new List<PlayerGameplayInputManager>();
-                uiInputManagers = new List<PlayerUIInputManager>();
+                playerUIInputManagers = new List<UIInputManager>();
                 activePlayers = new List<PlayerSessionData>();
                 if (Keyboard.current != null)
                 {
@@ -191,24 +199,22 @@ namespace NBLD.Input
             userDevices.Add(userDevice);
             PlayerGameplayInputManager gameplayInputManager = new PlayerGameplayInputManager(userDevice.gameplayInput);
             gameplayInputManagers.Add(gameplayInputManager);
-            PlayerUIInputManager uiInputManager = new PlayerUIInputManager(userDevice.uiInput, deviceIndex);
-            uiInputManagers.Add(uiInputManager);
+            UIInputManager uiInputManager = new UIInputManager(userDevice.uiInput);
+            playerUIInputManagers.Add(uiInputManager);
             //uDevice.EnableUIInput(true);
             //This should be elsewhere or conditional
             /*SelectScreenPlayerController playerSelectController = new SelectScreenPlayerController(deviceIndex, uiInputManager, this);
             playerSelectControllers.Add(playerSelectController);*/
             OnDeviceRegistered?.Invoke(userDevice, gameplayInputManager, uiInputManager);
-            Debug.Log($"Registering device {device.name} with scheme {schemeName}");
         }
         private PlayerSessionData CreatePlayerWithDevice(int deviceIndex, CharacterSkinData skinData = null, string devotionName = "", string spiritName = "")
         {
-            PlayerSessionData playerSessionData = new PlayerSessionData(activePlayers.Count, deviceIndex, gameplayInputManagers[deviceIndex], uiInputManagers[deviceIndex]);
+            PlayerSessionData playerSessionData = new PlayerSessionData(activePlayers.Count, deviceIndex, gameplayInputManagers[deviceIndex], playerUIInputManagers[deviceIndex]);
             playerSessionData.skin = skinData;
             playerSessionData.devotionName = devotionName;
             playerSessionData.spiritName = spiritName;
             activePlayers.Add(playerSessionData);
             OnPlayerRegistered?.Invoke(playerSessionData);
-            Debug.Log($"Creating player id: {playerSessionData.playerIndex} with device id {deviceIndex}");
             return playerSessionData;
         }
         private void OnEnable()
@@ -217,17 +223,21 @@ namespace NBLD.Input
         }
         private void OnDisable()
         {
+
             Unsubscribe();
         }
 
         private void OnDestroy()
         {
-            Unsubscribe();
-            if (userDevices != null)
+            if (Initialized)
             {
-                for (int i = 0; i < userDevices.Count; i++)
+                Unsubscribe();
+                if (userDevices != null)
                 {
-                    userDevices[i].Dispose();
+                    for (int i = 0; i < userDevices.Count; i++)
+                    {
+                        userDevices[i].Dispose();
+                    }
                 }
             }
         }
@@ -239,9 +249,11 @@ namespace NBLD.Input
                 subscribed = true;
                 //InputUser.onChange += OnControlsChanged;
                 InputUser.onUnpairedDeviceUsed += ListenForUnpairedGamepads;
+                InputSystem.onAfterUpdate += OnAfterInputUpdate;
             }
 
         }
+
         private void Unsubscribe()
         {
             if (Initialized && subscribed)
@@ -249,15 +261,15 @@ namespace NBLD.Input
                 subscribed = false;
                 //InputUser.onChange -= OnControlsChanged;
                 InputUser.onUnpairedDeviceUsed -= ListenForUnpairedGamepads;
+                InputSystem.onAfterUpdate -= OnAfterInputUpdate;
             }
         }
 
-
-        private void Update()
+        private void OnAfterInputUpdate()
         {
-            OnInputTick?.Invoke(Time.deltaTime);
+            OnInputTick?.Invoke(Time.time - lastTickTime);
+            lastTickTime = Time.time;
         }
-
         /*void OnControlsChanged(InputUser user, InputUserChange change, InputDevice device)
         {
             if (device is Gamepad)
@@ -317,9 +329,9 @@ namespace NBLD.Input
         {
             return gameplayInputManagers[deviceIndex];
         }
-        public PlayerUIInputManager GetUIInputManager(int deviceIndex)
+        public UIInputManager GetUIInputManager(int deviceIndex)
         {
-            return uiInputManagers[deviceIndex];
+            return playerUIInputManagers[deviceIndex];
         }
         private void ListenForUnpairedGamepads(InputControl control, InputEventPtr inputEventPtr)
         {

@@ -91,6 +91,10 @@ namespace NBLD.Character
 
         public void CreateCharacter(PlayerSessionData psData)
         {
+            if (!initialized)
+            {
+                return;
+            }
             CharController newChar = GameObject.Instantiate(characterPrefab, spawnLocations[psData.playerIndex % spawnLocations.Count]);
             newChar.ship = shipMovement;
             newChar.outsideBehaviour.shipEjectSystem = shipEjectSystem;
