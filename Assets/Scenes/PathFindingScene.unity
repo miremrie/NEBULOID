@@ -363,10 +363,11 @@ MonoBehaviour:
     layerMask:
       serializedVersion: 2
       m_Bits: 32768
-    margin: 1
+    margin: 0.5
     targetDistance: 1
     obstacleSize: 1
   rotationSpeed: 1
+  flocking: {fileID: 947943537}
 --- !u!23 &97393492
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -630,7 +631,7 @@ GameObject:
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &185431038
 Transform:
   m_ObjectHideFlags: 0
@@ -939,7 +940,7 @@ GameObject:
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &304269640
 Transform:
   m_ObjectHideFlags: 0
@@ -969,7 +970,7 @@ GameObject:
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &319316107
 Transform:
   m_ObjectHideFlags: 0
@@ -1528,7 +1529,7 @@ GameObject:
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &537551413
 Transform:
   m_ObjectHideFlags: 0
@@ -1707,10 +1708,11 @@ MonoBehaviour:
     layerMask:
       serializedVersion: 2
       m_Bits: 32768
-    margin: 1
+    margin: 0.5
     targetDistance: 1
     obstacleSize: 1
   rotationSpeed: 1
+  flocking: {fileID: 947943537}
 --- !u!23 &553201930
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1826,10 +1828,11 @@ MonoBehaviour:
     layerMask:
       serializedVersion: 2
       m_Bits: 32768
-    margin: 1
+    margin: 0.5
     targetDistance: 1
     obstacleSize: 1
   rotationSpeed: 1
+  flocking: {fileID: 947943537}
 --- !u!23 &557810173
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1892,7 +1895,7 @@ GameObject:
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &565111963
 Transform:
   m_ObjectHideFlags: 0
@@ -1975,10 +1978,11 @@ MonoBehaviour:
     layerMask:
       serializedVersion: 2
       m_Bits: 32768
-    margin: 1
+    margin: 0.5
     targetDistance: 1
     obstacleSize: 1
   rotationSpeed: 1
+  flocking: {fileID: 947943537}
 --- !u!23 &580047157
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2166,7 +2170,7 @@ GameObject:
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &659588894
 Transform:
   m_ObjectHideFlags: 0
@@ -2423,10 +2427,11 @@ MonoBehaviour:
     layerMask:
       serializedVersion: 2
       m_Bits: 32768
-    margin: 1
+    margin: 0.5
     targetDistance: 1
     obstacleSize: 1
   rotationSpeed: 1
+  flocking: {fileID: 947943537}
 --- !u!23 &723201460
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2691,10 +2696,11 @@ MonoBehaviour:
     layerMask:
       serializedVersion: 2
       m_Bits: 32768
-    margin: 1
+    margin: 0.5
     targetDistance: 1
     obstacleSize: 1
   rotationSpeed: 1
+  flocking: {fileID: 947943537}
 --- !u!23 &904288314
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2810,10 +2816,11 @@ MonoBehaviour:
     layerMask:
       serializedVersion: 2
       m_Bits: 32768
-    margin: 1
+    margin: 0.5
     targetDistance: 1
     obstacleSize: 1
   rotationSpeed: 1
+  flocking: {fileID: 947943537}
 --- !u!23 &925704277
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2924,6 +2931,75 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &947943536
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 947943538}
+  - component: {fileID: 947943537}
+  m_Layer: 0
+  m_Name: Flocking
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &947943537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 947943536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 770176b19e98fbd42bd41bd4b7804292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agents:
+  - {fileID: 97393494}
+  - {fileID: 2144345896}
+  - {fileID: 1566183282}
+  - {fileID: 723201462}
+  - {fileID: 1931298965}
+  - {fileID: 1941544195}
+  - {fileID: 557810171}
+  - {fileID: 1948586202}
+  - {fileID: 1941722949}
+  - {fileID: 1204743504}
+  - {fileID: 2065375791}
+  - {fileID: 1713252417}
+  - {fileID: 904288312}
+  - {fileID: 580047155}
+  - {fileID: 954780646}
+  - {fileID: 925704275}
+  - {fileID: 950317501}
+  - {fileID: 1547884859}
+  - {fileID: 1748914243}
+  - {fileID: 1252550394}
+  - {fileID: 1424222248}
+  - {fileID: 2100549020}
+  - {fileID: 553201928}
+  - {fileID: 1119969760}
+  multiplier: 0.0006
+--- !u!4 &947943538
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 947943536}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.5204365, y: 8.241802, z: 6.3398438}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &950317500
 GameObject:
   m_ObjectHideFlags: 0
@@ -2992,10 +3068,11 @@ MonoBehaviour:
     layerMask:
       serializedVersion: 2
       m_Bits: 32768
-    margin: 1
+    margin: 0.5
     targetDistance: 1
     obstacleSize: 1
   rotationSpeed: 1
+  flocking: {fileID: 947943537}
 --- !u!23 &950317503
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3207,10 +3284,11 @@ MonoBehaviour:
     layerMask:
       serializedVersion: 2
       m_Bits: 32768
-    margin: 1
+    margin: 0.5
     targetDistance: 1
     obstacleSize: 1
   rotationSpeed: 1
+  flocking: {fileID: 947943537}
 --- !u!23 &954780648
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3484,7 +3562,7 @@ GameObject:
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &988992907
 Transform:
   m_ObjectHideFlags: 0
@@ -3714,10 +3792,11 @@ MonoBehaviour:
     layerMask:
       serializedVersion: 2
       m_Bits: 32768
-    margin: 1
+    margin: 0.5
     targetDistance: 1
     obstacleSize: 1
   rotationSpeed: 1
+  flocking: {fileID: 947943537}
 --- !u!23 &1119969762
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3833,10 +3912,11 @@ MonoBehaviour:
     layerMask:
       serializedVersion: 2
       m_Bits: 32768
-    margin: 1
+    margin: 0.5
     targetDistance: 1
     obstacleSize: 1
   rotationSpeed: 1
+  flocking: {fileID: 947943537}
 --- !u!23 &1204743506
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4141,10 +4221,11 @@ MonoBehaviour:
     layerMask:
       serializedVersion: 2
       m_Bits: 32768
-    margin: 1
+    margin: 0.5
     targetDistance: 1
     obstacleSize: 1
   rotationSpeed: 1
+  flocking: {fileID: 947943537}
 --- !u!23 &1252550396
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4300,7 +4381,7 @@ GameObject:
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1394171587
 Transform:
   m_ObjectHideFlags: 0
@@ -4413,10 +4494,11 @@ MonoBehaviour:
     layerMask:
       serializedVersion: 2
       m_Bits: 32768
-    margin: 1
+    margin: 0.5
     targetDistance: 1
     obstacleSize: 1
   rotationSpeed: 1
+  flocking: {fileID: 947943537}
 --- !u!23 &1424222250
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4572,7 +4654,7 @@ GameObject:
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1522316176
 Transform:
   m_ObjectHideFlags: 0
@@ -4655,10 +4737,11 @@ MonoBehaviour:
     layerMask:
       serializedVersion: 2
       m_Bits: 32768
-    margin: 1
+    margin: 0.5
     targetDistance: 1
     obstacleSize: 1
   rotationSpeed: 1
+  flocking: {fileID: 947943537}
 --- !u!23 &1547884861
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4759,10 +4842,11 @@ MonoBehaviour:
     layerMask:
       serializedVersion: 2
       m_Bits: 32768
-    margin: 1
+    margin: 0.5
     targetDistance: 1
     obstacleSize: 1
   rotationSpeed: 1
+  flocking: {fileID: 947943537}
 --- !u!23 &1566183280
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4915,7 +4999,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1594191040}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.24, y: 8.79, z: 0}
+  m_LocalPosition: {x: -2.34, y: 9.81, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5463,10 +5547,11 @@ MonoBehaviour:
     layerMask:
       serializedVersion: 2
       m_Bits: 32768
-    margin: 1
+    margin: 0.5
     targetDistance: 1
     obstacleSize: 1
   rotationSpeed: 1
+  flocking: {fileID: 947943537}
 --- !u!23 &1713252419
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5582,10 +5667,11 @@ MonoBehaviour:
     layerMask:
       serializedVersion: 2
       m_Bits: 32768
-    margin: 1
+    margin: 0.5
     targetDistance: 1
     obstacleSize: 1
   rotationSpeed: 1
+  flocking: {fileID: 947943537}
 --- !u!23 &1748914245
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6058,10 +6144,11 @@ MonoBehaviour:
     layerMask:
       serializedVersion: 2
       m_Bits: 32768
-    margin: 1
+    margin: 0.5
     targetDistance: 1
     obstacleSize: 1
   rotationSpeed: 1
+  flocking: {fileID: 947943537}
 --- !u!23 &1931298963
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6177,10 +6264,11 @@ MonoBehaviour:
     layerMask:
       serializedVersion: 2
       m_Bits: 32768
-    margin: 1
+    margin: 0.5
     targetDistance: 1
     obstacleSize: 1
   rotationSpeed: 1
+  flocking: {fileID: 947943537}
 --- !u!23 &1941544193
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6311,10 +6399,11 @@ MonoBehaviour:
     layerMask:
       serializedVersion: 2
       m_Bits: 32768
-    margin: 1
+    margin: 0.5
     targetDistance: 1
     obstacleSize: 1
   rotationSpeed: 1
+  flocking: {fileID: 947943537}
 --- !u!23 &1941722951
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6430,10 +6519,11 @@ MonoBehaviour:
     layerMask:
       serializedVersion: 2
       m_Bits: 32768
-    margin: 1
+    margin: 0.5
     targetDistance: 1
     obstacleSize: 1
   rotationSpeed: 1
+  flocking: {fileID: 947943537}
 --- !u!23 &1948586204
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6738,10 +6828,11 @@ MonoBehaviour:
     layerMask:
       serializedVersion: 2
       m_Bits: 32768
-    margin: 1
+    margin: 0.5
     targetDistance: 1
     obstacleSize: 1
   rotationSpeed: 1
+  flocking: {fileID: 947943537}
 --- !u!23 &2065375793
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6857,10 +6948,11 @@ MonoBehaviour:
     layerMask:
       serializedVersion: 2
       m_Bits: 32768
-    margin: 1
+    margin: 0.5
     targetDistance: 1
     obstacleSize: 1
   rotationSpeed: 1
+  flocking: {fileID: 947943537}
 --- !u!23 &2100549022
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7150,10 +7242,11 @@ MonoBehaviour:
     layerMask:
       serializedVersion: 2
       m_Bits: 32768
-    margin: 1
+    margin: 0.5
     targetDistance: 1
     obstacleSize: 1
   rotationSpeed: 1
+  flocking: {fileID: 947943537}
 --- !u!23 &2144345894
 MeshRenderer:
   m_ObjectHideFlags: 0
