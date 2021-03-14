@@ -35,7 +35,7 @@ namespace NBLD.Character
 
         private void Awake()
         {
-            if (InputManager.Instance.Initialized)
+            if (InputManager.Instance != null && InputManager.Instance.Initialized)
             {
                 Initialize();
             }

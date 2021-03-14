@@ -34,6 +34,9 @@ namespace NBLD.Character
         private Vector2 boostDirection;
         private bool isBoosting = false;
         private const float boostSFXPercentStop = 0.9f;
+        public float haulingSpeedModifier = 0.5f;
+        private bool hauling;
+        private HaulUseAction currentlyHauling;
         [Header("Oxygen")]
         public MaskedSlider oxygenSlider;
         public Oxygen oxygen;
@@ -108,7 +111,6 @@ namespace NBLD.Character
             bool moving = (moveDirection.x != 0 || moveDirection.y != 0 || (moveTimer.IsRunning()));
             if (isBoosting && moveTimer.GetCurrentTimePercent() >= boostSFXPercentStop)
             {
-                Debug.Log("Stopping jetpack");
                 isBoosting = false;
                 charAudio.PlayJetpackStop();
             }
@@ -124,6 +126,10 @@ namespace NBLD.Character
                 else
                 {
                     force = GetNormalMovement();
+                }
+                if (hauling)
+                {
+                    force = force * haulingSpeedModifier;
                 }
                 rb2D.AddForce(force);
                 rb2D.velocity = Vector2.ClampMagnitude(rb2D.velocity, maxMag);
@@ -244,6 +250,26 @@ namespace NBLD.Character
         {
             charController.Die();
         }
+        #endregion
+        #region Hauling
+        public void SetHauling(HaulUseAction haulObject)
+        {
+            if (IsHauling())
+            {
+                currentlyHauling.StopHauling();
+            }
+            currentlyHauling = haulObject;
+            hauling = true;
+        }
+        public bool IsHauling()
+        {
+            return hauling;
+        }
+        public void StopHauling()
+        {
+            hauling = false;
+        }
+
         #endregion
     }
 

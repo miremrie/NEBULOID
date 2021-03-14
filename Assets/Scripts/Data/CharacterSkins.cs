@@ -18,7 +18,6 @@ namespace NBLD.Data
     {
         [SerializeField]
         public List<CharacterSkinData> skinDatas;
-        private bool generatedArrays = false;
         public int GetSkinsCount()
         {
             return skinDatas.Count;

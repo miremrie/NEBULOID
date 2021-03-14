@@ -1118,7 +1118,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ship: {fileID: 0}
   charAudio: {fileID: 4058322579414316957}
-  graphicsRoot: {fileID: 0}
   charAnimator: {fileID: 619621694826615025}
   animator: {fileID: 4265162992504635029}
   charSpriteRenderer: {fileID: 2917806909764477764}
@@ -1222,6 +1221,7 @@ MonoBehaviour:
   maxVelocityMag: 1
   moveIntensityUI: {fileID: 4638937411788288821}
   boostVFX: {fileID: 6625926221794598779}
+  haulingSpeedModifier: 0.5
   oxygenSlider: {fileID: 1247210021773159682}
   oxygen:
     min: 0
