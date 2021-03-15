@@ -58,8 +58,8 @@ public class PathFinding
                     obstacleRadius = col.radius * wScale.x;
                 }
 
-                var margin = input.margin * obstacleRadius;
-                var distanceFromCenter = obstacleRadius + margin;
+                var marginAbs = input.margin * obstacleRadius;
+                var distanceFromCenter = obstacleRadius + marginAbs;
                 var lOffsetVec = leftDir * distanceFromCenter;
                 bool canReachSide;
                 {
@@ -73,10 +73,9 @@ public class PathFinding
                 if (!canReachSide)
                 {
                     // try sides of current node
-                    var offsetVec = lOffsetVec * 0.7f;
-                    var newPosLeft = node.position + offsetVec;
-                    var newPosRight = node.position - offsetVec;
-
+                    var offsetVec = lOffsetVec * 0.5f;
+                    var newPosLeft = center - direction * distanceFromCenter + offsetVec;
+                    var newPosRight = center - direction * distanceFromCenter - offsetVec;
                     FindCloserAndAdd(newPosLeft, newPosRight);
                 }
 
@@ -175,8 +174,8 @@ public class PathFinding
     private static Maybe<RaycastHit2D> NonInsideHit(int hitResult, ref RaycastHit2D[] hits)
     {
         var result = new Maybe<RaycastHit2D>();
-        if      (hitResult == 1 && hits[0].fraction != 0)   result.Item = hits[0]; 
-        else if (hitResult == 2)                            result.Item = hits[1]; 
+        if      (hitResult > 0 && hits[0].fraction != 0)   result.Item = hits[0]; 
+        else if (hitResult > 1 && hits[0].fraction == 0)   result.Item = hits[1]; 
         return result;
     }
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NBLD.Utils;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -34,11 +35,16 @@ public class PatrolTestAI : MonoBehaviour
     public MotorResult motorState;
     public Flocking flocking;
 
+    public Timer pathTimer;
+    public float pathTime = 2f;
+
     void Start()
     {
         //Randomize(ref motor.maxForce, randomDelta);
         //Randomize(ref motor.maxSpeed, randomDelta);
         UpdatePatrolPathWalk();
+        pathTimer = new Timer(pathTime, true);
+
     }
 
     public Vector3 GetVelocity() => motorState.velocity;
@@ -50,11 +56,16 @@ public class PatrolTestAI : MonoBehaviour
         attack = (transform.position - attackTarget.position).magnitude < attackRadius;
         if (attack)
         {
-            pathfindingInput.from = transform.position;
-            pathfindingInput.target = attackTarget.position;
+            if (attackWalk == null || pathTimer.IsTimerDone())
+            {
+                pathfindingInput.from = transform.position;
+                pathfindingInput.target = attackTarget.position;
 
-            attackPath = PathFinding.FindPath(pathfindingInput);
-            attackWalk = new Walk(attackPath, transform, nearDistance);
+                attackPath = PathFinding.FindPath(pathfindingInput);
+                attackWalk = new Walk(attackPath, transform, nearDistance);
+                pathTimer.Restart();
+            }
+
         }
 
         var target = SelectTarget();
