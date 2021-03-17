@@ -1,18 +1,19 @@
 ﻿using NBLD.Ship;
 using UnityEngine;
 
-public class FuelTank : MonoBehaviour
+namespace NBLD.Pickups
 {
-    public float Amount { get; set; }
-
-    void OnTriggerEnter2D(Collider2D col)
+    public class FuelTank : MonoBehaviour
     {
-        if (col.tag == Tags.SHIP_BODY)
+        public float Amount { get; set; }
+
+        void OnTriggerEnter2D(Collider2D col)
         {
-            col.GetComponentInParent<ShipStatus>().FuelCollected(this);
-            Destroy(this.gameObject);
+            if (col.tag == Tags.SHIP_BODY)
+            {
+                col.GetComponentInParent<ShipStatus>().FuelCollected(this);
+                Destroy(this.gameObject);
+            }
         }
     }
 }
-
-

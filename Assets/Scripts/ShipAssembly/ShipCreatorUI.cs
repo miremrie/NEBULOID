@@ -251,6 +251,11 @@ namespace NBLD.ShipCreation
         }
         private void IntNavigationChange(int direction)
         {
+            if (direction == 0)
+            {
+                return;
+
+            }
             if (shipCreator.currentStage == CreationStage.SelectRoom)
             {
                 OnSelectRoomChange(direction);
@@ -346,7 +351,8 @@ namespace NBLD.ShipCreation
                 if (currentlySelectedRoom >= uiRooms.Length)
                     currentlySelectedRoom = currentlySelectedRoom % uiRooms.Length;
 
-                if (shipCreator.IsRoomAvailable(uiRooms[currentlySelectedRoom].roomName))
+                bool roomOccupied = shipCreator.IsRoomOccuppied(uiRooms[currentlySelectedRoom].roomName);
+                if (shipCreator.IsRoomAvailable(uiRooms[currentlySelectedRoom].roomName) && (roomOccupied || shipCreator.IsAnySystemAvailable()))
                 {
                     break;
                 }
@@ -356,19 +362,22 @@ namespace NBLD.ShipCreation
         private void SetNewSelectedSystem(int previousSystem, int dir = 1)
         {
             int systemCount = shipCreator.GetAttachableSystemsCount();
+            int newSelectedSystem = currentlySelectedSystem;
             for (int i = dir; Mathf.Abs(i) < systemCount; i += dir)
             {
-                currentlySelectedSystem = (previousSystem + i);
-                if (currentlySelectedSystem < 0)
-                    currentlySelectedSystem = systemCount + currentlySelectedSystem;
-                if (currentlySelectedSystem >= systemCount)
-                    currentlySelectedSystem = currentlySelectedSystem % systemCount;
+                newSelectedSystem = (previousSystem + i);
+                if (newSelectedSystem < 0)
+                    newSelectedSystem = systemCount + newSelectedSystem;
+                if (newSelectedSystem >= systemCount)
+                    newSelectedSystem = newSelectedSystem % systemCount;
 
-                if (shipCreator.IsSystemAvailable(shipCreator.GetAttachableSystemNameForID(currentlySelectedSystem)))
+                if (shipCreator.IsSystemAvailable(shipCreator.GetAttachableSystemNameForID(newSelectedSystem)))
                 {
+                    currentlySelectedSystem = newSelectedSystem;
                     break;
                 }
             }
+
         }
 
         private void RegisterNewRoomDisplayText(RoomName name)

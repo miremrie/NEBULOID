@@ -8,7 +8,8 @@ namespace NBLD.UseActions
     public class HaulUseAction : OutsideUseAction
     {
         public Transform haulPivot;
-        public float haulFollowSpeed = 10f;
+        public float haulFollowSpeed = 30f;
+        public float haulRotationSpeed = 2f;
         bool hauling = false;
         OutsideCharBehaviour hauler;
         public override void DoAction(OutsideCharBehaviour behaviour)
@@ -29,8 +30,14 @@ namespace NBLD.UseActions
             if (hauling)
             {
                 Vector3 newPivotPos = Vector3.Lerp(haulPivot.position, hauler.transform.position, haulFollowSpeed * Time.deltaTime);
-                //transform.rotation = Quaternion.LookRotation(hauler.transform.position - newPivotPos, Vector3.back);
+                Vector3 delta = newPivotPos - haulPivot.position;
+
+                newPivotPos.z = transform.position.z;
                 transform.position = transform.position + newPivotPos - haulPivot.position;
+                
+                float angle = Mathf.Atan2(delta.normalized.y, delta.normalized.x) * Mathf.Rad2Deg;
+                Quaternion targetRot = Quaternion.AngleAxis(angle, Vector3.forward);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, delta.magnitude * haulRotationSpeed * Time.deltaTime);
             }
         }
 

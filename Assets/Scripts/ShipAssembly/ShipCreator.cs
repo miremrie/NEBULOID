@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -24,6 +24,7 @@ namespace NBLD.ShipCreation
         public event System.Action<ShipData, bool> onShipDataPrepared;
         public bool hardSaveShip = true;
         public bool areRoomsReassignable = true;
+        public bool allSystemsAvailable = true;
         public bool updateAssembler;
         private List<GameObject> sampleSystems = new List<GameObject>();
 
@@ -46,6 +47,10 @@ namespace NBLD.ShipCreation
             else
             {
                 shipData = new ShipData();
+                for (int i = 0; i < newShipData.availableSystems.Count; i++)
+                {
+                    shipData.AddAvailableSystem(newShipData.availableSystems[i]);
+                }
                 ChangeStage(CreationStage.SelectRoom);
                 foreach (SystemData sysData in newShipData.systemDatas)
                 {
@@ -92,10 +97,16 @@ namespace NBLD.ShipCreation
         {
             if (currentStage == CreationStage.SelectRoom)
             {
-                if (areRoomsReassignable || !shipData.systemDatas.Exists(sysData => sysData.room == name))
+                bool roomOccupied = IsRoomOccuppied(name);
+                if (areRoomsReassignable || !roomOccupied)
                 {
                     curSysData = new SystemData();
                     curSysData.room = name;
+                    if (roomOccupied)
+                    {
+                        var systemData = shipData.systemDatas.Find(sysData => sysData.room == name);
+                        shipData.RemoveSysData(systemData, allSystemsAvailable);
+                    }
                     ChangeStage(CreationStage.SelectSystem);
                 }
                 else
@@ -137,9 +148,10 @@ namespace NBLD.ShipCreation
                 curSysData.SetRotation(rotation);
                 if (IsRoomOccuppied(curSysData.room))
                 {
-                    shipData.systemDatas.RemoveAll(sysData => sysData.room == curSysData.room);
+                    var sysData = shipData.systemDatas.Find(sData => sData.room == curSysData.room);
+                    shipData.RemoveSysData(sysData, allSystemsAvailable);
                 }
-                shipData.AddSysData(curSysData);
+                shipData.AddSysData(curSysData, allSystemsAvailable);
                 if (!areRoomsReassignable && shipData.systemDatas.Count >= shipAssembler.assignableRooms.Length)
                 {
                     ChangeStage(CreationStage.Finished);
@@ -195,7 +207,19 @@ namespace NBLD.ShipCreation
         public bool IsSystemAvailable(SystemName name)
         {
             int systemCount = shipData.systemDatas.Count(sysData => sysData.system == name);
-            return shipAssembler.GetMaxSystemsOnShip(name) > systemCount;
+            int availableCount = shipData.availableSystems.Count(sysName => sysName == name);
+            return (allSystemsAvailable && shipAssembler.GetMaxSystemsOnShip(name) > systemCount) || (availableCount > systemCount);
+        }
+        public bool IsAnySystemAvailable()
+        {
+            foreach (var system in shipAssembler.attachableSystems)
+            {
+                if (IsSystemAvailable(system.name))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
         public int GetAttachableSystemsCount()
         {

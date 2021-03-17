@@ -150,6 +150,10 @@ public class ShipAssembler : MonoBehaviour
         Debug.LogWarning($"System entry for system: {name} doesn't exist");
         return 0;
     }
+    public void AddAvailableSystem(SystemName name)
+    {
+        curShipData.AddAvailableSystem(name);
+    }
 
     public void SetGameplayMechanicsEnabled(bool enabled)
     {

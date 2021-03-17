@@ -6,6 +6,8 @@ using System.IO;
 
 public class AllSaveData
 {
+    public const int CurrentSaveVersion = 2;
+    public int saveVersion = 0;
     [SerializeField]
     public List<ShipData> shipData = new List<ShipData>();
     public int currentShipID = 0;
@@ -20,8 +22,11 @@ public class AllSaveData
         AllSaveDataSO allSaveDataSO = Resources.Load<AllSaveDataSO>("DefaultSaveData");
         if (allSaveDataSO != null)
         {
-            return allSaveDataSO.GetSaveData();
-        } else
+            var saveData = allSaveDataSO.GetSaveData();
+            saveData.saveVersion = CurrentSaveVersion;
+            return saveData;
+        }
+        else
         {
             Debug.LogError("DefaultSaveData not found!");
             AllSaveData allSaveData = new AllSaveData();
@@ -31,11 +36,8 @@ public class AllSaveData
         }
 
     }
-    
+
 }
-
-
-
 public static class SaveSystem
 {
     private const string saveFolderName = "/SaveData/";
@@ -54,18 +56,12 @@ public static class SaveSystem
 
     public static void SaveData(AllSaveData allSaveData)
     {
-        //BinaryFormatter formatter = new BinaryFormatter();
         DirectoryInfo dirInfo = Directory.CreateDirectory(Application.persistentDataPath + saveFolderName);
 
-        //FileStream stream = new FileStream(GetFullPath(), FileMode.Create);
         string json = JsonUtility.ToJson(allSaveData);
-        //Debug.Log("Writing:\n" + json);
         StreamWriter sw = File.CreateText(GetFullPath());
         sw.Write(json);
         sw.Close();
-        //File.WriteAllText(GetFullPath(), json);
-        //formatter.Serialize(stream, allSaveData);
-        //stream.Close();
     }
 
     public static AllSaveData LoadData()
@@ -74,16 +70,17 @@ public static class SaveSystem
         AllSaveData saveData;
         if (File.Exists(path))
         {
-            //BinaryFormatter formatter = new BinaryFormatter();
-            //FileStream stream = new FileStream(path, FileMode.Open);
-            //saveData = (AllSaveData)formatter.Deserialize(stream);
-            //Debug.Log(path);
             string textData = File.ReadAllText(path);
             saveData = JsonUtility.FromJson<AllSaveData>(textData);
-            //stream.Close();
-            //Debug.Log("Loading:\n" + textData);
+            if (saveData.saveVersion != AllSaveData.CurrentSaveVersion)
+            {
+                //Handle differences between versions
+                VersionAdjuster.AdjustSaveData(saveData, AllSaveData.CurrentSaveVersion);
+                SaveData(saveData);
+            }
             return saveData;
-        } else
+        }
+        else
         {
             saveData = AllSaveData.GetDefaultSaveData();
             SaveData(saveData);
@@ -94,5 +91,30 @@ public static class SaveSystem
     private static string GetFullPath()
     {
         return Application.persistentDataPath + saveFolderName + saveFileName;
+    }
+}
+
+public static class VersionAdjuster
+{
+    public static AllSaveData AdjustSaveData(AllSaveData saveData, int targetVersion)
+    {
+        if (saveData.saveVersion == 1 && saveData.saveVersion != targetVersion)
+        {
+            AdjustV1ToV2(saveData);
+        }
+        saveData.saveVersion = targetVersion;
+        return saveData;
+    }
+
+    private static void AdjustV1ToV2(AllSaveData saveData)
+    {
+        for (int i = 0; i < saveData.shipData.Count; i++)
+        {
+            var shipData = saveData.shipData[i];
+            for (int j = 0; j < shipData.availableSystems.Count; j++)
+            {
+                shipData.AddAvailableSystem(shipData.systemDatas[j].system);
+            }
+        }
     }
 }

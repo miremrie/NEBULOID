@@ -64,6 +64,8 @@ namespace NBLD.Character
         private const string deadAnimKey = "Dead";
         private CharacterState transitionNewState;
         private bool CanRecieveInput => !inTransition && state != CharacterState.Dead;
+        private bool initialized = false;
+        private bool subscribed = false;
 
 
         //Actions
@@ -71,6 +73,7 @@ namespace NBLD.Character
 
         public void Initialize(PlayerSessionData playerSessionData, int startingFloor)
         {
+            initialized = true;
             this.playerSessionData = playerSessionData;
             this.charInputManager = playerSessionData.gameplayInputManager;
             this.charAnimator.sprites = playerSessionData.skin.sprites.ToArray();
@@ -90,6 +93,14 @@ namespace NBLD.Character
         {
             InputManager.Instance.SetPlayerGameplayEnabled(playerSessionData.playerIndex, true);
         }
+        private void OnEnable()
+        {
+            Subscribe();
+            if (initialized)
+            {
+                ChangeState(state);
+            }
+        }
         private void OnDisable()
         {
             Unsubscribe();
@@ -104,26 +115,35 @@ namespace NBLD.Character
 
         private void Subscribe()
         {
-            charInputManager.OnMove += OnMovement;
-            charInputManager.OnUp += OnUp;
-            charInputManager.OnDown += OnDown;
-            charInputManager.OnAction += OnAction;
-            charInputManager.OnSubAction += OnSubAction;
-            charInputManager.OnTalk += OnTalk;
-            charInputManager.OnMoveAssistPerformed += OnMoveAssistPerformed;
-            charInputManager.OnMoveAssistStarted += OnMoveAssistStarted;
+            if (initialized && !subscribed)
+            {
+
+                charInputManager.OnMove += OnMovement;
+                charInputManager.OnUp += OnUp;
+                charInputManager.OnDown += OnDown;
+                charInputManager.OnAction += OnAction;
+                charInputManager.OnSubAction += OnSubAction;
+                charInputManager.OnTalk += OnTalk;
+                charInputManager.OnMoveAssistPerformed += OnMoveAssistPerformed;
+                charInputManager.OnMoveAssistStarted += OnMoveAssistStarted;
+                subscribed = true;
+            }
 
         }
         private void Unsubscribe()
         {
-            charInputManager.OnMove -= OnMovement;
-            charInputManager.OnUp -= OnUp;
-            charInputManager.OnDown -= OnDown;
-            charInputManager.OnAction -= OnAction;
-            charInputManager.OnSubAction -= OnSubAction;
-            charInputManager.OnTalk -= OnTalk;
-            charInputManager.OnMoveAssistPerformed -= OnMoveAssistPerformed;
-            charInputManager.OnMoveAssistStarted -= OnMoveAssistStarted;
+            if (initialized && subscribed)
+            {
+                charInputManager.OnMove -= OnMovement;
+                charInputManager.OnUp -= OnUp;
+                charInputManager.OnDown -= OnDown;
+                charInputManager.OnAction -= OnAction;
+                charInputManager.OnSubAction -= OnSubAction;
+                charInputManager.OnTalk -= OnTalk;
+                charInputManager.OnMoveAssistPerformed -= OnMoveAssistPerformed;
+                charInputManager.OnMoveAssistStarted -= OnMoveAssistStarted;
+                subscribed = false;
+            }
         }
 
         //States

@@ -16,14 +16,36 @@ public class ShipData
     [SerializeField]
     public List<SystemData> systemDatas = new List<SystemData>();
     public string shipName;
+    [SerializeField]
+    public List<SystemName> availableSystems = new List<SystemName>();
     public ShipData()
     {
 
     }
 
-    public void AddSysData(SystemData sysData)
+    public void AddSysData(SystemData sysData, bool addAsAvailable = true)
     {
         systemDatas.Add(sysData);
+        if (addAsAvailable)
+        {
+            AddAvailableSystem(sysData.system);
+        }
+    }
+    public void RemoveSysData(SystemData sysData, bool alsoRemoveAvailable = false)
+    {
+        systemDatas.Remove(sysData);
+        if (alsoRemoveAvailable)
+        {
+            RemoveAvailableSystem(sysData.system);
+        }
+    }
+    public void AddAvailableSystem(SystemName sysName)
+    {
+        availableSystems.Add(sysName);
+    }
+    public void RemoveAvailableSystem(SystemName sysName)
+    {
+        availableSystems.Remove(sysName);
     }
 
     public static ShipData GetDefaultShipData()
@@ -41,11 +63,11 @@ public class ShipData
         //Hook
         SystemData HookData = new SystemData(Vector3.zero, Quaternion.identity, SystemName.Hook, RoomName.F3);
 
-        shipData.systemDatas.Add(F0Data);
-        shipData.systemDatas.Add(F1RData);
-        shipData.systemDatas.Add(F2RData);
-        shipData.systemDatas.Add(F2LData);
-        shipData.systemDatas.Add(HookData);
+        shipData.AddSysData(F0Data);
+        shipData.AddSysData(F1RData);
+        shipData.AddSysData(F2RData);
+        shipData.AddSysData(F2LData);
+        shipData.AddSysData(HookData);
 
         return shipData;
     }

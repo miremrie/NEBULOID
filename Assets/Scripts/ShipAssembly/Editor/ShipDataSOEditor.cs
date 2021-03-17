@@ -68,10 +68,10 @@ public class ShipDataSOEditor : Editor
 
         EditorGUILayout.BeginHorizontal();
         EditorGUI.BeginDisabledGroup(unconfirmedRoom != -1 || currentRoomCount == maxRoomCount);
-            if (GUILayout.Button("Assign new room"))
-            {
-                unconfirmedRoom = currentRoomCount;
-            }
+        if (GUILayout.Button("Assign new room"))
+        {
+            unconfirmedRoom = currentRoomCount;
+        }
         EditorGUI.EndDisabledGroup();
         EditorGUILayout.EndHorizontal();
         EditorGUILayout.EndVertical();
@@ -88,7 +88,7 @@ public class ShipDataSOEditor : Editor
         EditorGUILayout.BeginVertical();
         if (GUILayout.Button("Confirm"))
         {
-            shipDataSO.shipData.systemDatas.Add(SelectARoom(curSelectedRoom));
+            shipDataSO.shipData.AddSysData(SelectARoom(curSelectedRoom));
             unconfirmedRoom = -1;
         }
         EditorGUILayout.EndVertical();
