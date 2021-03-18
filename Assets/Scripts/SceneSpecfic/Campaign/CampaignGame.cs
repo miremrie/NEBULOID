@@ -11,7 +11,6 @@ public enum GameState
 public class CampaignGame : MonoBehaviour
 {
     public GameState currentState;
-
     public ShipCreator shipCreator;
     public List<GameObject> gameplayOnlyObjects = new List<GameObject>();
     public List<GameObject> garageOnlyObjects = new List<GameObject>();
@@ -70,7 +69,12 @@ public class CampaignGame : MonoBehaviour
         }
     }
 
-    public void UpdateGameState()
+    public void EnterGarage()
+    {
+        ChangeState(GameState.Garage);
+    }
+
+    private void UpdateGameState()
     {
         if (enableOnDemandGarage && currentState == GameState.Gameplay)
         {
@@ -88,7 +92,7 @@ public class CampaignGame : MonoBehaviour
             ChangeState(GameState.Gameplay);
         }
     }
-    public void ChangeState(GameState newState)
+    private void ChangeState(GameState newState)
     {
         GameState oldState = currentState;
         currentState = newState;
