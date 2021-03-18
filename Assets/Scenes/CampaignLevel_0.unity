@@ -4288,200 +4288,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1107949003304775300, guid: 835fe173342e2294ea00455a759b69ed,
-        type: 3}
-      propertyPath: m_ApplyToSortingLayers.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1107949003304775300, guid: 835fe173342e2294ea00455a759b69ed,
-        type: 3}
-      propertyPath: m_ApplyToSortingLayers.Array.data[1]
-      value: 1500883607
-      objectReference: {fileID: 0}
     - target: {fileID: 1692948615594598724, guid: 835fe173342e2294ea00455a759b69ed,
         type: 3}
       propertyPath: shake
       value: 
       objectReference: {fileID: 1560085652}
-    - target: {fileID: 1753929981140091650, guid: 835fe173342e2294ea00455a759b69ed,
-        type: 3}
-      propertyPath: m_Name
-      value: Hose
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039023544392594863, guid: 835fe173342e2294ea00455a759b69ed,
-        type: 3}
-      propertyPath: ship
-      value: 
-      objectReference: {fileID: 2050759953}
-    - target: {fileID: 3338737045761991878, guid: 835fe173342e2294ea00455a759b69ed,
-        type: 3}
-      propertyPath: game
-      value: 
-      objectReference: {fileID: 538758062}
-    - target: {fileID: 4237003457607993221, guid: 835fe173342e2294ea00455a759b69ed,
-        type: 3}
-      propertyPath: m_ApplyToSortingLayers.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4237003457607993221, guid: 835fe173342e2294ea00455a759b69ed,
-        type: 3}
-      propertyPath: m_ApplyToSortingLayers.Array.data[1]
-      value: 1500883607
-      objectReference: {fileID: 0}
-    - target: {fileID: 4273589956313630369, guid: 835fe173342e2294ea00455a759b69ed,
-        type: 3}
-      propertyPath: m_ApplyToSortingLayers.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4273589956313630369, guid: 835fe173342e2294ea00455a759b69ed,
-        type: 3}
-      propertyPath: m_ApplyToSortingLayers.Array.data[1]
-      value: 1500883607
-      objectReference: {fileID: 0}
-    - target: {fileID: 5040788851926938560, guid: 835fe173342e2294ea00455a759b69ed,
-        type: 3}
-      propertyPath: game
-      value: 
-      objectReference: {fileID: 538758062}
-    - target: {fileID: 5625323299240325634, guid: 835fe173342e2294ea00455a759b69ed,
-        type: 3}
-      propertyPath: game
-      value: 
-      objectReference: {fileID: 538758062}
-    - target: {fileID: 5625323299245406784, guid: 835fe173342e2294ea00455a759b69ed,
-        type: 3}
-      propertyPath: game
-      value: 
-      objectReference: {fileID: 538758062}
-    - target: {fileID: 5625323299509387940, guid: 835fe173342e2294ea00455a759b69ed,
-        type: 3}
-      propertyPath: game
-      value: 
-      objectReference: {fileID: 538758062}
-    - target: {fileID: 5625323300134583405, guid: 835fe173342e2294ea00455a759b69ed,
-        type: 3}
-      propertyPath: game
-      value: 
-      objectReference: {fileID: 538758062}
-    - target: {fileID: 6568123845303109853, guid: 835fe173342e2294ea00455a759b69ed,
-        type: 3}
-      propertyPath: m_UseCustomVertexStreams
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6568123845303109853, guid: 835fe173342e2294ea00455a759b69ed,
-        type: 3}
-      propertyPath: m_VertexStreams.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6568123845303109853, guid: 835fe173342e2294ea00455a759b69ed,
-        type: 3}
-      propertyPath: m_VertexStreams.Array.data[1]
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6568123845303109853, guid: 835fe173342e2294ea00455a759b69ed,
-        type: 3}
-      propertyPath: m_VertexStreams.Array.data[2]
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6568123845764247596, guid: 835fe173342e2294ea00455a759b69ed,
-        type: 3}
-      propertyPath: m_UseCustomVertexStreams
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6568123845764247596, guid: 835fe173342e2294ea00455a759b69ed,
-        type: 3}
-      propertyPath: m_VertexStreams.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6568123845764247596, guid: 835fe173342e2294ea00455a759b69ed,
-        type: 3}
-      propertyPath: m_VertexStreams.Array.data[1]
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6568123845764247596, guid: 835fe173342e2294ea00455a759b69ed,
-        type: 3}
-      propertyPath: m_VertexStreams.Array.data[2]
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6568123846147038731, guid: 835fe173342e2294ea00455a759b69ed,
-        type: 3}
-      propertyPath: m_UseCustomVertexStreams
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6568123846147038731, guid: 835fe173342e2294ea00455a759b69ed,
-        type: 3}
-      propertyPath: m_VertexStreams.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6568123846147038731, guid: 835fe173342e2294ea00455a759b69ed,
-        type: 3}
-      propertyPath: m_VertexStreams.Array.data[1]
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6568123846147038731, guid: 835fe173342e2294ea00455a759b69ed,
-        type: 3}
-      propertyPath: m_VertexStreams.Array.data[2]
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6568123846963705044, guid: 835fe173342e2294ea00455a759b69ed,
-        type: 3}
-      propertyPath: m_UseCustomVertexStreams
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6568123846963705044, guid: 835fe173342e2294ea00455a759b69ed,
-        type: 3}
-      propertyPath: m_VertexStreams.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6568123846963705044, guid: 835fe173342e2294ea00455a759b69ed,
-        type: 3}
-      propertyPath: m_VertexStreams.Array.data[1]
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6568123846963705044, guid: 835fe173342e2294ea00455a759b69ed,
-        type: 3}
-      propertyPath: m_VertexStreams.Array.data[2]
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6848609875809285176, guid: 835fe173342e2294ea00455a759b69ed,
-        type: 3}
-      propertyPath: m_UseCustomVertexStreams
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6848609875809285176, guid: 835fe173342e2294ea00455a759b69ed,
-        type: 3}
-      propertyPath: m_VertexStreams.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6848609875809285176, guid: 835fe173342e2294ea00455a759b69ed,
-        type: 3}
-      propertyPath: m_VertexStreams.Array.data[1]
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6848609875809285176, guid: 835fe173342e2294ea00455a759b69ed,
-        type: 3}
-      propertyPath: m_VertexStreams.Array.data[2]
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7595398177048142792, guid: 835fe173342e2294ea00455a759b69ed,
         type: 3}
       propertyPath: m_Name
       value: Ship
-      objectReference: {fileID: 0}
-    - target: {fileID: 7595398177048142798, guid: 835fe173342e2294ea00455a759b69ed,
-        type: 3}
-      propertyPath: shipDependentTransforms.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7595398177048142798, guid: 835fe173342e2294ea00455a759b69ed,
-        type: 3}
-      propertyPath: shipDependentTransforms.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7595398177048142798, guid: 835fe173342e2294ea00455a759b69ed,
-        type: 3}
-      propertyPath: shipDependentTransforms.Array.data[1]
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7595398177048142799, guid: 835fe173342e2294ea00455a759b69ed,
         type: 3}
@@ -4538,21 +4353,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7893914347992732611, guid: 835fe173342e2294ea00455a759b69ed,
-        type: 3}
-      propertyPath: m_ApplyToSortingLayers.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7893914347992732611, guid: 835fe173342e2294ea00455a759b69ed,
-        type: 3}
-      propertyPath: m_ApplyToSortingLayers.Array.data[1]
-      value: 1500883607
-      objectReference: {fileID: 0}
-    - target: {fileID: 8189638144567684847, guid: 835fe173342e2294ea00455a759b69ed,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8323507948655161712, guid: 835fe173342e2294ea00455a759b69ed,
         type: 3}
       propertyPath: camController
@@ -4565,12 +4365,6 @@ PrefabInstance:
       objectReference: {fileID: 8508198433921838558}
     - target: {fileID: 8450644423464223818, guid: 835fe173342e2294ea00455a759b69ed,
         type: 3}
-      propertyPath: explosionFX
-      value: 
-      objectReference: {fileID: 6897137112830443984, guid: e5a8d11103e2d2c4d90ca30b72e09ed2,
-        type: 3}
-    - target: {fileID: 8450644423464223818, guid: 835fe173342e2294ea00455a759b69ed,
-        type: 3}
       propertyPath: screenShake
       value: 
       objectReference: {fileID: 1560085652}
@@ -4579,11 +4373,6 @@ PrefabInstance:
       propertyPath: camController
       value: 
       objectReference: {fileID: 79491345}
-    - target: {fileID: 8997780953612092979, guid: 835fe173342e2294ea00455a759b69ed,
-        type: 3}
-      propertyPath: contextualCamera
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 835fe173342e2294ea00455a759b69ed, type: 3}
 --- !u!114 &2050759952 stripped

@@ -4421,6 +4421,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 038e22f370bbb79459141c19f01bffc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shipMovement: {fileID: 7595398177048142798}
   assignableRooms:
   - name: 0
     control: {fileID: 4033421824343673622}
@@ -4491,7 +4492,8 @@ MonoBehaviour:
   - {fileID: 5625323299509387940}
   - {fileID: 5625323299240325634}
   audioController: {fileID: 5024028211301265338}
-  explosionFX: {fileID: 0}
+  explosionFX: {fileID: 6897137112830443984, guid: e5a8d11103e2d2c4d90ca30b72e09ed2,
+    type: 3}
   fuelUI: {fileID: 0}
   screenShake: {fileID: 0}
 --- !u!1 &7595398177142603589
@@ -4864,7 +4866,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 0000000097aa7559
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
@@ -5842,6 +5844,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1773760368255032658, guid: 8b91564d65a872f488ce5845067b102a,
+        type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1773760368255032658, guid: 8b91564d65a872f488ce5845067b102a,
+        type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[1]
+      value: 1500883607
+      objectReference: {fileID: 0}
     - target: {fileID: 3937686926513786798, guid: 8b91564d65a872f488ce5845067b102a,
         type: 3}
       propertyPath: m_RootOrder
@@ -6092,6 +6104,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EjectSystem
       objectReference: {fileID: 0}
+    - target: {fileID: 4096837536096078840, guid: 6ae360a95ee901144b61a262e907a4ab,
+        type: 3}
+      propertyPath: editorData.vertexPathUpToDate
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4718017518016272222, guid: 6ae360a95ee901144b61a262e907a4ab,
         type: 3}
       propertyPath: m_RootOrder
@@ -6180,6 +6197,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2841272308480026076}
     m_Modifications:
+    - target: {fileID: 2042514285380693200, guid: 8f6ad5bce92b11a409e454f70a6f00c2,
+        type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042514285380693200, guid: 8f6ad5bce92b11a409e454f70a6f00c2,
+        type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[1]
+      value: 1500883607
+      objectReference: {fileID: 0}
     - target: {fileID: 2226453157657376685, guid: 8f6ad5bce92b11a409e454f70a6f00c2,
         type: 3}
       propertyPath: m_Name
@@ -6572,6 +6599,26 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 150
       objectReference: {fileID: 0}
+    - target: {fileID: 1528831792500462906, guid: f882811d383c33f4991ba6c8ac97b7e7,
+        type: 3}
+      propertyPath: m_UseCustomVertexStreams
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1528831792500462906, guid: f882811d383c33f4991ba6c8ac97b7e7,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1528831792500462906, guid: f882811d383c33f4991ba6c8ac97b7e7,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.data[1]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1528831792500462906, guid: f882811d383c33f4991ba6c8ac97b7e7,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.data[2]
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1823494547589178577, guid: f882811d383c33f4991ba6c8ac97b7e7,
         type: 3}
       propertyPath: m_Name
@@ -6952,6 +6999,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5625323299240325636}
     m_Modifications:
+    - target: {fileID: 1528831792500462906, guid: f882811d383c33f4991ba6c8ac97b7e7,
+        type: 3}
+      propertyPath: m_UseCustomVertexStreams
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1528831792500462906, guid: f882811d383c33f4991ba6c8ac97b7e7,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1528831792500462906, guid: f882811d383c33f4991ba6c8ac97b7e7,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.data[1]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1528831792500462906, guid: f882811d383c33f4991ba6c8ac97b7e7,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.data[2]
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1823494547589178577, guid: f882811d383c33f4991ba6c8ac97b7e7,
         type: 3}
       propertyPath: m_Name
@@ -7185,6 +7252,26 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 150
       objectReference: {fileID: 0}
+    - target: {fileID: 1528831792500462906, guid: f882811d383c33f4991ba6c8ac97b7e7,
+        type: 3}
+      propertyPath: m_UseCustomVertexStreams
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1528831792500462906, guid: f882811d383c33f4991ba6c8ac97b7e7,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1528831792500462906, guid: f882811d383c33f4991ba6c8ac97b7e7,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.data[1]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1528831792500462906, guid: f882811d383c33f4991ba6c8ac97b7e7,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.data[2]
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1823494547589178577, guid: f882811d383c33f4991ba6c8ac97b7e7,
         type: 3}
       propertyPath: m_Name
@@ -7270,6 +7357,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingOrder
       value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 1528831792500462906, guid: f882811d383c33f4991ba6c8ac97b7e7,
+        type: 3}
+      propertyPath: m_UseCustomVertexStreams
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1528831792500462906, guid: f882811d383c33f4991ba6c8ac97b7e7,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1528831792500462906, guid: f882811d383c33f4991ba6c8ac97b7e7,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.data[1]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1528831792500462906, guid: f882811d383c33f4991ba6c8ac97b7e7,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.data[2]
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1823494547589178577, guid: f882811d383c33f4991ba6c8ac97b7e7,
         type: 3}
@@ -7504,6 +7611,26 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 150
       objectReference: {fileID: 0}
+    - target: {fileID: 1528831792500462906, guid: f882811d383c33f4991ba6c8ac97b7e7,
+        type: 3}
+      propertyPath: m_UseCustomVertexStreams
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1528831792500462906, guid: f882811d383c33f4991ba6c8ac97b7e7,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1528831792500462906, guid: f882811d383c33f4991ba6c8ac97b7e7,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.data[1]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1528831792500462906, guid: f882811d383c33f4991ba6c8ac97b7e7,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.data[2]
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1823494547589178577, guid: f882811d383c33f4991ba6c8ac97b7e7,
         type: 3}
       propertyPath: m_Name
@@ -7703,6 +7830,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5625323300075057729}
     m_Modifications:
+    - target: {fileID: 1148671201002428803, guid: 31f838bfe2bbf3946871ac5e3a01ef8a,
+        type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148671201002428803, guid: 31f838bfe2bbf3946871ac5e3a01ef8a,
+        type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[1]
+      value: 1500883607
+      objectReference: {fileID: 0}
     - target: {fileID: 3201248604426948880, guid: 31f838bfe2bbf3946871ac5e3a01ef8a,
         type: 3}
       propertyPath: m_RootOrder

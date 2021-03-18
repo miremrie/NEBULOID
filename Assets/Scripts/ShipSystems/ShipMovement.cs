@@ -17,10 +17,6 @@ namespace NBLD.Ship
         public bool movementLocked;
         public List<Transform> shipDependentTransforms = new List<Transform>();
 
-        private void Start()
-        {
-            UnlockMovement();
-        }
         void Update()
         {
 

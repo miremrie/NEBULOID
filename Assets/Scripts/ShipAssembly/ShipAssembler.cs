@@ -29,6 +29,7 @@ public struct BuiltInSystemWithID
 }
 public class ShipAssembler : MonoBehaviour
 {
+    public ShipMovement shipMovement;
     public RoomControlWithID[] assignableRooms;
     public ShipSystemWithID[] attachableSystems;
     public Transform systemsRoot;
@@ -64,6 +65,7 @@ public class ShipAssembler : MonoBehaviour
         AssembleShip(shipData);
         SetGameplayMechanicsEnabled(true);
         curShipData = shipData;
+
     }
     public void DestroyCurrentAssignableSystems()
     {
@@ -165,6 +167,10 @@ public class ShipAssembler : MonoBehaviour
         {
             builtIn.system.enabled = enabled;
             builtIn.roomControl.enabled = enabled;
+        }
+        if (enabled)
+        {
+            shipMovement.UnlockMovement();
         }
     }
 }
