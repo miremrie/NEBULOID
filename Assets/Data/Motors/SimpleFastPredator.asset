@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: efde5e22d5a1f674395ce0cf5dd47fef, type: 3}
-  m_Name: SimpleMotor
+  m_Name: SimpleFastPredator
   m_EditorClassIdentifier: 
-  mass: 70
-  maxSpeed: 4
-  maxForce: 5
+  mass: 75.58
+  maxSpeed: 10
+  maxForce: 11
   slowingDistance: 1

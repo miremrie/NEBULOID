@@ -34,6 +34,8 @@ public class PatrolTestAI : MonoBehaviour
 
     public MotorResult motorState;
     public Flocking flocking;
+    private Vector3 m_flockingDelta;
+
 
     public Timer pathTimer;
     public float pathTime = 2f;
@@ -72,16 +74,18 @@ public class PatrolTestAI : MonoBehaviour
         if (target != Vector2.zero)
         {
             motorState = motor.UpdateMotorVelocity(transform, SelectTarget(), motorState.velocity);
-            transform.position += motorState.velocity * Time.deltaTime;
+            transform.position += (motorState.velocity + m_flockingDelta) * Time.deltaTime;
             if (motor.AbsoluteRotation())  transform.rotation = motorState.rotation; 
             else transform.rotation *= motorState.rotation; 
-
-            if (flocking)
-            {
-                transform.position += flocking.Nudge(transform).ToVector3();
-            }
         }
     }
+
+    private void LateUpdate()
+    {
+        if (flocking)  m_flockingDelta = flocking.Velocity(transform); 
+        else m_flockingDelta = Vector3.zero;
+    }
+
 
     private Vector2 SelectTarget()
     {
