@@ -7,9 +7,9 @@ namespace NBLD.UseActions
 {
     public class OutsideUseAction : UseAction
     {
-        public override CharacterState AvailableForCharacterState()
+        public override CharState AvailableForCharState()
         {
-            return CharacterState.Outside;
+            return CharState.Outside;
         }
 
         public virtual void DoAction(OutsideCharBehaviour behaviour)

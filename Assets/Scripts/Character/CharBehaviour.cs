@@ -81,6 +81,10 @@ namespace NBLD.Character
                 BehaviourFixedUpdate();
             }
         }
+        public virtual Vector3 GetLookDirection()
+        {
+            return -transform.right;
+        }
         protected virtual void BehaviourUpdate()
         {
 
@@ -89,6 +93,7 @@ namespace NBLD.Character
         {
 
         }
+
 
         public virtual void ExecuteAction(UseAction action)
         {

@@ -90,7 +90,6 @@ namespace NBLD.Input
             gameplayInput.Dispose();
             uiInput.Dispose();
             user.UnpairDevicesAndRemoveUser();
-            Debug.Log("Disposing User");
         }
     }
     public class PlayerSessionData

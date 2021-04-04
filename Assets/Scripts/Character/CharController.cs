@@ -10,7 +10,7 @@ namespace NBLD.Character
     {
         Action, SubAction, Up, Down
     }
-    public enum CharacterState
+    public enum CharState
     {
         Inside, Outside, Dead, Transition
     }
@@ -23,6 +23,10 @@ namespace NBLD.Character
         public PlayerGameplayInputManager charInputManager;
         private PlayerSessionData playerSessionData;
         private const string graphicsObjectName = "Character Graphics";
+        [Header("Char Tool")]
+        public Transform equipedToolRoot;
+        public CharTool equipedTool;
+        private bool hasEquipedTool;
         [Header("Animation")]
         public CharAnimator charAnimator;
         public Animator animator;
@@ -41,7 +45,7 @@ namespace NBLD.Character
         private CharBehaviour behaviourAfterTransition;
 
         [Header("States")]
-        public CharacterState state;
+        private CharState state;
 
         [Header("Transition")]
         public float transitionSpeed;
@@ -62,8 +66,8 @@ namespace NBLD.Character
         private const string enterAnimKey = "Enter";
         private const string dieAnimKey = "DiePlayed";
         private const string deadAnimKey = "Dead";
-        private CharacterState transitionNewState;
-        private bool CanRecieveInput => !inTransition && state != CharacterState.Dead;
+        private CharState transitionNewState;
+        private bool CanRecieveInput => !inTransition && state != CharState.Dead;
         private bool initialized = false;
         private bool subscribed = false;
 
@@ -83,7 +87,7 @@ namespace NBLD.Character
             insideBehaviour.Initialize(this, rb2D, charSpriteRenderer, animator, charAudio);
             outsideBehaviour.Initialize(this, rb2D, charSpriteRenderer, animator, charAudio);
             outsideBehaviour.Deactivate();
-            ChangeState(CharacterState.Inside);
+            ChangeState(CharState.Inside);
             charAudio.SetEnvironmentBasedOnFloor(startingFloor);
             animator.keepAnimatorControllerStateOnDisable = true;
 
@@ -147,27 +151,27 @@ namespace NBLD.Character
         }
 
         //States
-        private void ChangeState(CharacterState state)
+        private void ChangeState(CharState state)
         {
-            if (state == CharacterState.Outside)
+            if (state == CharState.Outside)
             {
                 ActivateBehaviour(outsideBehaviour);
                 ship.RemoveDependentTransform(transform);
             }
-            else if (state == CharacterState.Inside)
+            else if (state == CharState.Inside)
             {
                 ActivateBehaviour(insideBehaviour);
                 ship.AddDependentTransform(transform);
             }
-            else if (state == CharacterState.Dead)
+            else if (state == CharState.Dead)
             {
                 animator.SetBool(dieAnimKey, true);
                 animator.SetBool(deadAnimKey, true);
                 DeactivateBehaviour();
             }
-            else if (state == CharacterState.Transition)
+            else if (state == CharState.Transition)
             {
-                if (this.state == CharacterState.Outside)
+                if (this.state == CharState.Outside)
                 {
                     ship.AddDependentTransform(transform);
                 }
@@ -175,6 +179,10 @@ namespace NBLD.Character
                 //ship.RemoveDependentTransform(transform);
             }
             this.state = state;
+        }
+        public CharState GetState()
+        {
+            return state;
         }
         private void DeactivateBehaviour()
         {
@@ -194,7 +202,7 @@ namespace NBLD.Character
         }
         public void Die()
         {
-            ChangeState(CharacterState.Dead);
+            ChangeState(CharState.Dead);
         }
 
         //Actions
@@ -214,7 +222,7 @@ namespace NBLD.Character
         public virtual bool CheckIfActionAvailable(UseActionButton useButton)
         {
             return availableActions.ContainsKey(useButton)
-                && availableActions[useButton].AvailableForCharacterState() == state;
+                && availableActions[useButton].AvailableForCharState() == state;
         }
         /*public virtual void CheckThenExecuteAction(UseActionButton useButton)
         {
@@ -233,19 +241,19 @@ namespace NBLD.Character
             rb2D.AddForce(velocity);
         }
         //Eject Transition
-        public void PerformTransition(Transform start, Transform dst, CharacterState newState, bool clearActions = true)
+        public void PerformTransition(Transform start, Transform dst, CharState newState, bool clearActions = true)
         {
             inTransition = true;
             transitionStart = start;
             transitionDst = dst;
             activeBehaviour.DisableCollisions();
-            ChangeState(CharacterState.Transition);
+            ChangeState(CharState.Transition);
             transitionNewState = newState;
-            if (newState == CharacterState.Inside)
+            if (newState == CharState.Inside)
             {
                 behaviourAfterTransition = insideBehaviour;
             }
-            else if (newState == CharacterState.Outside)
+            else if (newState == CharState.Outside)
             {
                 behaviourAfterTransition = outsideBehaviour;
             }
@@ -335,7 +343,7 @@ namespace NBLD.Character
                 if (transitionStartReached && transitionPrepRotationOver && !transitionPrepAnimStarted)
                 {
                     transitionPrepAnimStarted = true;
-                    if (transitionNewState == CharacterState.Outside)
+                    if (transitionNewState == CharState.Outside)
                     {
                         //animator.SetTrigger(transitionPrepOutAnimKey);
                         characterPivot.localPosition = pivotWhenExiting;
@@ -380,7 +388,7 @@ namespace NBLD.Character
             if (col.tag == Tags.ACTION_OBJECT)
             {
                 UseAction newControl = col.gameObject.GetComponent<UseAction>();
-                if (newControl.AvailableForCharacterState() == state)
+                if (newControl.AvailableForCharState() == state)
                 {
                     if (availableActions.ContainsKey(newControl.actionButton))
                     {
@@ -399,7 +407,7 @@ namespace NBLD.Character
             if (col.tag == Tags.ACTION_OBJECT)
             {
                 UseAction leavingActionControl = col.gameObject.GetComponent<UseAction>();
-                if (leavingActionControl.AvailableForCharacterState() == state)
+                if (leavingActionControl.AvailableForCharState() == state)
                 {
                     if (availableActions.ContainsKey(leavingActionControl.actionButton))
                     {
@@ -480,5 +488,35 @@ namespace NBLD.Character
             animator.SetBool(dieAnimKey, false);
         }
         #endregion
+        #region Char Tool
+        public void EquipTool(CharTool charTool)
+        {
+            if (hasEquipedTool)
+            {
+                //Drop tool
+                equipedTool.Unequip();
+            }
+            charTool.EquipToCharacter(this);
+            hasEquipedTool = true;
+            equipedTool = charTool;
+            equipedTool.transform.SetParent(equipedToolRoot, false);
+            equipedTool.transform.localPosition = Vector3.zero;
+        }
+        public bool IsToolAvailable()
+        {
+            return hasEquipedTool && equipedTool.IsAvailable();
+        }
+        public void ActivateTool()
+        {
+            if (IsToolAvailable())
+            {
+                equipedTool.Activate();
+            }
+        }
+        #endregion
+        public Vector3 GetLookDirection()
+        {
+            return activeBehaviour.GetLookDirection();
+        }
     }
 }

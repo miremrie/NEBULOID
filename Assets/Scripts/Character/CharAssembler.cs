@@ -26,12 +26,12 @@ namespace NBLD.Character
         public ShipMovement shipMovement;
         [Header("Outside Behaviour Assignables")]
         public ShipEjectSystem shipEjectSystem;
-        public Transform minesRoot;
         private List<CharController> playerCharacters = new List<CharController>();
         private CamSet gameplaySet;
         private CamSet charactersSet;
         private bool initialized = false;
         private bool subscribed = false;
+        public CharToolFactory charToolFactory;
 
         private void Awake()
         {
@@ -98,10 +98,12 @@ namespace NBLD.Character
             CharController newChar = GameObject.Instantiate(characterPrefab, spawnLocations[psData.playerIndex % spawnLocations.Count]);
             newChar.ship = shipMovement;
             newChar.outsideBehaviour.shipEjectSystem = shipEjectSystem;
-            newChar.outsideBehaviour.minesRoot = minesRoot;
             newChar.transform.parent = charactersRoot;
             newChar.Initialize(psData, spawnFloors[psData.playerIndex % spawnFloors.Count]);
-            //Cameras
+            /* Attach Tool */
+            CharTool tool = charToolFactory.CreateCharTool(CharToolType.Flashlight);
+            newChar.EquipTool(tool);
+            /* Cameras */
             contextCams[psData.playerIndex].SetFollowTarget(newChar.transform);
             contextCams[psData.playerIndex].Activate();
             CamZone charGameplayCamZone = gameplayCamZone.Copy();

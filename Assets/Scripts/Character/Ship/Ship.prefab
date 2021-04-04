@@ -4482,7 +4482,7 @@ MonoBehaviour:
   shipFuel:
     min: 0
     max: 100
-    burnRate: 2
+    burnRate: 0.5
     current: 0
   repairables:
   - {fileID: 5040788851926938560}

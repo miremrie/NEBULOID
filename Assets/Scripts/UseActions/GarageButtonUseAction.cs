@@ -39,9 +39,9 @@ namespace NBLD.UseActions
         {
             Unsubscribe();
         }
-        public override CharacterState AvailableForCharacterState()
+        public override CharState AvailableForCharState()
         {
-            return CharacterState.Outside;
+            return CharState.Outside;
         }
         public override void DoAction(OutsideCharBehaviour behaviour)
         {

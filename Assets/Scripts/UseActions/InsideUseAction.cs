@@ -8,9 +8,9 @@ namespace NBLD.UseActions
 {
     public class InsideUseAction : UseAction
     {
-        public override CharacterState AvailableForCharacterState()
+        public override CharState AvailableForCharState()
         {
-            return CharacterState.Inside;
+            return CharState.Inside;
         }
 
         public virtual void DoAction(InsideCharBehaviour controller)

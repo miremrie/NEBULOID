@@ -9,7 +9,7 @@ namespace NBLD.UseActions
     {
         public UseActionButton actionButton;
 
-        public abstract CharacterState AvailableForCharacterState();
+        public abstract CharState AvailableForCharState();
     }
 }
 

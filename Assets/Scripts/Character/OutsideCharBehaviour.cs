@@ -41,11 +41,6 @@ namespace NBLD.Character
         public MaskedSlider oxygenSlider;
         public Oxygen oxygen;
         public ShipEjectSystem shipEjectSystem;
-        [Header("Mine")]
-        public Transform minesRoot;
-        public Mine minePrefab;
-        public float mineCooldown;
-        private Timer mineCooldownTimer;
 
 
         protected override void Start()
@@ -56,7 +51,6 @@ namespace NBLD.Character
             oxygen.SetProvider(shipEjectSystem);
             moveIntensityUI.Initalize(0, standardMoveSpeed);
             oxygenSlider.Initalize(oxygen.min, oxygen.max);
-            mineCooldownTimer = new Timer(mineCooldown);
         }
 
         protected override void OnEnable()
@@ -92,6 +86,10 @@ namespace NBLD.Character
         protected override void BehaviourFixedUpdate()
         {
             UpdateMovement();
+        }
+        public override Vector3 GetLookDirection()
+        {
+            return -transform.right;
         }
         //Movement
         private Vector2 GetBoostMovement()
@@ -204,13 +202,10 @@ namespace NBLD.Character
             }
             else
             {
-                //Action not available - mine time
-                if (!mineCooldownTimer.IsRunning())
+                //Action not available - tool time
+                if (charController.IsToolAvailable())
                 {
-                    Mine mine = GameObject.Instantiate(minePrefab, transform.position, Quaternion.identity);
-                    mine.transform.parent = minesRoot;
-                    mine.Activate();
-                    mineCooldownTimer.Restart();
+                    charController.ActivateTool();
                 }
             }
         }

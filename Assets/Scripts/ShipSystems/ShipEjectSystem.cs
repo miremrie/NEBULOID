@@ -60,7 +60,7 @@ namespace NBLD.Ship
         {
             occupied = true;
             outsideChar = charBehaviour.charController;
-            outsideChar.PerformTransition(insideFloorPos, outsideFloorPos, CharacterState.Outside, true);
+            outsideChar.PerformTransition(insideFloorPos, outsideFloorPos, CharState.Outside, true);
             hoseAnimator.gameObject.SetActive(true);
             hoseAnimator.endFollow = outsideChar.outsideBehaviour.hoseAttachSpot;
         }
@@ -73,7 +73,7 @@ namespace NBLD.Ship
                 {
                     occupied = false;
                     pullTowardsStarted = false;
-                    outsideChar.PerformTransition(outsideFloorPos, insideFloorPos, CharacterState.Inside, true);
+                    outsideChar.PerformTransition(outsideFloorPos, insideFloorPos, CharState.Inside, true);
                     hoseAnimator.gameObject.SetActive(false);
                 }
             }
@@ -81,7 +81,7 @@ namespace NBLD.Ship
 
         private void StartPullTowards(CharBehaviour puller)
         {
-            if (outsideChar.state == CharacterState.Outside || outsideChar.state == CharacterState.Dead)
+            if (outsideChar.GetState() == CharState.Outside || outsideChar.GetState() == CharState.Dead)
             {
                 pullTowardsStarted = true;
                 pullTowardTimer.Restart();
@@ -119,7 +119,8 @@ namespace NBLD.Ship
         {
             if (pullTowardsStarted)
             {
-                if (maxPullTowardsDistance > Vector2.Distance(outsidePipeEnd.position, outsideChar.transform.position) || (outsideChar.state != CharacterState.Outside && outsideChar.state != CharacterState.Dead))
+                CharState charState = outsideChar.GetState();
+                if (maxPullTowardsDistance > Vector2.Distance(outsidePipeEnd.position, outsideChar.transform.position) || (charState != CharState.Outside && charState != CharState.Dead))
                 {
                     StopPullTowards();
                 }

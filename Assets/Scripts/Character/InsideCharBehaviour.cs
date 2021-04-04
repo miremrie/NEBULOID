@@ -21,6 +21,7 @@ namespace NBLD.Character
         private float transportAudioFrequency = 0.05f;
         private Timer transportTimer;
         private bool transportAscending;
+        private Vector3 currentLookDirection = Vector3.left;
 
         private bool lockedByTransport;
         [Header("Idle Behaviour")]
@@ -58,6 +59,10 @@ namespace NBLD.Character
             UpdateIdleBehaviour();
 
         }
+        public override Vector3 GetLookDirection()
+        {
+            return currentLookDirection;
+        }
         //Reset
         private void ResetMovement()
         {
@@ -76,7 +81,9 @@ namespace NBLD.Character
             animator.SetBool(moveAnimName, moveDirection != 0);
             if (moveDirection != 0)
             {
-                spriteRenderer.flipX = moveDirection > 0;
+                bool lookingRight = moveDirection > 0;
+                spriteRenderer.flipX = lookingRight;
+                currentLookDirection = (lookingRight) ? Vector3.right : Vector3.left;
                 //charAudio.PlayFootsteps();
             }
         }
@@ -172,8 +179,21 @@ namespace NBLD.Character
         public override void OnAction()
         {
             base.OnAction();
-            TryExecuteAction(UseActionButton.Action);
-            ResetIdleBehaviour();
+            bool actionExecuted = false;
+            if (TryExecuteAction(UseActionButton.Action))
+            {
+                actionExecuted = true;
+                //Action available and executed
+            }
+            else if (charController.IsToolAvailable())
+            {
+                actionExecuted = true;
+                charController.ActivateTool();
+            }
+            if (actionExecuted)
+            {
+                ResetIdleBehaviour();
+            }
         }
         public override void OnUp()
         {

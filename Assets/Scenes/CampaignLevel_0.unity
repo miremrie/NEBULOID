@@ -2155,6 +2155,11 @@ PrefabInstance:
       propertyPath: contextCams.Array.data[3]
       value: 
       objectReference: {fileID: 1431094863}
+    - target: {fileID: 3234767410223108748, guid: 4cea72866e3357144bb6bea8a74721cc,
+        type: 3}
+      propertyPath: minePlacementRoot
+      value: 
+      objectReference: {fileID: 1848004270}
     - target: {fileID: 4220939312553409196, guid: 4cea72866e3357144bb6bea8a74721cc,
         type: 3}
       propertyPath: m_RootOrder
@@ -2215,13 +2220,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Characters
       objectReference: {fileID: 0}
-    - target: {fileID: 4220939312553409199, guid: 4cea72866e3357144bb6bea8a74721cc,
-        type: 3}
-      propertyPath: useDefault
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 4220939312553409199, guid: 4cea72866e3357144bb6bea8a74721cc, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cea72866e3357144bb6bea8a74721cc, type: 3}
 --- !u!4 &585427650 stripped
 Transform:
@@ -3482,6 +3481,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1522097222 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2113651554604808832, guid: 4939f5c355de92c4187cfa30da65b634,
+    type: 3}
+  m_PrefabInstance: {fileID: 8508198433921838554}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1528859820
 GameObject:
   m_ObjectHideFlags: 0
@@ -3893,7 +3904,7 @@ PrefabInstance:
         type: 3}
       propertyPath: borderImage
       value: 
-      objectReference: {fileID: 978621809}
+      objectReference: {fileID: 1522097222}
     - target: {fileID: 1816835669913635739, guid: 4b1d6a499666286488db38dbe26e5641,
         type: 3}
       propertyPath: displayImage
