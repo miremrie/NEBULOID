@@ -11,6 +11,7 @@ namespace NBLD.Character
         public Mine minePrefab;
         public float cooldownTime = 5f;
         private Timer cooldownTimer;
+        public override CharToolType GetCharToolType() => CharToolType.MinePlanter;
 
 
         public override void Initialize()

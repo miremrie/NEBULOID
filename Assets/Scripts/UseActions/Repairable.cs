@@ -9,12 +9,12 @@ public class Repairable : MonoBehaviour
 
     public float RepairedAmount { get; private set; }
     bool repairing;
-    static float repairSpeed = 0.25f;
     public ParticleSystem smoke;
     public ShipStatus shipStatus;
     public GameObject alarmIndicator;
     public MaskedSlider maskedSlider;
     private bool initialized = false;
+    private float curRepairSpeed = 0f;
     public void Initialize(ShipStatus shipStatus)
     {
         this.shipStatus = shipStatus;
@@ -26,14 +26,16 @@ public class Repairable : MonoBehaviour
     }
 
 
-    public void StartRepairing()
+    public void StartRepairing(float repairSpeed)
     {
         repairing = true;
+        curRepairSpeed = repairSpeed;
     }
 
     public void StopRepairing()
     {
         repairing = false;
+        curRepairSpeed = 0;
     }
 
     public bool IsRepaired()
@@ -47,7 +49,7 @@ public class Repairable : MonoBehaviour
         {
             if (!IsRepaired() && repairing)
             {
-                RepairedAmount += repairSpeed * Time.deltaTime;
+                RepairedAmount += curRepairSpeed * Time.deltaTime;
                 maskedSlider.Show();
                 maskedSlider.UpdateValue(1 - RepairedAmount);
                 if (IsRepaired())

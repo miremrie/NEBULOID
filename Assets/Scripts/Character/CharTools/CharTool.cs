@@ -4,11 +4,13 @@ using UnityEngine;
 
 namespace NBLD.Character
 {
-    public class CharTool : MonoBehaviour
+    public enum CharToolType { None, MinePlanter, Flashlight, Wrench };
+    public abstract class CharTool : MonoBehaviour
     {
         protected CharController wielder;
         protected bool equiped;
         protected bool initialized = false;
+        public abstract CharToolType GetCharToolType();
         public virtual void Initialize()
         {
             initialized = true;

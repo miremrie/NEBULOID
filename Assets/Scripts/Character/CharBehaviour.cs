@@ -144,5 +144,11 @@ namespace NBLD.Character
         public virtual void OnMoveAssistPerformed()
         {
         }
+        #region Repairs
+        public float GetRepairSpeed()
+        {
+            return charController.GetRepairSpeed();
+        }
+        #endregion
     }
 }

@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace NBLD.Character
 {
-    public enum CharToolType { MinePlanter, Flashlight, Empty };
     public class CharToolFactory : MonoBehaviour
     {
         [Header("Mine Planter Tool")]
@@ -12,6 +11,8 @@ namespace NBLD.Character
         public Transform minePlacementRoot;
         [Header("Flashlight Tool")]
         public FlashilightTool flashLightToolPrefab;
+        [Header("Wrench Tool")]
+        public WrenchTool wrenchToolPrefab;
         public CharTool CreateCharTool(CharToolType type)
         {
             CharTool tool;
@@ -25,6 +26,11 @@ namespace NBLD.Character
             {
                 FlashilightTool fTool = GameObject.Instantiate(flashLightToolPrefab);
                 tool = fTool;
+            }
+            else if (type == CharToolType.Wrench)
+            {
+                WrenchTool wTool = GameObject.Instantiate(wrenchToolPrefab);
+                tool = wTool;
             }
             else
             {

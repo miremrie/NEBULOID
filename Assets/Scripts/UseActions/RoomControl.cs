@@ -51,7 +51,7 @@ namespace NBLD.UseActions
             }
             else
             {
-                repairable.StartRepairing();
+                repairable.StartRepairing(behaviour.GetRepairSpeed());
             }
         }
 

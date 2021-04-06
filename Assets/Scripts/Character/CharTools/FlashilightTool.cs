@@ -26,6 +26,9 @@ namespace NBLD.Character
         private bool lightOn = false;
         private Timer dropoffTimer;
         public float ChargePercent => (CurrentCharge - minCharge) / (maxCharge - minCharge);
+
+        public override CharToolType GetCharToolType() => CharToolType.Flashlight;
+
         public override void Initialize()
         {
             base.Initialize();

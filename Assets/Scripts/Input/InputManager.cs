@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using GeneratedInputActions;
+using NBLD.Character;
 using NBLD.Data;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -101,6 +102,7 @@ namespace NBLD.Input
         public string devotionName = "";
         public string spiritName = "";
         public CharacterSkinData skin;
+        public CharToolType charToolType;
         public string CharacterName => $"{devotionName} {spiritName}";
         public int deviceIndex;
 
@@ -206,12 +208,13 @@ namespace NBLD.Input
             playerSelectControllers.Add(playerSelectController);*/
             OnDeviceRegistered?.Invoke(userDevice, gameplayInputManager, uiInputManager);
         }
-        private PlayerSessionData CreatePlayerWithDevice(int deviceIndex, CharacterSkinData skinData = null, string devotionName = "", string spiritName = "")
+        private PlayerSessionData CreatePlayerWithDevice(int deviceIndex, CharacterSkinData skinData = null, string devotionName = "", string spiritName = "", CharToolType charToolType = CharToolType.None)
         {
             PlayerSessionData playerSessionData = new PlayerSessionData(activePlayers.Count, deviceIndex, gameplayInputManagers[deviceIndex], playerUIInputManagers[deviceIndex]);
             playerSessionData.skin = skinData;
             playerSessionData.devotionName = devotionName;
             playerSessionData.spiritName = spiritName;
+            playerSessionData.charToolType = charToolType;
             activePlayers.Add(playerSessionData);
             OnPlayerRegistered?.Invoke(playerSessionData);
             return playerSessionData;
@@ -344,11 +347,11 @@ namespace NBLD.Input
             }
         }
         #region Players
-        public bool RegisterPlayer(int deviceIndex, CharacterSkinData skinData = null, string devotionName = null, string spiritName = null)
+        public bool RegisterPlayer(int deviceIndex, CharacterSkinData skinData = null, string devotionName = null, string spiritName = null, CharToolType charToolType = CharToolType.None)
         {
             if (deviceIndex.IsBetween(-1, userDevices.Count) && !IsDeviceUsed(deviceIndex))
             {
-                CreatePlayerWithDevice(deviceIndex, skinData, devotionName, spiritName);
+                CreatePlayerWithDevice(deviceIndex, skinData, devotionName, spiritName, charToolType);
                 return true;
             }
             return false;

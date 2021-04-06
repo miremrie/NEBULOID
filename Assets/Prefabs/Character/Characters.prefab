@@ -208,18 +208,22 @@ MonoBehaviour:
     characterSkinIndex: 0
     devotionNameIndex: 0
     spiritNameIndex: 0
+    charToolType: 2
   - deviceType: 0
     characterSkinIndex: 1
     devotionNameIndex: 1
     spiritNameIndex: 1
+    charToolType: 3
   - deviceType: 1
     characterSkinIndex: 0
     devotionNameIndex: 2
     spiritNameIndex: 2
+    charToolType: 0
   - deviceType: 1
     characterSkinIndex: 1
     devotionNameIndex: 3
     spiritNameIndex: 3
+    charToolType: 0
 --- !u!114 &585427652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,4 +281,6 @@ MonoBehaviour:
     type: 3}
   minePlacementRoot: {fileID: 0}
   flashLightToolPrefab: {fileID: 2735556030987380979, guid: d46edd441947adb49bdc486be2c284ef,
+    type: 3}
+  wrenchToolPrefab: {fileID: 880488323884905906, guid: af1cae3fca8b9934e8a41bdfcf8aceb8,
     type: 3}

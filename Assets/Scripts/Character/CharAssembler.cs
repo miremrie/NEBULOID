@@ -101,8 +101,11 @@ namespace NBLD.Character
             newChar.transform.parent = charactersRoot;
             newChar.Initialize(psData, spawnFloors[psData.playerIndex % spawnFloors.Count]);
             /* Attach Tool */
-            CharTool tool = charToolFactory.CreateCharTool(CharToolType.Flashlight);
-            newChar.EquipTool(tool);
+            if (psData.charToolType != CharToolType.None)
+            {
+                CharTool tool = charToolFactory.CreateCharTool(psData.charToolType);
+                newChar.EquipTool(tool);
+            }
             /* Cameras */
             contextCams[psData.playerIndex].SetFollowTarget(newChar.transform);
             contextCams[psData.playerIndex].Activate();

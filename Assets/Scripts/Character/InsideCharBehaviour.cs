@@ -28,7 +28,6 @@ namespace NBLD.Character
         public float idleBehaviourTriggerTime = 20f;
         private Timer idleBehaviourTimer;
 
-
         //Animation
         private const string moveAnimName = "Move";
         private const string moveVerAnimName = "MoveVer";

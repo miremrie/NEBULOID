@@ -46,6 +46,8 @@ namespace NBLD.Character
 
         [Header("States")]
         private CharState state;
+        [Header("Repair")]
+        public float baseRepairSpeed = 0.4f;
 
         [Header("Transition")]
         public float transitionSpeed;
@@ -517,6 +519,17 @@ namespace NBLD.Character
         public Vector3 GetLookDirection()
         {
             return activeBehaviour.GetLookDirection();
+        }
+        public float GetRepairSpeed()
+        {
+            if (hasEquipedTool && equipedTool.GetCharToolType() == CharToolType.Wrench)
+            {
+                return baseRepairSpeed * ((WrenchTool)equipedTool).GetRepairSpeedMultiplier();
+            }
+            else
+            {
+                return baseRepairSpeed;
+            }
         }
     }
 }

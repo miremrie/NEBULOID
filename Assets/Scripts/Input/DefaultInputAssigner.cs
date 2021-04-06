@@ -15,6 +15,7 @@ namespace NBLD.Input
             public int characterSkinIndex;
             public int devotionNameIndex;
             public int spiritNameIndex;
+            public CharToolType charToolType;
         }
         public CharAssembler charAssembler;
         public CharacterSkins characterSkins;
@@ -106,7 +107,8 @@ namespace NBLD.Input
                     var skin = characterSkins.GetSkinData(defaultDevicesExpected[i].characterSkinIndex);
                     var devotionName = characterNames.GetDevotionName(defaultDevicesExpected[i].devotionNameIndex);
                     var spiritName = characterNames.GetSpiritName(defaultDevicesExpected[i].spiritNameIndex);
-                    if (InputManager.Instance.RegisterPlayer(userDevice.deviceIndex, skin, devotionName, spiritName))
+                    var charToolType = defaultDevicesExpected[i].charToolType;
+                    if (InputManager.Instance.RegisterPlayer(userDevice.deviceIndex, skin, devotionName, spiritName, charToolType))
                     {
                         PlayerSessionData psData = InputManager.Instance.GetPlayerByDevice(userDevice.deviceIndex);
                         charAssembler.CreateCharacter(psData);
