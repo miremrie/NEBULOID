@@ -32,6 +32,8 @@ namespace NBLD.Character
         private Timer moveTimer;
         private Vector2 moveDirection;
         private Vector2 boostDirection;
+        private float overridenSpeedFactor;
+        private bool isSpeedOverriden = false;
         private bool isBoosting = false;
         private const float boostSFXPercentStop = 0.9f;
         public float haulingSpeedModifier = 0.5f;
@@ -125,9 +127,9 @@ namespace NBLD.Character
                 {
                     force = GetNormalMovement();
                 }
-                if (hauling)
+                if (isSpeedOverriden)
                 {
-                    force = force * haulingSpeedModifier;
+                    force = force * overridenSpeedFactor;
                 }
                 rb2D.AddForce(force);
                 rb2D.velocity = Vector2.ClampMagnitude(rb2D.velocity, maxMag);
@@ -166,6 +168,15 @@ namespace NBLD.Character
             }
         }
         //Actions
+        public void SetOverridenSpeedFactor(float overridenSpeedFactor)
+        {
+            isSpeedOverriden = true;
+            this.overridenSpeedFactor = overridenSpeedFactor;
+        }
+        public void ReleaseOverrideSpeed()
+        {
+            isSpeedOverriden = false;
+        }
         public override void ExecuteAction(UseAction action)
         {
             OutsideUseAction iuAction = (OutsideUseAction)action;
@@ -255,6 +266,7 @@ namespace NBLD.Character
             }
             currentlyHauling = haulObject;
             hauling = true;
+            SetOverridenSpeedFactor(haulingSpeedModifier);
         }
         public bool IsHauling()
         {
@@ -263,6 +275,7 @@ namespace NBLD.Character
         public void StopHauling()
         {
             hauling = false;
+            ReleaseOverrideSpeed();
         }
 
         #endregion
