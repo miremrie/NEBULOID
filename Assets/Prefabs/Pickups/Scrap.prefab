@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a431216fd11b704cba8062ad3d0236c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionButton: 0
+  actionButton: 1
   haulPivot: {fileID: 3625226370415963132}
   haulFollowSpeed: 30
   haulRotationSpeed: 2

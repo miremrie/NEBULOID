@@ -5,19 +5,24 @@ using UnityEngine;
 
 namespace NBLD.UseActions
 {
-    public class HaulUseAction : OutsideUseAction
+    public class HaulUseAction : UseAction
     {
         public Transform haulPivot;
         public float haulFollowSpeed = 30f;
         public float haulRotationSpeed = 2f;
+        public float haulOutsideSpeedFactor = 0.2f;
         bool hauling = false;
-        OutsideCharBehaviour hauler;
-        public override void DoAction(OutsideCharBehaviour behaviour)
+        CharController hauler;
+        public override bool AvailableForCharState(CharState charState)
+        {
+            return charState != CharState.Transition;
+        }
+        public override void DoAction(CharController user)
         {
             if (!hauling)
             {
                 hauling = true;
-                hauler = behaviour;
+                hauler = user;
             }
             else
             {
@@ -34,7 +39,7 @@ namespace NBLD.UseActions
 
                 newPivotPos.z = transform.position.z;
                 transform.position = transform.position + newPivotPos - haulPivot.position;
-                
+
                 float angle = Mathf.Atan2(delta.normalized.y, delta.normalized.x) * Mathf.Rad2Deg;
                 Quaternion targetRot = Quaternion.AngleAxis(angle, Vector3.forward);
                 transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, delta.magnitude * haulRotationSpeed * Time.deltaTime);

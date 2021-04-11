@@ -97,9 +97,11 @@ namespace NBLD.Character
 
         public virtual void ExecuteAction(UseAction action)
         {
+            action.DoAction(charController);
         }
         public virtual void DismissAction(UseAction action)
         {
+            action.OnExitAction(charController);
         }
         protected bool TryExecuteAction(UseActionButton button)
         {

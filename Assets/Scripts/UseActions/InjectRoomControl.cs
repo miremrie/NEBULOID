@@ -6,16 +6,19 @@ using UnityEngine;
 
 namespace NBLD.UseActions
 {
-    public class InjectRoomControl : OutsideUseAction
+    public class InjectRoomControl : UseAction
     {
         public ShipEjectSystem ejectSystem;
 
-        public override void DoAction(OutsideCharBehaviour behaviour)
+        public override bool AvailableForCharState(CharState charState)
         {
-            base.DoAction(behaviour);
+            return charState == CharState.Outside;
+        }
+        public override void DoAction(CharController user)
+        {
             if (ejectSystem.ReadyToInject())
             {
-                ejectSystem.InjectCharacter(behaviour);
+                ejectSystem.InjectCharacter(user);
             }
         }
     }

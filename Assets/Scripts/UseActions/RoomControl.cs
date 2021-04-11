@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace NBLD.UseActions
 {
-    public class RoomControl : InsideUseAction
+    public class RoomControl : UseAction
     {
         public Repairable repairable;
         public Animator roomAnimator;
@@ -14,6 +14,11 @@ namespace NBLD.UseActions
         public ShipSystem shipSystem;
         public bool hasAssignedSystem = false;
         private InsideCharBehaviour workingChar;
+
+        public override bool AvailableForCharState(CharState charState)
+        {
+            return charState == CharState.Inside;
+        }
 
 
         public void InitializeSystem(ShipSystem shipSystem)
@@ -41,27 +46,27 @@ namespace NBLD.UseActions
             }
         }
 
-        public override void DoAction(InsideCharBehaviour behaviour)
+        public override void DoAction(CharController user)
         {
-            workingChar = behaviour;
+            workingChar = user.insideBehaviour;
             if (hasAssignedSystem && repairable.IsRepaired() && shipSystem.ReadyToUse())
             {
                 roomAnimator.SetBool(activeAnimName, true);
-                shipSystem.DoAction(behaviour);
+                shipSystem.DoAction(workingChar);
             }
             else
             {
-                repairable.StartRepairing(behaviour.GetRepairSpeed());
+                repairable.StartRepairing(workingChar.GetRepairSpeed());
             }
         }
 
-        public override void OnExitAction(InsideCharBehaviour behaviour)
+        public override void OnExitAction(CharController user)
         {
-            if (hasAssignedSystem && workingChar == behaviour)
+            if (hasAssignedSystem && workingChar == user)
             {
                 workingChar = null;
                 repairable.StopRepairing();
-                shipSystem.OnExitAction(behaviour);
+                shipSystem.OnExitAction(user);
             }
         }
     }

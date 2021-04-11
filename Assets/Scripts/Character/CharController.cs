@@ -72,6 +72,8 @@ namespace NBLD.Character
         private bool CanRecieveInput => !inTransition && state != CharState.Dead;
         private bool initialized = false;
         private bool subscribed = false;
+        private bool isHauling = false;
+        private HaulUseAction currentlyHauling;
 
 
         //Actions
@@ -224,7 +226,7 @@ namespace NBLD.Character
         public virtual bool CheckIfActionAvailable(UseActionButton useButton)
         {
             return availableActions.ContainsKey(useButton)
-                && availableActions[useButton].AvailableForCharState() == state;
+                && availableActions[useButton].AvailableForCharState(state);
         }
         /*public virtual void CheckThenExecuteAction(UseActionButton useButton)
         {
@@ -390,7 +392,7 @@ namespace NBLD.Character
             if (col.tag == Tags.ACTION_OBJECT)
             {
                 UseAction newControl = col.gameObject.GetComponent<UseAction>();
-                if (newControl.AvailableForCharState() == state)
+                if (newControl.AvailableForCharState(state))
                 {
                     if (availableActions.ContainsKey(newControl.actionButton))
                     {
@@ -409,7 +411,7 @@ namespace NBLD.Character
             if (col.tag == Tags.ACTION_OBJECT)
             {
                 UseAction leavingActionControl = col.gameObject.GetComponent<UseAction>();
-                if (leavingActionControl.AvailableForCharState() == state)
+                if (leavingActionControl.AvailableForCharState(state))
                 {
                     if (availableActions.ContainsKey(leavingActionControl.actionButton))
                     {
@@ -531,5 +533,30 @@ namespace NBLD.Character
                 return baseRepairSpeed;
             }
         }
+        #region Hauling
+        public void SetHauling(HaulUseAction haulObject)
+        {
+            if (IsHauling())
+            {
+                currentlyHauling.StopHauling();
+            }
+            currentlyHauling = haulObject;
+            isHauling = true;
+            if (state == CharState.Outside)
+            {
+                outsideBehaviour.SetOverridenSpeedFactor(currentlyHauling.haulOutsideSpeedFactor);
+            }
+        }
+        public bool IsHauling()
+        {
+            return isHauling;
+        }
+        public void StopHauling()
+        {
+            isHauling = false;
+            outsideBehaviour.ReleaseOverrideSpeed();
+        }
+
+        #endregion
     }
 }

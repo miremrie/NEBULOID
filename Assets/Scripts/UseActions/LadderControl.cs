@@ -5,14 +5,18 @@ using UnityEngine;
 
 namespace NBLD.UseActions
 {
-    public class LadderControl : InsideUseAction
+    public class LadderControl : UseAction
     {
         public int destinationFloor;
         public Transform destination;
 
-        public override void DoAction(InsideCharBehaviour controller)
+        public override bool AvailableForCharState(CharState charState)
         {
-            controller.TransportToFloor(destinationFloor, destination);
+            return charState == CharState.Inside;
+        }
+        public override void DoAction(CharController user)
+        {
+            user.insideBehaviour.TransportToFloor(destinationFloor, destination);
         }
     }
 }

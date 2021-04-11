@@ -158,16 +158,7 @@ namespace NBLD.Character
         }
 
         //Actions
-        public override void ExecuteAction(UseAction action)
-        {
-            InsideUseAction iuAction = (InsideUseAction)action;
-            iuAction.DoAction(this);
-        }
-        public override void DismissAction(UseAction action)
-        {
-            InsideUseAction iuAction = (InsideUseAction)action;
-            iuAction.OnExitAction(this);
-        }
+
 
         //Events
         public override void OnMovement(Vector2 movement)

@@ -54,7 +54,7 @@ namespace NBLD.Ship
         {
             return cooldownTimer.IsTimerDone();
         }
-        public virtual void OnExitAction(CharBehaviour charBehaviour)
+        public virtual void OnExitAction(CharController charController)
         {
 
         }

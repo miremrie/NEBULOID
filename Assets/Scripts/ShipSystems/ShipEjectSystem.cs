@@ -65,11 +65,11 @@ namespace NBLD.Ship
             hoseAnimator.endFollow = outsideChar.outsideBehaviour.hoseAttachSpot;
         }
 
-        public void InjectCharacter(CharBehaviour charBehaviour)
+        public void InjectCharacter(CharController charController)
         {
             if (ReadyToInject())
             {
-                if (charBehaviour.charController == outsideChar)
+                if (charController == outsideChar)
                 {
                     occupied = false;
                     pullTowardsStarted = false;
@@ -88,9 +88,9 @@ namespace NBLD.Ship
             }
         }
 
-        public override void OnExitAction(CharBehaviour charBehaviour)
+        public override void OnExitAction(CharController charController)
         {
-            base.OnExitAction(charBehaviour);
+            base.OnExitAction(charController);
             StopPullTowards();
         }
         private void StopPullTowards()

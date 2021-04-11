@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace NBLD.UseActions
 {
-    public class GarageButtonUseAction : OutsideUseAction
+    public class GarageButtonUseAction : UseAction
     {
         public GarageArea garageArea;
         public Animator buttonAnimator;
@@ -14,6 +14,10 @@ namespace NBLD.UseActions
         private const string clickedButtonAnimKey = "ButtonClicked";
         private bool subscribed = false;
         private bool garageAvailable = false;
+        public override bool AvailableForCharState(CharState charState)
+        {
+            return charState == CharState.Outside;
+        }
 
         private void Subscribe()
         {
@@ -39,11 +43,7 @@ namespace NBLD.UseActions
         {
             Unsubscribe();
         }
-        public override CharState AvailableForCharState()
-        {
-            return CharState.Outside;
-        }
-        public override void DoAction(OutsideCharBehaviour behaviour)
+        public override void DoAction(CharController user)
         {
             if (garageAvailable)
             {

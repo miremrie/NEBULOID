@@ -36,9 +36,7 @@ namespace NBLD.Character
         private bool isSpeedOverriden = false;
         private bool isBoosting = false;
         private const float boostSFXPercentStop = 0.9f;
-        public float haulingSpeedModifier = 0.5f;
-        private bool hauling;
-        private HaulUseAction currentlyHauling;
+
         [Header("Oxygen")]
         public MaskedSlider oxygenSlider;
         public Oxygen oxygen;
@@ -177,16 +175,6 @@ namespace NBLD.Character
         {
             isSpeedOverriden = false;
         }
-        public override void ExecuteAction(UseAction action)
-        {
-            OutsideUseAction iuAction = (OutsideUseAction)action;
-            iuAction.DoAction(this);
-        }
-        public override void DismissAction(UseAction action)
-        {
-            OutsideUseAction iuAction = (OutsideUseAction)action;
-            iuAction.OnExitAction(this);
-        }
         //Events
         public override void OnMovement(Vector2 movement)
         {
@@ -218,6 +206,14 @@ namespace NBLD.Character
                 {
                     charController.ActivateTool();
                 }
+            }
+        }
+        public override void OnSubAction()
+        {
+            base.OnSubAction();
+            if (TryExecuteAction(UseActionButton.SubAction))
+            {
+                //Action succeeded
             }
         }
 
@@ -256,28 +252,6 @@ namespace NBLD.Character
         {
             charController.Die();
         }
-        #endregion
-        #region Hauling
-        public void SetHauling(HaulUseAction haulObject)
-        {
-            if (IsHauling())
-            {
-                currentlyHauling.StopHauling();
-            }
-            currentlyHauling = haulObject;
-            hauling = true;
-            SetOverridenSpeedFactor(haulingSpeedModifier);
-        }
-        public bool IsHauling()
-        {
-            return hauling;
-        }
-        public void StopHauling()
-        {
-            hauling = false;
-            ReleaseOverrideSpeed();
-        }
-
         #endregion
     }
 
