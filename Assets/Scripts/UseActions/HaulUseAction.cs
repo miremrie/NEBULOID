@@ -7,12 +7,23 @@ namespace NBLD.UseActions
 {
     public class HaulUseAction : UseAction
     {
+        public Vector2 insideOffset;
         public Transform haulPivot;
         public float haulFollowSpeed = 30f;
         public float haulRotationSpeed = 2f;
         public float haulOutsideSpeedFactor = 0.2f;
+        [Header("State Based")]
+        public List<GameObject> activeOutside;
+        public List<GameObject> activeInside;
+        public Vector3 outsideScale = Vector3.one;
+        public Vector3 insideScale;
         bool hauling = false;
         CharController hauler;
+        private bool isInsideShip = false;
+        private void Start()
+        {
+            UpdateStateBasedObjects();
+        }
         public override bool AvailableForCharState(CharState charState)
         {
             return charState != CharState.Transition;
@@ -23,6 +34,7 @@ namespace NBLD.UseActions
             {
                 hauling = true;
                 hauler = user;
+                user.SetHauling(this);
             }
             else
             {
@@ -34,16 +46,49 @@ namespace NBLD.UseActions
         {
             if (hauling)
             {
-                Vector3 newPivotPos = Vector3.Lerp(haulPivot.position, hauler.transform.position, haulFollowSpeed * Time.deltaTime);
-                Vector3 delta = newPivotPos - haulPivot.position;
+                if (!isInsideShip)
+                {
+                    Vector3 newPivotPos = Vector3.Lerp(haulPivot.position, hauler.transform.position, haulFollowSpeed * Time.deltaTime);
+                    Vector3 delta = newPivotPos - haulPivot.position;
 
-                newPivotPos.z = transform.position.z;
-                transform.position = transform.position + newPivotPos - haulPivot.position;
+                    newPivotPos.z = transform.position.z;
+                    transform.position = transform.position + newPivotPos - haulPivot.position;
 
-                float angle = Mathf.Atan2(delta.normalized.y, delta.normalized.x) * Mathf.Rad2Deg;
-                Quaternion targetRot = Quaternion.AngleAxis(angle, Vector3.forward);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, delta.magnitude * haulRotationSpeed * Time.deltaTime);
+                    float angle = Mathf.Atan2(delta.normalized.y, delta.normalized.x) * Mathf.Rad2Deg;
+                    Quaternion targetRot = Quaternion.AngleAxis(angle, Vector3.forward);
+                    transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, delta.magnitude * haulRotationSpeed * Time.deltaTime);
+                }
+                else
+                {
+                    Vector2 lookDir = hauler.GetLookDirection();
+                    transform.position = hauler.transform.position + new Vector3(insideOffset.x * lookDir.x, insideOffset.y, 0);
+                }
             }
+        }
+
+        public void ChangeInsideShipState(bool isInsideShip)
+        {
+            if (this.isInsideShip != isInsideShip)
+            {
+                transform.rotation = Quaternion.identity;
+                //transform.position = hauler.transform.position + insideOffset;
+            }
+            Debug.Log($"Is inside {isInsideShip}");
+            this.isInsideShip = isInsideShip;
+            UpdateStateBasedObjects();
+        }
+        private void UpdateStateBasedObjects()
+        {
+            foreach (var obj in activeInside)
+            {
+                obj.SetActive(isInsideShip);
+            }
+            foreach (var obj in activeOutside)
+            {
+                obj.SetActive(!isInsideShip);
+            }
+            transform.localScale = (isInsideShip) ? insideScale : outsideScale;
+
         }
 
         public void StopHauling()

@@ -264,6 +264,10 @@ namespace NBLD.Character
             if (clearActions)
             {
                 availableActions.Clear();
+                if (IsHauling())
+                {
+                    availableActions.Add(currentlyHauling.actionButton, currentlyHauling);
+                }
             }
             /*if (newState == CharacterState.Inside)
             {
@@ -297,6 +301,10 @@ namespace NBLD.Character
             characterPivot.localPosition = Vector3.zero;
             ChangeState(transitionNewState);
             activeBehaviour.EnableCollisions();
+            if (IsHauling())
+            {
+                currentlyHauling.ChangeInsideShipState(state == CharState.Inside);
+            }
         }
         private void UpdateTransitionStartPos()
         {

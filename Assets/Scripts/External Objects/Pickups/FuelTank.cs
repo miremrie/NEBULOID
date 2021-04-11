@@ -9,11 +9,11 @@ namespace NBLD.Pickups
 
         void OnTriggerEnter2D(Collider2D col)
         {
-            if (col.tag == Tags.SHIP_BODY)
+            /*if (col.tag == Tags.SHIP_BODY)
             {
                 col.GetComponentInParent<ShipStatus>().FuelCollected(this);
                 Destroy(this.gameObject);
-            }
+            }*/
         }
     }
 }
