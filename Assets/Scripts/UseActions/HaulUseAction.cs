@@ -7,6 +7,7 @@ namespace NBLD.UseActions
 {
     public class HaulUseAction : UseAction
     {
+        public List<UseAction> attachedActions = new List<UseAction>();
         public Vector2 insideOffset;
         public Transform haulPivot;
         public float haulFollowSpeed = 30f;
@@ -20,13 +21,17 @@ namespace NBLD.UseActions
         bool hauling = false;
         CharController hauler;
         private bool isInsideShip = false;
+        public bool IsInsideShip => isInsideShip;
+
+
+
         private void Start()
         {
             UpdateStateBasedObjects();
         }
         public override bool AvailableForCharState(CharState charState)
         {
-            return charState != CharState.Transition;
+            return ((isInsideShip && charState == CharState.Inside) || (!isInsideShip && charState == CharState.Outside));
         }
         public override void DoAction(CharController user)
         {
@@ -73,7 +78,6 @@ namespace NBLD.UseActions
                 transform.rotation = Quaternion.identity;
                 //transform.position = hauler.transform.position + insideOffset;
             }
-            Debug.Log($"Is inside {isInsideShip}");
             this.isInsideShip = isInsideShip;
             UpdateStateBasedObjects();
         }
@@ -95,6 +99,12 @@ namespace NBLD.UseActions
         {
             hauling = false;
             hauler.StopHauling();
+        }
+
+        public bool IsBeingHauled() => hauling;
+        public CharController GetHauler()
+        {
+            return (hauling) ? hauler : null;
         }
 
     }

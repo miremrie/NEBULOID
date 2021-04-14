@@ -79,7 +79,7 @@ namespace NBLD.Ship
             }
         }
 
-        public void FuelCollected(Pickups.FuelTank fuel)
+        public void FuelCollected()
         {
             audioController.StartFuelRefill();
             shipFuel.FillUp();

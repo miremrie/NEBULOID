@@ -254,11 +254,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3490937264417153573}
-  - component: {fileID: 1459287202434993443}
+  - component: {fileID: 6227865239737027083}
+  - component: {fileID: 7996722282725115404}
   - component: {fileID: 280697532}
   - component: {fileID: 6466331865063116474}
   - component: {fileID: 7148642170162503608}
-  - component: {fileID: 7996722282725115404}
   - component: {fileID: 1782311680237451839}
   m_Layer: 9
   m_Name: Fuel
@@ -284,7 +284,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1459287202434993443
+--- !u!114 &6227865239737027083
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -293,9 +293,37 @@ MonoBehaviour:
   m_GameObject: {fileID: 4995334173378671739}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91e1cded8a7ae4f4fa272bbde76eb680, type: 3}
+  m_Script: {fileID: 11500000, guid: 7e1775d490ceb124fbef186556af944b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionButton: 0
+  haulUseAction: {fileID: 7996722282725115404}
+--- !u!114 &7996722282725115404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4995334173378671739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a431216fd11b704cba8062ad3d0236c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionButton: 1
+  attachedActions:
+  - {fileID: 6227865239737027083}
+  insideOffset: {x: 0.252, y: 0.369}
+  haulPivot: {fileID: 1236434644567613952}
+  haulFollowSpeed: 30
+  haulRotationSpeed: 2
+  haulOutsideSpeedFactor: 0.2
+  activeOutside:
+  - {fileID: 463782579196422360}
+  activeInside:
+  - {fileID: 4624287100832431566}
+  outsideScale: {x: 1, y: 1, z: 1}
+  insideScale: {x: 0.3, y: 0.3, z: 0.3}
 --- !u!50 &280697532
 Rigidbody2D:
   serializedVersion: 4
@@ -348,30 +376,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7996722282725115404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4995334173378671739}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a431216fd11b704cba8062ad3d0236c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  actionButton: 1
-  insideOffset: {x: 0.252, y: 0.369}
-  haulPivot: {fileID: 1236434644567613952}
-  haulFollowSpeed: 30
-  haulRotationSpeed: 2
-  haulOutsideSpeedFactor: 0.2
-  activeOutside:
-  - {fileID: 463782579196422360}
-  activeInside:
-  - {fileID: 4624287100832431566}
-  outsideScale: {x: 1, y: 1, z: 1}
-  insideScale: {x: 0.3, y: 0.3, z: 0.3}
 --- !u!61 &1782311680237451839
 BoxCollider2D:
   m_ObjectHideFlags: 0

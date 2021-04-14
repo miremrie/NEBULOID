@@ -185,6 +185,14 @@ namespace NBLD.Character
                 ResetIdleBehaviour();
             }
         }
+        public override void OnSubAction()
+        {
+            base.OnSubAction();
+            if (TryExecuteAction(UseActionButton.SubAction))
+            {
+                //Action executed;
+            }
+        }
         public override void OnUp()
         {
             base.OnUp();
