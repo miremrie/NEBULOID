@@ -201,6 +201,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1375174711326534617}
+  - component: {fileID: 2787704446305292816}
   - component: {fileID: 5592844441359339504}
   - component: {fileID: 2551244036028420928}
   - component: {fileID: 3864311499499966104}
@@ -228,6 +229,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2787704446305292816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7364840155446721927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb835bb441bd5ff469e7d6f8cc408e85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionButton: 0
+  overridePriority: 0
+  overridenPriority: 0
+  campaignLevel: {fileID: 0}
+  systemName: 6
+  haulUseAction: {fileID: 5592844441359339504}
 --- !u!114 &5592844441359339504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,7 +260,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionButton: 1
-  attachedActions: []
+  overridePriority: 0
+  overridenPriority: 0
+  attachedActions:
+  - {fileID: 2787704446305292816}
   insideOffset: {x: 0.252, y: 0.369}
   haulPivot: {fileID: 3625226370415963132}
   haulFollowSpeed: 30

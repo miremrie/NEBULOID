@@ -9,10 +9,11 @@ namespace NBLD.UseActions
     public class InjectRoomControl : UseAction
     {
         public ShipEjectSystem ejectSystem;
+        public override int DefaultActionPriority => 80;
 
-        public override bool AvailableForCharState(CharState charState)
+        public override bool AvailableForChar(CharController charController)
         {
-            return charState == CharState.Outside;
+            return charController.GetState() == CharState.Outside;
         }
         public override void DoAction(CharController user)
         {

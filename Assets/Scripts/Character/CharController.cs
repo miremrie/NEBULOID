@@ -77,7 +77,7 @@ namespace NBLD.Character
 
 
         //Actions
-        protected Dictionary<UseActionButton, UseAction> availableActions = new Dictionary<UseActionButton, UseAction>();
+        protected Dictionary<UseActionButton, List<UseAction>> availableActions = new Dictionary<UseActionButton, List<UseAction>>();
 
         public void Initialize(PlayerSessionData playerSessionData, int startingFloor)
         {
@@ -94,7 +94,8 @@ namespace NBLD.Character
             ChangeState(CharState.Inside);
             charAudio.SetEnvironmentBasedOnFloor(startingFloor);
             animator.keepAnimatorControllerStateOnDisable = true;
-
+            //Initialize Actions
+            availableActions = new Dictionary<UseActionButton, List<UseAction>>();
             Subscribe();
         }
         private void SetGameplayInputActive()
@@ -212,9 +213,24 @@ namespace NBLD.Character
         //Actions
         public bool TryGetAction(UseActionButton useButton, out UseAction action)
         {
-            if (CheckIfActionAvailable(useButton))
+            int maxPriority = int.MinValue;
+            int maxPriorityActionIndex = -1;
+            if (availableActions.ContainsKey(useButton))
             {
-                action = availableActions[useButton];
+                for (int i = 0; i < availableActions[useButton].Count; i++)
+                {
+                    var curAction = availableActions[useButton][i];
+                    if (curAction.AvailableForChar(this) && curAction.Priority > maxPriority)
+                    {
+                        //action = availableActions[useButton][i];
+                        maxPriorityActionIndex = i;
+                        maxPriority = curAction.Priority;
+                    }
+                }
+            }
+            if (maxPriorityActionIndex != -1)
+            {
+                action = availableActions[useButton][maxPriorityActionIndex];
                 return true;
             }
             else
@@ -223,20 +239,31 @@ namespace NBLD.Character
                 return false;
             }
         }
-        public virtual bool CheckIfActionAvailable(UseActionButton useButton)
-        {
-            return availableActions.ContainsKey(useButton)
-                && availableActions[useButton].AvailableForCharState(state);
-        }
         private void AddAction(UseAction action)
+        {
+            if (!availableActions.ContainsKey(action.actionButton))
+            {
+                availableActions.Add(action.actionButton, new List<UseAction>());
+            }
+            if (!availableActions[action.actionButton].Contains(action))
+            {
+                availableActions[action.actionButton].Add(action);
+            }
+        }
+        private bool RemoveAction(UseAction action)
         {
             if (availableActions.ContainsKey(action.actionButton))
             {
-                availableActions[action.actionButton] = action;
+                return availableActions[action.actionButton].Remove(action);
             }
-            else
+            return false;
+        }
+        public void RemoveDestroyedAction(UseAction action)
+        {
+            bool removed = RemoveAction(action);
+            if (isHauling && action == currentlyHauling)
             {
-                availableActions.Add(action.actionButton, action);
+                ship.RemoveDependentTransform(action.transform);
             }
         }
         /*public virtual void CheckThenExecuteAction(UseActionButton useButton)
@@ -396,7 +423,7 @@ namespace NBLD.Character
                     FinishTransition();
                     /*if (transitionMinOffset >= Vector3.Distance(transform.position, transitionDst.position))
                     {
-                        
+
                         transform.position = transitionDst.position;
                         /*if (transitionNewState == CharacterState.Outside)
                         {
@@ -425,7 +452,7 @@ namespace NBLD.Character
                 for (int i = 0; i < newControls.Length; i++)
                 {
                     var newControl = newControls[i];
-                    if (newControl.AvailableForCharState(state))
+                    if (newControl.AvailableForChar(this))
                     {
                         AddAction(newControl);
                     }
@@ -437,15 +464,17 @@ namespace NBLD.Character
         {
             if (col.tag == Tags.ACTION_OBJECT)
             {
-                UseAction leavingActionControl = col.gameObject.GetComponent<UseAction>();
-                if (leavingActionControl.AvailableForCharState(state))
+                UseAction[] leavingActions = col.gameObject.GetComponents<UseAction>();
+                for (int i = 0; i < leavingActions.Length; i++)
                 {
-                    if (availableActions.ContainsKey(leavingActionControl.actionButton) && availableActions[leavingActionControl.actionButton] == leavingActionControl)
+                    var leavingAction = leavingActions[i];
+                    if (RemoveAction(leavingAction))
                     {
-                        activeBehaviour.DismissAction(availableActions[leavingActionControl.actionButton]);
-                        availableActions.Remove(leavingActionControl.actionButton);
+                        activeBehaviour.DismissAction(leavingAction);
                     }
                 }
+
+
             }
         }
 

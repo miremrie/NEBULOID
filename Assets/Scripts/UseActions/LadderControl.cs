@@ -9,10 +9,11 @@ namespace NBLD.UseActions
     {
         public int destinationFloor;
         public Transform destination;
+        public override int DefaultActionPriority => 60;
 
-        public override bool AvailableForCharState(CharState charState)
+        public override bool AvailableForChar(CharController charController)
         {
-            return charState == CharState.Inside;
+            return charController.GetState() == CharState.Inside;
         }
         public override void DoAction(CharController user)
         {

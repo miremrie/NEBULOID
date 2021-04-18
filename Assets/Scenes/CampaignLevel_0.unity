@@ -2494,6 +2494,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionButton: 0
+  overridePriority: 0
+  overridenPriority: 0
   garageArea: {fileID: 1975312627}
   buttonAnimator: {fileID: 754544184}
 --- !u!61 &754544186
@@ -4088,7 +4090,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19a77fec481fb0e44b16d8b87e386a34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  campaignGame: {fileID: 538758064}
+  campaignLevel: {fileID: 0}
   garageAvailable: 1
   garageMaxUses: 1
   timeUntilEnter: 2
@@ -4894,6 +4896,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2787704446305292816, guid: aea49805a05cf4f46aaf5f69eeb4ab3b,
+        type: 3}
+      propertyPath: campaignLevel
+      value: 
+      objectReference: {fileID: 538758064}
     - target: {fileID: 7364840155446721927, guid: aea49805a05cf4f46aaf5f69eeb4ab3b,
         type: 3}
       propertyPath: m_Name

@@ -8,7 +8,7 @@ namespace NBLD.ExteriorObjects
 {
     public class GarageArea : MonoBehaviour
     {
-        public CampaignGame campaignGame;
+        public CampaignLevel campaignLevel;
         [SerializeField]
         private bool garageAvailable = true;
         public int garageMaxUses = 1;
@@ -189,7 +189,7 @@ namespace NBLD.ExteriorObjects
                 {
                     OnGarageAreaStateChanged?.Invoke();
                 }
-                campaignGame.EnterGarage();
+                campaignLevel.EnterGarage();
             }
         }
     }

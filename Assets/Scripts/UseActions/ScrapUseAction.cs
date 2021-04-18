@@ -1,15 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using NBLD.Character;
-using NBLD.Ship;
 using UnityEngine;
 
 namespace NBLD.UseActions
 {
-    public class FuelUseAction : UseAction
+    public class ScrapUseAction : UseAction
     {
+        public CampaignLevel campaignLevel;
+        public SystemName systemName;
         public HaulUseAction haulUseAction;
+
         public override int DefaultActionPriority => 100;
+
         public override bool AvailableForChar(CharController charController)
         {
             return haulUseAction.IsInsideShip && charController.GetState() == CharState.Inside && haulUseAction.IsBeingHauled() && haulUseAction.GetHauler() == charController;
@@ -21,13 +24,13 @@ namespace NBLD.UseActions
             {
                 if (user == haulUseAction.GetHauler())
                 {
-
-                    user.ship.GetComponent<ShipStatus>().FuelCollected();
+                    user.ship.GetComponent<ShipAssembler>().AddAvailableSystem(systemName);
                     user.RemoveDestroyedAction(this);
                     Destroy(this.gameObject);
+                    campaignLevel.EnterGarage();
                 }
             }
         }
     }
-}
 
+}

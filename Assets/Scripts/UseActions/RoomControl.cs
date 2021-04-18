@@ -15,9 +15,11 @@ namespace NBLD.UseActions
         public bool hasAssignedSystem = false;
         private InsideCharBehaviour workingChar;
 
-        public override bool AvailableForCharState(CharState charState)
+        public override int DefaultActionPriority { get => 80; }
+
+        public override bool AvailableForChar(CharController charController)
         {
-            return charState == CharState.Inside;
+            return charController.GetState() == CharState.Inside;
         }
 
 

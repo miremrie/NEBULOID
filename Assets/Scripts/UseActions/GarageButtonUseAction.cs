@@ -14,9 +14,10 @@ namespace NBLD.UseActions
         private const string clickedButtonAnimKey = "ButtonClicked";
         private bool subscribed = false;
         private bool garageAvailable = false;
-        public override bool AvailableForCharState(CharState charState)
+        public override int DefaultActionPriority => 60;
+        public override bool AvailableForChar(CharController charController)
         {
-            return charState == CharState.Outside;
+            return charController.GetState() == CharState.Outside;
         }
 
         private void Subscribe()

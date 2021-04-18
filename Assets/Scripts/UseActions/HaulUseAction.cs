@@ -23,15 +23,16 @@ namespace NBLD.UseActions
         private bool isInsideShip = false;
         public bool IsInsideShip => isInsideShip;
 
+        public override int DefaultActionPriority => 90;
 
 
         private void Start()
         {
             UpdateStateBasedObjects();
         }
-        public override bool AvailableForCharState(CharState charState)
+        public override bool AvailableForChar(CharController charController)
         {
-            return ((isInsideShip && charState == CharState.Inside) || (!isInsideShip && charState == CharState.Outside));
+            return ((isInsideShip && charController.GetState() == CharState.Inside) || (!isInsideShip && charController.GetState() == CharState.Outside));
         }
         public override void DoAction(CharController user)
         {
@@ -99,6 +100,15 @@ namespace NBLD.UseActions
         {
             hauling = false;
             hauler.StopHauling();
+        }
+
+        private void OnDestroy()
+        {
+            if (IsBeingHauled())
+            {
+                hauler.RemoveDestroyedAction(this);
+                StopHauling();
+            }
         }
 
         public bool IsBeingHauled() => hauling;

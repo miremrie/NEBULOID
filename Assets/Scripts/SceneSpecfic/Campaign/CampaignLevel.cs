@@ -8,7 +8,7 @@ public enum GameState
 {
     Gameplay, Garage
 }
-public class CampaignGame : MonoBehaviour
+public class CampaignLevel : MonoBehaviour
 {
     public GameState currentState;
     public ShipCreator shipCreator;

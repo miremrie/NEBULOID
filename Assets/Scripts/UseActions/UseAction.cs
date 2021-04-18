@@ -8,7 +8,13 @@ namespace NBLD.UseActions
     public abstract class UseAction : MonoBehaviour
     {
         public UseActionButton actionButton;
-        public abstract bool AvailableForCharState(CharState charState);
+        [Header("Priority")]
+        public bool overridePriority = false;
+        public int overridenPriority = 0;
+        public int Priority => (overridePriority) ? overridenPriority : DefaultActionPriority;
+        public virtual int DefaultActionPriority { get; }
+
+        public abstract bool AvailableForChar(CharController charController);
 
         public abstract void DoAction(CharController user);
 
