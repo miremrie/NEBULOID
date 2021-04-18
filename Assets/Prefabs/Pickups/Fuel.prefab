@@ -151,7 +151,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1913125777
   m_SortingLayer: 1
-  m_SortingOrder: 1
+  m_SortingOrder: 161
   m_Sprite: {fileID: 21300000, guid: d5e3e681dd335ba46aa78dda95b4d016, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -233,7 +233,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1913125777
   m_SortingLayer: 1
-  m_SortingOrder: 150
+  m_SortingOrder: 160
   m_Sprite: {fileID: 21300000, guid: 62bab728795a6dd48aa623cacd6cb3a6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -297,6 +297,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionButton: 0
+  overridePriority: 0
+  overridenPriority: 0
   haulUseAction: {fileID: 7996722282725115404}
 --- !u!114 &7996722282725115404
 MonoBehaviour:
@@ -311,6 +313,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionButton: 1
+  overridePriority: 0
+  overridenPriority: 0
   attachedActions:
   - {fileID: 6227865239737027083}
   insideOffset: {x: 0.252, y: 0.369}

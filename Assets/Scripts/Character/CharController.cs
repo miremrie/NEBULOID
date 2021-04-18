@@ -452,10 +452,7 @@ namespace NBLD.Character
                 for (int i = 0; i < newControls.Length; i++)
                 {
                     var newControl = newControls[i];
-                    if (newControl.AvailableForChar(this))
-                    {
-                        AddAction(newControl);
-                    }
+                    AddAction(newControl);
                 }
             }
         }

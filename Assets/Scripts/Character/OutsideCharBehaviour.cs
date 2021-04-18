@@ -76,6 +76,11 @@ namespace NBLD.Character
             base.Deactivate();
             oxygenSlider.gameObject.SetActive(false);
             boostVFX.SetActive(false);
+            if (isBoosting)
+            {
+                isBoosting = false;
+                charAudio.PlayJetpackStop();
+            }
             //exteriorContextCamera.Deactivate();
         }
         protected override void BehaviourUpdate()
