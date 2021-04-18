@@ -17,6 +17,7 @@ namespace NBLD.MainMenu
         public BaseUIComponent[] activeUIElements;
         public SingleOptionSelectImage skinOptionSelect;
         public SingleOptionSelectText devotionNameOptionSelect, spiritNameOptionSelect;
+        public SingleOptionSelectText toolOptionSelect;
         public int currentlySelectedElement = 0;
         public GameObject playerReadyObject;
         public Audio.UIAudioController audioController;
@@ -79,6 +80,7 @@ namespace NBLD.MainMenu
                 skinOptionSelect.OnSelectionChanged += OnSkinSelectChanged;
                 devotionNameOptionSelect.OnSelectionChanged += OnDevotionSelectChanged;
                 spiritNameOptionSelect.OnSelectionChanged += OnSpiritSelectChanged;
+                toolOptionSelect.OnSelectionChanged += OnToolSelectChanged;
             }
 
         }
@@ -90,6 +92,7 @@ namespace NBLD.MainMenu
                 skinOptionSelect.OnSelectionChanged -= OnSkinSelectChanged;
                 devotionNameOptionSelect.OnSelectionChanged -= OnDevotionSelectChanged;
                 spiritNameOptionSelect.OnSelectionChanged -= OnSpiritSelectChanged;
+                toolOptionSelect.OnSelectionChanged -= OnToolSelectChanged;
             }
 
         }
@@ -140,6 +143,11 @@ namespace NBLD.MainMenu
             characterSelectScreen.ChangeSpiritName(playerIndex, step);
             audioController.PlayHover();
         }
+        private void OnToolSelectChanged(int step)
+        {
+            characterSelectScreen.ChangeTool(playerIndex, step);
+            audioController.PlayHover();
+        }
         #endregion
 
         public void UpdatePanel(SelectScreenPlayerData playerData)
@@ -148,6 +156,8 @@ namespace NBLD.MainMenu
             devotionNameOptionSelect.UpdateText(devotionName);
             string spiritName = characterSelectScreen.characterNames.GetSpiritName(playerData.spiritNameIndex);
             spiritNameOptionSelect.UpdateText(spiritName);
+            string toolName = playerData.charTool.ToString();
+            toolOptionSelect.UpdateText(toolName);
             CharacterSkinData skinData = characterSelectScreen.characterSkins.GetSkinData(playerData.skinIndex);
             skinOptionSelect.UpdateImage(skinData.defaultImage);
             playerReadyObject.SetActive(playerData.playerReady);

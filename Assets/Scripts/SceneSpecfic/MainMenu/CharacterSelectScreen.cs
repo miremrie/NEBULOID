@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using NBLD.Input;
 using NBLD.Data;
+using NBLD.Character;
 
 namespace NBLD.MainMenu
 {
@@ -12,6 +13,7 @@ namespace NBLD.MainMenu
         public int skinIndex;
         public int devotionNameIndex;
         public int spiritNameIndex;
+        public CharToolType charTool;
         public bool playerActive = false;
         public bool playerReady = false;
 
@@ -21,6 +23,7 @@ namespace NBLD.MainMenu
             this.skinIndex = ssPlayerData.skinIndex;
             this.devotionNameIndex = ssPlayerData.devotionNameIndex;
             this.spiritNameIndex = ssPlayerData.spiritNameIndex;
+            this.charTool = ssPlayerData.charTool;
             this.playerActive = ssPlayerData.playerActive;
             this.playerReady = ssPlayerData.playerReady;
         }
@@ -144,6 +147,7 @@ namespace NBLD.MainMenu
             ssPlayerData.playerReady = false;
             AssignRandomNames(ssPlayerData);
             AssignRandomSkin(ssPlayerData);
+            AssignRandomTool(ssPlayerData);
             csPanels[playerSessionData.playerIndex].Activate(playerSessionData.playerIndex, playerSessionData.uiInputManager);
             audioController.PlayEnter();
         }
@@ -246,6 +250,12 @@ namespace NBLD.MainMenu
             playerData.skinIndex = skinIndex;
             csPanels[playerData.playerSessionData.playerIndex].UpdatePanel(playerData);
         }
+        private void AssignRandomTool(SelectScreenPlayerData playerData)
+        {
+            int toolIndex = Random.Range(1, System.Enum.GetNames(typeof(CharToolType)).Length);
+            playerData.charTool = (CharToolType)toolIndex;
+            csPanels[playerData.playerSessionData.playerIndex].UpdatePanel(playerData);
+        }
         public void ChangeDevotionName(int playerIndex, int step)
         {
             SelectScreenPlayerData playerData = selectScreenPlayerDatas[playerIndex];
@@ -261,6 +271,21 @@ namespace NBLD.MainMenu
             int currentIndex = playerData.spiritNameIndex;
             currentIndex = MMath.SumAllowFlow(currentIndex, step, 0, characterNames.GetSpiritNamesCount() - 1);
             playerData.spiritNameIndex = currentIndex;
+            csPanels[playerIndex].UpdatePanel(playerData);
+        }
+        public void ChangeTool(int playerIndex, int step)
+        {
+            SelectScreenPlayerData playerData = selectScreenPlayerDatas[playerIndex];
+            int currentToolIndex = (int)playerData.charTool;
+            int length = System.Enum.GetNames(typeof(CharToolType)).Length;
+            currentToolIndex = MMath.SumAllowFlow(currentToolIndex, step, 0, length - 1);
+            //Skip none
+            if ((CharToolType)currentToolIndex == CharToolType.None)
+            {
+                int singleStep = (step < 0) ? -1 : 1;
+                currentToolIndex = MMath.SumAllowFlow(currentToolIndex, singleStep, 0, length - 1);
+            }
+            playerData.charTool = (CharToolType)currentToolIndex;
             csPanels[playerIndex].UpdatePanel(playerData);
         }
         #endregion
@@ -320,6 +345,7 @@ namespace NBLD.MainMenu
                     sspData.playerSessionData.skin = characterSkins.GetSkinData(sspData.skinIndex);
                     sspData.playerSessionData.devotionName = characterNames.GetDevotionName(sspData.devotionNameIndex);
                     sspData.playerSessionData.spiritName = characterNames.GetSpiritName(sspData.spiritNameIndex);
+                    sspData.playerSessionData.charToolType = sspData.charTool;
                 }
             }
         }
