@@ -1,6 +1,8 @@
-﻿using System;
+﻿using NBLD.Utils;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.InputSystem;
 
 public class PatrolTestAI : MonoBehaviour
@@ -32,12 +34,24 @@ public class PatrolTestAI : MonoBehaviour
     public float rotationSpeed = 1f;
 
     public MotorResult motorState;
+    public Flocking flocking;
+    private Vector3 m_flockingDelta;
+
+
+    public Timer pathTimer;
+    public float pathTime = 2f;
+
+    public NavMeshSurface surface;
+    public NavMeshAgent navMeshAgent;
 
     void Start()
     {
         //Randomize(ref motor.maxForce, randomDelta);
         //Randomize(ref motor.maxSpeed, randomDelta);
+        navMeshAgent = GetComponent<NavMeshAgent>();
         UpdatePatrolPathWalk();
+        pathTimer = new Timer(pathTime, true);
+
     }
 
     public Vector3 GetVelocity() => motorState.velocity;
@@ -49,22 +63,45 @@ public class PatrolTestAI : MonoBehaviour
         attack = (transform.position - attackTarget.position).magnitude < attackRadius;
         if (attack)
         {
-            pathfindingInput.from = transform.position;
-            pathfindingInput.target = attackTarget.position;
+            if (attackWalk == null || pathTimer.IsTimerDone())
+            {
+                pathfindingInput.from = transform.position;
+                pathfindingInput.target = attackTarget.position;
 
-            attackPath = PathFinding.FindPath(pathfindingInput);
-            attackWalk = new Walk(attackPath, transform, nearDistance);
+                NavMeshPath navPath = new NavMeshPath();
+                navMeshAgent.CalculatePath(pathfindingInput.target, navPath);
+                
+                attackPath.Clear();
+                foreach (var c in navPath.corners)
+                {
+                    attackPath.Add(c);
+                }
+                attackPath.Reverse();
+
+
+                //attackPath = PathFinding.FindPath(pathfindingInput);
+                attackWalk = new Walk(attackPath, transform, nearDistance);
+                pathTimer.Restart();
+            }
+
         }
 
         var target = SelectTarget();
         if (target != Vector2.zero)
         {
             motorState = motor.UpdateMotorVelocity(transform, SelectTarget(), motorState.velocity);
-            transform.position += motorState.velocity * Time.deltaTime;
+            transform.position += (motorState.velocity + m_flockingDelta) * Time.deltaTime;
             if (motor.AbsoluteRotation())  transform.rotation = motorState.rotation; 
             else transform.rotation *= motorState.rotation; 
         }
     }
+
+    private void LateUpdate()
+    {
+        if (flocking)  m_flockingDelta = flocking.Velocity(transform); 
+        else m_flockingDelta = Vector3.zero;
+    }
+
 
     private Vector2 SelectTarget()
     {

@@ -58,35 +58,59 @@ public class PathFinding
                     obstacleRadius = col.radius * wScale.x;
                 }
 
-                // find potential positions
-                var margin = input.margin * obstacleRadius;
-                var distanceFromCenter = obstacleRadius + margin;
-                var newPosLeft = center + (leftDir * distanceFromCenter);
-                var newPosRight = center + (leftDir * (-distanceFromCenter));
+                var marginAbs = input.margin * obstacleRadius;
+                var distanceFromCenter = obstacleRadius + marginAbs;
+                var lOffsetVec = leftDir * distanceFromCenter;
+                bool canReachSide;
+                {
+                    // find potential positions
+                    // try sides of obstacle
+                    var newPosLeft = center + lOffsetVec;
+                    var newPosRight = center - lOffsetVec;
+                    canReachSide = FindCloserAndAdd(newPosLeft, newPosRight);
+                }
 
-                // pick closer first
-                // TODO PERF: no need for two branches, done for readability
-                // TODO PERF: redundant check, also in CheckAndAdd
-                var leftDist = (newPosLeft - node.position).sqrMagnitude;
-                var rightDist = (newPosRight - node.position).sqrMagnitude;
-                bool leftCloser = leftDist < rightDist;
-                Vector2 closerPos = leftCloser ? newPosLeft : newPosRight;
-                Vector2 furtherPos = !leftCloser ? newPosLeft : newPosRight;
+                if (!canReachSide)
+                {
+                    // try sides of current node
+                    var offsetVec = lOffsetVec * 0.5f;
+                    var newPosLeft = center - direction * distanceFromCenter + offsetVec;
+                    var newPosRight = center - direction * distanceFromCenter - offsetVec;
+                    FindCloserAndAdd(newPosLeft, newPosRight);
+                }
 
-                // Add New Nodes
-                CheckAndAdd(closerPos);
-                CheckAndAdd(furtherPos);
+                bool FindCloserAndAdd (Vector2 lhs, Vector2 rhs)
+                {
+                    // pick closer first
+                    // TODO PERF: no need for two branches, done for readability
+                    // TODO PERF: redundant check, also in CheckAndAdd
+                    var leftDist = (lhs - node.position).sqrMagnitude;
+                    var rightDist = (rhs - node.position).sqrMagnitude;
+                    bool leftCloser = leftDist < rightDist;
+                    Vector2 closerPos = leftCloser ? lhs : rhs;
+                    Vector2 furtherPos = !leftCloser ? lhs : rhs;
+
+                    // Add New Nodes
+                    bool added = false;
+                    added |= CheckAndAdd(closerPos);
+                    added |= CheckAndAdd(furtherPos);
+                    return added;
+                }
 
                 // If way between currnet node and the new position is clear, add the node to tree
-                void CheckAndAdd(Vector2 newPos)
+                // return true if added
+                bool CheckAndAdd(Vector2 newPos)
                 {
                     // TODO PERF: Don't need the hit info, just to see if hit anything, but for convenience sake
                     var raycastIn = EdgeRaycast(newPos, node.position, agentHalfSize, ref lHits, ref rHits, input.layerMask);
                     if (!raycastIn.Valid)
                     {
                         tree.Add(new Node { position = newPos, parentIndex = i });
+                        return true;
                     }
+                    return false;
                 }
+
             }
             else  // found valid path
             {
@@ -150,8 +174,8 @@ public class PathFinding
     private static Maybe<RaycastHit2D> NonInsideHit(int hitResult, ref RaycastHit2D[] hits)
     {
         var result = new Maybe<RaycastHit2D>();
-        if      (hitResult == 1 && hits[0].fraction != 0)   result.Item = hits[0]; 
-        else if (hitResult == 2)                            result.Item = hits[1]; 
+        if      (hitResult > 0 && hits[0].fraction != 0)   result.Item = hits[0]; 
+        else if (hitResult > 1 && hits[0].fraction == 0)   result.Item = hits[1]; 
         return result;
     }
 
