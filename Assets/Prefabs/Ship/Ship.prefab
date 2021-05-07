@@ -175,6 +175,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionButton: 3
+  overridePriority: 0
+  overridenPriority: 0
   destinationFloor: 2
   destination: {fileID: 1503261890}
 --- !u!1 &1176545221
@@ -375,6 +377,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionButton: 2
+  overridePriority: 0
+  overridenPriority: 0
   destinationFloor: 3
   destination: {fileID: 493309763}
 --- !u!1 &38844119882064714
@@ -448,6 +452,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionButton: 3
+  overridePriority: 0
+  overridenPriority: 0
   destinationFloor: 1
   destination: {fileID: 4963268801973174441}
 --- !u!1 &130872024338172622
@@ -977,6 +983,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionButton: 0
+  overridePriority: 0
+  overridenPriority: 0
   repairable: {fileID: 5040788851926938560}
   roomAnimator: {fileID: 3795665906741120693}
   shipSystem: {fileID: 0}
@@ -2179,6 +2187,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionButton: 0
+  overridePriority: 0
+  overridenPriority: 0
   repairable: {fileID: 3338737045761991878}
   roomAnimator: {fileID: 8315570436871353914}
   shipSystem: {fileID: 7746524489077468006}
@@ -2335,6 +2345,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionButton: 2
+  overridePriority: 0
+  overridenPriority: 0
   destinationFloor: 2
   destination: {fileID: 7096063060455768061}
 --- !u!1 &4550662291494164764
@@ -2846,6 +2858,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionButton: 0
+  overridePriority: 0
+  overridenPriority: 0
   repairable: {fileID: 5625323299240325634}
   roomAnimator: {fileID: 4717102838088957216}
   shipSystem: {fileID: 8323507948655161712}
@@ -2941,6 +2955,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionButton: 0
+  overridePriority: 0
+  overridenPriority: 0
   repairable: {fileID: 5625323299245406784}
   roomAnimator: {fileID: 521392967384240751}
   shipSystem: {fileID: 0}
@@ -3072,6 +3088,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionButton: 0
+  overridePriority: 0
+  overridenPriority: 0
   repairable: {fileID: 5625323299509387940}
   roomAnimator: {fileID: 5695031473503409926}
   shipSystem: {fileID: 1692948615594598724}
@@ -3203,6 +3221,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionButton: 0
+  overridePriority: 0
+  overridenPriority: 0
   repairable: {fileID: 5625323300134583405}
   roomAnimator: {fileID: 9192171909670611027}
   shipSystem: {fileID: 0}
@@ -3674,6 +3694,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionButton: 3
+  overridePriority: 0
+  overridenPriority: 0
   destinationFloor: 1
   destination: {fileID: 6324434363118106365}
 --- !u!1 &6073073336856100890
@@ -4815,6 +4837,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionButton: 2
+  overridePriority: 0
+  overridenPriority: 0
   destinationFloor: 1
   destination: {fileID: 2480408305186175445}
 --- !u!1 &8018708545754002229
@@ -4876,7 +4900,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 7.2699647
-  m_PointLightOuterRadius: 10.09734
+  m_PointLightOuterRadius: 21.92
   m_PointLightDistance: 3
   m_PointLightQuality: 1
   m_ShapeLightParametricSides: 5
@@ -5437,6 +5461,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionButton: 3
+  overridePriority: 0
+  overridenPriority: 0
   destinationFloor: 0
   destination: {fileID: 4613847481369032630}
 --- !u!1 &9025693994626442135

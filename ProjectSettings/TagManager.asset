@@ -13,6 +13,7 @@ TagManager:
   - stencil
   - ShipShield
   - Character
+  - Planet
   layers:
   - Default
   - TransparentFX
@@ -30,7 +31,7 @@ TagManager:
   - Hook
   - PlanetStencil
   - Planet
-  - 
+  - Walkable
   - 
   - 
   - 
