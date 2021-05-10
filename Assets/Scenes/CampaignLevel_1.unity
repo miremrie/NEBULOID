@@ -528,7 +528,7 @@ PrefabInstance:
         type: 3}
       propertyPath: shipAssembler
       value: 
-      objectReference: {fileID: 2050759954}
+      objectReference: {fileID: 0}
     - target: {fileID: 6370515991639609082, guid: 68e4895ae637c9848a28176d71e5cffa,
         type: 3}
       propertyPath: updateAssembler
@@ -2261,7 +2261,7 @@ PrefabInstance:
     - target: {fileID: 585427652, guid: 4cea72866e3357144bb6bea8a74721cc, type: 3}
       propertyPath: shipMovement
       value: 
-      objectReference: {fileID: 2050759953}
+      objectReference: {fileID: 1430006280}
     - target: {fileID: 585427652, guid: 4cea72866e3357144bb6bea8a74721cc, type: 3}
       propertyPath: shipEjectSystem
       value: 
@@ -3426,6 +3426,24 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 76526314}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1430006279 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7595398177142603588, guid: 835fe173342e2294ea00455a759b69ed,
+    type: 3}
+  m_PrefabInstance: {fileID: 2050759951}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1430006280 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2683921574746913961, guid: 835fe173342e2294ea00455a759b69ed,
+    type: 3}
+  m_PrefabInstance: {fileID: 2050759951}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91cfce6408cb0cb43abe70e9ce65ee02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1431094861
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3804,7 +3822,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1584906779}
   - component: {fileID: 1584906780}
-  m_Layer: 15
+  - component: {fileID: 1584906781}
+  m_Layer: 18
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3851,6 +3870,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6.761462, y: 18.528505}
   m_EdgeRadius: 0
+--- !u!114 &1584906781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584906778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89fa5cef4829a2e47937ffa41d86ec35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &1596660096 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8508198434842948698, guid: 4939f5c355de92c4187cfa30da65b634,
@@ -4349,7 +4384,7 @@ MonoBehaviour:
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 98304
+    m_Bits: 360448
   m_UseGeometry: 0
   m_OverrideByGrid: 0
   m_UseMeshPrefab: {fileID: 0}
@@ -4636,6 +4671,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1408283809017433755, guid: 835fe173342e2294ea00455a759b69ed,
+        type: 3}
+      propertyPath: m_Mass
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1408283809017433755, guid: 835fe173342e2294ea00455a759b69ed,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1408283809017433755, guid: 835fe173342e2294ea00455a759b69ed,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1692948615594598724, guid: 835fe173342e2294ea00455a759b69ed,
         type: 3}
       propertyPath: shake
@@ -4665,6 +4715,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ship
+      objectReference: {fileID: 0}
+    - target: {fileID: 7595398177048142798, guid: 835fe173342e2294ea00455a759b69ed,
+        type: 3}
+      propertyPath: rb
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7595398177048142799, guid: 835fe173342e2294ea00455a759b69ed,
         type: 3}
@@ -4753,30 +4808,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 655218e13b651944e8f89d2c98c080dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2050759953 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7595398177048142798, guid: 835fe173342e2294ea00455a759b69ed,
-    type: 3}
-  m_PrefabInstance: {fileID: 2050759951}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91cfce6408cb0cb43abe70e9ce65ee02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2050759954 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 763311237520578848, guid: 835fe173342e2294ea00455a759b69ed,
-    type: 3}
-  m_PrefabInstance: {fileID: 2050759951}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 038e22f370bbb79459141c19f01bffc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2050759955 stripped
@@ -5095,7 +5126,7 @@ PrefabInstance:
         type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 1185245426}
+      objectReference: {fileID: 1430006279}
     - target: {fileID: 6618639464236555385, guid: 8933b87cebe90554983fef8ec1fddb73,
         type: 3}
       propertyPath: m_Name
@@ -5105,7 +5136,7 @@ PrefabInstance:
         type: 3}
       propertyPath: sets.Array.data[2].limitZone.trans
       value: 
-      objectReference: {fileID: 1185245426}
+      objectReference: {fileID: 1430006279}
     - target: {fileID: 6618639464236555388, guid: 8933b87cebe90554983fef8ec1fddb73,
         type: 3}
       propertyPath: sets.Array.data[2].limitZone.radius
@@ -5120,7 +5151,7 @@ PrefabInstance:
         type: 3}
       propertyPath: sets.Array.data[2].camZones.Array.data[0].trans
       value: 
-      objectReference: {fileID: 1185245426}
+      objectReference: {fileID: 1430006279}
     - target: {fileID: 6618639464236555388, guid: 8933b87cebe90554983fef8ec1fddb73,
         type: 3}
       propertyPath: sets.Array.data[2].camZones.Array.data[0].radius

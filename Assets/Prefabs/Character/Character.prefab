@@ -1160,7 +1160,7 @@ MonoBehaviour:
   rb2D: {fileID: 8847336380807913327}
   insideBehaviour: {fileID: 8710618289686752147}
   outsideBehaviour: {fileID: 2816976512444012041}
-  state: 0
+  baseRepairSpeed: 0.4
   transitionSpeed: 1
   transitionMinOffset: 0.01
   transitionMinAngleOffset: 5
@@ -1254,7 +1254,6 @@ MonoBehaviour:
   maxVelocityMag: 1
   moveIntensityUI: {fileID: 4638937411788288821}
   boostVFX: {fileID: 6625926221794598779}
-  haulingSpeedModifier: 0.5
   oxygenSlider: {fileID: 1247210021773159682}
   oxygen:
     min: 0

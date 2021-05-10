@@ -26,14 +26,14 @@ TagManager:
   - Character
   - ActionObject
   - ExteriorObject
-  - Walls
+  - InteriorWall
   - Ground
   - Hook
   - PlanetStencil
   - Planet
   - Walkable
-  - 
-  - 
+  - ShipBody
+  - ExteriorWall
   - 
   - 
   - 

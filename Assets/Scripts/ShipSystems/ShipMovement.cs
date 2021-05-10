@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace NBLD.Ship
 {
     public class ShipMovement : MonoBehaviour
     {
-        public Transform ship;
+        public Rigidbody2D rb;
+        public Transform shipRoot;
         public float animTime;
         public float rotateSpeed;
         public float moveSpeed;
@@ -15,22 +17,38 @@ namespace NBLD.Ship
         public bool hookLocked = false;
         private List<ShipArmSystem> armSystems = new List<ShipArmSystem>();
         public bool movementLocked;
-        public List<Transform> shipDependentTransforms = new List<Transform>();
-
-        void Update()
+        public List<Transform> posDependentTransforms = new List<Transform>();
+        public List<Transform> rotDependentTransforms = new List<Transform>();
+        public Vector2 prevFramePos;
+        public Quaternion prevFrameRot;
+        private void Start()
+        {
+            prevFramePos = transform.position.ToVector2();
+            prevFrameRot = transform.rotation;
+        }
+        void FixedUpdate()
         {
 
-            /*if (Input.GetKeyDown(KeyCode.A))
+            if (Keyboard.current.cKey.wasPressedThisFrame)
             {
-                Rotate(true);
+                armSystems[0].DoAction();
             }
 
-            if (Input.GetKeyDown(KeyCode.D))
+            if (Keyboard.current.vKey.wasPressedThisFrame)
             {
-                Rotate(false);
-            }*/
+                armSystems[1].DoAction();
+            }
 
             MovementUpdate();
+
+        }
+        private void LateUpdate()
+        {
+            Vector2 deltaPos = transform.position.ToVector2() - prevFramePos;
+            Quaternion deltaRot = transform.rotation * Quaternion.Inverse(prevFrameRot);
+            UpdateDependentTransforms(deltaPos, deltaRot);
+            prevFramePos = transform.position.ToVector2();
+            prevFrameRot = transform.rotation;
         }
 
         void MovementUpdate()
@@ -38,24 +56,36 @@ namespace NBLD.Ship
             if (!IsShipMovementLocked())
             {
                 int currentlyRunning = 0;
-                Vector3 movementVec = Vector3.zero;
+                //Vector3 movementVec = Vector3.zero;
                 Vector2 originalInteriorPosition = shipInterior.position;
+                //Quaternion originalInteriorRotation = shipInterior.rotation;
+                Vector3 nextPos = rb.transform.position;
+                Quaternion nextRot = rb.transform.rotation;
+
                 foreach (ShipArmSystem arm in armSystems)
                 {
                     if (arm.IsMoving())
                     {
                         currentlyRunning++;
-                        movementVec += arm.pivot.up * -1;
+                        //movementVec += arm.pivot.up * -1;
 
                         float speed = rotateSpeed;
                         if (!arm.isLeft)
                         {
                             speed *= -1;
                         }
-
-                        ship.RotateAround(arm.pivot.position, Vector3.forward, speed * Time.deltaTime);
+                        Vector3 axis = Vector3.forward;
+                        float angle = speed * Time.deltaTime;
+                        Vector3 pivot = arm.pivot.position;
+                        //ship.RotateAround(origin, axis, angle);
+                        Quaternion q = Quaternion.AngleAxis(angle, axis);
+                        nextPos += (q * (rb.transform.position - pivot) + pivot) - rb.transform.position;
+                        nextRot *= q;
+                        //RotateRigidBodyAroundPointBy(rb, origin, axis, angle);
                     }
                 }
+                rb.MovePosition(nextPos);
+                rb.MoveRotation(nextRot);
 
                 /*if (currentlyRunning > 1)
                 {
@@ -63,32 +93,27 @@ namespace NBLD.Ship
                     ship.Translate(movementVec * moveSpeed * Time.deltaTime, Space.World);
                 }*/
                 //movementLocked = currentlyRunning >= 1;
-
-
-                if (currentlyRunning > 0)
-                {
-                    UpdateDependentTransforms((Vector2)shipInterior.position - originalInteriorPosition);
-
-                }
             }
-
         }
-
         public void MoveShip(Vector2 deltaMovement)
         {
-            transform.position = new Vector3(transform.position.x + deltaMovement.x,
-                                            transform.position.y + deltaMovement.y,
-                                            transform.position.z);
+            Vector3 pos = new Vector3(transform.position.x + deltaMovement.x,
+            transform.position.y + deltaMovement.y,
+            transform.position.z);
+            rb.MovePosition(pos);
 
-            UpdateDependentTransforms(deltaMovement);
+            //UpdateDependentTransforms(deltaMovement);
         }
 
-        private void UpdateDependentTransforms(Vector2 delta)
+        private void UpdateDependentTransforms(Vector2 deltaPos, Quaternion deltaRot)
         {
-            shipInterior.rotation = Quaternion.identity;
-            for (int i = 0; i < shipDependentTransforms.Count; i++)
+            for (int i = 0; i < posDependentTransforms.Count; i++)
             {
-                shipDependentTransforms[i].position = (Vector2)shipDependentTransforms[i].position + delta;
+                posDependentTransforms[i].position = (Vector2)posDependentTransforms[i].position + deltaPos;
+            }
+            for (int i = 0; i < rotDependentTransforms.Count; i++)
+            {
+                rotDependentTransforms[i].Rotate(deltaRot.eulerAngles);
             }
         }
 
@@ -144,18 +169,18 @@ namespace NBLD.Ship
             armSystems.Add(shipArmSystem);
         }
 
-        public void AddDependentTransform(Transform transform)
+        public void AddPosDependentTransform(Transform transform)
         {
-            if (!shipDependentTransforms.Contains(transform))
+            if (!posDependentTransforms.Contains(transform))
             {
-                shipDependentTransforms.Add(transform);
+                posDependentTransforms.Add(transform);
             }
         }
-        public void RemoveDependentTransform(Transform transform)
+        public void RemovePosDependentTransform(Transform transform)
         {
-            if (shipDependentTransforms.Contains(transform))
+            if (posDependentTransforms.Contains(transform))
             {
-                shipDependentTransforms.Remove(transform);
+                posDependentTransforms.Remove(transform);
             }
         }
     }

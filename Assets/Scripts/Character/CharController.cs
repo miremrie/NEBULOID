@@ -86,7 +86,7 @@ namespace NBLD.Character
             this.charInputManager = playerSessionData.gameplayInputManager;
             this.charAnimator.sprites = playerSessionData.skin.sprites.ToArray();
             animator.runtimeAnimatorController = playerSessionData.skin.animatorController;
-            ship.AddDependentTransform(transform);
+            ship.AddPosDependentTransform(transform);
             SetGameplayInputActive();
             insideBehaviour.Initialize(this, rb2D, charSpriteRenderer, animator, charAudio);
             outsideBehaviour.Initialize(this, rb2D, charSpriteRenderer, animator, charAudio);
@@ -161,12 +161,12 @@ namespace NBLD.Character
             if (state == CharState.Outside)
             {
                 ActivateBehaviour(outsideBehaviour);
-                ship.RemoveDependentTransform(transform);
+                ship.RemovePosDependentTransform(transform);
             }
             else if (state == CharState.Inside)
             {
                 ActivateBehaviour(insideBehaviour);
-                ship.AddDependentTransform(transform);
+                ship.AddPosDependentTransform(transform);
             }
             else if (state == CharState.Dead)
             {
@@ -178,7 +178,7 @@ namespace NBLD.Character
             {
                 if (this.state == CharState.Outside)
                 {
-                    ship.AddDependentTransform(transform);
+                    ship.AddPosDependentTransform(transform);
                 }
                 DeactivateBehaviour();
                 //ship.RemoveDependentTransform(transform);
@@ -263,7 +263,7 @@ namespace NBLD.Character
             bool removed = RemoveAction(action);
             if (isHauling && action == currentlyHauling)
             {
-                ship.RemoveDependentTransform(action.transform);
+                ship.RemovePosDependentTransform(action.transform);
             }
         }
         /*public virtual void CheckThenExecuteAction(UseActionButton useButton)
@@ -340,11 +340,11 @@ namespace NBLD.Character
                 currentlyHauling.ChangeInsideShipState(state == CharState.Inside);
                 if (state == CharState.Inside)
                 {
-                    ship.AddDependentTransform(currentlyHauling.transform);
+                    ship.AddPosDependentTransform(currentlyHauling.transform);
                 }
                 else
                 {
-                    ship.RemoveDependentTransform(currentlyHauling.transform);
+                    ship.RemovePosDependentTransform(currentlyHauling.transform);
                 }
                 //Restore hauling actions
                 for (int i = 0; i < currentlyHauling.attachedActions.Count; i++)
