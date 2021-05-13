@@ -850,6 +850,7 @@ MonoBehaviour:
   shipMovement: {fileID: 0}
   pivot: {fileID: 7589051752261245888}
   isLeft: 0
+  moveForce: 5000
   moveDuration: 0.3
   moveDelayTime: 0.416666
 --- !u!50 &7773005611536726984

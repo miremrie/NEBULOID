@@ -11,6 +11,7 @@ namespace NBLD.Ship
         public ShipMovement shipMovement;
         public Transform pivot;
         public bool isLeft;
+        public float moveForce = 10f;
         public float moveDuration = 0.3f;
         public float moveDelayTime = 0.416666f;
         private Timer moveTimer;

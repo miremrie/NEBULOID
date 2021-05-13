@@ -4542,11 +4542,11 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
+  m_Mass: 1000
+  m_LinearDrag: 0.5
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 906515c9ce86ed046ad71de3c00abaec, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -4595,6 +4595,8 @@ MonoBehaviour:
   rotDependentTransforms:
   - {fileID: 6539015678711035449}
   - {fileID: 51810722831832275}
+  prevFramePos: {x: 0, y: 0}
+  prevFrameRot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &7624424867704774698
 GameObject:
   m_ObjectHideFlags: 0
@@ -6592,6 +6594,11 @@ PrefabInstance:
     - target: {fileID: 2194333793774332400, guid: 492e834f0805be84cb857a80633efbca,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7364682918473848150, guid: 492e834f0805be84cb857a80633efbca,
+        type: 3}
+      propertyPath: m_ColliderPaths.Array.size
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

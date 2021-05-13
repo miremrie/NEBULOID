@@ -79,12 +79,17 @@ namespace NBLD.Ship
                         Vector3 pivot = arm.pivot.position;
                         //ship.RotateAround(origin, axis, angle);
                         Quaternion q = Quaternion.AngleAxis(angle, axis);
+                        Vector2 forceDir = ((q * (rb.transform.position - pivot) + pivot) - rb.transform.position).normalized;
+                        //Vector2 force = (q * Vector3.right);
+                        Vector2 force = forceDir * arm.moveForce * Time.deltaTime;
+                        rb.AddForceAtPosition(force, transform.position, ForceMode2D.Impulse);
+
                         nextPos += (q * (rb.transform.position - pivot) + pivot) - rb.transform.position;
                         nextRot *= q;
                         //RotateRigidBodyAroundPointBy(rb, origin, axis, angle);
                     }
                 }
-                rb.MovePosition(nextPos);
+                //rb.MovePosition(nextPos);
                 rb.MoveRotation(nextRot);
 
                 /*if (currentlyRunning > 1)
