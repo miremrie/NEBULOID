@@ -21,11 +21,15 @@ namespace NBLD.Ship
         public List<Transform> rotDependentTransforms = new List<Transform>();
         public Vector2 prevFramePos;
         public Quaternion prevFrameRot;
+        public bool invertRotation; 
+        public Vector2 pivotOffset;
+
         private void Start()
         {
             prevFramePos = transform.position.ToVector2();
             prevFrameRot = transform.rotation;
         }
+
         void FixedUpdate()
         {
 
@@ -55,51 +59,43 @@ namespace NBLD.Ship
         {
             if (!IsShipMovementLocked())
             {
-                int currentlyRunning = 0;
-                //Vector3 movementVec = Vector3.zero;
-                Vector2 originalInteriorPosition = shipInterior.position;
-                //Quaternion originalInteriorRotation = shipInterior.rotation;
-                Vector3 nextPos = rb.transform.position;
-                Quaternion nextRot = rb.transform.rotation;
-
                 foreach (ShipArmSystem arm in armSystems)
                 {
                     if (arm.IsMoving())
                     {
-                        currentlyRunning++;
-                        //movementVec += arm.pivot.up * -1;
-
                         float speed = rotateSpeed;
-                        if (!arm.isLeft)
-                        {
-                            speed *= -1;
-                        }
+                        if (!arm.isLeft) speed *= -1;
+
+                        Vector3 currPos = rb.transform.position;
                         Vector3 axis = Vector3.forward;
                         float angle = speed * Time.deltaTime;
                         Vector3 pivot = arm.pivot.position;
-                        //ship.RotateAround(origin, axis, angle);
-                        Quaternion q = Quaternion.AngleAxis(angle, axis);
-                        Vector2 forceDir = ((q * (rb.transform.position - pivot) + pivot) - rb.transform.position).normalized;
-                        //Vector2 force = (q * Vector3.right);
-                        Vector2 force = forceDir * arm.moveForce * Time.deltaTime;
-                        rb.AddForceAtPosition(force, transform.position, ForceMode2D.Impulse);
 
-                        nextPos += (q * (rb.transform.position - pivot) + pivot) - rb.transform.position;
-                        nextRot *= q;
-                        //RotateRigidBodyAroundPointBy(rb, origin, axis, angle);
+                        Quaternion q = Quaternion.AngleAxis(angle, axis);
+                        Vector2 forceDir = (q * (currPos - pivot) + pivot - currPos).normalized;
+
+                        var forcePivot = invertRotation ? (Vector2)pivot : CalcSymetricPivot(pivot, forceDir); 
+
+                        var offset = pivotOffset;
+                        if (arm.isLeft == invertRotation) offset.x = -offset.x;
+                        offset = transform.rotation * offset;
+
+                        Vector2 force = forceDir * arm.moveForce * Time.deltaTime;
+                        rb.AddForceAtPosition(force, forcePivot + offset, ForceMode2D.Impulse);
                     }
                 }
-                //rb.MovePosition(nextPos);
-                rb.MoveRotation(nextRot);
-
-                /*if (currentlyRunning > 1)
-                {
-                    movementVec = -1 * movementVec.normalized;
-                    ship.Translate(movementVec * moveSpeed * Time.deltaTime, Space.World);
-                }*/
-                //movementLocked = currentlyRunning >= 1;
             }
         }
+
+        private Vector2 CalcSymetricPivot(Vector3 pivot, Vector2 forceDir)
+        {
+            var shipPos = transform.position;
+            var localPivot = pivot - shipPos;
+            var rot = Quaternion.FromToRotation(localPivot, forceDir);
+            var symPiv = rot * rot * localPivot;
+            return shipPos + symPiv;
+        }
+
         public void MoveShip(Vector2 deltaMovement)
         {
             Vector3 pos = new Vector3(transform.position.x + deltaMovement.x,

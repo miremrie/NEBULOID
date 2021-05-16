@@ -4851,6 +4851,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.0000032186508
       objectReference: {fileID: 0}
+    - target: {fileID: 2683921574746913961, guid: 835fe173342e2294ea00455a759b69ed,
+        type: 3}
+      propertyPath: pivotOffset.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4237003457607993221, guid: 835fe173342e2294ea00455a759b69ed,
         type: 3}
       propertyPath: m_PointLightInnerAngle
@@ -4860,6 +4865,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_PointLightOuterAngle
       value: 360
+      objectReference: {fileID: 0}
+    - target: {fileID: 6694527453789189921, guid: 835fe173342e2294ea00455a759b69ed,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7595398177048142792, guid: 835fe173342e2294ea00455a759b69ed,
         type: 3}
@@ -4941,6 +4951,11 @@ PrefabInstance:
       propertyPath: screenShake
       value: 
       objectReference: {fileID: 1560085652}
+    - target: {fileID: 8997780953612092979, guid: 835fe173342e2294ea00455a759b69ed,
+        type: 3}
+      propertyPath: ship
+      value: 
+      objectReference: {fileID: 1430006280}
     - target: {fileID: 8997780953612092979, guid: 835fe173342e2294ea00455a759b69ed,
         type: 3}
       propertyPath: camController
