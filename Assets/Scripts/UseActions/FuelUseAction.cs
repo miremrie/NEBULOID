@@ -22,7 +22,7 @@ namespace NBLD.UseActions
                 if (user == haulUseAction.GetHauler())
                 {
 
-                    user.ship.GetComponent<ShipStatus>().FuelCollected();
+                    user.ship.GetComponentInParent<ShipStatus>().FuelCollected();
                     user.RemoveDestroyedAction(this);
                     Destroy(this.gameObject);
                 }

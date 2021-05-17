@@ -4544,7 +4544,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1000
   m_LinearDrag: 0.5
-  m_AngularDrag: 0.05
+  m_AngularDrag: 2
   m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 906515c9ce86ed046ad71de3c00abaec, type: 2}
   m_Interpolate: 0
@@ -4597,6 +4597,8 @@ MonoBehaviour:
   - {fileID: 51810722831832275}
   prevFramePos: {x: 0, y: 0}
   prevFrameRot: {x: 0, y: 0, z: 0, w: 0}
+  invertRotation: 0
+  pivotOffset: {x: 1, y: 0}
 --- !u!1 &7624424867704774698
 GameObject:
   m_ObjectHideFlags: 0
@@ -6144,6 +6146,16 @@ PrefabInstance:
       propertyPath: editorData.vertexPathUpToDate
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4096837536096078841, guid: 6ae360a95ee901144b61a262e907a4ab,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.000029444695
+      objectReference: {fileID: 0}
+    - target: {fileID: 4096837536096078841, guid: 6ae360a95ee901144b61a262e907a4ab,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.0000032186508
+      objectReference: {fileID: 0}
     - target: {fileID: 4718017518016272222, guid: 6ae360a95ee901144b61a262e907a4ab,
         type: 3}
       propertyPath: m_RootOrder
@@ -6256,7 +6268,7 @@ PrefabInstance:
         type: 3}
       propertyPath: ship
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2683921574746913961}
     - target: {fileID: 6613582908266753090, guid: 8f6ad5bce92b11a409e454f70a6f00c2,
         type: 3}
       propertyPath: audioController

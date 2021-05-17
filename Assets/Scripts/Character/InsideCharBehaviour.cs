@@ -44,6 +44,10 @@ namespace NBLD.Character
         }
         public override void Deactivate()
         {
+            if (!initialized)
+            {
+                return;
+            }
             base.Deactivate();
             ResetMovement();
             ResetAnimations();
